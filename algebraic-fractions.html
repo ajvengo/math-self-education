@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Генератор задач: алгебраические дроби</title>
+<style>
+  :root { --ink:#1a1a1a; --muted:#666; --line:#c8c8c8; --accent:#2b5fab; --grid:#d6e0ee; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: "Times New Roman", "PT Serif", Georgia, serif; color:var(--ink); background:#eef1f5; }
+  .ui { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+
+  /* ---------- панель настроек ---------- */
+  #controls { max-width: 210mm; margin: 16px auto 0; background:#fff; border-radius:10px; padding:16px 20px; box-shadow:0 1px 4px rgba(0,0,0,.08); font-size:15px; }
+  #controls h1 { font-size:20px; margin:0 0 4px; }
+  #controls .sub { color:var(--muted); margin:0 0 14px; font-size:14px; }
+  .row { display:flex; flex-wrap:wrap; gap:14px 28px; margin-bottom:12px; align-items:flex-start; }
+  fieldset { border:1px solid #dde2ea; border-radius:8px; padding:8px 12px 10px; margin:0; }
+  legend { font-weight:600; font-size:14px; padding:0 4px; }
+  label { cursor:pointer; }
+  .levels label { display:block; margin:3px 0; }
+  .levels small, .hint { color:var(--muted); }
+  input[type=number] { width:70px; font-size:15px; padding:3px 6px; }
+  select { font-size:15px; padding:3px; }
+  .buttons { display:flex; flex-wrap:wrap; gap:8px; margin-top:6px; }
+  button { font-size:15px; padding:8px 14px; border-radius:7px; border:1px solid #b9c4d6; background:#f6f8fb; cursor:pointer; font-family:inherit; }
+  button:hover { background:#e9eef6; }
+  button.primary { background:var(--accent); color:#fff; border-color:var(--accent); }
+  button.primary:hover { background:#244f8f; }
+  #msg { color:#a33; margin-top:8px; min-height:1em; font-size:14px; }
+
+  /* ---------- лист ---------- */
+  .page { max-width:210mm; margin:16px auto; background:#fff; padding:14mm 14mm 16mm; box-shadow:0 1px 4px rgba(0,0,0,.1); }
+  .sheet-head { display:flex; justify-content:space-between; align-items:flex-end; gap:12px; border-bottom:1.5px solid var(--ink); padding-bottom:6px; margin-bottom:10px; }
+  .sheet-head h2 { font-size:19px; margin:0; }
+  .sheet-head .meta { font-size:14px; text-align:right; line-height:1.6; white-space:nowrap; }
+  .fill { display:inline-block; border-bottom:1px solid var(--ink); width:52mm; }
+  .fill.short { width:26mm; }
+  .task-intro { font-size:16px; margin:4px 0 10px; }
+
+  .problems { display:grid; grid-template-columns:1fr; gap:0 8mm; }
+  .problems.cols2 { grid-template-columns:1fr 1fr; }
+  .problems.cols2 .problem .expr { font-size:16.5px; }
+  .problem { break-inside:avoid; page-break-inside:avoid; padding:3mm 0 0; }
+  .problem .expr { font-size:19px; display:flex; align-items:center; flex-wrap:nowrap; gap:0; min-height:14mm; }
+  .problem .num { font-weight:bold; margin-right:8px; font-size:17px; min-width:1.6em; }
+  .work { border:1px solid var(--line); border-radius:3px; margin:2mm 0 2mm; }
+  .work.grid { background-image:linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size:5mm 5mm; background-position:-1px -1px; }
+  .work.lines { background-image:linear-gradient(transparent calc(8mm - 1px), var(--grid) 1px); background-size:100% 8mm; }
+
+  /* ---------- математика ---------- */
+  .m { white-space:nowrap; display:inline-block; }
+  .m i { font-style:italic; padding-right:.04em; }
+  .m sup { font-size:.68em; line-height:0; position:relative; top:-.05em; }
+  .frac { display:inline-flex; flex-direction:column; align-items:stretch; text-align:center; vertical-align:middle; margin:0 .18em; }
+  .frac > span { display:block; padding:.05em .3em; line-height:1.3; }
+  .frac > .fn { border-bottom:1.4px solid currentColor; }
+  .op { margin:0 .38em; }
+  .bp { display:inline-block; transform:scaleY(2.3); font-weight:300; margin:0 .06em; }
+  .neg { margin-right:.12em; }
+
+  /* ---------- ответы ---------- */
+  #answers h2 { font-size:19px; margin:0 0 4px; }
+  .ans-list { margin-top:8px; }
+  .ans { display:flex; align-items:center; flex-wrap:wrap; font-size:17px; padding:2.5mm 0; border-bottom:1px dotted #bbb; break-inside:avoid; page-break-inside:avoid; }
+  .ans .num { font-weight:bold; margin-right:8px; min-width:1.6em; }
+  .ans .eq { margin:0 .45em; }
+  .ans .odz { margin-left:1em; color:#444; font-size:15px; }
+  .hidden-screen { display:none; }
+
+  @page { size:A4; margin:12mm; }
+  @media print {
+    body { background:#fff; }
+    #controls, .no-print { display:none !important; }
+    .page { box-shadow:none; margin:0; padding:0; max-width:none; }
+    .work, .work.grid, .work.lines { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    body.print-tasks #answers { display:none !important; }
+    body.print-answers #sheet { display:none !important; }
+    body.print-answers #answers { display:block !important; }
+    body.print-all #answers { display:block !important; break-before:page; page-break-before:always; }
+  }
+  @media (max-width:700px) {
+    .page { padding:6mm; }
+    .problems.cols2 { grid-template-columns:1fr; }
+    .problem .expr { font-size:17px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="controls" class="ui no-print">
+  <h1>Генератор задач: алгебраические дроби</h1>
+  <p class="sub">Упрощение выражений: сложение, вычитание, умножение и деление дробей с многочленами первой и второй степени.</p>
+
+  <div class="row">
+    <fieldset class="levels">
+      <legend>Уровень сложности</legend>
+      <label><input type="radio" name="level" value="1" checked> 1 — базовый <small>(одно действие, простое разложение)</small></label>
+      <label><input type="radio" name="level" value="2"> 2 — средний <small>(разные знаменатели, разложение на множители)</small></label>
+      <label><input type="radio" name="level" value="3"> 3 — сложный <small>(выражения в 2–3 действия со скобками)</small></label>
+    </fieldset>
+    <fieldset>
+      <legend>Действия</legend>
+      <label><input type="checkbox" id="op-add" checked> сложение и вычитание</label><br>
+      <label><input type="checkbox" id="op-mul" checked> умножение</label><br>
+      <label><input type="checkbox" id="op-div" checked> деление</label>
+    </fieldset>
+    <fieldset>
+      <legend>Дополнительно</legend>
+      <label><input type="checkbox" id="fsu" checked> формулы сокращённого умножения</label><br>
+      <span class="hint" style="font-size:13px">(a² − b², (a ± b)², на уровне 3 ещё a³ ± b³)</span><br>
+      <label><input type="checkbox" id="odz" checked> указывать в ответах допустимые значения</label><br>
+      <label><input type="checkbox" id="letters"> разные буквы (x, a, b, y…)</label>
+    </fieldset>
+  </div>
+
+  <div class="row">
+    <label>Количество задач: <input type="number" id="count" min="1" max="40" value="8"></label>
+    <label>Место для решения:
+      <select id="space">
+        <option value="0">без места</option>
+        <option value="40">мало (4 см)</option>
+        <option value="60" selected>средне (6 см)</option>
+        <option value="90">много (9 см)</option>
+      </select>
+    </label>
+    <label>Фон:
+      <select id="bg">
+        <option value="grid" selected>клетка</option>
+        <option value="lines">линейка</option>
+        <option value="plain">чистый</option>
+      </select>
+    </label>
+    <label>Колонки:
+      <select id="cols"><option value="1" selected>1</option><option value="2">2</option></select>
+    </label>
+    <label>Вариант №: <input type="number" id="seed" min="1" max="999999" style="width:90px"></label>
+  </div>
+
+  <div class="buttons">
+    <button class="primary" id="btn-new">Новый вариант</button>
+    <button id="btn-print-tasks">🖨 Печать листа задач</button>
+    <button id="btn-print-answers">🖨 Печать ответов</button>
+    <button id="btn-print-all">🖨 Задачи + ответы</button>
+    <button id="btn-show-answers">Показать ответы на экране</button>
+    <button id="btn-copy">Скопировать ссылку на этот вариант</button>
+  </div>
+  <div id="msg"></div>
+</div>
+
+<div id="sheet" class="page">
+  <div class="sheet-head">
+    <h2>Упрощение выражений с алгебраическими дробями</h2>
+    <div class="meta">Фамилия, имя: <span class="fill"></span><br>Дата: <span class="fill short"></span> &nbsp; Вариант <b class="variant"></b></div>
+  </div>
+  <div class="task-intro">Упростите выражение.</div>
+  <div id="problems" class="problems"></div>
+</div>
+
+<div id="answers" class="page hidden-screen">
+  <div class="sheet-head">
+    <h2>Ответы</h2>
+    <div class="meta">Вариант <b class="variant"></b> · <span class="level-name"></span></div>
+  </div>
+  <div id="ans-list" class="ans-list"></div>
+</div>
+
+<script>
+/* ================= Точная арифметика (BigInt-дроби) ================= */
+function bgcd(a,b){ if(a<0n)a=-a; if(b<0n)b=-b; while(b){ const t=a%b; a=b; b=t; } return a; }
+function Q(n,d){ n=BigInt(n); d=(d===undefined)?1n:BigInt(d); if(d===0n) throw new Error('div0'); if(d<0n){n=-n;d=-d;} const g=bgcd(n,d)||1n; return {n:n/g,d:d/g}; }
+const Q0=Q(0), Q1=Q(1);
+const qadd=(a,b)=>Q(a.n*b.d+b.n*a.d,a.d*b.d);
+const qsub=(a,b)=>Q(a.n*b.d-b.n*a.d,a.d*b.d);
+const qmul=(a,b)=>Q(a.n*b.n,a.d*b.d);
+const qdiv=(a,b)=>Q(a.n*b.d,a.d*b.n);
+const qz=a=>a.n===0n;
+const qeq=(a,b)=>a.n===b.n&&a.d===b.d;
+
+/* ================= Многочлены: массив Q, от младшей степени ================= */
+function ptrim(p){ while(p.length && qz(p[p.length-1])) p.pop(); return p; }
+function P(arr){ return ptrim(arr.map(c=>typeof c==='object'?c:Q(c))); }
+const pdeg=p=>p.length-1;
+function padd(a,b){ const r=[]; for(let i=0;i<Math.max(a.length,b.length);i++) r.push(qadd(a[i]||Q0,b[i]||Q0)); return ptrim(r); }
+function pneg(a){ return a.map(c=>Q(-c.n,c.d)); }
+function psub(a,b){ return padd(a,pneg(b)); }
+function pmul(a,b){ if(!a.length||!b.length) return []; const r=new Array(a.length+b.length-1).fill(Q0);
+  for(let i=0;i<a.length;i++) for(let j=0;j<b.length;j++) r[i+j]=qadd(r[i+j],qmul(a[i],b[j])); return ptrim(r); }
+function pscale(a,q){ return ptrim(a.map(c=>qmul(c,q))); }
+function pdivmod(a,b){ const r=a.slice(); const db=pdeg(b), lb=b[db]; const q=[];
+  for(let i=0;i<=pdeg(a)-db;i++) q.push(Q0);
+  while(r.length && pdeg(r)>=db){ const k=pdeg(r)-db; const c=qdiv(r[pdeg(r)],lb); q[k]=c;
+    for(let i=0;i<=db;i++) r[i+k]=qsub(r[i+k],qmul(c,b[i])); r[pdeg(r)]=Q0; ptrim(r); }
+  return {q:ptrim(q),r}; }
+function pmonic(a){ return pscale(a,qdiv(Q1,a[pdeg(a)])); }
+function pgcd(a,b){ a=a.slice(); b=b.slice(); while(b.length){ const r=pdivmod(a,b).r; a=b; b=r; } return pmonic(a); }
+function peq(a,b){ if(a.length!==b.length) return false; for(let i=0;i<a.length;i++) if(!qeq(a[i],b[i])) return false; return true; }
+function pevalF(p,x){ let s=0; for(let i=pdeg(p);i>=0;i--) s=s*x+Number(p[i].n)/Number(p[i].d); return s; }
+
+/* ================= Рациональные функции ================= */
+function rf(n,d){ if(!d.length) throw new Error('den0');
+  if(!n.length) return {n:[],d:[Q1]};
+  const g=pgcd(n,d); n=pdivmod(n,g).q; d=pdivmod(d,g).q;
+  const l=qdiv(Q1,d[pdeg(d)]); return {n:pscale(n,l), d:pscale(d,l)}; }
+const rfAdd=(a,b)=>rf(padd(pmul(a.n,b.d),pmul(b.n,a.d)),pmul(a.d,b.d));
+const rfSub=(a,b)=>rf(psub(pmul(a.n,b.d),pmul(b.n,a.d)),pmul(a.d,b.d));
+const rfMul=(a,b)=>rf(pmul(a.n,b.n),pmul(a.d,b.d));
+const rfDiv=(a,b)=>{ if(!b.n.length) throw new Error('div by zero expr'); return rf(pmul(a.n,b.d),pmul(a.d,b.n)); };
+
+/* ================= Разложение на множители (рациональные корни) ================= */
+function divisorsB(n){ n=n<0n?-n:n; const r=[]; const N=Number(n); for(let i=1;i*i<=N;i++) if(N%i===0){ r.push(BigInt(i)); if(i*i!==N) r.push(BigInt(N/i)); } return r.sort((a,b)=>(a<b?-1:1)); }
+// p -> {c:Q, facs:[{p,q,e}] (множители p·x+q, BigInt), rest:[BigInt] примитивный, старший > 0}
+function factorQ(p){
+  let L=1n; for(const c of p) L=L/bgcd(L,c.d)*c.d;
+  let ints=p.map(c=>c.n*(L/c.d)); let g=0n; for(const v of ints) g=bgcd(g,v);
+  ints=ints.map(v=>v/g); let sign=1n; if(ints[ints.length-1]<0n){ ints=ints.map(v=>-v); sign=-1n; }
+  const facs=[]; const add=(pp,qq)=>{ const f=facs.find(f=>f.p===pp&&f.q===qq); if(f) f.e++; else facs.push({p:pp,q:qq,e:1}); };
+  let cur=ints.slice();
+  while(cur.length>1 && cur[0]===0n){ cur.shift(); add(1n,0n); }
+  outer: while(cur.length>2){
+    const lead=cur[cur.length-1], c0=cur[0], n=cur.length-1;
+    for(const pp of divisorsB(lead)) for(const q0 of divisorsB(c0)) for(const qq of [q0,-q0]){
+      if(bgcd(pp,qq)!==1n) continue;
+      // cur(-qq/pp)==0 ?
+      let s=0n, powq=1n; const mq=-qq; const pw=[1n]; for(let i=1;i<=n;i++) pw.push(pw[i-1]*pp);
+      for(let i=0;i<=n;i++){ s+=cur[i]*powq*pw[n-i]; powq*=mq; }
+      if(s!==0n) continue;
+      // деление на (pp x + qq)
+      const res=new Array(n).fill(0n); let rem=cur.slice();
+      for(let k=n;k>=1;k--){ const c=rem[k]/pp; res[k-1]=c; rem[k]-=c*pp; rem[k-1]-=c*qq; }
+      cur=res; add(pp,qq); continue outer;
+    }
+    break;
+  }
+  if(cur.length===2){ add(cur[1],cur[0]); cur=[1n]; }
+  return {c:Q(sign*g,L), facs, rest:cur};
+}
+
+/* ================= Случайные числа ================= */
+function mulberry32(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; let t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+function makeRng(seed){ const f=mulberry32(seed); return {
+  f, int:(a,b)=>a+Math.floor(f()*(b-a+1)), pick:arr=>arr[Math.floor(f()*arr.length)], chance:p=>f()<p,
+  shuffle(arr){ const a=arr.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(f()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; } }; }
+function igcd(a,b){ a=Math.abs(a); b=Math.abs(b); while(b){ [a,b]=[b,a%b]; } return a; }
+
+/* ================= Целочисленные многочлены (для конструирования) ================= */
+function imul(a,b){ const r=new Array(a.length+b.length-1).fill(0); a.forEach((x,i)=>b.forEach((y,j)=>r[i+j]+=x*y)); return r; }
+const iscale=(a,k)=>a.map(c=>c*k);
+function itrim(p){ p=p.slice(); while(p.length && p[p.length-1]===0) p.pop(); return p; }
+function isub(a,b){ const r=[]; for(let i=0;i<Math.max(a.length,b.length);i++) r.push((a[i]||0)-(b[i]||0)); return itrim(r); }
+function iprod(pieces){ return pieces.reduce((acc,p)=>imul(acc,p),[1]); }
+const ideg=p=>itrim(p).length-1;
+const isMono=p=>itrim(p).filter(c=>c!==0).length===1;
+
+/* ================= Вывод формул в HTML ================= */
+function vHTML(v,k){ return `<i>${v}</i>`+(k>1?`<sup>${k}</sup>`:''); }
+// p: массив чисел (Number или BigInt), от младшей степени
+function polyHTML(p,v){
+  p=p.map(Number); while(p.length && p[p.length-1]===0) p.pop();
+  if(!p.length) return '0';
+  const term=(c,k,first)=>{ const a=Math.abs(c); let s='';
+    if(first) s+= c<0?'−':''; else s+= c<0?' − ':' + ';
+    if(k===0) s+=a; else s+=(a===1?'':a)+vHTML(v,k); return s; };
+  // линейный вида «b − kx» при отрицательном старшем коэффициенте
+  if(p.length===2 && p[1]<0 && p[0]>0) return term(p[0],0,true)+term(p[1],1,false);
+  let s='', first=true; for(let k=p.length-1;k>=0;k--){ if(p[k]===0) continue; s+=term(p[k],k,first); first=false; }
+  return s;
+}
+function piecesHTML(pieces,v){
+  if(pieces.length===1) return polyHTML(pieces[0],v);
+  const ord=pieces.slice().sort((a,b)=>(isMono(b)?1:0)-(isMono(a)?1:0));
+  return ord.map(p=>{ const s=polyHTML(p,v); if(isMono(p)){ return s; } return `(${s})`; }).join('');
+}
+const fracHTML=(n,d)=>`<span class="frac"><span class="fn">${n}</span><span class="fd">${d}</span></span>`;
+const OPS={'+':'+','-':'−','*':'·',':':':'};
+function treeHTML(t,v){
+  switch(t.t){
+    case 'frac': return fracHTML(piecesHTML(t.num,v),piecesHTML(t.den,v));
+    case 'poly': return polyHTML(t.p,v);
+    case 'paren': return `<span class="bp">(</span>${treeHTML(t.e,v)}<span class="bp">)</span>`;
+    case 'op': return treeHTML(t.l,v)+`<span class="op">${OPS[t.op]}</span>`+treeHTML(t.r,v);
+  }
+}
+function prodHTML(k,facs,rest,v){
+  const hasRest=rest.length>1;
+  const count=(k!==1n?1:0)+facs.length+(hasRest?1:0);
+  if(count===0) return '1';
+  const fs=facs.slice().sort((a,b)=>{ const ax=a.q===0n?0:1, bx=b.q===0n?0:1; if(ax!==bx) return ax-bx; if(a.p!==b.p) return a.p<b.p?-1:1; return a.q<b.q?1:-1; });
+  let s=(k!==1n)?String(k):'';
+  for(const f of fs){
+    if(f.q===0n){ s+=vHTML(v,f.e); continue; }
+    let b=polyHTML([f.q,f.p],v);
+    if(count>1||f.e>1) b=`(${b})`;
+    if(f.e>1) b+=`<sup>${f.e}</sup>`;
+    s+=b;
+  }
+  if(hasRest){ let b=polyHTML(rest,v); if(count>1) b=`(${b})`; s+=b; }
+  return s;
+}
+function toIntPoly(p){ let L=1n; for(const c of p) L=L/bgcd(L,c.d)*c.d; return {ints:p.map(c=>c.n*(L/c.d)), L}; }
+function rfHTML(r,v){
+  if(!r.n.length) return '0';
+  if(pdeg(r.d)===0){ // многочлен
+    const p=pscale(r.n,qdiv(Q1,r.d[0])); const {ints,L}=toIntPoly(p);
+    if(L===1n) return polyHTML(ints,v);
+    if(pdeg(r.n)>=2){ const N=factorQ(r.n); const c=qdiv(N.c,r.d[0]); const neg=c.n<0n;
+      return (neg?'<span class="neg">−</span>':'')+fracHTML(prodHTML(neg?-c.n:c.n,N.facs,N.rest,v),String(c.d)); }
+    // общий знак выносим вперёд
+    if(ints[ints.length-1]<0n) return '<span class="neg">−</span>'+fracHTML(polyHTML(ints.map(x=>-x),v),String(L));
+    return fracHTML(polyHTML(ints,v),String(L));
+  }
+  const N=factorQ(r.n), D=factorQ(r.d); const c=qdiv(N.c,D.c);
+  const neg=c.n<0n; const cn=neg?-c.n:c.n;
+  return (neg?'<span class="neg">−</span>':'')+fracHTML(prodHTML(cn,N.facs,N.rest,v),prodHTML(c.d,D.facs,D.rest,v));
+}
+function maxCoef(r){
+  let m=0; const upd=x=>{ x=Number(x<0n?-x:x); if(x>m) m=x; };
+  for(const part of [r.n,r.d]){ if(!part.length) continue; const F=factorQ(part); upd(F.c.n); upd(F.c.d); F.facs.forEach(f=>{upd(f.p);upd(f.q);}); F.rest.forEach(upd); }
+  return m;
+}
+
+/* ================= Вычисление выражения ================= */
+function evaluate(t){
+  const forb=[];
+  const ev=t=>{
+    switch(t.t){
+      case 'frac': { const n=P(iprod(t.num)), d=P(iprod(t.den)); if(!d.length) throw new Error('den0'); forb.push(d); return rf(n,d); }
+      case 'poly': return {n:P(t.p),d:[Q1]};
+      case 'paren': return ev(t.e);
+      case 'op': { const a=ev(t.l), b=ev(t.r);
+        if(t.op==='+') return rfAdd(a,b); if(t.op==='-') return rfSub(a,b); if(t.op==='*') return rfMul(a,b);
+        if(!b.n.length) throw new Error('div0'); forb.push(b.n); return rfDiv(a,b); }
+    }
+  };
+  const ans=ev(t);
+  return {ans, forb};
+}
+// Значения переменной, при которых выражение не определено
+function forbiddenRoots(forb){
+  const roots=[]; // {n,d} BigInt
+  for(const p of forb){ if(pdeg(p)<1) continue; const F=factorQ(p);
+    if(F.rest.length>1){ const r=F.rest; if(r.length===3){ const D=r[1]*r[1]-4n*r[0]*r[2]; if(D>=0n) return null; } else return null; }
+    for(const f of F.facs){ const q=Q(-f.q,f.p); if(!roots.some(x=>qeq(x,q))) roots.push(q); } }
+  return roots.sort((a,b)=>Number(a.n)/Number(a.d)-Number(b.n)/Number(b.d));
+}
+function rootsHTML(roots,v){
+  if(!roots.length) return '';
+  const fmt=q=>{ const a=q.n<0n?-q.n:q.n; return q.d===1n?String(a):`${a}/${q.d}`; };
+  const used=new Set(); const parts=[];
+  const sorted=roots.slice().sort((a,b)=>Math.abs(Number(a.n)/Number(a.d))-Math.abs(Number(b.n)/Number(b.d)));
+  sorted.forEach((q,i)=>{ if(used.has(i)) return; used.add(i);
+    const j=sorted.findIndex((w,k)=>!used.has(k)&&w.n===-q.n&&w.d===q.d);
+    if(j>=0&&q.n!==0n){ used.add(j); parts.push(`<i>${v}</i> ≠ ±${fmt(q)}`); }
+    else parts.push(`<i>${v}</i> ≠ ${q.n<0n?'−':''}${fmt(q)}`); });
+  return parts.join(', ');
+}
+
+/* ================= Генерация задач ================= */
+function theme(R,level,fsu){
+  const nz=m=>{ let b; do{ b=R.int(-m,m); }while(b===0); return b; };
+  let A,B;
+  if(fsu){ const b=R.int(1,level===1?5:7); A=[b,1]; B=[-b,1];
+    if(level===3 && R.chance(0.15)){ const a=R.pick([2,3]); let bb; do{ bb=R.int(1,5); }while(igcd(a,bb)!==1); A=[bb,a]; B=[-bb,a]; } }
+  else { const b1=nz(6); let b2; do{ b2=nz(6); }while(b2===b1); A=[b1,1]; B=[b2,1]; }
+  const Fs=[A,B];
+  if(level>1 && R.chance(0.3)){ let c; do{ c=nz(6); }while(Fs.some(F=>F[1]===1&&F[0]===c)); Fs.push([c,1]); }
+  return {A,B,Fs,fsu,level};
+}
+// Атом — числитель или знаменатель: {pieces:[многочлены], fsu:bool}
+function atom(R,th,kinds){
+  const kind=R.pick(kinds); const F=()=>R.pick(th.Fs);
+  switch(kind){
+    case 'F': return {pieces:[F()]};
+    case 'kF': return {pieces:[iscale(F(),R.int(2,5))]};
+    case 'xF': return {pieces:[imul([0,R.pick([1,1,2,3])],F())]};
+    case 'kx': return {pieces:[R.chance(0.7)?[0,R.int(1,6)]:[0,0,R.int(1,4)]]};
+    case 'k': return {pieces:[[R.int(2,9)]]};
+    case 'one': return {pieces:[[R.int(1,6)]]};
+    case 'rev': { const c=th.Fs.filter(f=>f[0]<0); if(!c.length) return {pieces:[F()]}; return {pieces:[iscale(R.pick(c),-1)]}; }
+    case 'lin': { let m; do{ m=R.int(-9,9); }while(m===0); return {pieces:[[m,R.pick([1,1,2])]]}; }
+    case 'AB': return {pieces:[iscale(imul(th.A,th.B),th.level>1?R.pick([1,1,1,2,3]):1)],fsu:true};
+    case 'AA': { const f=R.pick([th.A,th.B]); return {pieces:[imul(f,f)],fsu:true}; }
+    case 'cube': { const c=th.Fs.filter(f=>f[1]===1&&Math.abs(f[0])<=3); if(!c.length) return null;
+      const b=R.pick(c)[0]; return {pieces:[[b*b*b,0,0,1]],fsu:true}; }
+    case 'pair': { const a=F(); let b; do{ b=R.chance(0.3)?[0,1]:F(); }while(b===a); return {pieces:[a,b]}; }
+  }
+}
+function kindsFor(th,role){
+  const L=th.level; let k;
+  if(role==='den'){ k=['F','F','kF','kx','xF']; if(L>=2) k.push('rev','pair'); }
+  else if(role==='num'){ k=['F','kF','kx','xF','one']; if(L>=2) k.push('rev'); }
+  else if(role==='small'){ k=['one','one','kx','lin','F']; }
+  else if(role==='mulden'){ k=['F','F','kF','kx','xF','k']; if(L>=2) k.push('rev'); }
+  if(th.fsu && role!=='small'){ k.push('AB','AB','AA'); if(L>=2) k.push('AB'); if(L===3) k.push('cube'); }
+  return k;
+}
+const frac=(n,d)=>({t:'frac',num:n.pieces,den:d.pieces,fsu:!!(n.fsu||d.fsu)});
+const opN=(op,l,r)=>({t:'op',op,l,r});
+const paren=e=>({t:'paren',e});
+function A(R,th,role){ const a=atom(R,th,kindsFor(th,role)); if(!a) throw new Error('atom'); return a; }
+
+function tplSameDen(R,th){
+  const d=A(R,th,'den'); const dp=iprod(d.pieces); if(ideg(dp)<1) return null;
+  const cands=th.Fs.concat([[0,1]]).filter(F=>!pdivmod(P(dp),P(F)).r.length);
+  if(!cands.length) return null;
+  const F=R.pick(cands), t=R.pick([1,2,3,-1,-2]);
+  let n1; do{ n1=[R.int(-9,9),R.pick([1,1,2,3])]; }while(n1[0]===0);
+  const op=R.pick(['+','-']); const tF=iscale(F,t);
+  const n2=op==='+'?isub(tF,n1):isub(n1,tF);
+  if(!n2.length||n2.every(c=>c<=0)) return null;
+  return opN(op,frac({pieces:[n1]},d),frac({pieces:[n2]},d));
+}
+const tplMul=(R,th)=>opN('*',frac(A(R,th,'num'),A(R,th,'mulden')),frac(A(R,th,'num'),A(R,th,'mulden')));
+const tplDiv=(R,th)=>opN(':',frac(A(R,th,'num'),A(R,th,'mulden')),frac(A(R,th,'num'),A(R,th,'mulden')));
+function tplDiffDen(R,th){
+  const d1=A(R,th,'den'), d2=A(R,th,'den');
+  if(peq(P(iprod(d1.pieces)),P(iprod(d2.pieces)))) return null;
+  return opN(R.pick(['+','-']),frac(A(R,th,'small'),d1),frac(A(R,th,'small'),d2));
+}
+function tplPolyFrac(R,th){
+  const p=R.pick([R.pick(th.Fs),[R.int(1,6)],[R.int(-5,5)||1,1]]);
+  return opN(R.pick(['+','-']),{t:'poly',p},frac(A(R,th,'small'),A(R,th,'den')));
+}
+function tplSumTimes(R,th,op){
+  const inner=paren(R.chance(0.25)?tplPolyFrac(R,th):tplDiffDen(R,th)||tplDiffDen(R,th));
+  if(!inner.e) return null;
+  const f=frac(A(R,th,'num'),A(R,th,'mulden'));
+  return R.chance(0.6)?opN(op,inner,f):opN(op,f,inner);
+}
+function tplThree(R,th){
+  const a=tplDiffDen(R,th); if(!a) return null;
+  return opN(R.pick(['+','-']),a,frac(A(R,th,'small'),A(R,th,'den')));
+}
+const tplMulDiv=(R,th)=>opN(':',tplMul(R,th),frac(A(R,th,'num'),A(R,th,'mulden')));
+const tplMul3=(R,th)=>opN('*',tplMul(R,th),frac(A(R,th,'num'),A(R,th,'mulden')));
+const tplDiv3=(R,th)=>opN(':',tplDiv(R,th),frac(A(R,th,'num'),A(R,th,'mulden')));
+
+const TEMPLATES={
+  1:[ {id:'mul',ops:['mul'],make:tplMul,cancel:true},
+      {id:'div',ops:['div'],make:tplDiv,cancel:true},
+      {id:'same',ops:['add'],make:tplSameDen,cancel:true} ],
+  2:[ {id:'mul',ops:['mul'],make:tplMul,cancel:true},
+      {id:'div',ops:['div'],make:tplDiv,cancel:true},
+      {id:'diff',ops:['add'],make:tplDiffDen,w:2},
+      {id:'polyfrac',ops:['add'],make:tplPolyFrac},
+      {id:'same',ops:['add'],make:tplSameDen,cancel:true} ],
+  3:[ {id:'summul',ops:['add','mul'],make:(R,th)=>tplSumTimes(R,th,'*'),cancel:true,w:2},
+      {id:'sumdiv',ops:['add','div'],make:(R,th)=>tplSumTimes(R,th,':'),cancel:true,w:2},
+      {id:'three',ops:['add'],make:tplThree,cancel:true},
+      {id:'muldiv',ops:['mul','div'],make:tplMulDiv,cancel:true},
+      {id:'mul3',ops:['mul'],make:tplMul3,cancel:true},
+      {id:'div3',ops:['div'],make:tplDiv3,cancel:true} ]
+};
+function treeFracs(t,acc=[]){ if(t.t==='frac') acc.push(t); else if(t.t==='paren') treeFracs(t.e,acc); else if(t.t==='op'){ treeFracs(t.l,acc); treeFracs(t.r,acc); } return acc; }
+function inputDeg(t){ let s=0; for(const f of treeFracs(t)) s+=ideg(iprod(f.num))+ideg(iprod(f.den)); return s; }
+
+function accept(tpl,tree,ev,level,needFsu){
+  const r=ev.ans; if(!r.n.length) return false;
+  const nd=pdeg(r.n), dd=pdeg(r.d);
+  if(nd>2||dd>2||nd+dd>3) return false;
+  if(maxCoef(r)>(level===1?20:level===2?15:12)) return false;
+  if(level===3 && tpl.ops.includes('add') && nd>1) return false;
+  const fr=treeFracs(tree);
+  for(const f of fr){ const n=iprod(f.num), d=iprod(f.den);
+    if(ideg(n)>3||ideg(d)>3) return false;
+    if(Math.max(...n.map(Math.abs),...d.map(Math.abs))>81) return false;
+    if(peq(P(n),P(d))) return false; }
+  const inD=inputDeg(tree);
+  if(tpl.cancel && nd+dd>=inD) return false;
+  if(level===3 && nd+dd>2 && inD<6) return false;
+  if(needFsu && !fr.some(f=>f.fsu)) return false;
+  if(!forbiddenRoots(ev.forb)) return false;
+  return true;
+}
+
+const LETTERS=['a','b','c','m','y','x'];
+function generate(opts){
+  const R=makeRng(opts.seed);
+  let pool=TEMPLATES[opts.level].filter(t=>t.ops.every(o=>opts.ops.includes(o)));
+  if(!pool.length) pool=TEMPLATES[2].filter(t=>t.ops.every(o=>opts.ops.includes(o)));
+  const weighted=[]; pool.forEach(t=>{ for(let i=0;i<(t.w||1);i++) weighted.push(t); });
+  let order=[]; const out=[]; const seen=new Set();
+  for(let i=0;i<opts.count;i++){
+    if(!order.length) order=R.shuffle(weighted);
+    const tpl=order.pop();
+    let got=null;
+    for(let tries=0;tries<4000 && !got;tries++){
+      const t=(tries<2500)?tpl:R.pick(weighted);
+      const th=theme(R,opts.level,opts.fsu);
+      let tree; try{ tree=t.make(R,th); }catch(e){ continue; }
+      if(!tree) continue;
+      let ev; try{ ev=evaluate(tree); }catch(e){ continue; }
+      const needFsu=opts.fsu && R.chance(0.7);
+      if(!accept(t,tree,ev,opts.level,needFsu)) continue;
+      const key=treeHTML(tree,'x'); if(seen.has(key)) continue; seen.add(key);
+      const v=opts.letters?R.pick(LETTERS):'x';
+      got={tree,ev,v,tpl:t.id};
+    }
+    if(got) out.push(got);
+  }
+  return out;
+}
+
+/* ================= Интерфейс ================= */
+const $=id=>document.getElementById(id);
+const LEVEL_NAMES={1:'уровень 1 (базовый)',2:'уровень 2 (средний)',3:'уровень 3 (сложный)'};
+function readOpts(){
+  const ops=[]; if($('op-add').checked) ops.push('add'); if($('op-mul').checked) ops.push('mul'); if($('op-div').checked) ops.push('div');
+  let count=parseInt($('count').value,10); if(!(count>=1)) count=8; count=Math.min(40,count);
+  let seed=parseInt($('seed').value,10); if(!(seed>=1)) seed=newSeed();
+  return { level:+document.querySelector('input[name=level]:checked').value, ops, fsu:$('fsu').checked, odz:$('odz').checked,
+    letters:$('letters').checked, count, space:+$('space').value, bg:$('bg').value, cols:+$('cols').value, seed };
+}
+function writeOpts(o){
+  document.querySelector(`input[name=level][value="${o.level}"]`).checked=true;
+  $('op-add').checked=o.ops.includes('add'); $('op-mul').checked=o.ops.includes('mul'); $('op-div').checked=o.ops.includes('div');
+  $('fsu').checked=o.fsu; $('odz').checked=o.odz; $('letters').checked=o.letters; $('count').value=o.count;
+  $('space').value=String(o.space); $('bg').value=o.bg; $('cols').value=String(o.cols); $('seed').value=o.seed;
+}
+function newSeed(){ return 1+Math.floor(Math.random()*999998); }
+function optsToHash(o){ return '#'+new URLSearchParams({v:o.seed,l:o.level,n:o.count,o:o.ops.join(','),f:+o.fsu,z:+o.odz,b:+o.letters,s:o.space,g:o.bg,c:o.cols}).toString(); }
+function hashToOpts(){
+  const h=new URLSearchParams(location.hash.slice(1)); if(!h.has('v')) return null;
+  const num=(k,d)=>{ const x=parseInt(h.get(k),10); return isNaN(x)?d:x; };
+  return { seed:num('v',newSeed()), level:Math.min(3,Math.max(1,num('l',1))), count:Math.min(40,Math.max(1,num('n',8))),
+    ops:(h.get('o')||'add,mul,div').split(',').filter(x=>['add','mul','div'].includes(x)), fsu:h.get('f')!=='0', odz:h.get('z')!=='0',
+    letters:h.get('b')==='1', space:num('s',60), bg:h.get('g')||'grid', cols:num('c',1) };
+}
+function render(){
+  const o=readOpts(); $('msg').textContent='';
+  if(!o.ops.length){ $('msg').textContent='Выберите хотя бы одно действие.'; return; }
+  $('seed').value=o.seed;
+  history.replaceState(null,'',optsToHash(o));
+  const probs=generate(o);
+  const box=$('problems'); box.className='problems'+(o.cols===2?' cols2':'');
+  const bgc=o.bg==='grid'?' grid':o.bg==='lines'?' lines':'';
+  box.innerHTML=probs.map((p,i)=>`<div class="problem"><div class="expr"><span class="num ui">${i+1}.</span><span class="m">${treeHTML(p.tree,p.v)}</span></div>`+
+    (o.space?`<div class="work${bgc}" style="height:${o.space}mm"></div>`:'')+`</div>`).join('');
+  $('ans-list').innerHTML=probs.map((p,i)=>{ const roots=forbiddenRoots(p.ev.forb)||[];
+    const odz=(o.odz&&roots.length)?`<span class="odz">при ${rootsHTML(roots,p.v)}</span>`:'';
+    return `<div class="ans"><span class="num ui">${i+1}.</span><span class="m">${treeHTML(p.tree,p.v)}<span class="eq">=</span>${rfHTML(p.ev.ans,p.v)}</span>${odz}</div>`; }).join('');
+  document.querySelectorAll('.variant').forEach(e=>e.textContent=o.seed);
+  document.querySelector('.level-name').textContent=LEVEL_NAMES[o.level];
+  if(probs.length<o.count) $('msg').textContent=`Удалось составить ${probs.length} разных задач из ${o.count} при выбранных настройках.`;
+}
+function doPrint(cls){
+  document.body.classList.add(cls);
+  const done=()=>{ document.body.classList.remove(cls); window.removeEventListener('afterprint',done); };
+  window.addEventListener('afterprint',done);
+  window.print();
+  setTimeout(done,1500);
+}
+function init(){
+  const h=hashToOpts(); if(h) writeOpts(h); else $('seed').value=newSeed();
+  document.querySelectorAll('#controls input, #controls select').forEach(el=>el.addEventListener('change',render));
+  $('btn-new').onclick=()=>{ $('seed').value=newSeed(); render(); };
+  $('btn-print-tasks').onclick=()=>doPrint('print-tasks');
+  $('btn-print-answers').onclick=()=>doPrint('print-answers');
+  $('btn-print-all').onclick=()=>doPrint('print-all');
+  $('btn-show-answers').onclick=()=>{ const a=$('answers'); const hid=a.classList.toggle('hidden-screen');
+    $('btn-show-answers').textContent=hid?'Показать ответы на экране':'Скрыть ответы'; };
+  $('btn-copy').onclick=async()=>{ try{ await navigator.clipboard.writeText(location.href); $('msg').style.color='#2a7a2a'; $('msg').textContent='Ссылка скопирована: по ней откроется этот же вариант.'; }
+    catch(e){ $('msg').style.color=''; $('msg').textContent='Скопируйте адрес из адресной строки: '+location.href; }
+    setTimeout(()=>{ $('msg').textContent=''; $('msg').style.color=''; },4000); };
+  render();
+}
+if(typeof document!=='undefined' && document.getElementById('controls')) init();
+</script>
+</body>
+</html>
