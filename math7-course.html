@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Математика 7 класса — интерактивный курс</title>
+  <style>
+    :root {
+      --bg: #f7f7f8;
+      --card: #ffffff;
+      --text: #1f2328;
+      --muted: #667085;
+      --border: #d0d5dd;
+      --accent: #2563eb;
+      --accent-text: #ffffff;
+      --accent-soft: #eff6ff;
+      --ok: #067647;
+      --ok-bg: #ecfdf3;
+      --bad: #b42318;
+      --bad-bg: #fef3f2;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .container {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 48px;
+    }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 42px); }
+    h2 { margin: 0; font-size: 22px; }
+    h3 { margin: 0; }
+    p { line-height: 1.55; }
+    .subtitle { color: var(--muted); margin: 0 0 24px; }
+    .grid { display: grid; gap: 14px; }
+    .stats { grid-template-columns: repeat(4, 1fr); }
+    .topics { grid-template-columns: repeat(3, 1fr); }
+    .controls { grid-template-columns: repeat(3, 1fr); }
+    .pair { grid-template-columns: repeat(2, 1fr); }
+    .card, .metric, .callout, .theory-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 1px 2px rgba(16,24,40,.04);
+    }
+    .metric .label { color: var(--muted); font-size: 14px; }
+    .metric .value { font-size: 30px; font-weight: 700; margin-top: 4px; }
+    .section { margin-top: 24px; }
+    .topic-btn {
+      width: 100%;
+      text-align: left;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .topic-btn:hover, .topic-btn.active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+    label { display: block; font-size: 14px; }
+    select, input {
+      width: 100%;
+      margin-top: 6px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 11px 12px;
+      font: inherit;
+      background: #fff;
+    }
+    button.action {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 11px 16px;
+      background: #fff;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 600;
+    }
+    button.primary {
+      color: var(--accent-text);
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .task {
+      font-size: 20px;
+      line-height: 1.55;
+      margin-top: 6px;
+    }
+    .muted { color: var(--muted); }
+    .math {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+    .hidden { display: none !important; }
+    .message {
+      margin-top: 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      line-height: 1.5;
+      background: #fff;
+    }
+    .message.ok { border-color: #75c69b; background: var(--ok-bg); color: var(--ok); }
+    .message.bad { border-color: #fda29b; background: var(--bad-bg); color: var(--bad); }
+    .theory-box + .theory-box { margin-top: 12px; }
+    .full-button { width: 100%; margin-top: 23px; }
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 32px;
+      text-align: center;
+    }
+    @media (max-width: 800px) {
+      .stats, .topics, .controls { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(100% - 20px, 1100px); padding-top: 18px; }
+      .stats, .topics, .controls, .pair { grid-template-columns: 1fr; }
+      .task { font-size: 18px; }
+    }
+    @media print {
+      body { background: #fff; }
+      .button-row, .controls, .topics { display: none !important; }
+      .card, .metric, .callout, .theory-box { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+<main class="container">
+  <h1>Математика 7 класса</h1>
+  <p class="subtitle">Интерактивный курс по программе российской школы середины 1990-х: теория, генераторы задач, подсказки, решения и статистика.</p>
+
+  <section class="grid stats">
+    <div class="metric"><div class="label">Решено</div><div id="solvedCount" class="value">0</div></div>
+    <div class="metric"><div class="label">Правильно</div><div id="correctCount" class="value">0</div></div>
+    <div class="metric"><div class="label">Серия</div><div id="streakCount" class="value">0</div></div>
+    <div class="metric"><div class="label">Точность</div><div id="accuracyValue" class="value">—</div></div>
+  </section>
+
+  <section class="section">
+    <h2>Программа курса</h2>
+    <div class="grid topics" id="topicGrid" style="margin-top:12px"></div>
+  </section>
+
+  <section class="card section">
+    <div class="grid controls">
+      <label>
+        Раздел
+        <select id="topicSelect">
+          <option value="expressions">Алгебраические выражения</option>
+          <option value="linear">Линейные уравнения</option>
+          <option value="powers">Степени</option>
+          <option value="polynomials">Многочлены</option>
+          <option value="identities">Формулы сокращённого умножения</option>
+          <option value="functions">Линейная функция</option>
+          <option value="systems">Системы уравнений</option>
+          <option value="angles">Углы</option>
+          <option value="triangles">Треугольники</option>
+          <option value="parallel">Параллельные прямые</option>
+        </select>
+      </label>
+
+      <label>
+        Сложность
+        <select id="difficultySelect">
+          <option value="1">Базовая</option>
+          <option value="2">Средняя</option>
+          <option value="3">Повышенная</option>
+        </select>
+      </label>
+
+      <button id="newTaskBtn" class="action primary full-button" type="button">Новая задача</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="callout">
+      <div class="muted" id="taskTopicLabel">Задача</div>
+      <div id="taskText" class="task"></div>
+    </div>
+
+    <div id="singleAnswerBlock" class="card" style="margin-top:12px">
+      <label for="answerInput">Ответ</label>
+      <input id="answerInput" type="text" inputmode="decimal" placeholder="Введите ответ">
+    </div>
+
+    <div id="pairAnswerBlock" class="card hidden" style="margin-top:12px">
+      <div class="grid pair">
+        <label>x<input id="answerX" type="text" inputmode="decimal"></label>
+        <label>y<input id="answerY" type="text" inputmode="decimal"></label>
+      </div>
+    </div>
+
+    <div class="button-row">
+      <button id="checkBtn" class="action primary" type="button">Проверить</button>
+      <button id="hintBtn" class="action" type="button">Подсказка</button>
+      <button id="solutionBtn" class="action" type="button">Показать решение</button>
+      <button id="theoryBtn" class="action" type="button">Теория по теме</button>
+    </div>
+
+    <div id="feedback" class="message hidden" aria-live="polite"></div>
+    <div id="hintBox" class="message hidden"></div>
+    <div id="solutionBox" class="message hidden"></div>
+  </section>
+
+  <section id="theorySection" class="section">
+    <h2>Теория</h2>
+    <div id="theoryContent" style="margin-top:12px"></div>
+  </section>
+
+  <footer>Работает полностью локально в браузере. Интернет не требуется.</footer>
+</main>
+
+<script>
+(() => {
+  const topics = {
+    expressions: {
+      title: 'Алгебраические выражения',
+      theory: `
+        <div class="theory-box">
+          <h3>Основная идея</h3>
+          <p>Буквенное выражение содержит числа, переменные и действия. Подобные слагаемые имеют одинаковую буквенную часть.</p>
+          <p class="math">3x + 5x - 2 = 8x - 2</p>
+        </div>
+        <div class="theory-box">
+          <h3>Раскрытие скобок</h3>
+          <p class="math">a(b + c) = ab + ac</p>
+          <p class="math">-(a - b) = -a + b</p>
+        </div>`,
+      generator: genExpressions
+    },
+
+    linear: {
+      title: 'Линейные уравнения',
+      theory: `
+        <div class="theory-box">
+          <h3>Линейное уравнение</h3>
+          <p class="math">ax + b = c</p>
+          <p>Переносим свободные члены, затем делим обе части на коэффициент при x.</p>
+          <p class="math">3x + 5 = 20 → 3x = 15 → x = 5</p>
+        </div>`,
+      generator: genLinear
+    },
+
+    powers: {
+      title: 'Степени',
+      theory: `
+        <div class="theory-box">
+          <h3>Правила степеней</h3>
+          <p class="math">aᵐ · aⁿ = aᵐ⁺ⁿ</p>
+          <p class="math">aᵐ / aⁿ = aᵐ⁻ⁿ</p>
+          <p class="math">(aᵐ)ⁿ = aᵐⁿ</p>
+        </div>`,
+      generator: genPowers
+    },
+
+    polynomials: {
+      title: 'Многочлены',
+      theory: `
+        <div class="theory-box">
+          <h3>Многочлен</h3>
+          <p>При сложении и вычитании многочленов приводят подобные слагаемые.</p>
+          <p class="math">(2x² + 3x) + (5x² - x) = 7x² + 2x</p>
+        </div>`,
+      generator: genPolynomials
+    },
+
+    identities: {
+      title: 'Формулы сокращённого умножения',
+      theory: `
+        <div class="theory-box">
+          <h3>Три главные формулы</h3>
+          <p class="math">(a+b)² = a² + 2ab + b²</p>
+          <p class="math">(a-b)² = a² - 2ab + b²</p>
+          <p class="math">(a-b)(a+b) = a² - b²</p>
+        </div>`,
+      generator: genIdentities
+    },
+
+    functions: {
+      title: 'Линейная функция',
+      theory: `
+        <div class="theory-box">
+          <h3>Функция y = kx + b</h3>
+          <p><span class="math">k</span> задаёт наклон прямой, <span class="math">b</span> — точку пересечения с осью y.</p>
+          <p class="math">y = 2x + 3; при x = 4: y = 11</p>
+        </div>`,
+      generator: genFunctions
+    },
+
+    systems: {
+      title: 'Системы уравнений',
+      theory: `
+        <div class="theory-box">
+          <h3>Система двух линейных уравнений</h3>
+          <p>Ищем пару чисел, которая удовлетворяет обоим уравнениям.</p>
+          <p>Основные методы: подстановка и сложение.</p>
+          <p class="math">x+y=7<br>x-y=1<br>→ 2x=8 → x=4, y=3</p>
+        </div>`,
+      generator: genSystems
+    },
+
+    angles: {
+      title: 'Углы',
+      theory: `
+        <div class="theory-box">
+          <h3>Смежные и вертикальные углы</h3>
+          <p>Смежные углы в сумме дают 180°.</p>
+          <p>Вертикальные углы равны.</p>
+        </div>`,
+      generator: genAngles
+    },
+
+    triangles: {
+      title: 'Треугольники',
+      theory: `
+        <div class="theory-box">
+          <h3>Сумма углов</h3>
+          <p class="math">α + β + γ = 180°</p>
+          <p>В равнобедренном треугольнике углы при основании равны.</p>
+        </div>`,
+      generator: genTriangles
+    },
+
+    parallel: {
+      title: 'Параллельные прямые',
+      theory: `
+        <div class="theory-box">
+          <h3>Прямая и секущая</h3>
+          <p>При параллельных прямых накрест лежащие и соответственные углы равны, а односторонние в сумме дают 180°.</p>
+        </div>`,
+      generator: genParallel
+    }
+  };
+
+  const els = {
+    topicSelect: document.getElementById('topicSelect'),
+    difficulty: document.getElementById('difficultySelect'),
+    taskText: document.getElementById('taskText'),
+    taskTopicLabel: document.getElementById('taskTopicLabel'),
+    answer: document.getElementById('answerInput'),
+    answerX: document.getElementById('answerX'),
+    answerY: document.getElementById('answerY'),
+    single: document.getElementById('singleAnswerBlock'),
+    pair: document.getElementById('pairAnswerBlock'),
+    feedback: document.getElementById('feedback'),
+    hint: document.getElementById('hintBox'),
+    solution: document.getElementById('solutionBox'),
+    theory: document.getElementById('theoryContent')
+  };
+
+  const state = {
+    solved: 0,
+    correct: 0,
+    streak: 0,
+    current: null,
+    checked: false
+  };
+
+  function rand(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function nonzero(min, max) {
+    let n = 0;
+    while (n === 0) n = rand(min, max);
+    return n;
+  }
+
+  function signed(n) {
+    return n < 0 ? `- ${Math.abs(n)}` : `+ ${n}`;
+  }
+
+  function num(v) {
+    if (typeof v !== 'string') return Number(v);
+    const s = v.trim().replace(',', '.');
+    if (/^-?\d+\s*\/\s*-?\d+$/.test(s)) {
+      const [a, b] = s.split('/').map(Number);
+      return b === 0 ? NaN : a / b;
+    }
+    return Number(s);
+  }
+
+  function close(a, b) {
+    return Number.isFinite(a) && Math.abs(a - b) < 1e-8;
+  }
+
+  function genExpressions(d) {
+    const a = nonzero(-7*d, 7*d);
+    const b = nonzero(-7*d, 7*d);
+    const c = rand(-10*d, 10*d);
+    const x = rand(-5, 5);
+    const ans = (a+b)*x+c;
+
+    return {
+      text: `Вычислите значение выражения <span class="math">${a}x ${signed(b)}x ${signed(c)}</span> при <span class="math">x=${x}</span>.`,
+      answer: ans,
+      hint: 'Сначала приведите подобные слагаемые с x.',
+      solution: `${a}x ${signed(b)}x = ${a+b}x. Затем: (${a+b})·${x} ${signed(c)} = ${ans}.`
+    };
+  }
+
+  function genLinear(d) {
+    const x = rand(-8*d, 8*d);
+    const a = nonzero(-8*d, 8*d);
+    const b = rand(-12*d, 12*d);
+    const c = a*x+b;
+
+    return {
+      text: `Решите уравнение <span class="math">${a}x ${signed(b)} = ${c}</span>.`,
+      answer: x,
+      hint: `Перенесите ${b} в правую часть, затем разделите на ${a}.`,
+      solution: `${a}x = ${c-b}; x = ${c-b}/${a} = ${x}.`
+    };
+  }
+
+  function genPowers(d) {
+    const a = rand(2, 5);
+    const m = rand(1, 3+d);
+    const n = rand(1, 3+d);
+    const ans = Math.pow(a, m+n);
+
+    return {
+      text: `Вычислите <span class="math">${a}<sup>${m}</sup> · ${a}<sup>${n}</sup></span>.`,
+      answer: ans,
+      hint: 'При умножении степеней с одинаковым основанием показатели складываются.',
+      solution: `${a}<sup>${m}</sup>·${a}<sup>${n}</sup> = ${a}<sup>${m+n}</sup> = ${ans}.`
+    };
+  }
+
+  function genPolynomials(d) {
+    const a = rand(-5*d, 5*d);
+    const b = rand(-7*d, 7*d);
+    const c = rand(-5*d, 5*d);
+    const e = rand(-7*d, 7*d);
+    const x = rand(-3, 3);
+    const ans = (a+c)*x*x + (b+e)*x;
+
+    return {
+      text: `Упростите, затем найдите значение при <span class="math">x=${x}</span>: <span class="math">(${a}x² ${signed(b)}x) + (${c}x² ${signed(e)}x)</span>.`,
+      answer: ans,
+      hint: 'Сложите отдельно коэффициенты при x² и при x.',
+      solution: `Получаем (${a+c})x² ${signed(b+e)}x. При x=${x}: (${a+c})·${x*x} ${signed((b+e)*x)} = ${ans}.`
+    };
+  }
+
+  function genIdentities(d) {
+    const a = rand(2, 5*d);
+    const b = rand(1, 4*d);
+    const ans = a*a - b*b;
+
+    return {
+      text: `Вычислите наиболее коротким способом: <span class="math">(${a}-${b})(${a}+${b})</span>.`,
+      answer: ans,
+      hint: 'Используйте разность квадратов.',
+      solution: `(a-b)(a+b)=a²-b². Значит ${a}²-${b}²=${a*a}-${b*b}=${ans}.`
+    };
+  }
+
+  function genFunctions(d) {
+    const k = nonzero(-5*d, 5*d);
+    const b = rand(-8*d, 8*d);
+    const x = rand(-6, 6);
+    const ans = k*x+b;
+
+    return {
+      text: `Для функции <span class="math">y=${k}x ${signed(b)}</span> найдите y при <span class="math">x=${x}</span>.`,
+      answer: ans,
+      hint: 'Подставьте значение x в формулу функции.',
+      solution: `y=${k}·${x} ${signed(b)} = ${ans}.`
+    };
+  }
+
+  function genSystems(d) {
+    const x = rand(-5*d, 5*d);
+    const y = rand(-5*d, 5*d);
+
+    let a = nonzero(-4, 4);
+    let b = nonzero(-4, 4);
+    let c = nonzero(-4, 4);
+    let e = nonzero(-4, 4);
+
+    while (a*e-b*c === 0) e = nonzero(-4, 4);
+
+    const p = a*x+b*y;
+    const q = c*x+e*y;
+
+    return {
+      pair: true,
+      text: `Решите систему:<div class="math" style="margin-top:8px">${a}x ${signed(b)}y = ${p}<br>${c}x ${signed(e)}y = ${q}</div>`,
+      answer: [x, y],
+      hint: 'Используйте подстановку или умножьте уравнения так, чтобы при сложении одна переменная исчезла.',
+      solution: `Решение системы: x=${x}, y=${y}. Подстановка этих значений удовлетворяет обоим уравнениям.`
+    };
+  }
+
+  function genAngles() {
+    const a = rand(20, 160);
+    const kind = rand(0, 1);
+
+    if (kind === 0) {
+      return {
+        text: `Один из смежных углов равен <span class="math">${a}°</span>. Найдите второй.`,
+        answer: 180-a,
+        hint: 'Сумма смежных углов равна 180°.',
+        solution: `180°-${a}°=${180-a}°.`
+      };
+    }
+
+    return {
+      text: `Один из вертикальных углов равен <span class="math">${a}°</span>. Найдите угол, вертикальный ему.`,
+      answer: a,
+      hint: 'Вертикальные углы равны.',
+      solution: `Вертикальный угол также равен ${a}°.`
+    };
+  }
+
+  function genTriangles() {
+    const kind = rand(0, 1);
+
+    if (kind === 0) {
+      const a = rand(20, 100);
+      const b = rand(20, 140-a);
+
+      return {
+        text: `Два угла треугольника равны <span class="math">${a}°</span> и <span class="math">${b}°</span>. Найдите третий угол.`,
+        answer: 180-a-b,
+        hint: 'Сумма углов треугольника равна 180°.',
+        solution: `180°-${a}°-${b}°=${180-a-b}°.`
+      };
+    }
+
+    const top = rand(20, 140);
+    const base = (180-top)/2;
+
+    return {
+      text: `В равнобедренном треугольнике угол при вершине равен <span class="math">${top}°</span>. Найдите угол при основании.`,
+      answer: base,
+      hint: 'Два угла при основании равны.',
+      solution: `(180°-${top}°)/2=${base}°.`
+    };
+  }
+
+  function genParallel() {
+    const a = rand(25, 155);
+    const same = rand(0, 1);
+
+    if (same === 0) {
+      return {
+        text: `Две параллельные прямые пересечены секущей. Один из соответственных углов равен <span class="math">${a}°</span>. Найдите соответствующий ему угол.`,
+        answer: a,
+        hint: 'Соответственные углы при параллельных прямых равны.',
+        solution: `Искомый угол равен ${a}°.`
+      };
+    }
+
+    return {
+      text: `Две параллельные прямые пересечены секущей. Один из односторонних углов равен <span class="math">${a}°</span>. Найдите второй.`,
+      answer: 180-a,
+      hint: 'Односторонние углы в сумме дают 180°.',
+      solution: `180°-${a}°=${180-a}°.`
+    };
+  }
+
+  function updateStats() {
+    document.getElementById('solvedCount').textContent = state.solved;
+    document.getElementById('correctCount').textContent = state.correct;
+    document.getElementById('streakCount').textContent = state.streak;
+    document.getElementById('accuracyValue').textContent =
+      state.solved ? Math.round(state.correct/state.solved*100) + '%' : '—';
+
+    localStorage.setItem('math7-course-stats', JSON.stringify({
+      solved: state.solved,
+      correct: state.correct,
+      streak: state.streak
+    }));
+  }
+
+  function loadStats() {
+    try {
+      const saved = JSON.parse(localStorage.getItem('math7-course-stats') || '{}');
+      state.solved = Number(saved.solved) || 0;
+      state.correct = Number(saved.correct) || 0;
+      state.streak = Number(saved.streak) || 0;
+    } catch (_) {}
+    updateStats();
+  }
+
+  function renderTheory() {
+    const t = topics[els.topicSelect.value];
+    els.theory.innerHTML = t.theory;
+  }
+
+  function newTask() {
+    const key = els.topicSelect.value;
+    const d = Number(els.difficulty.value);
+    const t = topics[key];
+
+    state.current = t.generator(d);
+    state.checked = false;
+
+    els.taskTopicLabel.textContent = t.title;
+    els.taskText.innerHTML = state.current.text;
+
+    els.feedback.classList.add('hidden');
+    els.feedback.classList.remove('ok', 'bad');
+    els.hint.classList.add('hidden');
+    els.solution.classList.add('hidden');
+
+    els.answer.value = '';
+    els.answerX.value = '';
+    els.answerY.value = '';
+
+    if (state.current.pair) {
+      els.single.classList.add('hidden');
+      els.pair.classList.remove('hidden');
+      els.answerX.focus();
+    } else {
+      els.pair.classList.add('hidden');
+      els.single.classList.remove('hidden');
+      els.answer.focus();
+    }
+
+    document.querySelectorAll('.topic-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.topic === key);
+    });
+
+    renderTheory();
+  }
+
+  function showFeedback(text, ok = null) {
+    els.feedback.textContent = text;
+    els.feedback.classList.remove('hidden', 'ok', 'bad');
+
+    if (ok === true) els.feedback.classList.add('ok');
+    if (ok === false) els.feedback.classList.add('bad');
+  }
+
+  function check() {
+    if (!state.current) return;
+
+    let ok = false;
+
+    if (state.current.pair) {
+      const x = num(els.answerX.value);
+      const y = num(els.answerY.value);
+
+      if (!Number.isFinite(x) || !Number.isFinite(y)) {
+        showFeedback('Введите два числовых ответа.');
+        return;
+      }
+
+      ok = close(x, state.current.answer[0]) && close(y, state.current.answer[1]);
+    } else {
+      const v = num(els.answer.value);
+
+      if (!Number.isFinite(v)) {
+        showFeedback('Введите число. Можно использовать десятичную дробь или запись 3/4.');
+        return;
+      }
+
+      ok = close(v, state.current.answer);
+    }
+
+    if (!state.checked) {
+      state.solved++;
+      if (ok) {
+        state.correct++;
+        state.streak++;
+      } else {
+        state.streak = 0;
+      }
+      state.checked = true;
+      updateStats();
+    } else if (ok) {
+      state.streak++;
+      updateStats();
+    }
+
+    showFeedback(
+      ok ? 'Правильно.' : 'Пока неверно. Попробуйте ещё раз или откройте подсказку.',
+      ok
+    );
+  }
+
+  const topicGrid = document.getElementById('topicGrid');
+
+  Object.entries(topics).forEach(([key, t]) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'topic-btn';
+    button.dataset.topic = key;
+    button.textContent = t.title;
+    button.addEventListener('click', () => {
+      els.topicSelect.value = key;
+      newTask();
+    });
+    topicGrid.appendChild(button);
+  });
+
+  document.getElementById('newTaskBtn').addEventListener('click', newTask);
+  document.getElementById('checkBtn').addEventListener('click', check);
+
+  document.getElementById('hintBtn').addEventListener('click', () => {
+    els.hint.innerHTML = '<strong>Подсказка:</strong> ' + state.current.hint;
+    els.hint.classList.remove('hidden');
+  });
+
+  document.getElementById('solutionBtn').addEventListener('click', () => {
+    els.solution.innerHTML = '<strong>Решение:</strong> ' + state.current.solution;
+    els.solution.classList.remove('hidden');
+  });
+
+  document.getElementById('theoryBtn').addEventListener('click', () => {
+    document.getElementById('theorySection').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  els.topicSelect.addEventListener('change', newTask);
+  els.difficulty.addEventListener('change', newTask);
+
+  [els.answer, els.answerX, els.answerY].forEach(el => {
+    el.addEventListener('keydown', event => {
+      if (event.key === 'Enter') check();
+    });
+  });
+
+  loadStats();
+  newTask();
+})();
+</script>
+</body>
+</html>
