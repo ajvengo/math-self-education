@@ -49,6 +49,7 @@
   .problem { break-inside:avoid; page-break-inside:avoid; padding:3mm 0 0; min-width:0; }
   .problem .expr { font-size:19px; display:flex; align-items:center; flex-wrap:nowrap; gap:0; min-height:14mm; }
   .problem .num { font-weight:bold; margin-right:8px; font-size:17px; min-width:1.6em; }
+  .lvl { font-size:11px; color:#888; margin-right:8px; letter-spacing:-1px; min-width:2.6em; }
   .work { border:1px solid var(--line); border-radius:3px; margin:2mm 0 2mm; }
   .work.grid { background-image:linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size:5mm 5mm; background-position:-1px -1px; }
   .work.lines { background-image:linear-gradient(transparent calc(8mm - 1px), var(--grid) 1px); background-size:100% 8mm; }
@@ -82,7 +83,8 @@
     body.print-tasks #answers { display:none !important; }
     body.print-answers #sheet { display:none !important; }
     body.print-answers #answers { display:block !important; }
-    body.print-all #answers { display:block !important; break-before:page; page-break-before:always; }
+    body.print-all #answers { display:block !important; margin-top:8mm; }
+    body.print-all.ans-newpage #answers { break-before:page; page-break-before:always; margin-top:0; }
   }
   @media (max-width:700px) {
     .page { padding:6mm; }
@@ -103,6 +105,8 @@
       <label><input type="radio" name="level" value="1" checked> 1 — базовый <small>(одно действие, простое разложение)</small></label>
       <label><input type="radio" name="level" value="2"> 2 — средний <small>(разные знаменатели, смешанные примеры в 2 действия)</small></label>
       <label><input type="radio" name="level" value="3"> 3 — сложный <small>(смешанные примеры в 2–4 действия со скобками)</small></label>
+      <label><input type="radio" name="level" value="0"> смешанный <small>(задачи всех трёх уровней поровну)</small></label>
+      <label style="margin-left:22px"><input type="checkbox" id="sort" checked> по возрастанию сложности</label>
     </fieldset>
     <fieldset>
       <legend>Действия</legend>
@@ -149,6 +153,7 @@
     <button id="btn-print-tasks">🖨 Печать листа задач</button>
     <button id="btn-print-answers">🖨 Печать ответов</button>
     <button id="btn-print-all">🖨 Задачи + ответы</button>
+    <label style="align-self:center"><input type="checkbox" id="ans-page" checked> ответы с новой страницы</label>
     <button id="btn-show-answers">Показать ответы на экране</button>
     <button id="btn-copy">Скопировать ссылку на этот вариант</button>
   </div>
@@ -512,26 +517,35 @@ function accept(tpl,tree,ev,level,needFsu,needCube){
 const LETTERS=['a','b','c','m','y','x'];
 function generate(opts){
   const R=makeRng(opts.seed);
-  let pool=TEMPLATES[opts.level].filter(t=>t.ops.every(o=>opts.ops.includes(o)));
-  if(!pool.length) pool=TEMPLATES[2].filter(t=>t.ops.every(o=>opts.ops.includes(o)));
-  const weighted=[]; pool.forEach(t=>{ for(let i=0;i<(t.w||1);i++) weighted.push(t); });
-  let order=[]; const out=[]; const seen=new Set();
-  for(let i=0;i<opts.count;i++){
-    if(!order.length) order=R.shuffle(weighted);
-    const tpl=order.pop();
+  const pools={};
+  for(const L of [1,2,3]){
+    let pool=TEMPLATES[L].filter(t=>t.ops.every(o=>opts.ops.includes(o)));
+    if(!pool.length) pool=TEMPLATES[2].filter(t=>t.ops.every(o=>opts.ops.includes(o)));
+    const weighted=[]; pool.forEach(t=>{ for(let i=0;i<(t.w||1);i++) weighted.push(t); });
+    pools[L]={weighted,order:[]};
+  }
+  // уровень каждой задачи: смешанный режим — поровну 1, 2, 3
+  let levels;
+  if(opts.level===0){ levels=[]; for(let i=0;i<opts.count;i++) levels.push(1+Math.floor(i*3/opts.count)); levels=R.shuffle(levels); if(opts.sort) levels.sort((a,b)=>a-b); }
+  else levels=new Array(opts.count).fill(opts.level);
+  const out=[]; const seen=new Set();
+  for(const level of levels){
+    const P=pools[level];
+    if(!P.order.length) P.order=R.shuffle(P.weighted);
+    const tpl=P.order.pop();
     let got=null;
     for(let tries=0;tries<4000 && !got;tries++){
-      const t=(tries<2500)?tpl:R.pick(weighted);
-      const th=theme(R,opts.level,opts.fsu,opts.fsu&&opts.cubes);
+      const t=(tries<2500)?tpl:R.pick(P.weighted);
+      const th=theme(R,level,opts.fsu,opts.fsu&&opts.cubes);
       let tree; try{ tree=t.make(R,th); }catch(e){ continue; }
       if(!tree) continue;
       let ev; try{ ev=evaluate(tree); }catch(e){ continue; }
       const needFsu=opts.fsu && R.chance(0.7);
       const needCube=needFsu && opts.cubes && R.chance(0.4);
-      if(!accept(t,tree,ev,opts.level,needFsu,needCube&&tries<3000)) continue;
+      if(!accept(t,tree,ev,level,needFsu,needCube&&tries<3000)) continue;
       const key=treeHTML(tree,'x'); if(seen.has(key)) continue; seen.add(key);
       const v=opts.letters?R.pick(LETTERS):'x';
-      got={tree,ev,v,tpl:t.id};
+      got={tree,ev,v,tpl:t.id,level};
     }
     if(got) out.push(got);
   }
@@ -540,26 +554,26 @@ function generate(opts){
 
 /* ================= Интерфейс ================= */
 const $=id=>document.getElementById(id);
-const LEVEL_NAMES={1:'уровень 1 (базовый)',2:'уровень 2 (средний)',3:'уровень 3 (сложный)'};
+const LEVEL_NAMES={0:'смешанный уровень',1:'уровень 1 (базовый)',2:'уровень 2 (средний)',3:'уровень 3 (сложный)'};
 function readOpts(){
   const ops=[]; if($('op-add').checked) ops.push('add'); if($('op-mul').checked) ops.push('mul'); if($('op-div').checked) ops.push('div');
   let count=parseInt($('count').value,10); if(!(count>=1)) count=8; count=Math.min(40,count);
   let seed=parseInt($('seed').value,10); if(!(seed>=1)) seed=newSeed();
-  return { level:+document.querySelector('input[name=level]:checked').value, ops, fsu:$('fsu').checked, cubes:$('cubes').checked, memo:$('memo').checked, odz:$('odz').checked,
+  return { level:+document.querySelector('input[name=level]:checked').value, sort:$('sort').checked, ops, fsu:$('fsu').checked, cubes:$('cubes').checked, memo:$('memo').checked, odz:$('odz').checked,
     letters:$('letters').checked, count, space:+$('space').value, bg:$('bg').value, cols:+$('cols').value, seed };
 }
 function writeOpts(o){
-  document.querySelector(`input[name=level][value="${o.level}"]`).checked=true;
+  document.querySelector(`input[name=level][value="${o.level}"]`).checked=true; $('sort').checked=o.sort;
   $('op-add').checked=o.ops.includes('add'); $('op-mul').checked=o.ops.includes('mul'); $('op-div').checked=o.ops.includes('div');
   $('fsu').checked=o.fsu; $('cubes').checked=o.cubes; $('memo').checked=o.memo; $('odz').checked=o.odz; $('letters').checked=o.letters; $('count').value=o.count;
   $('space').value=String(o.space); $('bg').value=o.bg; $('cols').value=String(o.cols); $('seed').value=o.seed;
 }
 function newSeed(){ return 1+Math.floor(Math.random()*999998); }
-function optsToHash(o){ return '#'+new URLSearchParams({v:o.seed,l:o.level,n:o.count,o:o.ops.join(','),f:+o.fsu,k:+o.cubes,p:+o.memo,z:+o.odz,b:+o.letters,s:o.space,g:o.bg,c:o.cols}).toString(); }
+function optsToHash(o){ return '#'+new URLSearchParams({v:o.seed,l:o.level,r:+o.sort,n:o.count,o:o.ops.join(','),f:+o.fsu,k:+o.cubes,p:+o.memo,z:+o.odz,b:+o.letters,s:o.space,g:o.bg,c:o.cols}).toString(); }
 function hashToOpts(){
   const h=new URLSearchParams(location.hash.slice(1)); if(!h.has('v')) return null;
   const num=(k,d)=>{ const x=parseInt(h.get(k),10); return isNaN(x)?d:x; };
-  return { seed:num('v',newSeed()), level:Math.min(3,Math.max(1,num('l',1))), count:Math.min(40,Math.max(1,num('n',8))),
+  return { seed:num('v',newSeed()), level:Math.min(3,Math.max(0,num('l',1))), sort:h.get('r')!=='0', count:Math.min(40,Math.max(1,num('n',8))),
     ops:(h.get('o')||'add,mul,div').split(',').filter(x=>['add','mul','div'].includes(x)), fsu:h.get('f')!=='0', cubes:h.get('k')!=='0', memo:h.get('p')!=='0', odz:h.get('z')!=='0',
     letters:h.get('b')==='1', space:num('s',60), bg:h.get('g')||'grid', cols:num('c',1) };
 }
@@ -581,7 +595,7 @@ function render(){
   const probs=generate(o);
   const box=$('problems'); box.className='problems'+(o.cols===2?' cols2':'');
   const bgc=o.bg==='grid'?' grid':o.bg==='lines'?' lines':'';
-  box.innerHTML=probs.map((p,i)=>`<div class="problem"><div class="expr"><span class="num ui">${i+1}.</span><span class="m">${treeHTML(p.tree,p.v)}</span></div>`+
+  box.innerHTML=probs.map((p,i)=>`<div class="problem"><div class="expr"><span class="num ui">${i+1}.</span>${o.level===0?`<span class="lvl ui" title="уровень ${p.level}">${'★'.repeat(p.level)}</span>`:''}<span class="m">${treeHTML(p.tree,p.v)}</span></div>`+
     (o.space?`<div class="work${bgc}" style="height:${o.space}mm"></div>`:'')+`</div>`).join('');
   $('ans-list').innerHTML=probs.map((p,i)=>{ const roots=forbiddenRoots(p.ev.forb)||[];
     const odz=(o.odz&&roots.length)?`<span class="odz">при ${rootsHTML(roots,p.v)}</span>`:'';
@@ -589,12 +603,12 @@ function render(){
   if(o.cols===2) box.querySelectorAll('.problem').forEach(p=>{ const e=p.querySelector('.expr'); if(e.scrollWidth>e.clientWidth+1) p.classList.add('wide'); });
   document.querySelectorAll('.variant').forEach(e=>e.textContent=o.seed);
   document.querySelector('.level-name').textContent=LEVEL_NAMES[o.level];
-  $('cubes').disabled=!o.fsu;
+  $('cubes').disabled=!o.fsu; $('sort').disabled=o.level!==0;
   $('memo-box').innerHTML=o.memo?memoHTML(!o.fsu||o.cubes):'';
   if(probs.length<o.count) $('msg').textContent=`Удалось составить ${probs.length} разных задач из ${o.count} при выбранных настройках.`;
 }
 function doPrint(cls){
-  document.body.classList.add(cls);
+  document.body.classList.add(cls); document.body.classList.toggle('ans-newpage',$('ans-page').checked);
   const done=()=>{ document.body.classList.remove(cls); window.removeEventListener('afterprint',done); };
   window.addEventListener('afterprint',done);
   window.print();
