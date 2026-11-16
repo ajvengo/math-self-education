@@ -131,10 +131,34 @@
       .stats, .topics, .controls, .pair { grid-template-columns: 1fr; }
       .task { font-size: 18px; }
     }
+    .ws-controls { grid-template-columns: 2fr 1fr 1fr 1fr; align-items: end; }
+    .ws-check { display:flex; gap:8px; align-items:center; margin-top:12px; }
+    .ws-check input { width:auto; margin:0; }
+    #worksheet { background:#fff; border:1px solid var(--border); border-radius:16px; padding:24px 28px; margin-top:14px; }
+    .ws-head { display:flex; justify-content:space-between; gap:12px; border-bottom:1.5px solid var(--text); padding-bottom:6px; margin-bottom:10px; }
+    .ws-head h2 { font-size:20px; }
+    .ws-head .meta { font-size:14px; text-align:right; line-height:1.7; white-space:nowrap; }
+    .ws-fill { display:inline-block; border-bottom:1px solid var(--text); width:48mm; }
+    .ws-task { break-inside:avoid; page-break-inside:avoid; padding:8px 0 0; font-size:17px; line-height:1.5; }
+    .ws-task .n { font-weight:700; margin-right:6px; }
+    .ws-topic { color:var(--muted); font-size:12px; }
+    .ws-space { border:1px solid #d0d5dd; border-radius:3px; margin:6px 0 4px;
+      background-image:linear-gradient(#dbe3ee 1px, transparent 1px), linear-gradient(90deg, #dbe3ee 1px, transparent 1px);
+      background-size:5mm 5mm; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .ws-ans { display:grid; grid-template-columns:repeat(3, 1fr); gap:6px 18px; font-size:15px; margin-top:8px; }
+    .ws-ans-block { margin-top:22px; }
+    @media screen { .ws-ans-block { display:none; } }
+    @page { size:A4; margin:12mm; }
     @media print {
       body { background: #fff; }
       .button-row, .controls, .topics { display: none !important; }
       .card, .metric, .callout, .theory-box { box-shadow: none; }
+      body.ws-printing .container > *:not(#wsSection) { display:none !important; }
+      body.ws-printing #wsSection > *:not(#worksheet) { display:none !important; }
+      body.ws-printing #worksheet { border:0; padding:0; margin:0; }
+      body.ws-printing.ws-no-answers .ws-ans-block { display:none !important; }
+      body.ws-printing.ws-ans-newpage .ws-ans-block { break-before:page; page-break-before:always; margin-top:0; }
+      body:not(.ws-printing) #wsSection { display:none !important; }
     }
   </style>
 </head>
@@ -219,6 +243,33 @@
   <section id="theorySection" class="section">
     <h2>Теория</h2>
     <div id="theoryContent" style="margin-top:12px"></div>
+  </section>
+
+  <section id="wsSection" class="section">
+    <h2>Лист задач для печати</h2>
+    <div class="card" style="margin-top:12px">
+      <div class="grid ws-controls">
+        <label>Раздел
+          <select id="wsTopic"><option value="current">Текущий раздел (выбран выше)</option><option value="all">Все разделы вперемешку</option></select>
+        </label>
+        <label>Сложность
+          <select id="wsDifficulty"><option value="same">Как выше</option><option value="1">Базовая</option><option value="2">Средняя</option><option value="3">Повышенная</option></select>
+        </label>
+        <label>Количество задач
+          <input id="wsCount" type="number" min="1" max="60" value="10">
+        </label>
+        <label>Место для решения
+          <select id="wsSpace"><option value="0">без места</option><option value="25">мало (2,5 см)</option><option value="45" selected>средне (4,5 см)</option><option value="70">много (7 см)</option></select>
+        </label>
+      </div>
+      <label class="ws-check"><input type="checkbox" id="wsAnsNewPage" checked> ответы на отдельной странице</label>
+      <div class="button-row">
+        <button id="wsMakeBtn" class="action primary" type="button">Создать лист</button>
+        <button id="wsPrintBtn" class="action" type="button">🖨 Печать задач</button>
+        <button id="wsPrintAnsBtn" class="action" type="button">🖨 Печать задач с ответами</button>
+      </div>
+    </div>
+    <div id="worksheet" class="hidden"></div>
   </section>
 
   <footer>Работает полностью локально в браузере. Интернет не требуется.</footer>
@@ -736,6 +787,80 @@
       if (event.key === 'Enter') check();
     });
   });
+
+  // ---------- Лист задач для печати ----------
+  const ws = {
+    topic: document.getElementById('wsTopic'),
+    diff: document.getElementById('wsDifficulty'),
+    count: document.getElementById('wsCount'),
+    space: document.getElementById('wsSpace'),
+    newPage: document.getElementById('wsAnsNewPage'),
+    box: document.getElementById('worksheet')
+  };
+
+  function fmtAnswer(a) {
+    if (Array.isArray(a)) return `x = ${a[0]}, y = ${a[1]}`;
+    return String(a);
+  }
+
+  function makeWorksheet() {
+    let n = parseInt(ws.count.value, 10);
+    if (!(n >= 1)) n = 10;
+    n = Math.min(60, n);
+    ws.count.value = n;
+    const keys = ws.topic.value === 'all' ? Object.keys(topics) : [els.topicSelect.value];
+    const d = ws.diff.value === 'same' ? Number(els.difficulty.value) : Number(ws.diff.value);
+    const space = Number(ws.space.value);
+    const order = [];
+    while (order.length < n) {
+      const pack = keys.slice().sort(() => Math.random() - 0.5);
+      order.push(...pack);
+    }
+    order.length = n;
+    const tasks = [];
+    const seen = new Set();
+    for (const key of order) {
+      let t, tries = 0;
+      do { t = topics[key].generator(d); tries++; } while (seen.has(t.text) && tries < 30);
+      seen.add(t.text);
+      tasks.push({ key, t });
+    }
+    const dNames = { 1: 'базовая', 2: 'средняя', 3: 'повышенная' };
+    const title = keys.length === 1 ? topics[keys[0]].title : 'Математика 7 класса: разные разделы';
+    const showTopic = keys.length > 1;
+    ws.box.innerHTML = `
+      <div class="ws-head">
+        <h2>${title}</h2>
+        <div class="meta">Фамилия, имя: <span class="ws-fill"></span><br>Дата: <span class="ws-fill" style="width:26mm"></span> · сложность: ${dNames[d]}</div>
+      </div>
+      ${tasks.map((x, i) => `
+        <div class="ws-task">
+          ${showTopic ? `<div class="ws-topic">${topics[x.key].title}</div>` : ''}
+          <span class="n">${i + 1}.</span>${x.t.text}
+          ${space ? `<div class="ws-space" style="height:${space}mm"></div>` : ''}
+        </div>`).join('')}
+      <div class="ws-ans-block">
+        <div class="ws-head"><h2>Ответы</h2><div class="meta">${title}</div></div>
+        <div class="ws-ans">${tasks.map((x, i) => `<div><b>${i + 1}.</b> ${fmtAnswer(x.t.answer)}</div>`).join('')}</div>
+      </div>`;
+    ws.box.classList.remove('hidden');
+  }
+
+  function printWorksheet(withAnswers) {
+    if (ws.box.classList.contains('hidden')) makeWorksheet();
+    const b = document.body;
+    b.classList.add('ws-printing');
+    b.classList.toggle('ws-no-answers', !withAnswers);
+    b.classList.toggle('ws-ans-newpage', ws.newPage.checked);
+    const done = () => { b.classList.remove('ws-printing', 'ws-no-answers', 'ws-ans-newpage'); window.removeEventListener('afterprint', done); };
+    window.addEventListener('afterprint', done);
+    window.print();
+    setTimeout(done, 1500);
+  }
+
+  document.getElementById('wsMakeBtn').addEventListener('click', makeWorksheet);
+  document.getElementById('wsPrintBtn').addEventListener('click', () => printWorksheet(false));
+  document.getElementById('wsPrintAnsBtn').addEventListener('click', () => printWorksheet(true));
 
   loadStats();
   newTask();
