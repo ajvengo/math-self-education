@@ -1,0 +1,1604 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сложение → умножение → степень. Деление на дробь</title>
+<style>
+  :root {
+    --bg: #f7f7f8; --card: #ffffff; --text: #1f2328; --muted: #667085; --border: #d0d5dd;
+    --accent: #2563eb; --accent-soft: #eff6ff;
+    --ok: #067647; --ok-bg: #ecfdf3; --bad: #b42318; --bad-bg: #fef3f2; --warn: #93370d; --warn-bg: #fffaeb;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
+  .container { width: min(1000px, calc(100% - 32px)); margin: 0 auto; padding: 24px 0 48px; }
+  h1 { margin: 0 0 8px; font-size: clamp(26px, 4vw, 38px); }
+  h2 { margin: 0 0 12px; font-size: 24px; }
+  h3 { margin: 0 0 8px; font-size: 18px; }
+  p, li { line-height: 1.6; }
+  .subtitle { color: var(--muted); margin: 0 0 16px; }
+  .muted { color: var(--muted); }
+  .hidden { display: none !important; }
+  .section { margin-top: 34px; scroll-margin-top: 64px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px 20px; box-shadow: 0 1px 2px rgba(16,24,40,.04); }
+  .card + .card { margin-top: 14px; }
+  .grid { display: grid; gap: 14px; }
+  .g2 { grid-template-columns: 1fr 1fr; }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  .g4 { grid-template-columns: repeat(4, 1fr); }
+
+  nav.pills { position: sticky; top: 0; z-index: 5; background: rgba(247,247,248,.95); backdrop-filter: blur(4px);
+    display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  nav.pills a { text-decoration: none; color: var(--text); border: 1px solid var(--border); background: #fff; border-radius: 999px; padding: 5px 12px; font-size: 14px; }
+  nav.pills a:hover { border-color: var(--accent); background: var(--accent-soft); }
+
+  /* математика */
+  .math { font-family: "Cambria Math", "Times New Roman", "PT Serif", Georgia, serif; font-size: 1.12em; white-space: nowrap; }
+  .big { font-size: 1.35em; }
+  var { font-style: italic; font-family: "Cambria Math", "Times New Roman", "PT Serif", Georgia, serif; padding-right: .03em; }
+  sup { font-size: .7em; }
+  .fr { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; line-height: 1.2; margin: 0 2px; }
+  .fr > span { padding: 0 3px; }
+  .fr > span:first-child { border-bottom: 1.5px solid currentColor; }
+  .chip { display: inline-block; padding: 1px 6px; border-radius: 7px; margin: 2px 0; }
+  .c1 { background: #dbeafe; } .c2 { background: #ffedd5; } .c3 { background: #dcfce7; } .c4 { background: #f3e8ff; } .c5 { background: #fee2e2; }
+  .gone { text-decoration: line-through; text-decoration-thickness: 2px; text-decoration-color: #b42318; opacity: .5; }
+  .line { margin: 8px 0; line-height: 2.1; overflow-x: auto; }
+  .line.math { white-space: normal; }
+
+  .rule { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 14px; padding: 14px 18px; }
+  .rule b { color: #92400e; }
+  table.cmp { width: 100%; border-collapse: collapse; background: #fff; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
+  table.cmp th, table.cmp td { padding: 10px 12px; border-bottom: 1px solid #eaecf0; vertical-align: top; text-align: left; line-height: 1.5; }
+  table.cmp th { background: #f2f4f7; font-size: 15px; }
+  table.cmp tr:last-child td { border-bottom: 0; }
+  .tag-plus { color: #1d4ed8; font-weight: 700; }
+  .tag-times { color: #c2410c; font-weight: 700; }
+
+  label { display: block; font-size: 14px; }
+  select, input[type=text], input[type=number] { width: 100%; margin-top: 6px; border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; font: inherit; background: #fff; }
+  input[type=range] { width: 100%; margin-top: 8px; }
+  button.action { border: 1px solid var(--border); border-radius: 12px; padding: 10px 16px; background: #fff; cursor: pointer; font: inherit; font-weight: 600; }
+  button.action:hover { border-color: var(--accent); }
+  button.primary { color: #fff; background: var(--accent); border-color: var(--accent); }
+  .button-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 6px; }
+  .seg button { border: 0; background: #fff; padding: 9px 14px; font: inherit; cursor: pointer; border-right: 1px solid var(--border); }
+  .seg button:last-child { border-right: 0; }
+  .seg button.on { background: var(--accent); color: #fff; }
+
+  .wout { margin-top: 14px; padding: 14px 16px; background: #fafbfc; border: 1px dashed var(--border); border-radius: 12px; }
+  .row-label { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; margin-top: 6px; }
+  .check-line { color: var(--ok); font-size: 15px; }
+  .bad-line { color: var(--bad); font-size: 15px; }
+
+  .steps { counter-reset: st; list-style: none; padding: 0; margin: 0; }
+  .steps > li { counter-increment: st; position: relative; padding: 0 0 14px 44px; }
+  .steps > li::before { content: counter(st); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%;
+    background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+
+  /* тренажёр */
+  .metric { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px; }
+  .metric .label { color: var(--muted); font-size: 13px; }
+  .metric .value { font-size: 26px; font-weight: 700; margin-top: 2px; }
+  .topic-btn { width: 100%; text-align: left; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px; font-size: 15px; cursor: pointer; font-family: inherit; }
+  .topic-btn:hover, .topic-btn.active { border-color: var(--accent); background: var(--accent-soft); }
+  .topic-btn .bar { height: 6px; background: #e5e7eb; border-radius: 3px; margin-top: 8px; overflow: hidden; }
+  .topic-btn .bar > i { display: block; height: 100%; background: var(--accent); }
+  .topic-btn .bar > i.done { background: #12b76a; }
+  .topic-btn small { color: var(--muted); display: block; margin-top: 4px; font-size: 12px; }
+  .modes { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+  .task { font-size: 21px; line-height: 1.7; margin-top: 4px; }
+  .callout { background: var(--card); border: 2px solid var(--accent); border-radius: 16px; padding: 16px 20px; }
+  .kbd { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .kbd button { min-width: 40px; padding: 6px 10px; font-weight: 600; border: 1px solid var(--border); border-radius: 9px; background: #f8fafc; font-size: 17px; cursor: pointer; font-family: "Cambria Math", "Times New Roman", serif; }
+  .kbd button:hover { background: var(--accent-soft); }
+  .preview { margin-top: 8px; min-height: 1.6em; color: var(--muted); }
+  .opt { display: block; width: 100%; text-align: left; margin-top: 8px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 12px; background: #fff; font-size: 19px; cursor: pointer; font-family: inherit; }
+  .opt:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+  .opt:disabled { cursor: default; color: var(--text); }
+  .opt.right { border-color: #75c69b; background: var(--ok-bg); }
+  .opt.wrongpick { border-color: #fda29b; background: var(--bad-bg); }
+  .tf-row { display: flex; gap: 10px; }
+  .tf-row .opt { text-align: center; }
+  .message { margin-top: 12px; border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; line-height: 1.7; background: #fff; }
+  .message.ok { border-color: #75c69b; background: var(--ok-bg); color: var(--ok); }
+  .message.bad { border-color: #fda29b; background: var(--bad-bg); color: var(--bad); }
+  .message.warn { border-color: #fec84b; background: var(--warn-bg); color: var(--warn); }
+  .message .math, .message var { color: var(--text); }
+  .summary-item { border-top: 1px solid #eaecf0; padding: 10px 0; }
+
+  /* печать */
+  .ws-controls { grid-template-columns: 2fr 1fr 1fr; align-items: end; }
+  #worksheet { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; margin-top: 14px; }
+  .ws-head { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1.5px solid var(--text); padding-bottom: 6px; margin-bottom: 10px; }
+  .ws-head h2 { font-size: 20px; margin: 0; }
+  .ws-head .meta { font-size: 14px; text-align: right; line-height: 1.7; white-space: nowrap; }
+  .ws-fill { display: inline-block; border-bottom: 1px solid var(--text); width: 48mm; }
+  .ws-task { break-inside: avoid; page-break-inside: avoid; padding: 8px 0 0; font-size: 17px; line-height: 1.7; }
+  .ws-task .n { font-weight: 700; margin-right: 6px; }
+  .ws-opts { display: flex; flex-wrap: wrap; gap: 4px 26px; margin-left: 22px; }
+  .ws-space { border: 1px solid #d0d5dd; border-radius: 3px; margin: 6px 0 4px;
+    background-image: linear-gradient(#dbe3ee 1px, transparent 1px), linear-gradient(90deg, #dbe3ee 1px, transparent 1px);
+    background-size: 5mm 5mm; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .ws-ans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px 18px; font-size: 15px; margin-top: 8px; line-height: 1.8; }
+  .ws-ans-block { margin-top: 22px; break-before: page; page-break-before: always; }
+  @media screen { .ws-ans-block { display: none; } }
+  @page { size: A4; margin: 12mm; }
+  @media print {
+    body { background: #fff; }
+    body.ws-printing .container > *:not(#print) { display: none !important; }
+    body.ws-printing #print > *:not(#worksheet) { display: none !important; }
+    body.ws-printing #worksheet { border: 0; padding: 0; margin: 0; }
+    body.ws-printing.ws-with-answers .ws-ans-block { display: block !important; }
+    body.ws-printing:not(.ws-with-answers) .ws-ans-block { display: none !important; }
+  }
+  @media (max-width: 760px) {
+    nav.pills { position: static; }
+    table.cmp { display: block; overflow-x: auto; }
+    .card { padding: 14px; }
+    .g2, .g3, .ws-controls { grid-template-columns: 1fr; }
+    .g4 { grid-template-columns: 1fr 1fr; }
+    .task { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+<main class="container">
+  <h1>Сложение → умножение → степень</h1>
+  <p class="subtitle">Откуда берутся правила для коэффициентов и степеней, и почему деление на дробь заменяют умножением на перевёрнутую дробь. Сначала разбираемся, потом тренируемся.</p>
+
+  <nav class="pills">
+    <a href="#idea">1. Главная идея</a>
+    <a href="#mult">2. Умножение</a>
+    <a href="#power">3. Степень</a>
+    <a href="#props">4. Свойства степеней</a>
+    <a href="#div">5. Деление на дробь</a>
+    <a href="#trainer">6. Тренажёр</a>
+    <a href="#print">7. Лист для печати</a>
+  </nav>
+
+  <!-- ============ 1. Главная идея ============ -->
+  <section id="idea" class="section">
+    <h2>1. Главная идея: короткие записи</h2>
+    <div class="card">
+      <p>Математики не любят писать длинно. Поэтому:</p>
+      <ul>
+        <li>когда одно и то же число <span class="tag-plus">СКЛАДЫВАЮТ</span> много раз, пишут короче — <b>умножением</b>: <span class="math"><var>a</var> + <var>a</var> + <var>a</var> + <var>a</var> + <var>a</var> = 5<var>a</var></span>;</li>
+        <li>когда одно и то же число <span class="tag-times">УМНОЖАЮТ</span> много раз, пишут короче — <b>степенью</b>: <span class="math"><var>a</var> · <var>a</var> · <var>a</var> · <var>a</var> · <var>a</var> = <var>a</var><sup>5</sup></span>.</li>
+      </ul>
+      <p>В обоих случаях число 5 отвечает на вопрос «сколько штук?». Но в первом случае оно считает <span class="tag-plus">слагаемые</span>, а во втором — <span class="tag-times">множители</span>. Вся путаница начинается, когда это забывают.</p>
+    </div>
+
+    <div class="card">
+      <h3>Машина сокращений</h3>
+      <p class="muted" style="margin-top:0">Выбери, что повторяем и сколько раз. Посмотри, как одна и та же «пятёрка» получается в двух разных местах.</p>
+      <div class="grid g2">
+        <label>Что повторяем
+          <select id="w1Base">
+            <option value="a">букву a</option>
+            <option value="x">букву x</option>
+            <option value="2" selected>число 2</option>
+            <option value="3">число 3</option>
+            <option value="10">число 10</option>
+          </select>
+        </label>
+        <label>Сколько раз: <b id="w1NVal">5</b>
+          <input id="w1N" type="range" min="1" max="8" value="5">
+        </label>
+      </div>
+      <div id="w1Out" class="wout"></div>
+    </div>
+
+    <div class="rule" style="margin-top:14px">
+      <b>Золотое правило.</b> Если не уверен — <b>разверни</b>. Запиши выражение длинно (все слагаемые или все множители), посчитай штуки и сверни обратно. Ни одно правило ниже не нужно зубрить: каждое получается этим способом за полминуты.
+    </div>
+  </section>
+
+  <!-- ============ 2. Умножение ============ -->
+  <section id="mult" class="section">
+    <h2>2. Умножение — короткая запись сложения</h2>
+    <div class="card">
+      <p><span class="math">3<var>a</var></span> читается «три <var>a</var>» и означает «<var>a</var> взяли три раза»: <span class="math">3<var>a</var> = <var>a</var> + <var>a</var> + <var>a</var></span>. Число впереди называется <b>коэффициентом</b>. Удобно думать так: буква — это <i>что</i> считаем (яблоки), коэффициент — <i>сколько</i> их.</p>
+      <ul>
+        <li><span class="math">3<var>a</var> + 2<var>a</var> = 5<var>a</var></span>: три яблока и ещё два яблока — пять яблок. Яблоки не превращаются в «яблоки в квадрате».</li>
+        <li><span class="math">3<var>a</var> + 2<var>b</var></span> короче не записать: яблоки и груши — разные вещи.</li>
+        <li><span class="math">3<var>a</var> · 2<var>a</var></span> — здесь уже <b>умножение</b>, и правило другое: всё перемножается, числа отдельно, буквы отдельно: <span class="math">3 · <var>a</var> · 2 · <var>a</var> = 6 · <var>a</var> · <var>a</var> = 6<var>a</var><sup>2</sup></span>.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Один и тот же пример с разными знаками</h3>
+      <p class="muted" style="margin-top:0">Поменяй знак между одночленами и посмотри, как меняется ответ и почему.</p>
+      <div class="grid g3">
+        <label>Первый коэффициент: <b id="w2PVal">3</b><input id="w2P" type="range" min="1" max="6" value="3"></label>
+        <label>Второй коэффициент: <b id="w2QVal">2</b><input id="w2Q" type="range" min="1" max="6" value="2"></label>
+        <label>Знак<br><span class="seg" id="w2Op"><button data-op="+" class="on">+</button><button data-op="-">−</button><button data-op="*">·</button></span></label>
+      </div>
+      <div id="w2Out" class="wout"></div>
+    </div>
+  </section>
+
+  <!-- ============ 3. Степень ============ -->
+  <section id="power" class="section">
+    <h2>3. Степень — короткая запись умножения</h2>
+    <div class="card">
+      <p><span class="math"><var>a</var><sup>3</sup> = <var>a</var> · <var>a</var> · <var>a</var></span>. Здесь <var>a</var> — <b>основание</b> (что умножаем), 3 — <b>показатель</b> (сколько раз <var>a</var> стоит <i>множителем</i>).</p>
+      <div class="grid g2">
+        <div>
+          <p><b>С числами разница сразу видна:</b></p>
+          <p class="math">3 · 2 = 2 + 2 + 2 = 6</p>
+          <p class="math">2<sup>3</sup> = 2 · 2 · 2 = 8</p>
+          <p class="math">10<sup>3</sup> = 10 · 10 · 10 = 1000 <span class="muted" style="font-family:system-ui">(три нуля)</span></p>
+          <p class="math"><var>a</var><sup>1</sup> = <var>a</var> <span class="muted" style="font-family:system-ui">(один множитель)</span></p>
+        </div>
+        <div>
+          <p><b>Степень относится только к тому, что стоит прямо под ней:</b></p>
+          <p class="math">2<var>a</var><sup>3</sup> = 2 · <var>a</var> · <var>a</var> · <var>a</var></p>
+          <p class="math">(2<var>a</var>)<sup>3</sup> = 2<var>a</var> · 2<var>a</var> · 2<var>a</var> = 8<var>a</var><sup>3</sup></p>
+          <p class="muted">Скобки говорят: «в степень возводится всё, что внутри».</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Две лестницы рядом</h3>
+      <table class="cmp">
+        <tr><th>Длинная запись</th><th>Короткая запись</th><th>Что считает число</th></tr>
+        <tr><td class="math"><var>a</var> + <var>a</var></td><td class="math">2<var>a</var></td><td>2 <span class="tag-plus">слагаемых</span></td></tr>
+        <tr><td class="math"><var>a</var> · <var>a</var></td><td class="math"><var>a</var><sup>2</sup></td><td>2 <span class="tag-times">множителя</span></td></tr>
+        <tr><td class="math"><var>a</var> + <var>a</var> + <var>a</var></td><td class="math">3<var>a</var></td><td>3 <span class="tag-plus">слагаемых</span></td></tr>
+        <tr><td class="math"><var>a</var> · <var>a</var> · <var>a</var></td><td class="math"><var>a</var><sup>3</sup></td><td>3 <span class="tag-times">множителя</span></td></tr>
+        <tr><td class="math"><var>a</var><sup>2</sup> + <var>a</var><sup>2</sup></td><td class="math">2<var>a</var><sup>2</sup></td><td>2 одинаковых <span class="tag-plus">слагаемых</span> <span class="math"><var>a</var><sup>2</sup></span></td></tr>
+        <tr><td class="math"><var>a</var><sup>2</sup> · <var>a</var><sup>2</sup></td><td class="math"><var>a</var><sup>4</sup></td><td>2 + 2 = 4 <span class="tag-times">множителя</span> <var>a</var></td></tr>
+      </table>
+      <p style="margin-bottom:0">Проверка числом всегда помогает. При <span class="math"><var>a</var> = 5</span>: <span class="math">2<var>a</var> = 10</span>, а <span class="math"><var>a</var><sup>2</sup> = 25</span>. Это разные числа — значит, и записи разные.</p>
+    </div>
+  </section>
+
+  <!-- ============ 4. Свойства степеней ============ -->
+  <section id="props" class="section">
+    <h2>4. Свойства степеней — выводим, а не зубрим</h2>
+    <div class="card">
+      <h3>Лаборатория свойств</h3>
+      <p class="muted" style="margin-top:0">Выбери действие и показатели. Каждое свойство получается, если развернуть степени в произведения и посчитать множители.</p>
+      <label>Действие
+        <select id="w3Prop">
+          <option value="mul">Умножение степеней: aᵐ · aⁿ</option>
+          <option value="div">Деление степеней: aᵐ : aⁿ</option>
+          <option value="pow">Степень степени: (aᵐ)ⁿ</option>
+          <option value="prod">Степень произведения: (ab)ⁿ</option>
+          <option value="add">Ловушка: сложение степеней aᵐ + aⁿ</option>
+        </select>
+      </label>
+      <div class="grid g2" style="margin-top:10px">
+        <label id="w3MLabel">m = <b id="w3MVal">3</b><input id="w3M" type="range" min="1" max="5" value="3"></label>
+        <label>n = <b id="w3NVal">2</b><input id="w3N" type="range" min="1" max="5" value="2"></label>
+      </div>
+      <div id="w3Out" class="wout"></div>
+    </div>
+
+    <div class="card">
+      <h3>Одна идея — два этажа</h3>
+      <p class="muted" style="margin-top:0">Слева коэффициент считает слагаемые, справа показатель считает множители. Правила устроены одинаково, просто на разных этажах.</p>
+      <table class="cmp">
+        <tr><th>Сложение одинаковых → коэффициент</th><th>Умножение одинаковых → степень</th></tr>
+        <tr><td><span class="math">3<var>a</var> + 2<var>a</var> = 5<var>a</var></span><div class="muted">3 слагаемых и ещё 2 — всего 5 слагаемых</div></td><td><span class="math"><var>a</var><sup>3</sup> · <var>a</var><sup>2</sup> = <var>a</var><sup>5</sup></span><div class="muted">3 множителя и ещё 2 — всего 5 множителей</div></td></tr>
+        <tr><td><span class="math">5<var>a</var> − 2<var>a</var> = 3<var>a</var></span><div class="muted">убрали 2 слагаемых из 5</div></td><td><span class="math"><var>a</var><sup>5</sup> : <var>a</var><sup>2</sup> = <var>a</var><sup>3</sup></span><div class="muted">сократили 2 множителя из 5</div></td></tr>
+        <tr><td><span class="math">3 · (2<var>a</var>) = 6<var>a</var></span><div class="muted">3 раза по 2 слагаемых</div></td><td><span class="math">(<var>a</var><sup>2</sup>)<sup>3</sup> = <var>a</var><sup>6</sup></span><div class="muted">3 раза по 2 множителя</div></td></tr>
+        <tr><td><span class="math">3<var>a</var> + 2<var>b</var></span> — не сворачивается<div class="muted">разные буквы</div></td><td><span class="math"><var>a</var><sup>3</sup> · <var>b</var><sup>2</sup></span> — не сворачивается<div class="muted">разные основания</div></td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Частые ловушки</h3>
+      <table class="cmp">
+        <tr><th>Неверно</th><th>Верно</th><th>Почему</th></tr>
+        <tr><td class="math" style="color:var(--bad)"><var>a</var><sup>2</sup> + <var>a</var><sup>2</sup> = <var>a</var><sup>4</sup></td><td class="math">2<var>a</var><sup>2</sup></td><td>Это два одинаковых <b>слагаемых</b>: «яблоко + яблоко».</td></tr>
+        <tr><td class="math" style="color:var(--bad)"><var>a</var><sup>2</sup> · <var>a</var><sup>2</sup> = 2<var>a</var><sup>2</sup></td><td class="math"><var>a</var><sup>4</sup></td><td><span class="math"><var>a</var>·<var>a</var>·<var>a</var>·<var>a</var></span> — четыре множителя.</td></tr>
+        <tr><td class="math" style="color:var(--bad)"><var>a</var><sup>3</sup> · <var>a</var><sup>2</sup> = <var>a</var><sup>6</sup></td><td class="math"><var>a</var><sup>5</sup></td><td>Множители считаем: 3 + 2, а не 3 · 2.</td></tr>
+        <tr><td class="math" style="color:var(--bad)">(<var>a</var><sup>3</sup>)<sup>2</sup> = <var>a</var><sup>5</sup></td><td class="math"><var>a</var><sup>6</sup></td><td><span class="math"><var>a</var><sup>3</sup> · <var>a</var><sup>3</sup></span> — два раза по 3 множителя.</td></tr>
+        <tr><td class="math" style="color:var(--bad)"><var>a</var><sup>2</sup> + <var>a</var><sup>3</sup> = <var>a</var><sup>5</sup></td><td>не сворачивается</td><td>Разные слагаемые, и это не умножение.</td></tr>
+        <tr><td class="math" style="color:var(--bad)">3<var>a</var> · 2<var>a</var> = 6<var>a</var></td><td class="math">6<var>a</var><sup>2</sup></td><td><var>a</var> встретилась множителем два раза.</td></tr>
+        <tr><td class="math" style="color:var(--bad)">(2<var>a</var>)<sup>3</sup> = 2<var>a</var><sup>3</sup></td><td class="math">8<var>a</var><sup>3</sup></td><td>Двойка тоже множитель три раза: 2·2·2 = 8.</td></tr>
+        <tr><td class="math" style="color:var(--bad)"><var>a</var><sup>0</sup> = 0</td><td class="math"><var>a</var><sup>0</sup> = 1</td><td><span class="math"><var>a</var><sup>3</sup> : <var>a</var><sup>3</sup> = 1</span>, а по правилу это <span class="math"><var>a</var><sup>3−3</sup> = <var>a</var><sup>0</sup></span>.</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 5. Деление на дробь ============ -->
+  <section id="div" class="section">
+    <h2>5. Почему деление на дробь — это умножение на перевёрнутую</h2>
+    <div class="card">
+      <p>Деление отвечает на вопрос <b>«сколько раз делитель помещается в делимом?»</b>. <span class="math">12 : 3 = 4</span>, потому что тройка помещается в 12 четыре раза (и проверка: <span class="math">4 · 3 = 12</span>). Тот же вопрос можно задать и про дроби: сколько раз кусок <span class="math"><span class="fr"><span>1</span><span>3</span></span></span> помещается в отрезке длиной 2?</p>
+    </div>
+    <div class="card">
+      <h3>Режем отрезок на куски</h3>
+      <div class="grid g2">
+        <label>Делимое (длина отрезка)
+          <select id="w4D">
+            <option>1</option><option selected>2</option><option>3</option><option>4</option>
+            <option>1/2</option><option>3/4</option><option>3/2</option><option>5/2</option>
+          </select>
+        </label>
+        <label>Делитель (длина куска)
+          <select id="w4d">
+            <option>1/2</option><option selected>1/3</option><option>1/4</option><option>1/6</option>
+            <option>2/3</option><option>3/4</option><option>2/5</option><option>3/2</option>
+          </select>
+        </label>
+      </div>
+      <div id="w4Out" class="wout"></div>
+    </div>
+
+    <div class="card">
+      <h3>Вывод правила по шагам</h3>
+      <ol class="steps">
+        <li><b>Делим на <span class="math"><span class="fr"><span>1</span><span>3</span></span></span>.</b> В единице помещается 3 куска по <span class="math"><span class="fr"><span>1</span><span>3</span></span></span>. В двух единицах — <span class="math">2 · 3 = 6</span> кусков. Значит, <span class="math">2 : <span class="fr"><span>1</span><span>3</span></span> = 2 · 3</span>. Делить на <span class="math"><span class="fr"><span>1</span><span>3</span></span></span> — то же, что умножать на 3.</li>
+        <li><b>Делим на <span class="math"><span class="fr"><span>2</span><span>3</span></span></span>.</b> Кусок <span class="math"><span class="fr"><span>2</span><span>3</span></span></span> в 2 раза длиннее куска <span class="math"><span class="fr"><span>1</span><span>3</span></span></span>, поэтому помещается в 2 раза <i>меньше</i> раз: <span class="math">2 · 3 : 2 = 2 · <span class="fr"><span>3</span><span>2</span></span> = 3</span>.<br>Вот откуда переворот: <b>знаменатель</b> (на сколько частей режем единицу) переходит в умножение, а <b>числитель</b> (сколько частей в куске) — в деление.</li>
+        <li><b>Проверяем умножением.</b> Деление верно, если частное, умноженное на делитель, даёт делимое: <span class="math">3 · <span class="fr"><span>2</span><span>3</span></span> = 2</span> ✓. В общем виде: <span class="math"><span class="fr"><span>2</span><span>3</span></span> · <span class="fr"><span>3</span><span>2</span></span> = 1</span>. Такие числа называются <b>взаимно обратными</b>, поэтому умножение на <span class="math"><span class="fr"><span>3</span><span>2</span></span></span> «отменяет» умножение на <span class="math"><span class="fr"><span>2</span><span>3</span></span></span>.</li>
+        <li><b>Второй способ (через свойство частного).</b> Если делимое и делитель умножить на одно и то же число, частное не изменится: <span class="math">12 : 3 = 24 : 6</span>. Умножим оба на <span class="math"><span class="fr"><span>3</span><span>2</span></span></span>:
+          <div class="line math"><var>a</var> : <span class="fr"><span>2</span><span>3</span></span> = (<var>a</var> · <span class="fr"><span>3</span><span>2</span></span>) : (<span class="fr"><span>2</span><span>3</span></span> · <span class="fr"><span>3</span><span>2</span></span>) = (<var>a</var> · <span class="fr"><span>3</span><span>2</span></span>) : 1 = <var>a</var> · <span class="fr"><span>3</span><span>2</span></span></div>
+          Делитель превратился в 1, а делить на 1 ничего не надо.</li>
+      </ol>
+    </div>
+
+    <div class="grid g2" style="margin-top:14px">
+      <div class="card" style="margin:0">
+        <h3>Три ошибки</h3>
+        <p><span class="math" style="color:var(--bad)"><span class="fr"><span>1</span><span>2</span></span> : <span class="fr"><span>3</span><span>4</span></span> = <span class="fr"><span>2</span><span>1</span></span> · <span class="fr"><span>3</span><span>4</span></span></span><br>Перевернули не ту дробь. Переворачиваем только ту, <b>на которую делим</b>.</p>
+        <p><span class="math" style="color:var(--bad)"><span class="fr"><span>1</span><span>2</span></span> : <span class="fr"><span>3</span><span>4</span></span> = <span class="fr"><span>1</span><span>2</span></span> · <span class="fr"><span>3</span><span>4</span></span></span><br>Поменяли знак, а дробь не перевернули.</p>
+        <p style="margin-bottom:0"><span class="math" style="color:var(--bad)"><span class="fr"><span>1</span><span>2</span></span> : <span class="fr"><span>3</span><span>4</span></span> = <span class="fr"><span>1</span><span>2</span></span> : <span class="fr"><span>4</span><span>3</span></span></span><br>Перевернули, а знак деления оставили. Переворот и замена «:» на «·» идут <b>всегда вместе</b>.</p>
+      </div>
+      <div class="card" style="margin:0">
+        <h3>Самопроверка без вычислений</h3>
+        <p>Делим на число <b>меньше 1</b> — куски маленькие, их помещается много: ответ <b>больше</b> делимого. <span class="math">6 : <span class="fr"><span>1</span><span>2</span></span> = 12</span>.</p>
+        <p>Делим на число <b>больше 1</b> — ответ <b>меньше</b> делимого. <span class="math">6 : <span class="fr"><span>3</span><span>2</span></span> = 4</span>.</p>
+        <p style="margin-bottom:0">С буквами и степенями всё то же самое: <span class="math"><span class="fr"><span><var>a</var><sup>3</sup></span><span><var>b</var></span></span> : <span class="fr"><span><var>a</var></span><span><var>b</var><sup>2</sup></span></span> = <span class="fr"><span><var>a</var><sup>3</sup></span><span><var>b</var></span></span> · <span class="fr"><span><var>b</var><sup>2</sup></span><span><var>a</var></span></span> = <var>a</var><sup>2</sup><var>b</var></span>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. Тренажёр ============ -->
+  <section id="trainer" class="section">
+    <h2>6. Тренажёр</h2>
+    <div class="grid g4">
+      <div class="metric"><div class="label">Решено</div><div id="sSolved" class="value">0</div></div>
+      <div class="metric"><div class="label">Правильно</div><div id="sCorrect" class="value">0</div></div>
+      <div class="metric"><div class="label">Серия</div><div id="sStreak" class="value">0</div></div>
+      <div class="metric"><div class="label">Точность</div><div id="sAcc" class="value">—</div></div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <p class="muted" style="margin-top:0">Выбери тему. Полоска показывает последние 10 ответов по теме; тема освоена, когда из последних 10 верны хотя бы 9.</p>
+      <div id="catGrid" class="grid g3"></div>
+      <div class="modes">
+        <button id="modeMix" class="action" type="button">🔀 Вперемешку (слабые темы чаще)</button>
+        <button id="modeTest" class="action" type="button">📝 Контрольная: 15 задач без подсказок</button>
+        <button id="resetStats" class="action" type="button" style="margin-left:auto">Сбросить статистику</button>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:14px">
+      <div class="muted" id="taskLabel">Задача</div>
+      <div id="taskText" class="task"></div>
+    </div>
+
+    <div id="inputBlock" class="card" style="margin-top:12px">
+      <label for="answerInput">Ответ</label>
+      <input id="answerInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="например: 6a^2 или 3/4">
+      <div class="kbd" id="kbd"></div>
+      <div class="preview" id="preview"></div>
+      <div class="muted" style="font-size:13px">Степень: <b>a^3</b> или кнопка <b>³</b>. Умножение: <b>·</b>, <b>*</b> или просто подряд (<b>3a</b>). Дробь: <b>3/4</b>.</div>
+    </div>
+    <div id="optBlock" class="card hidden" style="margin-top:12px"></div>
+
+    <div class="button-row">
+      <button id="checkBtn" class="action primary" type="button">Проверить</button>
+      <button id="hintBtn" class="action" type="button">Подсказка</button>
+      <button id="solBtn" class="action" type="button">Разверни (решение)</button>
+      <button id="nextBtn" class="action" type="button">Следующая →</button>
+    </div>
+    <div id="feedback" class="message hidden" aria-live="polite"></div>
+    <div id="hintBox" class="message hidden"></div>
+    <div id="solBox" class="message hidden"></div>
+  </section>
+
+  <!-- ============ 7. Печать ============ -->
+  <section id="print" class="section">
+    <h2>7. Лист задач для печати</h2>
+    <div class="card">
+      <div class="grid ws-controls">
+        <label>Тема <select id="wsCat"></select></label>
+        <label>Количество задач <input id="wsCount" type="number" min="1" max="60" value="16"></label>
+        <label>Место для решения
+          <select id="wsSpace"><option value="0">без места</option><option value="20" selected>мало (2 см)</option><option value="40">средне (4 см)</option></select>
+        </label>
+      </div>
+      <div class="button-row">
+        <button id="wsMake" class="action primary" type="button">Создать лист</button>
+        <button id="wsPrint" class="action" type="button">🖨 Печать задач</button>
+        <button id="wsPrintAns" class="action" type="button">🖨 Печать задач с ответами</button>
+      </div>
+    </div>
+    <div id="worksheet" class="hidden"></div>
+  </section>
+
+  <footer class="muted" style="text-align:center;margin-top:32px;font-size:13px">Работает полностью в браузере, интернет не нужен. Статистика хранится на этом устройстве.</footer>
+</main>
+
+<script>
+(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const rand = (a, b) => Math.floor(Math.random() * (b - a + 1)) + a;
+  const pick = arr => arr[rand(0, arr.length - 1)];
+  const shuffle = arr => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = rand(0, i); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const gcd = (a, b) => { a = Math.abs(a); b = Math.abs(b); while (b) [a, b] = [b, a % b]; return a; };
+
+  // ---------- HTML-помощники ----------
+  const v = x => `<var>${x}</var>`;
+  const sup = (b, e) => `${b}<sup>${e}</sup>`;
+  const fr = (n, d) => `<span class="fr"><span>${n}</span><span>${d}</span></span>`;
+  const M = h => `<span class="math">${h}</span>`;
+  const rep = (item, n, op) => Array(n).fill(item).join(op === '+' ? ' + ' : ' · ');
+  const chipRep = (item, n, op, cls, goneFrom = Infinity) => Array.from({ length: n }, (_, i) => `<span class="chip ${cls}${i >= goneFrom ? ' gone' : ''}">${item}</span>`).join(op === '+' ? ' + ' : ' · ');
+  // одночлен c·x^e в HTML
+  const mono = (c, x, e = 1) => (c === 1 ? '' : c === -1 ? '−' : String(c)) + (e === 0 ? '' : e === 1 ? v(x) : sup(v(x), e));
+  // строка в синтаксисе ответа
+  const ms = (c, x, e = 1) => (c === 1 ? '' : String(c)) + (e === 0 ? '' : e === 1 ? x : `${x}^${e}`);
+  const powS = (x, e) => e === 0 ? '' : e === 1 ? x : `${x}^${e}`;
+  const powH = (x, e) => e === 0 ? '' : e === 1 ? v(x) : sup(v(x), e);
+
+  function pretty(s) {
+    s = String(s).replace(/\s+/g, '');
+    let out = '', i = 0;
+    while (i < s.length) {
+      const c = s[i];
+      if (/[a-z]/.test(c)) { out += v(c); i++; }
+      else if (c === '^') {
+        let j = i + 1, paren = false;
+        if (s[j] === '(') { paren = true; j++; }
+        let k = j; if (s[k] === '-') k++;
+        while (k < s.length && /\d/.test(s[k])) k++;
+        const e = s.slice(j, k).replace('-', '−');
+        if (paren && s[k] === ')') k++;
+        out += `<sup>${e}</sup>`; i = k;
+      }
+      else if (c === '*') { out += ' · '; i++; }
+      else if (c === ':') { out += ' : '; i++; }
+      else if (c === '+') { out += ' + '; i++; }
+      else if (c === '-') { out += (i === 0 || s[i - 1] === '(' ) ? '−' : ' − '; i++; }
+      else { out += c; i++; }
+    }
+    return out;
+  }
+  // красивый ответ: убираем «·» перед буквами, дробь делаем двухэтажной
+  function prettyAns(s) {
+    s = String(s).replace(/\*(?=[a-z])/g, '');
+    if (!/[+]/.test(s) && /\//.test(s)) {
+      const k = s.indexOf('/');
+      return M(fr(pretty(s.slice(0, k)), pretty(s.slice(k + 1))));
+    }
+    return M(pretty(s));
+  }
+
+  // ---------- Рациональные числа и многочлены ----------
+  class PErr extends Error {}
+  function R(n, d = 1) {
+    if (d === 0) throw new PErr('Деление на ноль');
+    if (d < 0) { n = -n; d = -d; }
+    const g = gcd(n, d) || 1;
+    return [n / g, d / g];
+  }
+  const radd = (a, b) => R(a[0] * b[1] + b[0] * a[1], a[1] * b[1]);
+  const rmul = (a, b) => R(a[0] * b[0], a[1] * b[1]);
+  const rdiv = (a, b) => { if (b[0] === 0) throw new PErr('Деление на ноль'); return R(a[0] * b[1], a[1] * b[0]); };
+  function rat(str) {
+    const parts = str.split('.');
+    if (parts.length > 2) throw new PErr(`Непонятное число «${str}»`);
+    if (parts.length === 2) return R(Number(parts[0] + parts[1]), 10 ** parts[1].length);
+    return R(Number(str), 1);
+  }
+  const rs = r => r[1] === 1 ? String(r[0]) : `${r[0]}/${r[1]}`;
+  const rh = r => r[1] === 1 ? String(r[0]) : (r[0] < 0 ? '−' + fr(-r[0], r[1]) : fr(r[0], r[1]));
+
+  const keyOf = e => Object.keys(e).sort().map(l => l + e[l]).join(',');
+  const pconst = r => r[0] === 0 ? new Map() : new Map([['', { c: r, e: {} }]]);
+  const pvar = l => new Map([[l + '1', { c: [1, 1], e: { [l]: 1 } }]]);
+  function addTerm(p, t) {
+    const k = keyOf(t.e);
+    if (p.has(k)) {
+      const c = radd(p.get(k).c, t.c);
+      if (c[0] === 0) p.delete(k); else p.set(k, { c, e: t.e });
+    } else if (t.c[0] !== 0) p.set(k, { c: t.c, e: t.e });
+  }
+  function padd(p, q) { const r = new Map(p); for (const t of q.values()) addTerm(r, t); return r; }
+  function pneg(p) { const r = new Map(); for (const [k, t] of p) r.set(k, { c: [-t.c[0], t.c[1]], e: t.e }); return r; }
+  function pmul(p, q) {
+    const r = new Map();
+    for (const a of p.values()) for (const b of q.values()) {
+      const e = { ...a.e };
+      for (const l in b.e) { e[l] = (e[l] || 0) + b.e[l]; if (e[l] === 0) delete e[l]; }
+      addTerm(r, { c: rmul(a.c, b.c), e });
+    }
+    return r;
+  }
+  function pdiv(p, q) {
+    if (q.size === 0) throw new PErr('Деление на ноль');
+    if (q.size > 1) throw new PErr('Здесь не нужно делить на сумму — проверь запись');
+    const t = [...q.values()][0];
+    const e = {}; for (const l in t.e) e[l] = -t.e[l];
+    return pmul(p, new Map([[keyOf(e), { c: rdiv([1, 1], t.c), e }]]));
+  }
+  function ppow(p, k) {
+    if (k === 0) { if (p.size === 0) throw new PErr('0⁰ не определено'); return pconst([1, 1]); }
+    if (k < 0) { p = pdiv(pconst([1, 1]), p); k = -k; }
+    if (k > 60) throw new PErr('Слишком большая степень');
+    let r = pconst([1, 1]);
+    for (let i = 0; i < k; i++) r = pmul(r, p);
+    return r;
+  }
+  function pequal(p, q) {
+    if (p.size !== q.size) return false;
+    for (const [k, t] of p) { const s = q.get(k); if (!s || s.c[0] !== t.c[0] || s.c[1] !== t.c[1]) return false; }
+    return true;
+  }
+
+  // ---------- Разбор ввода ----------
+  const CYR = { 'а': 'a', 'в': 'b', 'с': 'c', 'х': 'x', 'у': 'y', 'р': 'p', 'о': 'o', 'е': 'e', 'к': 'k', 'м': 'm' };
+  const SUPD = { '⁰': '0', '¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9', '⁻': '-' };
+  function normalize(raw) {
+    let s = String(raw).toLowerCase();
+    s = s.replace(/[авсхурроекм]/g, ch => CYR[ch] || ch);
+    s = s.replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁻]+/g, m => '^(' + [...m].map(c => SUPD[c]).join('') + ')');
+    s = s.replace(/\*\*/g, '^').replace(/[·×∙•⋅*]/g, '*').replace(/[÷:]/g, ':').replace(/[−–—]/g, '-').replace(/,/g, '.');
+    s = s.replace(/\^\s*\^/g, '^').replace(/\^\((-?\d+)\)/g, '^$1');
+    s = s.replace(/(^|[^\d.a-z^)])(\d+)\s+(\d+)\s*\/\s*(\d+)/g, '$1($2+$3/$4)'); // смешанное число 1 1/2
+    s = s.replace(/\s+/g, '');
+    return s;
+  }
+  function tokenize(s) {
+    const t = []; let i = 0;
+    while (i < s.length) {
+      const c = s[i];
+      if (/\d/.test(c) || (c === '.' && /\d/.test(s[i + 1] || ''))) {
+        let j = i; while (j < s.length && /[\d.]/.test(s[j])) j++;
+        t.push({ k: 'num', v: s.slice(i, j) }); i = j;
+      } else if (/[a-z]/.test(c)) { t.push({ k: 'var', v: c }); i++; }
+      else if ('+-*/:^()'.includes(c)) { t.push({ k: c }); i++; }
+      else throw new PErr(`Непонятный символ «${c}»`);
+    }
+    // «3/2» из двух чисел подряд читаем как одно число-дробь: 3/2x = (3/2)·x
+    const out = [];
+    for (let j = 0; j < t.length; j++) {
+      const prev = out[out.length - 1];
+      if (t[j].k === 'num' && t[j + 1] && t[j + 1].k === '/' && t[j + 2] && t[j + 2].k === 'num' && !(prev && (prev.k === '^' || prev.k === '/' || prev.k === ':')) && !(t[j + 3] && t[j + 3].k === '^')) {
+        out.push({ k: 'num', v: t[j].v + '/' + t[j + 2].v, r: rdiv(rat(t[j].v), rat(t[j + 2].v)) }); j += 2;
+      } else out.push(t[j]);
+    }
+    return out;
+  }
+  class Parser {
+    constructor(t) { this.t = t; this.i = 0; }
+    peek() { return this.t[this.i]; }
+    next() { return this.t[this.i++]; }
+    is(k) { const p = this.peek(); return p && p.k === k; }
+    expr() {
+      let v = this.term();
+      while (this.is('+') || this.is('-')) { const op = this.next().k; const r = this.term(); v = op === '+' ? padd(v, r) : padd(v, pneg(r)); }
+      return v;
+    }
+    term() {
+      let v = this.unary();
+      while (this.is('*') || this.is('/') || this.is(':')) { const op = this.next().k; const r = this.unary(); v = op === '*' ? pmul(v, r) : pdiv(v, r); }
+      return v;
+    }
+    unary() {
+      if (this.is('-')) { this.next(); return pneg(this.unary()); }
+      if (this.is('+')) { this.next(); return this.unary(); }
+      return this.implicit();
+    }
+    implicit() {
+      let v = this.power();
+      while (this.is('num') || this.is('var') || this.is('(')) {
+        const prev = this.t[this.i - 1];
+        if (this.is('num') && prev.k === 'var' && !this.peek().r) throw new PErr(`Непонятно «${prev.v}${this.peek().v}». Степень пиши так: ${prev.v}^${this.peek().v} или кнопкой ²`);
+        v = pmul(v, this.power());
+      }
+      return v;
+    }
+    power() {
+      let b = this.primary();
+      if (this.is('^')) { this.next(); b = ppow(b, this.exponent()); }
+      return b;
+    }
+    exponent() {
+      let neg = false, paren = false;
+      if (this.is('(')) { paren = true; this.next(); }
+      if (this.is('-')) { neg = true; this.next(); }
+      const n = this.next();
+      if (!n || n.k !== 'num' || n.v.includes('.')) throw new PErr('Показатель степени должен быть целым числом');
+      if (paren) { const c = this.next(); if (!c || c.k !== ')') throw new PErr('Не закрыта скобка'); }
+      return (neg ? -1 : 1) * Number(n.v);
+    }
+    primary() {
+      const p = this.next();
+      if (!p) throw new PErr('Запись оборвалась');
+      if (p.k === 'num') return pconst(p.r || rat(p.v));
+      if (p.k === 'var') return pvar(p.v);
+      if (p.k === '(') { const v = this.expr(); const c = this.next(); if (!c || c.k !== ')') throw new PErr('Не закрыта скобка'); return v; }
+      throw new PErr(`Лишний знак «${p.k === '*' ? '·' : p.k}»`);
+    }
+  }
+  function parseExpr(raw) {
+    const norm = normalize(raw);
+    if (!norm) throw new PErr('Пусто');
+    const t = tokenize(norm);
+    const p = new Parser(t);
+    const poly = p.expr();
+    if (p.i < t.length) throw new PErr(`Лишний символ «${t[p.i].v || t[p.i].k}»`);
+    return { poly, norm };
+  }
+  function counts(norm) {
+    const letters = (norm.match(/[a-z]/g) || []).length;
+    let nums = 0; const re = /(\^\(?-?)?(\d+(?:\.\d+)?)/g; let m;
+    while ((m = re.exec(norm))) if (!m[1]) nums++;
+    return { letters, nums };
+  }
+
+  function evaluateAnswer(task, raw) {
+    if (!String(raw).trim()) return { kind: 'empty' };
+    let got;
+    try { got = parseExpr(raw); } catch (e) { return { kind: 'error', msg: e instanceof PErr ? e.message : 'Не получилось разобрать запись' }; }
+    const target = parseExpr(task.answer);
+    if (!pequal(got.poly, target.poly)) {
+      for (const tr of task.traps || []) {
+        try { const tp = parseExpr(tr.ans).poly; if (!pequal(tp, target.poly) && pequal(tp, got.poly)) return { kind: 'wrong', msg: tr.msg }; } catch (_) {}
+      }
+      return { kind: 'wrong' };
+    }
+    if (task.needPower) {
+      const re = new RegExp('^' + task.needPower + '\\^\\(?\\d+\\)?$');
+      if (!re.test(got.norm)) return { kind: 'almost', msg: `Значение верное, но нужно записать в виде степени с основанием ${task.needPower}: ${M(sup(task.needPower, '…'))}` };
+      return { kind: 'ok' };
+    }
+    if (task.numeric) {
+      const re = /(\d+)\/(\d+)/g; let m;
+      while ((m = re.exec(got.norm))) if (gcd(+m[1], +m[2]) > 1) return { kind: 'ok', note: `Дробь ${M(fr(m[1], m[2]))} можно сократить.` };
+      return { kind: 'ok' };
+    }
+    const a = counts(got.norm), b = counts(target.norm);
+    if (got.norm.includes('(') && !target.norm.includes('(')) return { kind: 'almost', msg: 'По значению верно, но раскрой скобки и запиши короче.' };
+    if (a.letters > b.letters) return { kind: 'almost', msg: 'По значению верно, но запись не сокращена. Одинаковые <b>слагаемые</b> сворачивай в коэффициент, одинаковые <b>множители</b> — в степень.' };
+    if (/\d\^/.test(got.norm) && !/\d\^/.test(target.norm)) return { kind: 'almost', msg: 'По значению верно, но посчитай числовой множитель до конца (например, 2³ = 8).' };
+    if (a.nums > b.nums) return { kind: 'almost', msg: 'По значению верно, но числа можно перемножить или сократить — должно остаться одно число.' };
+    return { kind: 'ok' };
+  }
+
+  // ---------- Генераторы задач ----------
+  const LET = ['a', 'a', 'x', 'x', 'b', 'y', 'm', 'c'];
+  const L = () => pick(LET);
+  const L2 = x => { let y; do { y = pick(['a', 'b', 'x', 'y', 'c']); } while (y === x); return y; };
+  function mc(text, right, wrongs, solution, hint) {
+    const ws = [...new Set(wrongs)].filter(w => w !== right).slice(0, 3);
+    const options = shuffle([right, ...ws]);
+    return { type: 'mc', text, options, correct: options.indexOf(right), solution, hint };
+  }
+  function tf(stmt, truth, why) {
+    return { type: 'tf', text: `Верно ли: ${M(stmt)}?`, options: ['Верно', 'Неверно'], correct: truth ? 0 : 1, solution: why };
+  }
+  function inp(o) { return Object.assign({ type: 'input', traps: [] }, o); }
+
+  // 1. Запиши короче
+  function genShorten() {
+    const x = L(), k = rand(1, 5);
+    if (k === 1) {
+      const n = rand(2, 6);
+      return inp({ text: `Запиши короче: ${M(rep(v(x), n, '+'))}`, answer: ms(n, x),
+        traps: [{ ans: `${x}^${n}`, msg: `Ты записал степень. Но степень — это короткая запись <b>умножения</b> ${M(rep(v(x), n, '·'))}. Здесь знаки «+»: ${v(x)} сложили ${n} раз, это ${M(mono(n, x))}.` }],
+        hint: 'Знаки «+». Сосчитай, сколько одинаковых <b>слагаемых</b>.',
+        solution: `${M(rep(v(x), n, '+'))} — это ${v(x)}, взятое <b>слагаемым</b> ${n} раз: ${M(`${n} · ${v(x)} = ${mono(n, x)}`)}. Число впереди (коэффициент) считает слагаемые.` });
+    }
+    if (k === 2) {
+      const n = rand(2, 6);
+      return inp({ text: `Запиши короче: ${M(rep(v(x), n, '·'))}`, answer: `${x}^${n}`,
+        traps: [{ ans: ms(n, x), msg: `${M(mono(n, x))} — это ${M(rep(v(x), n, '+'))}, сложение. А здесь знаки «·»: ${v(x)} стоит <b>множителем</b> ${n} раз, это степень.` }],
+        hint: 'Знаки «·». Сосчитай, сколько одинаковых <b>множителей</b>.',
+        solution: `${M(rep(v(x), n, '·'))} — это ${v(x)}, взятое <b>множителем</b> ${n} раз: ${M(sup(v(x), n))}. Показатель считает множители.` });
+    }
+    if (k === 3) {
+      const y = L2(x), n1 = rand(2, 4), n2 = rand(2, 4);
+      return inp({ text: `Запиши короче: ${M(rep(v(x), n1, '+') + ' + ' + rep(v(y), n2, '·'))}`, answer: `${n1}${x}+${y}^${n2}`,
+        traps: [
+          { ans: `${x}^${n1}+${n2}${y}`, msg: 'Перепутаны действия. Где «+» между одинаковыми — получается коэффициент, где «·» — степень.' },
+          { ans: `${n1}${x}+${n2}${y}`, msg: `Первая часть верна. Но ${M(rep(v(y), n2, '·'))} — это умножение, значит степень.` },
+          { ans: `${x}^${n1}+${y}^${n2}`, msg: `Вторая часть верна. Но ${M(rep(v(x), n1, '+'))} — это сложение, значит коэффициент.` }],
+        hint: `Сначала выполняется умножение. Сверни отдельно ${v(x)}-слагаемые и произведение ${v(y)}.`,
+        solution: `${M(rep(v(x), n1, '+'))} = ${M(mono(n1, x))} (сложили ${n1} раз), ${M(rep(v(y), n2, '·'))} = ${M(sup(v(y), n2))} (умножили ${n2} раз). Ответ: ${M(mono(n1, x) + ' + ' + sup(v(y), n2))}.` });
+    }
+    if (k === 4) {
+      const p = rand(2, 4), n = rand(2, 4), t = `${p}${v(x)}`;
+      return inp({ text: `Запиши короче: ${M(rep(t, n, '+'))}`, answer: ms(p * n, x),
+        traps: [{ ans: `${p}${x}^${n}`, msg: 'Это сложение, а не умножение: степени здесь не появляется.' }, { ans: `${p ** n}${x}^${n}`, msg: 'Это был бы ответ для умножения. А тут знаки «+».' }],
+        hint: `Сколько всего штук ${v(x)}? В каждом слагаемом их ${p}.`,
+        solution: `${n} одинаковых слагаемых по ${M(t)}: ${M(`${n} · ${t} = ${mono(p * n, x)}`)}. Или: ${n} раз по ${p} штук ${v(x)} — всего ${n * p} штук.` });
+    }
+    const p = rand(2, 3), n = rand(2, 3), t = `${p}${v(x)}`;
+    return inp({ text: `Запиши короче: ${M(rep(t, n, '·'))}`, answer: `${p ** n}${x}^${n}`,
+      traps: [
+        { ans: `${p}${x}^${n}`, msg: `Число ${p} тоже стоит множителем ${n} раза: ${M(rep(p, n, '·') + ' = ' + p ** n)}.` },
+        { ans: `${p * n}${x}^${n}`, msg: `Числа надо перемножить (${M(rep(p, n, '·'))}), а не сложить.` },
+        { ans: ms(p * n, x), msg: 'Это умножение, а не сложение: одинаковые буквы-множители дают степень.' }],
+      hint: 'Числа к числам, буквы к буквам. Сколько раз встречается множитель ' + p + '? А ' + v(x) + '?',
+      solution: `${M(rep(t, n, '·'))} = ${M('(' + rep(p, n, '·') + ') · (' + rep(v(x), n, '·') + ')')} = ${M(mono(p ** n, x, n))}.` });
+  }
+
+  // 2. Что означает запись (выбор)
+  function genExpand() {
+    const x = L(), k = rand(1, 8), X = v(x);
+    if (k === 1) {
+      const n = rand(2, 5);
+      return mc(`Что означает запись ${M(mono(n, x))}?`, M(rep(X, n, '+')), [M(rep(X, n, '·')), M(`${n} + ${X}`), M(`${n}${X} + ${n}${X}`)],
+        `${M(mono(n, x))} = ${M(n + ' · ' + X)} — «${X} взять ${n} раз» <b>слагаемым</b>: ${M(rep(X, n, '+'))}.`);
+    }
+    if (k === 2) {
+      const n = rand(2, 5);
+      return mc(`Что означает запись ${M(sup(X, n))}?`, M(rep(X, n, '·')), [M(rep(X, n, '+')), M(`${X} · ${n}`), M(mono(n, x))],
+        `${M(sup(X, n))} — ${X} стоит <b>множителем</b> ${n} раз: ${M(rep(X, n, '·'))}.`);
+    }
+    if (k === 3) {
+      const p = rand(2, 3), n = rand(2, 3), t = `${p}${X}`;
+      return mc(`Что означает запись ${M(sup(`(${t})`, n))}?`, M(rep(t, n, '·')), [M(`${p} · ${rep(X, n, '·')}`), M(rep(t, n, '+')), M(`${t} · ${n}`)],
+        `Скобки: в степень возводится всё, что внутри. ${M(sup(`(${t})`, n))} = ${M(rep(t, n, '·'))} = ${M(mono(p ** n, x, n))}.`);
+    }
+    if (k === 4) {
+      const p = rand(3, 5);
+      return mc(`Что означает запись ${M(mono(p, x, 2))}?`, M(`${p} · ${X} · ${X}`), [M(`${p}${X} · ${p}${X}`), M(`${p}${X} + ${p}${X}`), M(`${p}${X} · 2`)],
+        `Скобок нет, поэтому степень относится только к ${X}: ${M(mono(p, x, 2))} = ${M(`${p} · ${X} · ${X}`)}. А ${M(`${p}${X} · ${p}${X}`)} — это ${M(sup(`(${p}${X})`, 2))} = ${M(mono(p * p, x, 2))}.`);
+    }
+    if (k === 5) {
+      const m = rand(2, 4);
+      return mc(`Чему равно ${M(sup(X, m) + ' + ' + sup(X, m))}?`, M(mono(2, x, m)), [M(sup(X, 2 * m)), M(mono(2, x, 2 * m)), M(sup(X, m))],
+        `Это два одинаковых <b>слагаемых</b> ${M(sup(X, m))}, как «яблоко + яблоко = 2 яблока»: ${M(mono(2, x, m))}. Показатель не меняется — ничего не умножали.`);
+    }
+    if (k === 6) {
+      let m = rand(2, 4), n = rand(2, 4); if (m === 2 && n === 2) n = 3;
+      return mc(`Чему равно ${M(sup(X, m) + ' · ' + sup(X, n))}?`, M(sup(X, m + n)), [M(sup(X, m * n)), M(mono(2, x, m + n)), M(mono(2, x, m * n))],
+        `${M(`(${rep(X, m, '·')}) · (${rep(X, n, '·')})`)} — всего ${m} + ${n} = ${m + n} множителей: ${M(sup(X, m + n))}.`);
+    }
+    if (k === 7) {
+      const n = rand(3, 5);
+      return mc(`Чему равно ${M(rep(X, n, '+'))}?`, M(mono(n, x)), [M(sup(X, n)), M(`${n} + ${X}`), M(mono(n, x, n))],
+        `${n} одинаковых <b>слагаемых</b> — это ${M(mono(n, x))}. Степень была бы, если бы стояли знаки «·».`);
+    }
+    let p = rand(2, 5), q = rand(2, 5); if (p === 2 && q === 2) q = 3;
+    return mc(`Чему равно ${M(mono(p, x) + ' · ' + mono(q, x))}?`, M(mono(p * q, x, 2)), [M(mono(p * q, x)), M(mono(p + q, x, 2)), M(mono(p + q, x))],
+      `${M(`${p} · ${X} · ${q} · ${X} = (${p} · ${q}) · (${X} · ${X}) = ${mono(p * q, x, 2)}`)}. Числа перемножили, ${X} встретилась множителем дважды.`);
+  }
+
+  // 3. Посчитай при данном значении
+  function genValue() {
+    const x = L(), X = v(x), k = rand(1, 7);
+    const at = val => ` при ${M(X + ' = ' + val)}`;
+    if (k === 1) {
+      const n = rand(2, 5), a = rand(2, 5);
+      return inp({ numeric: true, text: `Найди значение ${M(mono(n, x))}${at(a)}.`, answer: String(n * a),
+        traps: [{ ans: String(a ** n), msg: `Это значение ${M(sup(X, n))} = ${M(rep(a, n, '·'))}. А ${M(mono(n, x))} = ${M(rep(X, n, '+'))}.` }],
+        hint: `${M(mono(n, x))} = ${M(n + ' · ' + X)}.`,
+        solution: `${M(mono(n, x))} = ${M(`${n} · ${a} = ${n * a}`)} (то же, что ${M(rep(a, n, '+'))}).` });
+    }
+    if (k === 2) {
+      const n = rand(2, 4), a = n === 4 ? rand(2, 3) : rand(2, 5);
+      return inp({ numeric: true, text: `Найди значение ${M(sup(X, n))}${at(a)}.`, answer: String(a ** n),
+        traps: [{ ans: String(n * a), msg: `Ты умножил ${a} на ${n}. Но ${M(sup(X, n))} — это ${M(rep(X, n, '·'))}, а не ${M(n + ' · ' + X)}.` }],
+        hint: `${M(sup(X, n))} = ${M(rep(X, n, '·'))}.`,
+        solution: `${M(sup(X, n))} = ${M(rep(a, n, '·') + ' = ' + a ** n)}.` });
+    }
+    if (k === 3) {
+      const p = rand(2, 3), a = rand(2, 5);
+      return inp({ numeric: true, text: `Найди значение ${M(mono(p, x, 2))}${at(a)}.`, answer: String(p * a * a),
+        traps: [{ ans: String((p * a) ** 2), msg: `Степень относится только к ${X}, а не к ${p}: ${M(mono(p, x, 2))} = ${M(`${p} · ${X} · ${X}`)}.` }],
+        hint: `Скобок нет: ${M(mono(p, x, 2))} = ${M(`${p} · ${X} · ${X}`)}.`,
+        solution: `${M(`${p} · ${a} · ${a} = ${p * a * a}`)}.` });
+    }
+    if (k === 4) {
+      const p = rand(2, 3), a = rand(2, 5);
+      return inp({ numeric: true, text: `Найди значение ${M(sup(`(${p}${X})`, 2))}${at(a)}.`, answer: String((p * a) ** 2),
+        traps: [{ ans: String(p * a * a), msg: `Скобки! В квадрат возводится всё: ${M(`${p}${X} · ${p}${X}`)}.` }],
+        hint: `${M(sup(`(${p}${X})`, 2))} = ${M(`${p}${X} · ${p}${X}`)}.`,
+        solution: `${M(`${p}${X}`)} = ${p * a}, а ${M(`${p * a} · ${p * a} = ${(p * a) ** 2}`)}.` });
+    }
+    if (k === 5) {
+      const a = rand(2, 4);
+      return inp({ numeric: true, text: `Найди значение ${M(sup(X, 2) + ' + ' + sup(X, 2))}${at(a)}.`, answer: String(2 * a * a),
+        traps: [{ ans: String(a ** 4), msg: `Это было бы ${M(sup(X, 4))}. Но ${M(sup(X, 2) + ' + ' + sup(X, 2))} — сложение двух одинаковых слагаемых, это ${M(mono(2, x, 2))}.` }],
+        hint: 'Посчитай каждое слагаемое и сложи.',
+        solution: `${M(`${a * a} + ${a * a} = ${2 * a * a}`)}. Сравни: ${M(mono(2, x, 2))} = ${M(`2 · ${a * a} = ${2 * a * a}`)}.` });
+    }
+    if (k === 6) {
+      const a = rand(2, 4);
+      return inp({ numeric: true, text: `Найди значение ${M(sup(X, 2) + ' · ' + sup(X, 2))}${at(a)}.`, answer: String(a ** 4),
+        traps: [{ ans: String(2 * a * a), msg: `Это было бы ${M(sup(X, 2) + ' + ' + sup(X, 2))}. А здесь умножение.` }],
+        hint: 'Посчитай каждый множитель и перемножь.',
+        solution: `${M(`${a * a} · ${a * a} = ${a ** 4}`)}. Сравни: ${M(sup(X, 4))} = ${M(rep(a, 4, '·') + ' = ' + a ** 4)}.` });
+    }
+    const n = rand(3, 4), a = rand(2, 3);
+    return inp({ numeric: true, text: `Найди значение ${M(rep(X, n, '·'))}${at(a)}.`, answer: String(a ** n),
+      traps: [{ ans: String(n * a), msg: `Это сложение ${M(rep(a, n, '+'))}. А стоят знаки «·».` }],
+      hint: 'Перемножь.',
+      solution: `${M(rep(a, n, '·') + ' = ' + a ** n)}.` });
+  }
+
+  // 4. Упрости: где «+», где «·»
+  function genLike() {
+    const x = L(), X = v(x), k = rand(1, 11);
+    let p = rand(2, 6), q = rand(2, 6);
+    const cant = 'Если упростить нельзя, перепиши выражение как есть.';
+    if (k === 1) {
+      return inp({ text: `Упрости: ${M(mono(p, x) + ' + ' + mono(q, x))}`, answer: ms(p + q, x),
+        traps: [{ ans: `${p + q}${x}^2`, msg: `При сложении буквы не перемножаются: ${p} штук ${X} и ещё ${q} штук — всего ${p + q} штук ${X}. Квадрат был бы, если бы ${X} умножали на ${X}.` },
+                { ans: ms(p * q, x), msg: 'Здесь сложение: коэффициенты складываются, а не перемножаются.' }],
+        hint: 'Сколько всего штук ' + X + '?',
+        solution: (p + q <= 9 ? `${M(`(${rep(X, p, '+')}) + (${rep(X, q, '+')})`)} — всего ${p + q} слагаемых: ` : `${p} штук ${X} и ${q} штук ${X}: `) + M(mono(p + q, x)) + '.' });
+    }
+    if (k === 2) {
+      if (p === 2 && q === 2) q = 3;
+      return inp({ text: `Упрости: ${M(mono(p, x) + ' · ' + mono(q, x))}`, answer: `${p * q}${x}^2`,
+        traps: [{ ans: `${p + q}${x}^2`, msg: 'При умножении числа <b>перемножаются</b>, а не складываются.' },
+                { ans: ms(p * q, x), msg: `Буква ${X} встречается множителем дважды: ${M(`${X} · ${X} = ${sup(X, 2)}`)}.` },
+                { ans: ms(p + q, x), msg: 'Это не сложение! Между одночленами знак «·».' }],
+        hint: 'Числа к числам, буквы к буквам.',
+        solution: M(`${mono(p, x)} · ${mono(q, x)} = ${p} · ${X} · ${q} · ${X} = (${p} · ${q}) · (${X} · ${X}) = ${mono(p * q, x, 2)}`) });
+    }
+    if (k === 3) {
+      const m = rand(2, 5);
+      return inp({ text: `Упрости: ${M(sup(X, m) + ' + ' + sup(X, m))}`, answer: `2${x}^${m}`,
+        traps: [{ ans: `${x}^${2 * m}`, msg: `Это два одинаковых <b>слагаемых</b> ${M(sup(X, m))} — как «яблоко + яблоко = 2 яблока». Показатель не меняется: ничего не умножали.` }],
+        hint: 'Одинаковые слагаемые. Сколько их?',
+        solution: `Два одинаковых слагаемых: ${M(mono(2, x, m))}.` });
+    }
+    if (k === 4) {
+      const m = rand(2, 4);
+      const traps = [{ ans: `2${x}^${m}`, msg: `${M(mono(2, x, m))} — это ${M(sup(X, m) + ' + ' + sup(X, m))}. А здесь умножение: всего ${m} + ${m} = ${2 * m} множителей ${X}.` }];
+      if (m !== 2) traps.push({ ans: `${x}^${m * m}`, msg: 'При умножении степеней показатели <b>складываются</b>: считаем множители.' });
+      return inp({ text: `Упрости: ${M(sup(X, m) + ' · ' + sup(X, m))}`, answer: `${x}^${2 * m}`, traps,
+        hint: 'Разверни каждую степень и посчитай множители.',
+        solution: `${M(`(${rep(X, m, '·')}) · (${rep(X, m, '·')})`)} — ${2 * m} множителей: ${M(sup(X, 2 * m))}.` });
+    }
+    if (k === 5) {
+      p = rand(3, 8);
+      return inp({ text: `Упрости: ${M(mono(p, x) + ' − ' + X)}`, answer: ms(p - 1, x),
+        traps: [{ ans: String(p - 1), msg: `Буква не исчезает: было ${p} штук ${X}, убрали одну — осталось ${p - 1} штук ${X}.` }],
+        hint: `${X} — это ${M('1' + X)}.`,
+        solution: M(`${mono(p, x)} − 1${X} = ${mono(p - 1, x)}`) });
+    }
+    if (k === 6) {
+      const sub = rand(1, 3);
+      let text, ans, traps;
+      if (sub === 1) { text = `${X} + ${sup(X, 2)}`; ans = `${x}^2+${x}`; traps = [{ ans: `${x}^3`, msg: 'Это было бы ' + M(`${X} · ${sup(X, 2)}`) + '. А здесь сложение разных слагаемых.' }, { ans: `2${x}^2`, msg: 'Слагаемые разные, коэффициент 2 не получится.' }, { ans: `3${x}`, msg: M(sup(X, 2)) + ' — это не два ' + X + ', а ' + M(`${X} · ${X}`) + '.' }]; }
+      else if (sub === 2) { const m = rand(2, 3), n = m + rand(1, 2); text = `${sup(X, m)} + ${sup(X, n)}`; ans = `${x}^${n}+${x}^${m}`; traps = [{ ans: `${x}^${m + n}`, msg: 'Показатели складываются при <b>умножении</b>. А здесь сложение разных слагаемых — короче не записать.' }, { ans: `2${x}^${m + n}`, msg: 'Слагаемые разные, свернуть нельзя.' }]; }
+      else { text = `${mono(p, x)} + ${sup(X, 2)}`; ans = `${x}^2+${p}${x}`; traps = [{ ans: `${p + 1}${x}^2`, msg: M(mono(p, x)) + ' и ' + M(sup(X, 2)) + ' — разные слагаемые.' }, { ans: `${p + 1}${x}^3`, msg: 'Свернуть нельзя: слагаемые разные, а умножения здесь нет.' }, { ans: `${p}${x}^3`, msg: 'Это было бы ' + M(`${mono(p, x)} · ${sup(X, 2)}`) + '. А здесь сложение.' }]; }
+      return inp({ text: `Упрости (если можно): ${M(text)}. <span class="muted" style="font-size:15px">${cant}</span>`, answer: ans, traps,
+        hint: 'Складывать (сворачивать в коэффициент) можно только <b>одинаковые</b> слагаемые.',
+        solution: `Слагаемые разные, поэтому сумма не сворачивается: ответ ${M(text)}. Проверь числом: при ${M(X + ' = 2')} ничего короче не совпадёт.` });
+    }
+    if (k === 7) {
+      return inp({ text: `Упрости: ${M(mono(p, x, 2) + ' + ' + mono(q, x, 2))}`, answer: `${p + q}${x}^2`,
+        traps: [{ ans: `${p + q}${x}^4`, msg: `Складываем одинаковые слагаемые ${M(sup(X, 2))}: их ${p} штук и ещё ${q}. Показатель не меняется.` }, { ans: `${p * q}${x}^4`, msg: 'Это было бы умножение. А здесь сложение.' }],
+        hint: `Считай ${M(sup(X, 2))} как один предмет: сколько их всего?`,
+        solution: `${p} штук ${M(sup(X, 2))} и ${q} штук ${M(sup(X, 2))} — всего ${M(mono(p + q, x, 2))}.` });
+    }
+    if (k === 8) {
+      const m = rand(2, 4), n = rand(2, 4);
+      const traps = [{ ans: `${p + q}${x}^${m + n}`, msg: 'Коэффициенты при умножении перемножаются.' }];
+      if (m * n !== m + n) traps.push({ ans: `${p * q}${x}^${m * n}`, msg: 'Показатели при умножении складываются (считаем множители), а не перемножаются.' });
+      return inp({ text: `Упрости: ${M(mono(p, x, m) + ' · ' + mono(q, x, n))}`, answer: `${p * q}${x}^${m + n}`, traps,
+        hint: 'Числа к числам, степени к степеням.',
+        solution: M(`${p} · ${q} · ${sup(X, m)} · ${sup(X, n)} = ${p * q} · ${sup(X, m + n)} = ${mono(p * q, x, m + n)}`) + ` (множителей ${X}: ${m} + ${n}).` });
+    }
+    if (k === 9) {
+      const m = rand(2, 4), n = 3;
+      return inp({ text: `Упрости: ${M(rep(sup(X, m), n, '+'))}`, answer: `${n}${x}^${m}`,
+        traps: [{ ans: `${x}^${m * n}`, msg: 'Это было бы умножение трёх степеней. А здесь три одинаковых <b>слагаемых</b>.' }, { ans: `${x}^${m + n}`, msg: 'Показатель не меняется при сложении одинаковых слагаемых.' }],
+        hint: 'Одинаковые слагаемые — коэффициент.',
+        solution: `Три одинаковых слагаемых ${M(sup(X, m))}: ${M(mono(n, x, m))}.` });
+    }
+    if (k === 10) {
+      p = rand(2, 7);
+      return inp({ text: `Упрости: ${M(`${X} · ${p} · ${X}`)}`, answer: `${p}${x}^2`,
+        traps: [{ ans: `${p + 2}${x}`, msg: 'Здесь умножение: ' + X + ' · ' + X + ' = ' + sup(X, 2) + '.' }, { ans: ms(2 * p, x), msg: 'Буквы перемножаются: ' + M(`${X} · ${X} = ${sup(X, 2)}`) + '.' }],
+        hint: 'Множители можно переставлять. Поставь число вперёд.',
+        solution: M(`${X} · ${p} · ${X} = ${p} · ${X} · ${X} = ${mono(p, x, 2)}`) });
+    }
+    const y = L2(x);
+    return inp({ text: `Упрости (если можно): ${M(mono(p, x) + ' + ' + mono(q, y))}. <span class="muted" style="font-size:15px">${cant}</span>`, answer: `${p}${x}+${q}${y}`,
+      traps: [{ ans: `${p + q}${x}*${y}`, msg: 'Буквы при сложении не «склеиваются»: ' + X + ' и ' + v(y) + ' — разные предметы.' }, { ans: `${p + q}${x}`, msg: v(y) + ' не превращается в ' + X + '.' }],
+      hint: `${X} и ${v(y)} — как яблоки и груши.`,
+      solution: `Слагаемые разные, свернуть нельзя: ${M(mono(p, x) + ' + ' + mono(q, y))}.` });
+  }
+
+  // 5. Свойства степеней
+  function genPowers() {
+    const x = L(), X = v(x), k = rand(1, 11);
+    if (k === 1) {
+      let m = rand(2, 6), n = rand(2, 5); if (m === 2 && n === 2) m = 3;
+      return inp({ text: `Упрости: ${M(sup(X, m) + ' · ' + sup(X, n))}`, answer: `${x}^${m + n}`,
+        traps: [{ ans: `${x}^${m * n}`, msg: `Показатели не перемножаются! Разверни: ${M(`(${rep(X, m, '·')}) · (${rep(X, n, '·')})`)} — это ${m} + ${n} множителей.` }, { ans: `2${x}^${m + n}`, msg: 'Двойка неоткуда взяться: здесь умножение, а не сложение.' }],
+        hint: 'Разверни обе степени и посчитай множители.',
+        solution: `${M(`(${rep(X, m, '·')}) · (${rep(X, n, '·')})`)} — всего ${m} + ${n} = ${m + n} множителей: ${M(sup(X, m + n))}.` });
+    }
+    if (k === 2) {
+      const n = rand(2, 4), m = n + rand(1, 4);
+      const traps = []; if (m % n === 0 && m / n !== m - n) traps.push({ ans: `${x}^${m / n}`, msg: 'Показатели не делятся! При делении сокращаем одинаковые множители — показатели <b>вычитаются</b>.' });
+      return inp({ text: `Упрости: ${M(sup(X, m) + ' : ' + sup(X, n))}`, answer: `${x}^${m - n}`, traps,
+        hint: 'Запиши деление дробью и сократи одинаковые множители.',
+        solution: `${M(fr(chipRep(X, m, '·', 'c1', m - n), chipRep(X, n, '·', 'c1', 0)))} — сократили ${n} пар множителей, осталось ${m} − ${n} = ${m - n}: ${M(powH(x, m - n))}.` });
+    }
+    if (k === 3) {
+      let m = rand(2, 4), n = rand(2, 3); if (m === 2 && n === 2) m = 3;
+      return inp({ text: `Упрости: ${M(sup('(' + sup(X, m) + ')', n))}`, answer: `${x}^${m * n}`,
+        traps: [{ ans: `${x}^${m + n}`, msg: `Это ${n} одинаковых <b>множителя</b> ${M(sup(X, m))}: ${M(rep(sup(X, m), n, '·'))}, в каждом по ${m} множителей ${X}. Всего ${n} · ${m}.` }],
+        hint: `Сначала разверни внешнюю степень: ${M(rep(sup(X, m), n, '·'))}.`,
+        solution: `${M(rep(sup(X, m), n, '·'))} = ${M(sup(X, Array(n).fill(m).join('+')))} = ${M(sup(X, m * n))}: ${n} раз по ${m} множителей.` });
+    }
+    if (k === 4) {
+      const p = rand(2, 3), n = rand(2, 3), t = `${p}${X}`;
+      return inp({ text: `Упрости: ${M(sup(`(${t})`, n))}`, answer: `${p ** n}${x}^${n}`,
+        traps: [{ ans: `${p}${x}^${n}`, msg: `В скобках и ${p}, и ${X} — в степень возводится всё: ${M(rep(t, n, '·'))}. Число ${p} тоже стоит множителем ${n} раза.` }, { ans: `${p * n}${x}^${n}`, msg: `${M(sup(p, n))} — это ${M(rep(p, n, '·'))}, а не ${p} · ${n}.` }],
+        hint: `${M(sup(`(${t})`, n))} = ${M(rep(t, n, '·'))}.`,
+        solution: `${M(rep(t, n, '·'))} = ${M(`(${rep(p, n, '·')}) · (${rep(X, n, '·')}) = ${mono(p ** n, x, n)}`)}.` });
+    }
+    if (k === 5) {
+      const y = L2(x), Y = v(y), n = rand(2, 4);
+      return inp({ text: `Упрости: ${M(sup(`(${X}${Y})`, n))}`, answer: `${x}^${n}*${y}^${n}`,
+        traps: [{ ans: `${x}*${y}^${n}`, msg: 'В степень возводится всё, что в скобках, — и ' + X + ', и ' + Y + '.' }],
+        hint: `${M(sup(`(${X}${Y})`, n))} = ${M(rep(`${X}${Y}`, n, '·'))}. Переставь множители.`,
+        solution: `${M(rep(`${X}${Y}`, n, '·'))} = ${M(`(${rep(X, n, '·')}) · (${rep(Y, n, '·')}) = ${sup(X, n)}${sup(Y, n)}`)}.` });
+    }
+    if (k === 6) {
+      const y = L2(x), Y = v(y), m = rand(2, 3), n = rand(2, 3);
+      const traps = []; if (m + n !== m * n) traps.push({ ans: `${x}^${m + n}*${y}^${n}`, msg: `${M(sup('(' + sup(X, m) + ')', n))} — это ${n} раз по ${m} множителей, показатели перемножаются.` });
+      traps.push({ ans: `${x}^${m * n}*${y}`, msg: `${Y} тоже возводится в степень.` });
+      return inp({ text: `Упрости: ${M(sup(`(${sup(X, m)}${Y})`, n))}`, answer: `${x}^${m * n}*${y}^${n}`, traps,
+        hint: 'Каждый множитель в скобках возводится в степень.',
+        solution: `${M(rep(`${sup(X, m)}${Y}`, n, '·'))} = ${M(`${sup(X, m * n)}${sup(Y, n)}`)}: множителей ${X} ${n} · ${m} = ${m * n}, множителей ${Y} — ${n}.` });
+    }
+    if (k === 7) {
+      const m = rand(2, 7);
+      return inp({ text: `Упрости: ${M(sup(X, m) + ' · ' + X)}`, answer: `${x}^${m + 1}`,
+        traps: [{ ans: `${x}^${m}`, msg: `${X} — это ${M(sup(X, 1))}, один множитель. Он тоже считается.` }, { ans: `2${x}^${m}`, msg: 'Здесь умножение, а не сложение.' }],
+        hint: `${X} = ${M(sup(X, 1))}.`,
+        solution: `${M(`${sup(X, m)} · ${sup(X, 1)} = ${sup(X, m + 1)}`)}: было ${m} множителей, добавили ещё один.` });
+    }
+    if (k === 8) {
+      const n = rand(2, 6);
+      return inp({ text: `Упрости: ${M(sup(X, n) + ' : ' + sup(X, n))}`, answer: '1',
+        traps: [{ ans: '0', msg: 'Число, делённое само на себя, равно 1, а не 0.' }],
+        hint: 'Что получится, если число разделить само на себя?',
+        solution: `Число, делённое само на себя, равно 1. По правилу вычитания показателей это ${M(sup(X, `${n}−${n}`) + ' = ' + sup(X, 0))} — поэтому и договорились, что ${M(sup(X, 0) + ' = 1')}.` });
+    }
+    if (k === 9) {
+      const p = rand(2, 5), q = rand(2, 5), m = rand(2, 4), n = rand(2, 4);
+      const traps = [{ ans: `${p + q}${x}^${m + n}`, msg: 'Коэффициенты перемножаются.' }];
+      if (m * n !== m + n) traps.push({ ans: `${p * q}${x}^${m * n}`, msg: 'Показатели складываются.' });
+      if (p * q !== p + q) traps.push({ ans: `${p * q}${x}^${m * n}`, msg: 'Показатели складываются.' });
+      return inp({ text: `Упрости: ${M(mono(p, x, m) + ' · ' + mono(q, x, n))}`, answer: `${p * q}${x}^${m + n}`, traps,
+        hint: 'Числа к числам, степени к степеням.',
+        solution: M(`(${p} · ${q}) · (${sup(X, m)} · ${sup(X, n)}) = ${mono(p * q, x, m + n)}`) });
+    }
+    if (k === 10) {
+      const m = rand(2, 3), n = rand(2, 3), j = rand(1, 3);
+      return inp({ text: `Упрости: ${M(sup('(' + sup(X, m) + ')', n) + ' · ' + powH(x, j))}`, answer: `${x}^${m * n + j}`,
+        traps: [{ ans: `${x}^${m + n + j}`, msg: 'Степень степени: показатели перемножаются (' + n + ' раз по ' + m + ').' }],
+        hint: 'Сначала степень степени, потом умножение.',
+        solution: M(`${sup(X, m * n)} · ${powH(x, j)} = ${sup(X, m * n + j)}`) + ` (${m}·${n} + ${j} = ${m * n + j} множителей).` });
+    }
+    const m = rand(2, 5), n = rand(2, 5), j = rand(2, m + n - 1);
+    return inp({ text: `Упрости: ${M(sup(X, m) + ' · ' + sup(X, n) + ' : ' + sup(X, j))}`, answer: powS(x, m + n - j),
+      traps: [],
+      hint: 'Сначала посчитай множители в произведении, потом сократи.',
+      solution: `${M(sup(X, m) + ' · ' + sup(X, n) + ' = ' + sup(X, m + n))}, затем ${M(sup(X, m + n) + ' : ' + sup(X, j) + ' = ' + powH(x, m + n - j))}.` });
+  }
+
+  // 6. Степени чисел
+  function genNumPow() {
+    const k = rand(1, 5);
+    if (k <= 3) {
+      const b = pick([2, 3, 5, 10]);
+      if (k === 1) {
+        let m = rand(2, 5), n = rand(2, 5); if (m === 2 && n === 2) n = 3;
+        return inp({ needPower: String(b), text: `Запиши в виде степени с основанием ${b}: ${M(sup(b, m) + ' · ' + sup(b, n))}`, answer: `${b}^${m + n}`,
+          traps: [{ ans: `${b}^${m * n}`, msg: 'Показатели складываются: считаем множители.' }, { ans: `${b * b}^${m + n}`, msg: `Основание не меняется: перемножаются ${b}-ки, их просто становится больше.` }],
+          hint: `Сколько всего множителей ${b}?`,
+          solution: `${M(`(${rep(b, m, '·')}) · (${rep(b, n, '·')})`)} — ${m + n} множителей: ${M(sup(b, m + n))}.` });
+      }
+      if (k === 2) {
+        const n = rand(2, 4), m = n + rand(1, 5);
+        return inp({ needPower: String(b), text: `Запиши в виде степени с основанием ${b}: ${M(sup(b, m) + ' : ' + sup(b, n))}`, answer: `${b}^${m - n}`,
+          traps: m % n === 0 && m / n !== m - n ? [{ ans: `${b}^${m / n}`, msg: 'Показатели вычитаются, а не делятся.' }] : [],
+          hint: 'Сократи одинаковые множители.',
+          solution: `Сокращаем ${n} множителей ${b}: остаётся ${m} − ${n} = ${m - n}. Ответ ${M(sup(b, m - n))}.` });
+      }
+      let m = rand(2, 4), n = rand(2, 3); if (m === 2 && n === 2) m = 3;
+      return inp({ needPower: String(b), text: `Запиши в виде степени с основанием ${b}: ${M(sup('(' + sup(b, m) + ')', n))}`, answer: `${b}^${m * n}`,
+        traps: [{ ans: `${b}^${m + n}`, msg: `Это ${n} множителя ${M(sup(b, m))}, в каждом ${m} множителей ${b}: показатели перемножаются.` }],
+        hint: `Разверни: ${M(rep(sup(b, m), n, '·'))}.`,
+        solution: `${M(rep(sup(b, m), n, '·'))} = ${M(sup(b, m * n))}.` });
+    }
+    if (k === 4) {
+      const [b, n] = pick([[2, rand(3, 6)], [3, rand(2, 4)], [10, rand(2, 6)], [5, rand(2, 3)]]);
+      return inp({ numeric: true, text: `Вычисли: ${M(sup(b, n))}`, answer: String(b ** n),
+        traps: [{ ans: String(b * n), msg: `${M(sup(b, n))} — это не «${b} умножить на ${n}», а ${M(rep(b, n, '·'))}.` }],
+        hint: `${M(rep(b, n, '·'))}.`,
+        solution: `${M(rep(b, n, '·') + ' = ' + b ** n)}.` });
+    }
+    const m = rand(2, 4), n = rand(2, 7 - m);
+    return inp({ numeric: true, text: `Вычисли: ${M(sup(2, m) + ' · ' + sup(2, n))}`, answer: String(2 ** (m + n)),
+      traps: m * n !== m + n ? [{ ans: String(2 ** (m * n)), msg: 'Показатели складываются, а не перемножаются.' }] : [],
+      hint: `Можно сначала сложить показатели: ${M(sup(2, '?'))}.`,
+      solution: `${M(sup(2, m) + ' · ' + sup(2, n) + ' = ' + sup(2, m + n) + ' = ' + 2 ** (m + n))}. Проверка: ${2 ** m} · ${2 ** n} = ${2 ** (m + n)}.` });
+  }
+
+  // 7. Верно или неверно
+  function genTF() {
+    const x = L(), X = v(x);
+    let m = rand(2, 5), n = rand(2, 5); if (m === 2 && n === 2) n = 3;
+    const p = rand(2, 5), q = rand(3, 5);
+    const a = R(rand(1, 4), rand(5, 9)), c = R(rand(1, 4), rand(5, 9));
+    const items = [
+      () => tf(`${sup(X, m)} · ${sup(X, n)} = ${sup(X, m + n)}`, true, `Верно: ${m} множителей и ещё ${n} — всего ${m + n}.`),
+      () => tf(`${sup(X, m)} · ${sup(X, n)} = ${sup(X, m * n)}`, false, `Неверно: множители считаем, ${m} + ${n} = ${m + n}. Правильно: ${M(sup(X, m + n))}.`),
+      () => tf(`${sup(X, 2)} + ${sup(X, 2)} = ${sup(X, 4)}`, false, `Неверно: два одинаковых слагаемых дают ${M(mono(2, x, 2))}. Проверка при ${M(X + ' = 3')}: 9 + 9 = 18, а ${M(sup(3, 4))} = 81.`),
+      () => tf(`${sup(X, 2)} + ${sup(X, 2)} = ${mono(2, x, 2)}`, true, 'Верно: два одинаковых слагаемых.'),
+      () => tf(`${X} + ${X} = ${sup(X, 2)}`, false, `Неверно: ${M(`${X} + ${X} = 2${X}`)}. А ${M(sup(X, 2))} = ${M(`${X} · ${X}`)}. При ${M(X + ' = 5')}: 10 и 25.`),
+      () => tf(`${X} · ${X} = 2${X}`, false, `Неверно: ${M(`${X} · ${X} = ${sup(X, 2)}`)}. А ${M('2' + X)} — это ${M(`${X} + ${X}`)}.`),
+      () => tf(`${X} · ${X} = ${sup(X, 2)}`, true, 'Верно: два одинаковых множителя.'),
+      () => tf(`(${sup(X, m)})<sup>${n}</sup> = ${sup(X, m + n)}`, false, `Неверно: ${n} раз по ${m} множителей, это ${M(sup(X, m * n))}.`),
+      () => tf(`(${sup(X, m)})<sup>${n}</sup> = ${sup(X, m * n)}`, true, `Верно: ${n} раз по ${m} множителей.`),
+      () => tf(`${mono(p, x)} · ${mono(q, x)} = ${mono(p * q, x)}`, false, `Неверно: ${X} встретилась множителем дважды, ответ ${M(mono(p * q, x, 2))}.`),
+      () => tf(`(2${X})<sup>3</sup> = 2${sup(X, 3)}`, false, `Неверно: ${M(`2${X} · 2${X} · 2${X} = 8${sup(X, 3)}`)}.`),
+      () => tf(`(2${X})<sup>3</sup> = 8${sup(X, 3)}`, true, `Верно: ${M(`2${X} · 2${X} · 2${X} = (2·2·2)·(${X}·${X}·${X})`)}.`),
+      () => tf(`${sup(X, 0)} = 0`, false, `Неверно: ${M(sup(X, 0) + ' = 1')}, потому что ${M(sup(X, 3) + ' : ' + sup(X, 3) + ' = 1')}.`),
+      () => tf(`${sup(X, 2)} + ${sup(X, 3)} = ${sup(X, 5)}`, false, `Неверно: показатели складываются только при <b>умножении</b>. При ${M(X + ' = 2')}: 4 + 8 = 12, а ${M(sup(2, 5))} = 32.`),
+      () => tf(`3${X} + 2${X} = 5${sup(X, 2)}`, false, `Неверно: ${M(`3${X} + 2${X} = 5${X}`)}. Квадрат появляется только при умножении.`),
+      () => tf(`${X} : ${fr(1, 2)} = ${fr(X, 2)}`, false, `Неверно: половинка помещается в ${X} 2${X} раз. ${M(`${X} : ${fr(1, 2)} = ${X} · 2 = 2${X}`)}.`),
+      () => tf(`${X} : ${fr(1, q)} = ${q}${X}`, true, `Верно: в каждой единице ${q} кусков по ${M(fr(1, q))}.`),
+      () => tf(`${rh(a)} : ${rh(c)} = ${rh(a)} · ${fr(c[1], c[0])}`, true, 'Верно: переворачиваем делитель и меняем «:» на «·».'),
+      () => tf(`${rh(a)} : ${rh(c)} = ${fr(a[1], a[0])} · ${rh(c)}`, false, 'Неверно: перевернули делимое. Переворачиваем только ту дробь, <b>на которую</b> делим.'),
+      () => tf(`${rh(a)} : ${rh(c)} = ${rh(a)} · ${rh(c)}`, false, 'Неверно: при делении дробь-делитель нужно перевернуть.'),
+      () => tf(`6 : ${fr(1, 2)} = 3`, false, `Неверно: делим на число меньше 1 — ответ больше. ${M(`6 : ${fr(1, 2)} = 6 · 2 = 12`)}. А 3 — это ${M(`6 · ${fr(1, 2)}`)}.`)
+    ];
+    return pick(items)();
+  }
+
+  // 8. Деление на дробь: смысл
+  function genDivWhy() {
+    const k = rand(1, 7);
+    if (k === 1) {
+      const n = rand(1, 4), q = rand(2, 5);
+      return inp({ numeric: true, text: `Сколько раз кусок длиной ${M(fr(1, q))} помещается в отрезке длиной ${n}?`, answer: String(n * q),
+        traps: [{ ans: `${n}/${q}`, msg: `Кусочки маленькие (меньше 1), значит их помещается <b>больше</b>, чем ${n}.` }],
+        hint: `Сколько кусков по ${M(fr(1, q))} помещается в одной единице?`,
+        solution: `В единице ${q} кусков, в ${n} единицах — ${M(`${n} · ${q} = ${n * q}`)}. Значит ${M(`${n} : ${fr(1, q)} = ${n} · ${q} = ${n * q}`)}.<div style="margin-top:8px">${barSVG([n, 1], [1, q])}</div>` });
+    }
+    if (k === 2) {
+      const [p, q] = pick([[2, 3], [3, 4], [2, 5], [3, 5], [4, 5], [5, 6], [3, 2], [2, 7]]);
+      const n = p * rand(1, 2) <= 6 ? p * rand(1, 2) : p;
+      const ans = n * q / p;
+      return inp({ numeric: true, text: `Сколько раз кусок длиной ${M(fr(p, q))} помещается в отрезке длиной ${n}?`, answer: String(ans),
+        traps: [{ ans: rs(R(n * p, q)), msg: `Ты умножил на ${M(fr(p, q))}. А вопрос «сколько раз помещается» — это деление, то есть умножение на ${M(fr(q, p))}.` }],
+        hint: `Сначала посчитай, сколько поместится кусков по ${M(fr(1, q))}. Кусок ${M(fr(p, q))} в ${p} раза длиннее.`,
+        solution: `Кусков по ${M(fr(1, q))} поместилось бы ${M(`${n} · ${q} = ${n * q}`)}. Кусок ${M(fr(p, q))} в ${p} раза длиннее, значит их в ${p} раза меньше: ${M(`${n * q} : ${p} = ${ans}`)}. Это и есть ${M(`${n} · ${fr(q, p)}`)}.<div style="margin-top:8px">${barSVG([n, 1], [p, q])}</div>` });
+    }
+    if (k === 3) {
+      const x = L(), r = R(rand(1, 7), rand(2, 9));
+      if (r[0] === 1 && r[1] === 1) return genDivWhy();
+      return inp({ numeric: true, text: `Замени деление умножением: ${M(`${v(x)} : ${rh(r)} = ${v(x)} · ?`)} Впиши число вместо «?».`, answer: rs([r[1], r[0]]),
+        traps: [{ ans: rs(r), msg: 'Дробь-делитель нужно перевернуть: числитель и знаменатель меняются местами.' }],
+        hint: 'Переверни делитель.',
+        solution: `${M(`${v(x)} : ${rh(r)} = ${v(x)} · ${rh([r[1], r[0]])}`)}. Проверка: ${M(`${rh(r)} · ${rh([r[1], r[0]])} = 1`)}.` });
+    }
+    if (k === 4) {
+      const r = rand(0, 2) ? R(rand(1, 8), rand(2, 9)) : [rand(2, 9), 1];
+      if (r[0] === r[1]) return genDivWhy();
+      return inp({ numeric: true, text: `На какое число нужно умножить ${M(rh(r))}, чтобы получилась 1?`, answer: rs([r[1], r[0]]),
+        traps: [{ ans: rs(r), msg: `${M(`${rh(r)} · ${rh(r)}`)} не равно 1. Нужно перевернуть.` }],
+        hint: `Такое число называется обратным к ${M(rh(r))}.`,
+        solution: `${M(`${rh(r)} · ${rh([r[1], r[0]])} = 1`)}. Числа ${M(rh(r))} и ${M(rh([r[1], r[0]]))} взаимно обратные. Делить на ${M(rh(r))} — то же, что умножать на ${M(rh([r[1], r[0]]))}.` });
+    }
+    if (k === 5) {
+      const a = R(rand(1, 5), rand(2, 9)), c = R(rand(1, 5), rand(2, 9));
+      if ((a[0] === c[0] && a[1] === c[1]) || a[1] === 1 || c[1] === 1 || a[0] === a[1] || c[0] === c[1]) return genDivWhy();
+      const A = fr(a[0], a[1]), C = fr(c[0], c[1]), Ai = fr(a[1], a[0]), Ci = fr(c[1], c[0]);
+      return mc(`Как правильно продолжить: ${M(`${A} : ${C} = …`)}`, M(`${A} · ${Ci}`), [M(`${Ai} · ${C}`), M(`${Ai} · ${Ci}`), M(`${A} · ${C}`)],
+        `Делимое ${M(A)} не трогаем. Делитель ${M(C)} переворачиваем, «:» меняем на «·»: ${M(`${A} · ${Ci}`)}.`);
+    }
+    if (k === 6) {
+      const [p, q] = pick([[1, 2], [1, 3], [2, 3], [3, 4], [2, 5], [3, 5], [1, 4]]), t = rand(1, 3);
+      const Rr = q * t, W = p * t;
+      return inp({ numeric: true, text: `Утверждаем: ${M(`${W} : ${fr(p, q)} = ${Rr}`)}. Проверь умножением: сколько будет ${M(`${Rr} · ${fr(p, q)}`)}?`, answer: String(W),
+        hint: 'Частное, умноженное на делитель, должно дать делимое.',
+        solution: `${M(`${Rr} · ${fr(p, q)} = ${fr(Rr * p, q)} = ${W}`)}. Получили делимое ${W} — значит деление выполнено верно. Так можно проверять любой ответ.` });
+    }
+    const W = rand(2, 9), c = pick([[1, 2], [1, 3], [2, 3], [3, 4], [3, 2], [4, 3], [5, 2], [2, 5]]);
+    const res = R(W * c[1], c[0]);
+    const bigger = c[0] < c[1];
+    return mc(`Без вычислений: ответ ${M(`${W} : ${fr(c[0], c[1])}`)} будет…`, bigger ? `больше ${W}` : `меньше ${W}`, [bigger ? `меньше ${W}` : `больше ${W}`, `равен ${W}`],
+      `${M(fr(c[0], c[1]))} ${bigger ? 'меньше 1 — куски маленькие, их помещается больше' : 'больше 1 — куски большие, их помещается меньше'}, чем ${W}. Точно: ${M(`${W} · ${fr(c[1], c[0])} = ${rh(res)}`)}.`);
+  }
+
+  // 9. Деление дробей: числа
+  function randFrac(proper) {
+    for (;;) { const d = rand(2, 9), n = proper ? rand(1, d - 1) : rand(1, 2 * d); const r = R(n, d); if (r[1] !== 1) return r; }
+  }
+  function genDivNum() {
+    const k = rand(1, 4);
+    let a, c;
+    if (k === 1) { a = [rand(1, 6), 1]; c = randFrac(true); }
+    else if (k === 2) { a = randFrac(rand(0, 1) === 1); do { c = randFrac(true); } while (c[0] === a[0] && c[1] === a[1]); }
+    else if (k === 3) { a = randFrac(true); c = [rand(2, 5), 1]; }
+    else { c = randFrac(true); a = rmul([rand(2, 6), 1], c); }
+    const res = rdiv(a, c);
+    const flip = r => [r[1], r[0]];
+    const traps = [
+      { ans: rs(rmul(a, c)), msg: `Ты умножил на делитель как есть. Делитель нужно перевернуть: «: ${rh(c)}» → «· ${rh(flip(c))}».` },
+      { ans: rs(rmul(flip(a), c)), msg: 'Перевёрнута не та дробь! Переворачиваем только ту, <b>на которую</b> делим (вторую).' },
+      { ans: rs(rmul(flip(a), flip(c))), msg: 'Перевёрнуты обе дроби. Делимое (первое число) остаётся как есть.' }
+    ];
+    const A = rh(a), C = rh(c), Ci = rh(flip(c));
+    const smaller = c[0] < c[1];
+    return inp({ numeric: true, text: `Вычисли: ${M(`${A} : ${C}`)}`, answer: rs(res), traps,
+      hint: `Замени «: ${C}» на «· ${Ci}» и перемножь.`,
+      solution: `${M(`${A} : ${C} = ${A} · ${Ci} = ${fr(`${a[0]} · ${c[1]}`, `${a[1]} · ${c[0]}`)} = ${rh(res)}`)}.<br>Проверка: ${M(`${rh(res)} · ${C} = ${A}`)} ✓. ${smaller ? 'Делили на число меньше 1 — ответ больше делимого.' : 'Делили на число больше 1 — ответ меньше делимого.'}` });
+  }
+
+  // 10. Деление дробей с буквами
+  function genDivAlg() {
+    const x = pick(['a', 'x', 'b']), y = L2(x), X = v(x), Y = v(y), k = rand(1, 5);
+    if (k === 1) {
+      let p = rand(2, 9), q = rand(2, 9); if (p === q) q = p === 9 ? 2 : p + 1;
+      const r = R(q, p);
+      return inp({ numeric: true, text: `Упрости: ${M(`${fr(X, p)} : ${fr(X, q)}`)}`, answer: rs(r),
+        traps: [{ ans: rs(R(p, q)), msg: 'Перевёрнута не та дробь.' }, { ans: `${x}^2/${p * q}`, msg: 'Ты умножил, не перевернув делитель.' }],
+        hint: `Переверни вторую дробь: ${M(`${fr(X, p)} · ${fr(q, X)}`)}.`,
+        solution: M(`${fr(X, p)} · ${fr(q, X)} = ${fr(q + X, p + X)} = ${rh(r)}`) + ` (${X} сократилась).` });
+    }
+    if (k === 2) {
+      const m = rand(3, 6), n = rand(1, m - 1), j = rand(2, 4);
+      const ansS = [powS(x, m - n), powS(y, j - 1)].filter(Boolean).join('*');
+      return inp({ text: `Упрости: ${M(`${fr(sup(X, m), Y)} : ${fr(powH(x, n), sup(Y, j))}`)}`, answer: ansS,
+        traps: [{ ans: `${x}^${m + n}/${y}^${j + 1}`, msg: 'Ты умножил дроби, не перевернув делитель.' }, { ans: `${y}^${j - 1}/${x}^${m - n}`, msg: 'Похоже, перевёрнута первая дробь.' }],
+        hint: 'Переверни вторую дробь, потом сократи одинаковые множители.',
+        solution: M(`${fr(sup(X, m), Y)} · ${fr(sup(Y, j), powH(x, n))} = ${fr(sup(X, m) + sup(Y, j), powH(x, n) + Y)} = ${powH(x, m - n)}${powH(y, j - 1)}`) + `. Показатели вычитаются: ${m} − ${n} и ${j} − 1.` });
+    }
+    if (k === 3) {
+      let p = rand(2, 9), q = rand(2, 9); if (p === q) q = p === 9 ? 2 : p + 1;
+      const g = gcd(p, q), P = p / g, Q = q / g;
+      const ansS = Q === 1 ? ms(P, x) : `${P === 1 ? '' : P}${x}/${Q}`;
+      return inp({ text: `Упрости: ${M(`${fr(p, X)} : ${fr(q, sup(X, 2))}`)}`, answer: ansS,
+        traps: [{ ans: `${p * q}/${x}^3`, msg: 'Ты умножил, не перевернув делитель.' }],
+        hint: `${M(`${fr(p, X)} · ${fr(sup(X, 2), q)}`)}, потом сократи.`,
+        solution: M(`${fr(p, X)} · ${fr(sup(X, 2), q)} = ${fr(p + sup(X, 2), q + X)} = ${Q === 1 ? mono(P, x) : fr(mono(P, x), Q)}`) });
+    }
+    if (k === 4) {
+      const p = rand(2, 9), m = rand(2, 5), n = rand(1, m - 1);
+      return inp({ text: `Упрости: ${M(`${sup(X, m)} : ${fr(powH(x, n), p)}`)}`, answer: ms(p, x, m - n),
+        traps: [{ ans: `${x}^${m + n}/${p}`, msg: 'Ты умножил на делитель, не перевернув его.' }],
+        hint: `Переверни делитель: ${M(`${sup(X, m)} · ${fr(p, powH(x, n))}`)}.`,
+        solution: M(`${sup(X, m)} · ${fr(p, powH(x, n))} = ${fr(p + sup(X, m), powH(x, n))} = ${mono(p, x, m - n)}`) });
+    }
+    const m = rand(2, 5), n = rand(1, m - 1);
+    return inp({ text: `Упрости: ${M(`${sup(X, m)} : ${fr(powH(x, n), Y)}`)}`, answer: [powS(x, m - n), y].filter(Boolean).join('*'),
+      traps: [{ ans: `${x}^${m + n}/${y}`, msg: 'Делитель нужно перевернуть.' }],
+      hint: `${M(`${sup(X, m)} · ${fr(Y, powH(x, n))}`)}.`,
+      solution: M(`${sup(X, m)} · ${fr(Y, powH(x, n))} = ${fr(sup(X, m) + Y, powH(x, n))} = ${powH(x, m - n)}${Y}`) });
+  }
+
+  const CATS = [
+    { id: 'shorten', title: 'Запиши короче: «+» или «·»', gen: genShorten },
+    { id: 'expand', title: 'Что означает запись', gen: genExpand },
+    { id: 'value', title: 'Посчитай при данном числе', gen: genValue },
+    { id: 'like', title: 'Упрости: где «+», где «·»', gen: genLike },
+    { id: 'powers', title: 'Свойства степеней', gen: genPowers },
+    { id: 'numpow', title: 'Степени чисел', gen: genNumPow },
+    { id: 'tf', title: 'Верно или неверно?', gen: genTF },
+    { id: 'divwhy', title: 'Деление на дробь: смысл', gen: genDivWhy },
+    { id: 'divnum', title: 'Деление дробей: числа', gen: genDivNum },
+    { id: 'divalg', title: 'Деление дробей с буквами', gen: genDivAlg }
+  ];
+  const CAT = Object.fromEntries(CATS.map(c => [c.id, c]));
+
+  // ---------- Отрезок для деления на дробь ----------
+  function barSVG(D, d) {
+    const Dv = D[0] / D[1], dv = d[0] / d[1];
+    const ratio = rdiv(D, d);
+    const full = Math.floor(ratio[0] / ratio[1]);
+    const hasRem = ratio[0] % ratio[1] !== 0;
+    const span = Math.max(Math.ceil(Dv), (full + (hasRem ? 1 : 0)) * dv);
+    const W = 640, pad = 16, U = (W - 2 * pad) / span;
+    const L = (D[1] * d[1]) / gcd(D[1], d[1]);
+    let s = `<svg viewBox="0 0 ${W} 150" width="100%" style="max-width:${W}px;display:block" role="img" aria-label="Отрезок, разрезанный на куски">`;
+    s += `<text x="${pad}" y="13" font-size="12" fill="#667085">делимое</text>`;
+    s += `<rect x="${pad}" y="18" width="${Dv * U}" height="34" fill="#e5e7eb" stroke="#344054" stroke-width="1.5"/>`;
+    if (Dv * L <= 60) for (let i = 1; i < Dv * L; i++) { const xx = pad + (i / L) * U; s += `<line x1="${xx}" y1="18" x2="${xx}" y2="52" stroke="#98a2b3" stroke-width="0.8"/>`; }
+    for (let i = 0; i <= Math.ceil(Dv); i++) {
+      const xx = pad + i * U;
+      if (i <= Dv) s += `<line x1="${xx}" y1="14" x2="${xx}" y2="56" stroke="#1f2328" stroke-width="2"/>`;
+      s += `<text x="${xx}" y="142" font-size="13" text-anchor="middle" fill="#1f2328">${i}</text>`;
+      s += `<line x1="${xx}" y1="122" x2="${xx}" y2="128" stroke="#1f2328"/>`;
+    }
+    s += `<line x1="${pad}" y1="125" x2="${pad + span * U}" y2="125" stroke="#1f2328"/>`;
+    s += `<text x="${pad}" y="72" font-size="12" fill="#667085">куски делителя</text>`;
+    for (let i = 0; i < full; i++) {
+      const xx = pad + i * dv * U;
+      s += `<rect x="${xx}" y="76" width="${dv * U}" height="34" fill="${i % 2 ? '#fdba74' : '#93c5fd'}" stroke="#344054" stroke-width="1"/>`;
+      if (dv * U > 16) s += `<text x="${xx + dv * U / 2}" y="98" font-size="13" text-anchor="middle" fill="#1f2328">${i + 1}</text>`;
+    }
+    if (hasRem) {
+      const xx = pad + full * dv * U, rem = (Dv - full * dv);
+      s += `<rect x="${xx}" y="76" width="${dv * U}" height="34" fill="none" stroke="#b42318" stroke-dasharray="4 3"/>`;
+      s += `<rect x="${xx}" y="76" width="${rem * U}" height="34" fill="#fde68a" stroke="#344054" stroke-width="1"/>`;
+    }
+    return s + '</svg>';
+  }
+
+  // ---------- Виджет 1: машина сокращений ----------
+  function renderW1() {
+    const b = $('w1Base').value, n = +$('w1N').value;
+    $('w1NVal').textContent = n;
+    const isNum = /\d/.test(b), item = isNum ? b : v(b);
+    let h = `<div class="row-label">Сложили ${n} раз</div><div class="line math big">${chipRep(item, n, '+', 'c1')} = ${n} · ${item}${isNum ? ' = <b>' + n * b + '</b>' : ' = ' + mono(n, b)}</div>`;
+    h += `<div class="row-label">Умножили ${n} раз</div><div class="line math big">${chipRep(item, n, '·', 'c2')} = ${sup(item, n)}${isNum ? ' = <b>' + (Number(b) ** n).toLocaleString('ru-RU') + '</b>' : ''}</div>`;
+    if (isNum) h += `<p class="muted" style="margin-bottom:0">Сложение каждый шаг прибавляет ${b}, а умножение каждый шаг умножает на ${b}. Поэтому ${M(sup(b, n))} растёт гораздо быстрее, чем ${M(n + ' · ' + b)}${n === 1 ? '' : n === 2 && b === '2' ? ' (только при 2 + 2 и 2 · 2 ответы случайно совпали)' : ''}.</p>`;
+    else h += `<p class="muted" style="margin-bottom:0">Одно и то же число ${n} — но в первой строке оно считает слагаемые и стоит <b>впереди</b>, а во второй считает множители и стоит <b>сверху</b>.</p>`;
+    $('w1Out').innerHTML = h;
+  }
+
+  // ---------- Виджет 2: одинаковые одночлены, разные знаки ----------
+  let w2op = '+';
+  function renderW2() {
+    let p = +$('w2P').value, q = +$('w2Q').value;
+    if (w2op === '-' && q > p) { q = p; $('w2Q').value = q; }
+    $('w2PVal').textContent = p; $('w2QVal').textContent = q;
+    const A = v('a'), t = 3;
+    let h = '';
+    if (w2op === '+') {
+      h += `<div class="line math big">${mono(p, 'a')} + ${mono(q, 'a')} = (${chipRep(A, p, '+', 'c1')}) + (${chipRep(A, q, '+', 'c2')}) = <b>${mono(p + q, 'a')}</b></div>`;
+      h += `<p>Было ${p} штук ${A}, добавили ${q} штук — стало ${p + q} штук. Коэффициенты складываются, буква остаётся той же. ${A} не превращается в ${M(sup(A, 2))}: ничего ни на что не умножали.</p>`;
+      h += `<div class="check-line">Проверка при ${M(A + ' = ' + t)}: ${M(`${p}·${t} + ${q}·${t} = ${p * t + q * t}`)} и ${M(`${p + q}·${t} = ${(p + q) * t}`)} ✓</div>`;
+    } else if (w2op === '-') {
+      h += `<div class="line math big">${mono(p, 'a')} − ${mono(q, 'a')} = ${chipRep(A, p, '+', 'c1', p - q)} = <b>${p - q === 0 ? '0' : mono(p - q, 'a')}</b></div>`;
+      h += `<p>Из ${p} штук ${A} убрали ${q} (зачёркнуты) — осталось ${p - q}.</p>`;
+      h += `<div class="check-line">Проверка при ${M(A + ' = ' + t)}: ${M(`${p * t} − ${q * t} = ${(p - q) * t}`)} ✓</div>`;
+    } else {
+      h += `<div class="line math big">${mono(p, 'a')} · ${mono(q, 'a')} = <span class="chip c3">${p}</span> · <span class="chip c1">${A}</span> · <span class="chip c3">${q}</span> · <span class="chip c1">${A}</span> = (${p} · ${q}) · (${A} · ${A}) = <b>${mono(p * q, 'a', 2)}</b></div>`;
+      h += `<p>Знак умножения: всё перемножается, множители можно переставлять. Числа отдельно: ${M(`${p} · ${q} = ${p * q}`)}. Буквы отдельно: ${M(`${A} · ${A} = ${sup(A, 2)}`)} — ${A} стоит <b>множителем</b> два раза, поэтому появилась степень.</p>`;
+      h += `<div class="check-line">Проверка при ${M(A + ' = ' + t)}: ${M(`${p * t} · ${q * t} = ${p * q * t * t}`)} и ${M(`${p * q} · ${t}<sup>2</sup> = ${p * q * t * t}`)} ✓</div>`;
+      h += `<div class="bad-line">А вот ${M(mono(p * q, 'a'))} дало бы ${p * q * t} — не то.</div>`;
+    }
+    $('w2Out').innerHTML = h;
+  }
+
+  // ---------- Виджет 3: лаборатория свойств ----------
+  function renderW3() {
+    const prop = $('w3Prop').value, m = +$('w3M').value, n = +$('w3N').value;
+    $('w3MVal').textContent = m; $('w3NVal').textContent = n;
+    $('w3MLabel').style.visibility = prop === 'prod' ? 'hidden' : 'visible';
+    const A = v('a'), B = v('b');
+    let h = '';
+    if (prop === 'mul') {
+      h += `<div class="line math big">${sup(A, m)} · ${sup(A, n)} = (${chipRep(A, m, '·', 'c1')}) · (${chipRep(A, n, '·', 'c2')}) = <b>${sup(A, m + n)}</b></div>`;
+      h += `<p>Множителей ${A}: ${m} + ${n} = ${m + n}. Поэтому при умножении степеней с одинаковым основанием <b>показатели складываются</b>: ${M(`${sup(A, 'm')} · ${sup(A, 'n')} = ${sup(A, 'm+n')}`)}.</p>`;
+      h += `<div class="check-line">Проверка при ${M(A + ' = 2')}: ${M(`${2 ** m} · ${2 ** n} = ${2 ** (m + n)}`)} и ${M(`2<sup>${m + n}</sup> = ${2 ** (m + n)}`)} ✓</div>`;
+      if (m * n !== m + n) h += `<div class="bad-line">А ${M(sup(A, m * n))} (перемножить показатели) дало бы ${2 ** (m * n)} — неверно.</div>`;
+    } else if (prop === 'div') {
+      const k = Math.min(m, n);
+      const res = m > n ? powH('a', m - n) : m === n ? '1' : fr('1', powH('a', n - m));
+      h += `<div class="line math big">${sup(A, m)} : ${sup(A, n)} = ${fr(chipRep(A, m, '·', 'c1', m - k), chipRep(A, n, '·', 'c2', n - k))} = <b>${res}</b></div>`;
+      h += `<p>Делимое и делитель имеют ${k} общих множителей ${A} — сокращаем их попарно (зачёркнуты). `;
+      if (m > n) h += `Осталось ${m} − ${n} = ${m - n}. При делении степеней <b>показатели вычитаются</b>: ${M(`${sup(A, 'm')} : ${sup(A, 'n')} = ${sup(A, 'm−n')}`)}.</p>`;
+      else if (m === n) h += `Не осталось ничего, кроме 1. А по правилу вычитания получилось бы ${M(sup(A, `${m}−${n}`) + ' = ' + sup(A, 0))}. Поэтому и договорились: <b>${M(sup(A, 0) + ' = 1')}</b>.</p>`;
+      else h += `В числителе ничего не осталось (там 1), в знаменателе осталось ${n - m} множителей.</p>`;
+      h += `<div class="check-line">Проверка при ${M(A + ' = 2')}: ${M(`${2 ** m} : ${2 ** n} = ${rs(R(2 ** m, 2 ** n))}`)} ✓</div>`;
+    } else if (prop === 'pow') {
+      const cls = ['c1', 'c2', 'c3', 'c4', 'c5'];
+      const groups = Array.from({ length: n }, (_, i) => '(' + chipRep(A, m, '·', cls[i % 5]) + ')').join(' · ');
+      h += `<div class="line math big">(${sup(A, m)})<sup>${n}</sup> = ${rep(sup(A, m), n, '·')} = ${groups} = <b>${sup(A, m * n)}</b></div>`;
+      h += `<p>${n} раз по ${m} множителей — всего ${n} · ${m} = ${m * n}. При возведении степени в степень <b>показатели перемножаются</b>: ${M(`(${sup(A, 'm')})<sup>n</sup> = ${sup(A, 'mn')}`)}.</p>`;
+      h += `<div class="check-line">Проверка при ${M(A + ' = 2')}: ${M(`${2 ** m}<sup>${n}</sup> = ${(2 ** (m * n)).toLocaleString('ru-RU')}`)} и ${M(`2<sup>${m * n}</sup> = ${(2 ** (m * n)).toLocaleString('ru-RU')}`)} ✓</div>`;
+      if (m + n !== m * n) h += `<div class="bad-line">А ${M(sup(A, m + n))} дало бы ${2 ** (m + n)} — неверно.</div>`;
+    } else if (prop === 'prod') {
+      const AB = `<span class="chip c1">${A}</span><span class="chip c2">${B}</span>`;
+      h += `<div class="line math big">(${A}${B})<sup>${n}</sup> = ${Array(n).fill('(' + AB + ')').join(' · ')} = (${chipRep(A, n, '·', 'c1')}) · (${chipRep(B, n, '·', 'c2')}) = <b>${sup(A, n)}${sup(B, n)}</b></div>`;
+      h += `<p>Множители можно переставлять: собираем все ${A} вместе и все ${B} вместе. <b>В степень возводится каждый множитель</b>: ${M(`(${A}${B})<sup>n</sup> = ${sup(A, 'n')}${sup(B, 'n')}`)}. Например, ${M(`(2${A})<sup>${n}</sup> = ${2 ** n}${sup(A, n)}`)}.</p>`;
+    } else {
+      const left = `(${chipRep(A, m, '·', 'c1')}) + (${chipRep(A, n, '·', 'c2')})`;
+      if (m !== n) {
+        h += `<div class="line math big">${sup(A, m)} + ${sup(A, n)} = ${left}</div>`;
+        h += `<p>Это <b>сложение двух разных слагаемых</b>. Свернуть в коэффициент нельзя — слагаемые разные. Складывать показатели тоже нельзя — это правило для <i>умножения</i>. Выражение ${M(sup(A, m) + ' + ' + sup(A, n))} так и остаётся.</p>`;
+        h += `<div class="bad-line">Проверка при ${M(A + ' = 2')}: ${M(`${2 ** m} + ${2 ** n} = ${2 ** m + 2 ** n}`)}, а ${M(`2<sup>${m + n}</sup> = ${2 ** (m + n)}`)}. Не равно — значит ${M(sup(A, m) + ' + ' + sup(A, n) + ' ≠ ' + sup(A, m + n))}.</div>`;
+      } else {
+        h += `<div class="line math big">${sup(A, m)} + ${sup(A, n)} = ${left} = <b>2${sup(A, m)}</b></div>`;
+        h += `<p>Слагаемые одинаковые, значит их можно свернуть в коэффициент: два «яблока» ${M(sup(A, m))}. Показатель не меняется!</p>`;
+        h += `<div class="check-line">Проверка при ${M(A + ' = 2')}: ${M(`${2 ** m} + ${2 ** m} = ${2 ** (m + 1)}`)} и ${M(`2 · ${2 ** m} = ${2 ** (m + 1)}`)} ✓</div>`;
+        h += `<div class="bad-line">А ${M(sup(A, 2 * m))} = ${2 ** (2 * m)} — неверно.</div>`;
+      }
+    }
+    $('w3Out').innerHTML = h;
+  }
+
+  // ---------- Виджет 4: деление отрезка ----------
+  function parseR(s) { const [a, b] = s.split('/').map(Number); return R(a, b || 1); }
+  function pieces(n) {
+    const a = n % 10, b = n % 100;
+    if (a === 1 && b !== 11) return 'целый кусок';
+    if (a >= 2 && a <= 4 && (b < 12 || b > 14)) return 'целых куска';
+    return 'целых кусков';
+  }
+  function renderW4() {
+    const D = parseR($('w4D').value), d = parseR($('w4d').value);
+    const r = rdiv(D, d), full = Math.floor(r[0] / r[1]), rem = R(r[0] - full * r[1], r[1]);
+    const di = [d[1], d[0]];
+    let h = barSVG(D, d);
+    h += `<p>Сколько раз кусок ${M(rh(d))} помещается в ${M(rh(D))}? По картинке: <b>${full}</b> ${pieces(full)}${rem[0] ? ` и ещё ${M(rh(rem))} куска (жёлтая часть)` : ''}. Значит ${M(`${rh(D)} : ${rh(d)} = ${rh(r)}`)}.</p>`;
+    h += `<p>Теперь умножим на перевёрнутую дробь: ${M(`${rh(D)} · ${rh(di)} = ${rh(rmul(D, di))}`)} — <b>то же самое</b>.</p>`;
+    h += `<p class="muted" style="margin-bottom:0">Почему: в одной единице помещается ${M(rh(di))} куска длиной ${M(rh(d))}${d[0] === 1 ? ` (единицу режем на ${d[1]} частей)` : ` (кусков по ${M(fr(1, d[1]))} было бы ${d[1]}, а наш кусок в ${d[0]} раза длиннее — значит ${d[1]} : ${d[0]})`}. В ${M(rh(D))} единицах — в ${M(rh(D))} раз больше: ${M(`${rh(D)} · ${rh(di)}`)}.</p>`;
+    $('w4Out').innerHTML = h;
+  }
+
+  // ---------- Тренажёр ----------
+  const st = { mode: 'cat', cat: 'shorten', task: null, checked: false, lastText: '', test: null, solvedOk: false };
+  function load(k, def) { try { return Object.assign(def, JSON.parse(localStorage.getItem(k) || '{}')); } catch (_) { return def; } }
+  const stats = load('pwd-stats', { solved: 0, correct: 0, streak: 0 });
+  const hist = load('pwd-hist', {});
+  function save() { try { localStorage.setItem('pwd-stats', JSON.stringify(stats)); localStorage.setItem('pwd-hist', JSON.stringify(hist)); } catch (_) {} }
+  function updateStats() {
+    $('sSolved').textContent = stats.solved; $('sCorrect').textContent = stats.correct; $('sStreak').textContent = stats.streak;
+    $('sAcc').textContent = stats.solved ? Math.round(stats.correct / stats.solved * 100) + '%' : '—';
+  }
+  const mastery = id => { const h = hist[id] || []; return { n: h.length, ok: h.reduce((a, b) => a + b, 0) }; };
+  function renderCats() {
+    $('catGrid').innerHTML = CATS.map(c => {
+      const m = mastery(c.id), done = m.n >= 10 && m.ok >= 9;
+      const active = st.mode === 'cat' && st.cat === c.id && !st.test;
+      return `<button type="button" class="topic-btn${active ? ' active' : ''}" data-cat="${c.id}">${c.title}<div class="bar"><i class="${done ? 'done' : ''}" style="width:${m.ok * 10}%"></i></div><small>${m.n ? `${m.ok} из ${m.n} последних` : 'ещё не решал'}${done ? ' · освоено ✓' : ''}</small></button>`;
+    }).join('');
+    $('modeMix').classList.toggle('primary', st.mode === 'mix' && !st.test);
+    $('modeTest').classList.toggle('primary', !!st.test);
+  }
+  function weightedCat() {
+    const ws = CATS.map(c => { const m = mastery(c.id); const acc = m.n ? m.ok / m.n : 0.5; return 0.4 + (1 - acc) * 2 + (m.n < 10 ? 0.6 : 0); });
+    let r = Math.random() * ws.reduce((a, b) => a + b, 0);
+    for (let i = 0; i < CATS.length; i++) { r -= ws[i]; if (r <= 0) return CATS[i].id; }
+    return CATS[CATS.length - 1].id;
+  }
+  function makeTask(catId) {
+    let t, tries = 0;
+    do { t = CAT[catId].gen(); tries++; } while (t.text === st.lastText && tries < 15);
+    t.cat = catId; st.lastText = t.text; return t;
+  }
+  const hide = el => el.classList.add('hidden');
+  const show = el => el.classList.remove('hidden');
+  function feedback(html, cls) { const f = $('feedback'); f.innerHTML = html; f.className = 'message' + (cls ? ' ' + cls : ''); }
+
+  function showTask(t) {
+    st.task = t; st.checked = false; st.solvedOk = false;
+    const inTest = !!st.test;
+    $('taskLabel').textContent = inTest ? `Контрольная · задача ${st.test.i + 1} из ${st.test.tasks.length} · ${CAT[t.cat].title}` : CAT[t.cat].title;
+    $('taskText').innerHTML = t.text;
+    hide($('feedback')); hide($('hintBox')); hide($('solBox'));
+    $('hintBtn').classList.toggle('hidden', inTest || !t.hint);
+    $('solBtn').classList.toggle('hidden', inTest);
+    if (t.type === 'input') {
+      show($('inputBlock')); hide($('optBlock')); show($('checkBtn'));
+      $('answerInput').value = ''; $('preview').innerHTML = '';
+      $('answerInput').focus({ preventScroll: true });
+    } else {
+      hide($('inputBlock')); show($('optBlock')); hide($('checkBtn'));
+      const ob = $('optBlock');
+      ob.innerHTML = t.type === 'tf'
+        ? `<div class="tf-row">${t.options.map((o, i) => `<button type="button" class="opt" data-i="${i}">${o}</button>`).join('')}</div>`
+        : t.options.map((o, i) => `<button type="button" class="opt" data-i="${i}">${'абвг'[i]}) ${o}</button>`).join('');
+    }
+    renderCats();
+  }
+  function nextTask() {
+    if (st.test) {
+      if (st.test.i >= st.test.tasks.length) return;
+      showTask(st.test.tasks[st.test.i]);
+      return;
+    }
+    showTask(makeTask(st.mode === 'mix' ? weightedCat() : st.cat));
+  }
+  function record(ok, given) {
+    if (st.checked) return;
+    st.checked = true;
+    stats.solved++;
+    if (ok) { stats.correct++; stats.streak++; } else stats.streak = 0;
+    const h = hist[st.task.cat] = hist[st.task.cat] || [];
+    h.push(ok ? 1 : 0); while (h.length > 10) h.shift();
+    save(); updateStats(); renderCats();
+    if (st.test) st.test.results.push({ task: st.task, ok, given });
+  }
+  function correctHTML(t) { return t.type === 'input' ? prettyAns(t.answer) : t.options[t.correct]; }
+
+  function afterTestAnswer(ok) {
+    st.test.i++;
+    feedback(ok ? 'Верно.' : 'Неверно.', ok ? 'ok' : 'bad');
+    if (st.test.i >= st.test.tasks.length) finishTest();
+  }
+  function finishTest() {
+    const res = st.test.results, good = res.filter(r => r.ok).length;
+    const mark = good >= 14 ? 5 : good >= 11 ? 4 : good >= 8 ? 3 : 2;
+    let h = `<b>Контрольная окончена: ${good} из ${res.length}.</b> Оценка: ${mark}.`;
+    const bad = res.filter(r => !r.ok);
+    if (bad.length) {
+      h += '<div style="margin-top:8px">Разбор ошибок:</div>';
+      h += bad.map(r => `<div class="summary-item"><div>${r.task.text}</div><div>Твой ответ: ${r.given}</div><div>Правильно: ${correctHTML(r.task)}</div><div class="muted">${r.task.solution}</div></div>`).join('');
+    } else h += ' Без единой ошибки!';
+    h += '<div class="button-row"><button type="button" class="action primary" id="testAgain">Ещё одна контрольная</button></div>';
+    const f = $('feedback'); f.innerHTML = h; f.className = 'message' + (good >= 11 ? ' ok' : ''); f.style.color = 'var(--text)';
+    $('testAgain').addEventListener('click', startTest);
+    st.test.done = true;
+  }
+
+  function checkInput() {
+    const t = st.task; if (!t || t.type !== 'input') return;
+    if (st.test && st.checked) return;
+    const raw = $('answerInput').value;
+    const r = evaluateAnswer(t, raw);
+    $('feedback').style.color = '';
+    if (r.kind === 'empty') { feedback('Впиши ответ.', ''); return; }
+    if (r.kind === 'error') { feedback('Не получилось прочитать запись: ' + r.msg, 'warn'); return; }
+    if (r.kind === 'almost') { feedback(r.msg, 'warn'); return; }
+    const ok = r.kind === 'ok';
+    const given = M(pretty(normalize(raw)));
+    if (st.test) { record(ok, given); afterTestAnswer(ok); return; }
+    if (ok) {
+      record(true);
+      st.solvedOk = true;
+      feedback(`Правильно! ${r.note || ''} <span class="muted">Enter — следующая задача.</span>`, 'ok');
+    } else {
+      record(false);
+      feedback((r.msg ? r.msg + '<br>' : 'Пока неверно. ') + 'Попробуй ещё раз или нажми «Разверни».', 'bad');
+    }
+  }
+  function chooseOption(i) {
+    const t = st.task; if (!t || st.checked) return;
+    const ok = i === t.correct;
+    record(ok, t.options[i]);
+    $('feedback').style.color = '';
+    document.querySelectorAll('#optBlock .opt').forEach(b => {
+      b.disabled = true;
+      const k = +b.dataset.i;
+      if (!st.test && k === t.correct) b.classList.add('right');
+      if (k === i && !ok) b.classList.add('wrongpick');
+      if (k === i && ok) b.classList.add('right');
+    });
+    if (st.test) { afterTestAnswer(ok); return; }
+    st.solvedOk = true;
+    feedback((ok ? 'Правильно! ' : 'Ошибка. ') + t.solution, ok ? 'ok' : 'bad');
+  }
+  function startTest() {
+    const order = shuffle(CATS.map(c => c.id));
+    while (order.length < 15) order.push(weightedCat());
+    st.test = { tasks: [], i: 0, results: [] };
+    st.lastText = '';
+    for (const id of order) st.test.tasks.push(makeTask(id));
+    renderCats();
+    nextTask();
+  }
+
+  // клавиатура
+  const KEYS = ['²', '³', '^', '·', ':', '/', '(', ')', '+', '−', 'a', 'b', 'x', 'y', 'm', '⌫'];
+  $('kbd').innerHTML = KEYS.map(k => `<button type="button" data-k="${k}">${/[a-z]/.test(k) ? `<i>${k}</i>` : k}</button>`).join('');
+  function updatePreview() {
+    const raw = $('answerInput').value;
+    if (!raw.trim()) { $('preview').innerHTML = ''; return; }
+    try { parseExpr(raw); $('preview').innerHTML = 'Ты записал: ' + M(pretty(normalize(raw))); }
+    catch (e) { $('preview').innerHTML = 'Ты записал: ' + M(pretty(normalize(raw))) + ' <span style="color:var(--warn)">(' + (e.message || '?') + ')</span>'; }
+  }
+  $('kbd').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    const el = $('answerInput'), k = b.dataset.k;
+    const a = el.selectionStart ?? el.value.length, z = el.selectionEnd ?? a;
+    if (k === '⌫') {
+      if (a === z && a > 0) { el.value = el.value.slice(0, a - 1) + el.value.slice(z); el.selectionStart = el.selectionEnd = a - 1; }
+      else { el.value = el.value.slice(0, a) + el.value.slice(z); el.selectionStart = el.selectionEnd = a; }
+    } else { el.value = el.value.slice(0, a) + k + el.value.slice(z); el.selectionStart = el.selectionEnd = a + k.length; }
+    el.focus(); updatePreview();
+  });
+  $('answerInput').addEventListener('input', updatePreview);
+  $('answerInput').addEventListener('keydown', e => {
+    if (e.key !== 'Enter') return;
+    e.preventDefault();
+    if (st.test && st.checked) { if (!st.test.done) nextTask(); return; }
+    if (st.solvedOk) nextTask(); else checkInput();
+  });
+  $('optBlock').addEventListener('click', e => { const b = e.target.closest('.opt'); if (b) chooseOption(+b.dataset.i); });
+  $('checkBtn').addEventListener('click', checkInput);
+  $('nextBtn').addEventListener('click', () => {
+    if (st.test) {
+      if (st.test.done) return;
+      if (!st.checked) { record(false, '— (пропущено)'); afterTestAnswer(false); if (st.test.done) return; }
+    }
+    nextTask();
+  });
+  $('hintBtn').addEventListener('click', () => { if (!st.task) return; const b = $('hintBox'); b.innerHTML = '<b>Подсказка:</b> ' + st.task.hint; show(b); });
+  $('solBtn').addEventListener('click', () => {
+    if (!st.task) return;
+    const b = $('solBox');
+    b.innerHTML = `<b>Решение:</b> ${st.task.solution}<div style="margin-top:6px"><b>Ответ:</b> ${correctHTML(st.task)}</div>`;
+    show(b);
+    if (!st.checked) record(false, '—');
+  });
+  $('catGrid').addEventListener('click', e => {
+    const b = e.target.closest('.topic-btn'); if (!b) return;
+    st.test = null; st.mode = 'cat'; st.cat = b.dataset.cat; nextTask();
+  });
+  $('modeMix').addEventListener('click', () => { st.test = null; st.mode = 'mix'; nextTask(); });
+  $('modeTest').addEventListener('click', startTest);
+  $('resetStats').addEventListener('click', () => {
+    stats.solved = stats.correct = stats.streak = 0;
+    for (const k of Object.keys(hist)) delete hist[k];
+    save(); updateStats(); renderCats();
+  });
+
+  // ---------- Печать ----------
+  $('wsCat').innerHTML = '<option value="all">Все темы вперемешку</option>' + CATS.map(c => `<option value="${c.id}">${c.title}</option>`).join('');
+  function makeSheet() {
+    let n = parseInt($('wsCount').value, 10); if (!(n >= 1)) n = 16; n = Math.min(60, n); $('wsCount').value = n;
+    const sel = $('wsCat').value, space = +$('wsSpace').value;
+    const ids = sel === 'all' ? CATS.map(c => c.id) : [sel];
+    const order = []; while (order.length < n) order.push(...shuffle(ids)); order.length = n;
+    const seen = new Set(), tasks = [];
+    for (const id of order) { let t, k = 0; do { t = CAT[id].gen(); k++; } while (seen.has(t.text) && k < 30); seen.add(t.text); t.cat = id; tasks.push(t); }
+    const title = sel === 'all' ? 'Сложение, умножение, степени, деление дробей' : CAT[sel].title;
+    const body = tasks.map((t, i) => {
+      let opts = '';
+      if (t.type === 'mc') opts = `<div class="ws-opts">${t.options.map((o, j) => `<span>${'абвг'[j]}) ${o}</span>`).join('')}</div>`;
+      if (t.type === 'tf') opts = '<div class="ws-opts"><span>□ верно</span><span>□ неверно</span></div>';
+      const sp = space && t.type === 'input' ? `<div class="ws-space" style="height:${space}mm"></div>` : '';
+      return `<div class="ws-task"><span class="n">${i + 1}.</span>${t.text}${opts}${sp}</div>`;
+    }).join('');
+    const ans = tasks.map((t, i) => `<div><b>${i + 1}.</b> ${t.type === 'input' ? prettyAns(t.answer) : t.type === 'tf' ? t.options[t.correct].toLowerCase() : 'абвг'[t.correct] + ')'}</div>`).join('');
+    const box = $('worksheet');
+    box.innerHTML = `<div class="ws-head"><h2>${title}</h2><div class="meta">Фамилия, имя: <span class="ws-fill"></span><br>Дата: <span class="ws-fill" style="width:26mm"></span></div></div>${body}
+      <div class="ws-ans-block"><div class="ws-head"><h2>Ответы</h2><div class="meta">${title}</div></div><div class="ws-ans">${ans}</div></div>`;
+    show(box);
+  }
+  function printSheet(withAns) {
+    if ($('worksheet').classList.contains('hidden')) makeSheet();
+    const b = document.body;
+    b.classList.add('ws-printing'); b.classList.toggle('ws-with-answers', withAns);
+    const done = () => { b.classList.remove('ws-printing', 'ws-with-answers'); window.removeEventListener('afterprint', done); };
+    window.addEventListener('afterprint', done);
+    window.print();
+    setTimeout(done, 1500);
+  }
+  $('wsMake').addEventListener('click', makeSheet);
+  $('wsPrint').addEventListener('click', () => printSheet(false));
+  $('wsPrintAns').addEventListener('click', () => printSheet(true));
+
+  // ---------- Запуск ----------
+  ['w1Base', 'w1N'].forEach(id => $(id).addEventListener('input', renderW1));
+  ['w2P', 'w2Q'].forEach(id => $(id).addEventListener('input', renderW2));
+  $('w2Op').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    w2op = b.dataset.op;
+    $('w2Op').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
+    renderW2();
+  });
+  ['w3Prop', 'w3M', 'w3N'].forEach(id => $(id).addEventListener('input', renderW3));
+  ['w4D', 'w4d'].forEach(id => $(id).addEventListener('input', renderW4));
+  renderW1(); renderW2(); renderW3(); renderW4();
+  updateStats(); renderCats();
+  showTask(makeTask('shorten'));
+  window.scrollTo(0, 0);
+
+  // для автоматической проверки
+  window.__pw = { CATS, parseExpr, pequal, evaluateAnswer, normalize };
+})();
+</script>
+</body>
+</html>
