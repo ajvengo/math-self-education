@@ -1,0 +1,1179 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tijdvak 1 · Jagers en boeren — самоучитель (RU/NL)</title>
+  <style>
+    :root {
+      --bg: #f7f7f8; --card: #ffffff; --text: #1f2328; --muted: #667085; --border: #d0d5dd;
+      --accent: #2563eb; --accent-text: #ffffff; --accent-soft: #eff6ff;
+      --ok: #067647; --ok-bg: #ecfdf3; --bad: #b42318; --bad-bg: #fef3f2;
+      --nl: #9a3412; --nl-bg: #fff7ed;
+      --eco: #15803d; --soc: #7c3aed; --geo: #0369a1; --tech: #b45309; --cult: #be185d;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
+    .container { width: min(1100px, calc(100% - 32px)); margin: 0 auto; padding: 22px 0 48px; }
+    h1 { margin: 0 0 6px; font-size: clamp(26px, 4vw, 38px); }
+    h2 { margin: 0 0 12px; font-size: 24px; }
+    h3 { margin: 18px 0 8px; font-size: 18px; }
+    p, li { line-height: 1.58; }
+    .subtitle { color: var(--muted); margin: 0 0 14px; }
+    .muted { color: var(--muted); }
+    .hidden { display: none !important; }
+    .crumbs { font-size: 14px; margin-bottom: 8px; }
+    .crumbs a { color: var(--accent); }
+
+    /* язык / taal */
+    body[data-lang="ru"] .nl { display: none !important; }
+    body[data-lang="nl"] .ru { display: none !important; }
+    body[data-lang="both"] .bi { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    body[data-lang="both"] .bi > .nl { border-left: 3px solid #fdba74; padding-left: 12px; }
+    body[data-lang="both"] h2 .nl::before, body[data-lang="both"] h3 .nl::before,
+    body[data-lang="both"] .tab .nl::before, body[data-lang="both"] .inl .nl::before { content: " · "; color: var(--muted); }
+    body[data-lang="both"] h2 .nl, body[data-lang="both"] h3 .nl { color: var(--nl); font-weight: 600; }
+    body[data-lang="both"] span.ru + span.nl { display: block; margin-top: 3px; color: #8a3b12; }
+    body[data-lang="both"] :is(h2,h3,h4,.tab,button,.qtype,.score,.lbl,b,label,th) span.ru + span.nl { display: inline; margin: 0; }
+    body[data-lang="both"] :is(h4,button,.qtype,.score,b,label,th) span.ru + span.nl::before { content: " · "; color: var(--muted); }
+    body[data-lang="both"] :is(.tab.active, button.primary, .tv.now) span.nl { color: inherit; opacity: .85; }
+    .bi > p, .bi > ul, .bi > ol, .bi > div { margin-top: 0; }
+    .nlt { color: var(--nl); font-weight: 650; background: var(--nl-bg); border-radius: 5px; padding: 0 4px; white-space: nowrap; }
+
+    .topbar { position: sticky; top: 0; z-index: 20; background: rgba(247,247,248,.96); backdrop-filter: blur(6px); border-bottom: 1px solid var(--border); margin: 0 -16px 18px; padding: 10px 16px; }
+    .langs { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; font-size: 14px; }
+    .langs button, .tab { border: 1px solid var(--border); background: #fff; border-radius: 999px; padding: 6px 12px; cursor: pointer; font: inherit; font-size: 14px; }
+    .langs button.active { background: var(--text); color: #fff; border-color: var(--text); }
+    .tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: thin; }
+    .tab { white-space: nowrap; }
+    .tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .tab .num { font-weight: 700; margin-right: 4px; }
+
+    .card, .callout { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px 20px; box-shadow: 0 1px 2px rgba(16,24,40,.04); margin-bottom: 14px; }
+    .kern { background: linear-gradient(135deg, #eff6ff, #f5f3ff); border: 1px solid #c7d2fe; border-radius: 16px; padding: 14px 18px; margin-bottom: 14px; }
+    .kern .lbl { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); font-weight: 700; }
+    .kern .q { font-size: 20px; font-weight: 650; margin-top: 4px; }
+    .grid { display: grid; gap: 14px; }
+    .g2 { grid-template-columns: 1fr 1fr; }
+    .g3 { grid-template-columns: repeat(3, 1fr); }
+    .g5 { grid-template-columns: repeat(5, 1fr); }
+    .pill { display: inline-block; font-size: 12px; font-weight: 700; border-radius: 999px; padding: 2px 9px; margin: 0 4px 4px 0; color: #fff; }
+    .eco { background: var(--eco); } .soc { background: var(--soc); } .geo { background: var(--geo); } .tech { background: var(--tech); } .cult { background: var(--cult); }
+    .line-card { border-top: 5px solid; }
+    .line-card.eco-b { border-top-color: var(--eco); } .line-card.soc-b { border-top-color: var(--soc); } .line-card.geo-b { border-top-color: var(--geo); }
+    .line-card.tech-b { border-top-color: var(--tech); } .line-card.cult-b { border-top-color: var(--cult); }
+
+    .cause { display: flex; flex-wrap: wrap; align-items: stretch; gap: 6px; margin: 10px 0; }
+    .cause .step { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 8px 12px; font-size: 15px; flex: 1 1 150px; }
+    .cause .arr { align-self: center; color: var(--accent); font-weight: 800; font-size: 20px; }
+    .why { border: 1px solid #fcd34d; background: #fffbeb; border-radius: 14px; margin: 12px 0; }
+    .why > summary, .alt > summary, .check > summary { cursor: pointer; padding: 12px 16px; font-weight: 650; list-style: none; }
+    .why > summary::before { content: "🤔 "; }
+    .alt { border: 1px solid #c4b5fd; background: #f5f3ff; border-radius: 14px; margin: 12px 0; }
+    .alt > summary::before { content: "🔀 "; }
+    .why > div, .alt > div, .check > div { padding: 0 16px 14px; }
+    .check { border: 1px solid #86efac; background: #f0fdf4; border-radius: 14px; margin: 12px 0; }
+    .check > summary::before { content: "✅ "; }
+    .src { border-left: 4px solid var(--muted); background: #f2f4f7; padding: 10px 14px; border-radius: 0 12px 12px 0; margin: 10px 0; font-size: 15px; }
+
+    table.tl { width: 100%; border-collapse: collapse; font-size: 15px; }
+    table.tl td, table.tl th { border-bottom: 1px solid var(--border); padding: 8px 6px; text-align: left; vertical-align: top; }
+    table.tl th { font-size: 13px; color: var(--muted); }
+    table.tl td:first-child { white-space: nowrap; font-weight: 700; }
+
+    .tijdvakken { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; }
+    .tv { border-radius: 10px; padding: 8px 6px; font-size: 12px; background: #eef2f6; color: var(--muted); min-height: 86px; }
+    .tv b { display: block; font-size: 18px; color: var(--text); }
+    .tv.now { background: var(--accent); color: #dbeafe; }
+    .tv.now b { color: #fff; }
+
+    button.action { border: 1px solid var(--border); border-radius: 12px; padding: 10px 16px; background: #fff; cursor: pointer; font: inherit; font-weight: 600; }
+    button.primary { color: #fff; background: var(--accent); border-color: var(--accent); }
+    .button-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .message { margin-top: 12px; border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; line-height: 1.5; background: #fff; }
+    .message.ok { border-color: #75c69b; background: var(--ok-bg); color: var(--ok); }
+    .message.bad { border-color: #fda29b; background: var(--bad-bg); color: var(--bad); }
+    input, select { border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; font: inherit; background: #fff; }
+
+    /* цепочка */
+    .chain { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; counter-reset: c; }
+    .node { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 10px 12px; cursor: pointer; font-size: 15px; position: relative; }
+    .node:hover, .node.active { border-color: var(--accent); background: var(--accent-soft); }
+    .node .n { font-size: 12px; color: var(--muted); font-weight: 700; }
+    .node-detail { margin-top: 14px; }
+    .order-items { display: flex; flex-direction: column; gap: 8px; }
+    .order-item { text-align: left; border: 1px solid var(--border); background: #fff; border-radius: 12px; padding: 10px 12px; cursor: pointer; font: inherit; }
+    .order-item .badge { display: inline-block; min-width: 26px; height: 26px; line-height: 26px; text-align: center; border-radius: 50%; background: #eef2f6; margin-right: 8px; font-weight: 700; }
+    .order-item.picked .badge { background: var(--accent); color: #fff; }
+    .order-item.right { border-color: #75c69b; background: var(--ok-bg); }
+    .order-item.wrong { border-color: #fda29b; background: var(--bad-bg); }
+
+    /* карточки */
+    .flash { min-height: 190px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; cursor: pointer; font-size: 22px; user-select: none; }
+    .flash .sub { font-size: 16px; color: var(--muted); margin-top: 10px; max-width: 640px; }
+    .terms { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .terms td, .terms th { border-bottom: 1px solid var(--border); padding: 8px 6px; vertical-align: top; text-align: left; }
+    .terms td:first-child { color: var(--nl); font-weight: 700; white-space: nowrap; }
+    .terms tr.known td:first-child::after { content: " ✓"; color: var(--ok); }
+
+    /* тест */
+    .opt { display: block; width: 100%; text-align: left; border: 1px solid var(--border); background: #fff; border-radius: 12px; padding: 10px 12px; margin: 6px 0; cursor: pointer; font: inherit; }
+    .opt:hover { border-color: var(--accent); }
+    .opt.right { border-color: #75c69b; background: var(--ok-bg); }
+    .opt.wrong { border-color: #fda29b; background: var(--bad-bg); }
+    .qtype { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 700; }
+    .qtext { font-size: 19px; font-weight: 600; margin: 6px 0 10px; }
+    .score { font-size: 15px; color: var(--muted); }
+    textarea { width: 100%; min-height: 90px; border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; font: inherit; }
+    .rubric label { display: block; margin: 6px 0; }
+    .regio { border-radius: 14px; padding: 12px 14px; background: #fff; border: 1px solid var(--border); }
+    .regio h4 { margin: 0 0 6px; }
+    .compass { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .compass .empty { background: #dbeafe; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #1e40af; font-size: 13px; padding: 8px; text-align: center; }
+
+    footer { color: var(--muted); font-size: 13px; margin-top: 32px; text-align: center; }
+    @media (max-width: 860px) {
+      body[data-lang="both"] .bi { grid-template-columns: 1fr; gap: 6px; }
+      body[data-lang="both"] .bi > .nl { border-left: 0; border-top: 2px dashed #fdba74; padding: 8px 0 0; }
+      .g3, .g5, .chain { grid-template-columns: 1fr 1fr; }
+      .tijdvakken { grid-template-columns: repeat(5, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .container { width: calc(100% - 20px); }
+      .g2, .g3, .g5, .chain { grid-template-columns: 1fr; }
+      .topbar { margin: 0 -10px 14px; padding: 8px 10px; }
+      .compass { grid-template-columns: 1fr; }
+      .compass .empty { display: none; }
+    }
+    @media print {
+      .topbar, .button-row, .no-print { display: none !important; }
+      section.page { display: block !important; break-before: page; }
+      details { border: 0 !important; } details > div { display: block !important; }
+      .card { box-shadow: none; }
+    }
+  </style>
+</head>
+<body data-lang="both">
+<main class="container">
+  <div class="crumbs"><a href="../index.html">← Главная</a> · <a href="index.html">История / Geschiedenis</a></div>
+  <h1>Tijdvak 1 · Tijd van jagers en boeren</h1>
+  <p class="subtitle"><span class="ru">Первобытное общество: от охотников-собирателей к первым земледельцам и первым городам (до ок. 3000 до н.э.). Самоучитель для подготовки к контрольной (brugklas VWO).</span><span class="nl">Prehistorie: van jagers-verzamelaars naar de eerste boeren en de eerste steden (tot ca. 3000 v.Chr.). Zelfstudie voor de toets (brugklas vwo).</span></p>
+
+  <div class="topbar">
+    <div class="langs">
+      <span class="muted">Язык / Taal:</span>
+      <button data-setlang="ru">RU</button>
+      <button data-setlang="both" class="active">RU + NL</button>
+      <button data-setlang="nl">NL</button>
+      <span class="muted" style="margin-left:6px">· <span class="nlt">термины</span> всегда по-голландски</span>
+    </div>
+    <nav class="tabs" id="tabs"></nav>
+  </div>
+
+<!-- ============ 0. КАРТА ============ -->
+<section class="page" id="p-kaart" data-title-ru="Система" data-title-nl="Overzicht" data-n="0">
+  <h2><span class="ru">Как устроен самоучитель</span><span class="nl">Hoe werkt deze zelfstudie?</span></h2>
+
+  <div class="card">
+    <div class="bi">
+      <div class="ru">
+        <p>История здесь — <b>не список фактов, а цепочка причин и следствий</b>. Главный вопрос любой эпохи: <b>как люди добывают еду (и всё остальное), сколько её остаётся сверх нужного и кто этим излишком распоряжается?</b> Ответ на этот вопрос почти полностью объясняет, как живут люди, кто ими управляет и во что они верят.</p>
+        <p>Каждый раздел построен одинаково: <b>ключевой вопрос</b> → объяснение с цепочкой «потому что → поэтому» → блок <b>🤔 «Почему так, а не иначе?»</b> → блок <b>🔀 «Какие были другие варианты?»</b> → <b>✅ самопроверка</b>. Голландские термины выделены <span class="nlt">вот так</span> — именно их спрашивают на контрольной.</p>
+      </div>
+      <div class="nl">
+        <p>Geschiedenis is hier <b>geen lijst met feitjes, maar een keten van oorzaken en gevolgen</b>. De hoofdvraag van elk tijdvak: <b>hoe komen mensen aan voedsel (en de rest), hoeveel blijft er over (het overschot) en wie beslist over dat overschot?</b> Het antwoord verklaart bijna altijd hoe mensen samenleven, wie de baas is en wat ze geloven.</p>
+        <p>Elk hoofdstuk is hetzelfde opgebouwd: <b>kernvraag</b> → uitleg met de keten "omdat → daardoor" → <b>🤔 "Waarom zo en niet anders?"</b> → <b>🔀 "Welke andere mogelijkheden waren er?"</b> → <b>✅ controle</b>. Nederlandse begrippen zijn <span class="nlt">zo</span> gemarkeerd: die worden op de toets gevraagd.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3><span class="ru">5 сквозных линий — через все эпохи</span><span class="nl">5 rode draden door alle tijdvakken</span></h3>
+  <div class="grid g5">
+    <div class="card line-card eco-b"><span class="pill eco">🌾</span><b><span class="ru">Экономика</span><span class="nl">Economie</span></b><p class="muted"><span class="ru">Как добывают пищу? Есть ли излишек?</span><span class="nl">Hoe kom je aan voedsel? Is er een overschot?</span></p></div>
+    <div class="card line-card soc-b"><span class="pill soc">👥</span><b><span class="ru">Общество</span><span class="nl">Samenleving</span></b><p class="muted"><span class="ru">Кто главный? Есть ли богатые и бедные?</span><span class="nl">Wie is de baas? Zijn er rijk en arm?</span></p></div>
+    <div class="card line-card geo-b"><span class="pill geo">🗺</span><b><span class="ru">География</span><span class="nl">Geografie</span></b><p class="muted"><span class="ru">Как климат, реки, почва задают выбор?</span><span class="nl">Hoe bepalen klimaat, rivieren en bodem de keuzes?</span></p></div>
+    <div class="card line-card tech-b"><span class="pill tech">🛠</span><b><span class="ru">Техника</span><span class="nl">Techniek</span></b><p class="muted"><span class="ru">Какие орудия и умения есть?</span><span class="nl">Welke werktuigen en kennis zijn er?</span></p></div>
+    <div class="card line-card cult-b"><span class="pill cult">✨</span><b><span class="ru">Культура и вера</span><span class="nl">Cultuur &amp; geloof</span></b><p class="muted"><span class="ru">Во что верят, как объясняют мир?</span><span class="nl">Wat geloven ze, hoe verklaren ze de wereld?</span></p></div>
+  </div>
+
+  <h3><span class="ru">10 эпох (tijdvakken) голландской школьной программы</span><span class="nl">De 10 tijdvakken</span></h3>
+  <div class="tijdvakken">
+    <div class="tv now"><b>1</b>Jagers en boeren<br>– 3000 v.Chr.</div>
+    <div class="tv"><b>2</b>Grieken en Romeinen<br>3000 v.Chr. – 500</div>
+    <div class="tv"><b>3</b>Monniken en ridders<br>500 – 1000</div>
+    <div class="tv"><b>4</b>Steden en staten<br>1000 – 1500</div>
+    <div class="tv"><b>5</b>Ontdekkers en hervormers<br>1500 – 1600</div>
+    <div class="tv"><b>6</b>Regenten en vorsten<br>1600 – 1700</div>
+    <div class="tv"><b>7</b>Pruiken en revoluties<br>1700 – 1800</div>
+    <div class="tv"><b>8</b>Burgers en stoommachines<br>1800 – 1900</div>
+    <div class="tv"><b>9</b>Wereldoorlogen<br>1900 – 1950</div>
+    <div class="tv"><b>10</b>Televisie en computer<br>1950 – nu</div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0"><span class="ru">Kenmerkende aspecten эпохи 1 — что точно надо уметь объяснить</span><span class="nl">Kenmerkende aspecten van tijdvak 1</span></h3>
+    <ol>
+      <li><span class="nlt">De levenswijze van jagers-verzamelaars</span> <span class="ru">— образ жизни охотников-собирателей</span></li>
+      <li><span class="nlt">Het ontstaan van landbouw en landbouwsamenlevingen</span> <span class="ru">— возникновение земледелия и земледельческих обществ</span></li>
+      <li><span class="nlt">Het ontstaan van de eerste stedelijke gemeenschappen</span> <span class="ru">— возникновение первых городских сообществ</span></li>
+    </ol>
+    <div class="bi">
+      <p class="ru muted">Вся эпоха — это ответ на один вопрос: <b>как из маленьких бродячих групп, где все примерно равны, получились города с царями, жрецами, налогами и письменностью?</b> Каждый следующий раздел — следующее звено этой цепочки.</p>
+      <p class="nl muted">Het hele tijdvak beantwoordt één vraag: <b>hoe ontstonden uit kleine rondtrekkende groepen van ongeveer gelijke mensen steden met koningen, priesters, belasting en schrift?</b> Elk volgend hoofdstuk is de volgende schakel in die keten.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Вся эпоха в одной цепочке</span><span class="nl">Het hele tijdvak in één keten</span></h3>
+    <div class="cause">
+      <div class="step"><span class="ru">Охота и собирательство</span><span class="nl">Jagen en verzamelen</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Конец ледникового периода, потепление</span><span class="nl">Einde van de ijstijd, warmer klimaat</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Земледелие и скотоводство</span><span class="nl">Landbouw en veeteelt</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Излишек еды, оседлость, рост населения</span><span class="nl">Voedseloverschot, vaste woonplaats, bevolkingsgroei</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Ремёсла, торговля, имущество, неравенство</span><span class="nl">Specialisatie, handel, bezit, ongelijkheid</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Орошение у рек → города, власть</span><span class="nl">Irrigatie bij rivieren → steden, bestuur</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Письменность → конец предыстории</span><span class="nl">Schrift → einde van de prehistorie</span></div>
+    </div>
+    <p class="muted"><span class="ru">Подробно и интерактивно — во вкладке «Цепь причин».</span><span class="nl">Uitgebreid en interactief: tabblad "Oorzaak en gevolg".</span></p>
+  </div>
+</section>
+
+<!-- ============ 1. TIJD EN BRONNEN ============ -->
+<section class="page" id="p-tijd" data-title-ru="Время и источники" data-title-nl="Tijd en bronnen" data-n="1">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Откуда мы вообще знаем о людях, которые не умели писать?</span><span class="nl">Hoe weten we iets over mensen die niet konden schrijven?</span></div></div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Предыстория и история</span><span class="nl">Prehistorie en geschiedenis</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <p><span class="nlt">prehistorie</span> (предыстория) — время, когда у людей <b>ещё не было письменности</b>. История в узком смысле начинается тогда, когда появляются <span class="nlt">geschreven bronnen</span> (письменные источники): в Месопотамии и Египте — около <b>3000 г. до н.э.</b></p>
+        <p>Граница проходит <b>в разное время в разных местах</b>: на территории Нидерландов первые тексты о местных жителях написали римляне (Юлий Цезарь, ок. 50 г. до н.э.). Поэтому для Нидерландов предыстория длилась почти на 3000 лет дольше, чем для Египта.</p>
+      </div>
+      <div class="nl">
+        <p><span class="nlt">prehistorie</span> is de tijd waarin mensen <b>nog geen schrift</b> hadden. De geschiedenis in strikte zin begint wanneer er <span class="nlt">geschreven bronnen</span> zijn: in Mesopotamië en Egypte rond <b>3000 v.Chr.</b></p>
+        <p>Die grens ligt <b>niet overal op hetzelfde moment</b>: over de bewoners van Nederland schreven pas de Romeinen (Julius Caesar, ca. 50 v.Chr.). Voor Nederland duurde de prehistorie dus bijna 3000 jaar langer dan voor Egypte.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Источники без текста</span><span class="nl">Bronnen zonder tekst</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <p>О предыстории мы знаем благодаря <span class="nlt">archeologie</span>. <span class="nlt">archeologen</span> ведут <span class="nlt">opgravingen</span> (раскопки) и изучают <span class="nlt">voorwerpen</span>: орудия из камня и кости, глиняную посуду (<span class="nlt">aardewerk</span>), кости людей и животных, следы домов, могилы, наскальные рисунки.</p>
+        <p>Как узнать возраст находки?</p>
+        <ul>
+          <li><b>Слои почвы</b>: чем глубже слой, тем он обычно старше.</li>
+          <li><span class="nlt">koolstofdatering (C14-methode)</span>: в любом живом организме есть радиоактивный углерод, после смерти он распадается с известной скоростью. Работает для дерева, костей, зёрен — но не для камня.</li>
+        </ul>
+      </div>
+      <div class="nl">
+        <p>Over de prehistorie weten we iets dankzij de <span class="nlt">archeologie</span>. <span class="nlt">archeologen</span> doen <span class="nlt">opgravingen</span> en bestuderen <span class="nlt">voorwerpen</span>: werktuigen van steen en bot, <span class="nlt">aardewerk</span>, botten van mensen en dieren, sporen van huizen, graven, rotstekeningen.</p>
+        <p>Hoe weet je hoe oud iets is?</p>
+        <ul>
+          <li><b>Bodemlagen</b>: hoe dieper de laag, hoe ouder (meestal).</li>
+          <li><span class="nlt">koolstofdatering (C14-methode)</span>: alles wat leeft bevat radioactieve koolstof; na de dood neemt die met een vaste snelheid af. Werkt voor hout, bot en zaden — niet voor steen.</li>
+        </ul>
+      </div>
+    </div>
+    <details class="why"><summary><span class="ru">Почему мы говорим «каменный век», а не «деревянный»?</span><span class="nl">Waarom heet het "steentijd" en niet "houttijd"?</span></summary>
+      <div class="bi">
+        <p class="ru">Люди использовали дерево, кожу, растительные волокна, вероятно, гораздо больше, чем камень. Но <b>дерево и кожа сгнивают, а камень остаётся</b>. Мы видим прошлое через то, что сохранилось, и поэтому картина искажена. Вывод для рассуждений: <b>отсутствие находок ≠ отсутствие вещи</b>. Мы почти ничего не знаем о языке, песнях и мыслях этих людей — мысли не оставляют следов. Исключения бывают: в торфе (<span class="nlt">veen</span>) нет кислорода, поэтому там сохранилась деревянная <b>лодка из Пессе</b> (Дренте, ок. 8000 до н.э.) — одна из самых древних лодок в мире.</p>
+        <p class="nl">Mensen gebruikten waarschijnlijk veel meer hout, leer en plantenvezels dan steen. Maar <b>hout en leer vergaan, steen blijft</b>. We zien het verleden via wat bewaard bleef — dat geeft een scheef beeld. Conclusie: <b>niets gevonden ≠ het bestond niet</b>. Over taal, liedjes en gedachten weten we bijna niets. Soms is er een uitzondering: in <span class="nlt">veen</span> zit geen zuurstof, daarom bleef de houten <b>kano van Pesse</b> (Drenthe, ca. 8000 v.Chr.) bewaard — een van de oudste boten ter wereld.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Счёт времени: до н.э. / н.э., век</span><span class="nl">Tijdrekening: v.Chr. / n.Chr., eeuw</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <p><span class="nlt">v.Chr.</span> = <i>voor Christus</i> = до н.э.; <span class="nlt">n.Chr.</span> = <i>na Christus</i> = н.э. До н.э. годы считают <b>назад</b>: 5000 v.Chr. было <b>раньше</b>, чем 3000 v.Chr.</p>
+        <p><span class="nlt">eeuw</span> = век (100 лет). Правило: <b>раздели год на 100 и округли вверх</b>. 1999 → 20-й век (<i>20e eeuw</i>); 2000 → тоже 20-й; 2001 → 21-й. Для до н.э. так же: 3450 v.Chr. → <i>35e eeuw v.Chr.</i></p>
+        <p><span class="nlt">tijdlijn</span> — линия времени; <span class="nlt">chronologisch</span> — по порядку во времени; <span class="nlt">anachronisme</span> — что-то, помещённое не в своё время (например, мобильник у охотника на мамонтов).</p>
+      </div>
+      <div class="nl">
+        <p><span class="nlt">v.Chr.</span> = voor Christus; <span class="nlt">n.Chr.</span> = na Christus. Jaren vóór Christus tel je <b>terug</b>: 5000 v.Chr. was <b>eerder</b> dan 3000 v.Chr.</p>
+        <p><span class="nlt">eeuw</span> = 100 jaar. Regel: <b>deel het jaartal door 100 en rond naar boven af</b>. 1999 → 20e eeuw; 2000 → ook 20e; 2001 → 21e. Voor v.Chr. hetzelfde: 3450 v.Chr. → 35e eeuw v.Chr.</p>
+        <p><span class="nlt">tijdlijn</span>; <span class="nlt">chronologisch</span> = in volgorde van tijd; <span class="nlt">anachronisme</span> = iets dat niet in zijn tijd past (een mobieltje bij een mammoetjager).</p>
+      </div>
+    </div>
+    <div class="card no-print" style="background:#f8fafc;margin-top:10px" id="eeuwTrainer">
+      <b><span class="ru">Тренажёр: в каком веке?</span><span class="nl">Oefenen: welke eeuw?</span></b>
+      <div class="qtext" id="eeuwQ"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <input id="eeuwA" type="number" min="1" style="width:110px" placeholder="eeuw">
+        <select id="eeuwAD"><option value="v">v.Chr.</option><option value="n">n.Chr.</option></select>
+        <button class="action primary" id="eeuwCheck"><span class="ru">Проверить</span><span class="nl">Controleer</span></button>
+        <button class="action" id="eeuwNext"><span class="ru">Дальше</span><span class="nl">Volgende</span></button>
+        <span class="score" id="eeuwScore"></span>
+      </div>
+      <div id="eeuwMsg"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Периоды каменного и металлического века (Нидерланды)</span><span class="nl">Perioden (Nederland)</span></h3>
+    <table class="tl">
+      <tr><th>NL</th><th><span class="ru">период</span><span class="nl">periode</span></th><th><span class="ru">чем живут</span><span class="nl">bestaanswijze</span></th></tr>
+      <tr><td>Oude Steentijd</td><td><span class="ru">до ок. 8800 до н.э. (палеолит)</span><span class="nl">tot ca. 8800 v.Chr. (paleolithicum)</span></td><td><span class="ru">охотники-собиратели, ледниковый период</span><span class="nl">jagers-verzamelaars, ijstijd</span></td></tr>
+      <tr><td>Midden-Steentijd</td><td><span class="ru">ок. 8800 – 5300 до н.э. (мезолит)</span><span class="nl">ca. 8800 – 5300 v.Chr. (mesolithicum)</span></td><td><span class="ru">охотники-собиратели в лесах после потепления, лук, каноэ</span><span class="nl">jagers-verzamelaars in bossen na de ijstijd, pijl en boog, kano</span></td></tr>
+      <tr><td>Nieuwe Steentijd</td><td><span class="ru">ок. 5300 – 2000 до н.э. (неолит)</span><span class="nl">ca. 5300 – 2000 v.Chr. (neolithicum)</span></td><td><span class="ru">первые земледельцы, керамика, хюнебеды</span><span class="nl">eerste boeren, aardewerk, hunebedden</span></td></tr>
+      <tr><td>Bronstijd</td><td><span class="ru">ок. 2000 – 800 до н.э.</span><span class="nl">ca. 2000 – 800 v.Chr.</span></td><td><span class="ru">орудия из бронзы (медь + олово), дальняя торговля</span><span class="nl">brons (koper + tin), handel over lange afstand</span></td></tr>
+      <tr><td>IJzertijd</td><td><span class="ru">ок. 800 до н.э. – римляне</span><span class="nl">ca. 800 v.Chr. – de Romeinen</span></td><td><span class="ru">железо, терпы (насыпные холмы) на севере</span><span class="nl">ijzer, terpen in het noorden</span></td></tr>
+    </table>
+    <p class="muted"><span class="ru">Важно: на Ближнем Востоке «новый каменный век» начался на 4000 лет раньше (ок. 9500 до н.э.). Названия периодов зависят от <b>того, что умеют люди в данном месте</b>, а не от календаря.</span><span class="nl">Let op: in het Midden-Oosten begon de Nieuwe Steentijd ca. 4000 jaar eerder (ca. 9500 v.Chr.). Een periode hangt af van <b>wat mensen op die plek konden</b>, niet van de kalender.</span></p>
+  </div>
+
+  <details class="check"><summary><span class="ru">Самопроверка</span><span class="nl">Controle</span></summary><div>
+    <ol>
+      <li><span class="ru">Почему предыстория в Нидерландах закончилась позже, чем в Египте?</span><span class="nl">Waarom eindigde de prehistorie in Nederland later dan in Egypte?</span><br><i class="muted"><span class="ru">Потому что граница — появление письменных источников; о Нидерландах первыми написали римляне ок. 50 г. до н.э.</span><span class="nl">Omdat de grens het ontstaan van geschreven bronnen is; over Nederland schreven pas de Romeinen, ca. 50 v.Chr.</span></i></li>
+      <li><span class="ru">Можно ли методом C14 датировать каменный топор?</span><span class="nl">Kun je een stenen bijl dateren met de C14-methode?</span><br><i class="muted"><span class="ru">Нет: камень никогда не был живым. Датируют органику рядом с ним (уголь, кости) в том же слое.</span><span class="nl">Nee, steen heeft nooit geleefd. Je dateert iets organisch uit dezelfde laag (houtskool, bot).</span></i></li>
+    </ol>
+  </div></details>
+</section>
+
+<!-- ============ 2. JAGERS-VERZAMELAARS ============ -->
+<section class="page" id="p-jagers" data-title-ru="Охотники-собиратели" data-title-nl="Jagers-verzamelaars" data-n="2">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Почему охотники-собиратели кочевали, жили маленькими группами и были почти равны между собой?</span><span class="nl">Waarom trokken jagers-verzamelaars rond, leefden ze in kleine groepen en waren ze ongeveer gelijk?</span></div></div>
+
+  <div class="card">
+    <span class="pill eco">🌾 Economie</span>
+    <div class="bi">
+      <div class="ru">
+        <p>Очень долго (почти 300 000 лет существования <i>Homo sapiens</i>) все люди были <span class="nlt">jagers-verzamelaars</span>. Они <b>брали готовое у природы</b>: <span class="nlt">jagen</span> (охота: мамонт, северный олень, позже благородный олень и кабан), <span class="nlt">verzamelen</span> (собирательство: ягоды, орехи, корни, грибы, яйца), <span class="nlt">vissen</span> (рыбалка).</p>
+        <p>Главное свойство такой экономики: <b>человек ничего не производит и почти ничего не запасает</b>. Природа даёт в одном месте ограниченное количество еды.</p>
+      </div>
+      <div class="nl">
+        <p>Heel lang (bijna 300.000 jaar <i>Homo sapiens</i>) waren alle mensen <span class="nlt">jagers-verzamelaars</span>. Ze <b>haalden alles kant-en-klaar uit de natuur</b>: <span class="nlt">jagen</span> (mammoet, rendier, later edelhert en wild zwijn), <span class="nlt">verzamelen</span> (bessen, noten, wortels, paddenstoelen, eieren) en <span class="nlt">vissen</span>.</p>
+        <p>Belangrijkste kenmerk: <b>je produceert zelf niets en legt bijna niets op voorraad</b>. Op één plek levert de natuur maar een beperkte hoeveelheid voedsel.</p>
+      </div>
+    </div>
+    <h3><span class="ru">Отсюда — всё остальное</span><span class="nl">Daaruit volgt de rest</span></h3>
+    <div class="cause">
+      <div class="step"><span class="ru">Еда в одном месте заканчивается, звери мигрируют</span><span class="nl">Voedsel op één plek raakt op, dieren trekken weg</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Нужно переходить с места на место (<span class="nlt">rondtrekken</span>, <span class="nlt">nomaden</span>)</span><span class="nl">Je moet <span class="nlt">rondtrekken</span>: je bent <span class="nlt">nomade</span></span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Имущество = только то, что можно унести</span><span class="nl">Bezit = alleen wat je kunt dragen</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Нет богатых и бедных; группы почти равны</span><span class="nl">Geen rijk en arm; groep is vrij gelijk</span></div>
+    </div>
+    <div class="cause">
+      <div class="step"><span class="ru">Территория кормит мало людей</span><span class="nl">Een gebied voedt weinig mensen</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Маленькие группы (<span class="nlt">groep</span>/<span class="nlt">stam</span>), ок. 20–50 человек, обычно родственники</span><span class="nl">Kleine groepen van ca. 20–50 mensen, meestal familie</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Все друг друга знают, решают вместе; лидер — по опыту, а не по богатству</span><span class="nl">Iedereen kent elkaar, je beslist samen; leider door ervaring, niet door rijkdom</span></div>
+    </div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <span class="pill soc">👥 Samenleving</span>
+      <div class="bi">
+        <div class="ru"><p><span class="nlt">arbeidsverdeling</span> (разделение труда) было, но простое: по полу и возрасту. Обычно учебники пишут: мужчины охотились, женщины собирали и заботились о детях. Археология показывает, что бывало по-разному (есть и захоронения женщин-охотниц). Собирательство часто давало <b>больше</b> калорий, чем охота.</p><p>Добычу <b>делили</b>: сегодня повезло тебе, завтра мне — делиться выгодно, когда запасы хранить невозможно.</p></div>
+        <div class="nl"><p>Er was <span class="nlt">arbeidsverdeling</span>, maar eenvoudig: naar geslacht en leeftijd. Vaak staat er: mannen jaagden, vrouwen verzamelden en zorgden voor de kinderen. Archeologen vinden ook andere voorbeelden (graven van vrouwelijke jagers). Verzamelen leverde vaak <b>meer</b> calorieën op dan jagen.</p><p>De buit werd <b>gedeeld</b>: vandaag heb jij geluk, morgen ik. Delen loont als je niets kunt bewaren.</p></div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="pill tech">🛠 Techniek</span>
+      <div class="bi">
+        <div class="ru"><ul><li><span class="nlt">vuur</span> — тепло, защита от зверей, варёная пища (легче переваривается → больше энергии).</li><li><span class="nlt">vuursteen</span> (кремень) — из него делали <span class="nlt">vuistbijl</span> (ручное рубило), скребки, наконечники.</li><li>Иглы из кости → шитая одежда из шкур → можно выжить в ледниковый период.</li><li>Позже (средний каменный век): <span class="nlt">pijl en boog</span> (лук и стрелы), гарпун, <span class="nlt">kano</span>.</li></ul></div>
+        <div class="nl"><ul><li><span class="nlt">vuur</span> — warmte, bescherming, gekookt voedsel (beter verteerbaar → meer energie).</li><li>Van <span class="nlt">vuursteen</span> maakte je een <span class="nlt">vuistbijl</span>, schrabbers en speerpunten.</li><li>Naalden van bot → genaaide kleding van huiden → overleven in de ijstijd.</li><li>Later (Midden-Steentijd): <span class="nlt">pijl en boog</span>, harpoen, <span class="nlt">kano</span>.</li></ul></div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="pill geo">🗺 Geografie</span>
+      <div class="bi">
+        <div class="ru"><p>Почти всё это время шли <span class="nlt">ijstijden</span> (ледниковые периоды). Много воды было заперто во льду, и уровень моря был на ~120 м ниже. Нидерланды были холодной <b>тундрой</b>, а между Англией и материком лежала суша — <span class="nlt">Doggerland</span>. Люди шли туда, куда шли стада северных оленей.</p><p>Ок. 9700 до н.э. ледниковый период закончился: стало теплее, выросли леса, крупные стадные животные исчезли, лёд таял, море поднялось и к ок. 6500 до н.э. затопило Доггерленд.</p></div>
+        <div class="nl"><p>Bijna al die tijd waren er <span class="nlt">ijstijden</span>. Veel water zat vast in ijs, de zeespiegel lag ~120 m lager. Nederland was een koude <b>toendra</b>; tussen Engeland en het vasteland lag land: <span class="nlt">Doggerland</span>. Mensen volgden de kuddes rendieren.</p><p>Rond 9700 v.Chr. eindigde de laatste ijstijd: het werd warmer, er groeiden bossen, grote kuddedieren verdwenen, het ijs smolt en de zee steeg. Rond 6500 v.Chr. was Doggerland overstroomd.</p></div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="pill cult">✨ Cultuur &amp; geloof</span>
+      <div class="bi">
+        <div class="ru"><p><span class="nlt">grotschilderingen</span> (наскальные рисунки, напр. Ласко во Франции, ок. 17 000 лет назад) — в основном животные. Фигурки («Венеры»), погребения с вещами (<span class="nlt">grafgiften</span>).</p><p>Что из этого следует? Скорее всего, люди верили, что <b>в природе живут духи</b> (<span class="nlt">natuurgodsdienst</span>, анимизм) и что после смерти что-то есть. Но это <b>вывод археологов</b>, а не записанный факт.</p></div>
+        <div class="nl"><p><span class="nlt">grotschilderingen</span> (bijv. Lascaux in Frankrijk, ca. 17.000 jaar geleden) — vooral dieren. Beeldjes ("Venusbeeldjes"), graven met <span class="nlt">grafgiften</span>.</p><p>Wat leid je daaruit af? Waarschijnlijk geloofden mensen dat er <b>geesten in de natuur</b> waren (<span class="nlt">natuurgodsdienst</span>) en dat er iets na de dood was. Dat is een <b>conclusie van archeologen</b>, geen opgeschreven feit.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <details class="why"><summary><span class="ru">Почему так, а не иначе? Была ли это «бедная и голодная» жизнь?</span><span class="nl">Waarom zo en niet anders? Was het een arm en hongerig leven?</span></summary><div class="bi">
+    <div class="ru"><p>Не обязательно. Исследования современных охотников-собирателей (например, хадза в Танзании) показывают: на добычу еды уходит <b>меньше часов в день</b>, чем у земледельцев; пища <b>разнообразная</b>, поэтому скелеты охотников часто здоровее, чем у первых земледельцев; заразных болезней мало — люди живут редко и не рядом со скотом.</p><p>Но есть и минусы: высокая детская смертность, риск на охоте, зависимость от погоды и миграций зверей, невозможность сделать запас на плохой год.</p><p><b>Вывод для рассуждения:</b> такой образ жизни — не «отсталость», а <b>хорошее приспособление к условиям</b>. Он менялся тогда, когда менялись условия.</p></div>
+    <div class="nl"><p>Niet per se. Onderzoek bij hedendaagse jagers-verzamelaars (bijv. de Hadza in Tanzania) laat zien: ze werken <b>minder uren</b> voor hun voedsel dan boeren; ze eten <b>gevarieerd</b>, dus skeletten van jagers zijn vaak gezonder dan die van de eerste boeren; er zijn weinig besmettelijke ziektes, omdat mensen verspreid wonen en niet dicht bij vee.</p><p>Nadelen: veel kindersterfte, gevaar bij de jacht, afhankelijk van weer en trekkende dieren, geen voorraad voor een slecht jaar.</p><p><b>Conclusie:</b> deze levenswijze was geen "achterstand", maar een <b>goede aanpassing aan de omstandigheden</b>. Ze veranderde toen de omstandigheden veranderden.</p></div>
+  </div></details>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: обязательно ли охотники кочуют?</span><span class="nl">Andere mogelijkheden: trekken jagers altijd rond?</span></summary><div class="bi">
+    <div class="ru"><p>Нет! Там, где природа даёт <b>надёжную еду в одном месте круглый год</b> (рыбные побережья, реки с лососем), охотники-собиратели жили <b>оседло</b>, строили большие дома, хранили запасы и даже имели знать и рабов (индейцы северо-западного побережья Северной Америки). В Японии культура Дзёмон делала керамику за тысячи лет до земледелия.</p><p><b>Значит, причина кочевания — не «охота» сама по себе, а то, что еда в одном месте заканчивается.</b> Если убрать причину — пропадает и следствие. Это хороший приём для ответа: найди настоящую причину и проверь её на исключениях.</p></div>
+    <div class="nl"><p>Nee! Waar de natuur <b>het hele jaar op één plek genoeg voedsel</b> gaf (visrijke kusten, rivieren met zalm), woonden jagers-verzamelaars <b>op een vaste plek</b>, bouwden grote huizen, legden voorraden aan en hadden zelfs rijken en slaven (indianen aan de noordwestkust van Noord-Amerika). In Japan maakte de Jomon-cultuur aardewerk duizenden jaren vóór de landbouw.</p><p><b>De echte oorzaak van rondtrekken is dus niet "jagen", maar dat het voedsel op één plek opraakt.</b> Haal je de oorzaak weg, dan verdwijnt het gevolg. Goede truc voor een antwoord: zoek de echte oorzaak en test die op uitzonderingen.</p></div>
+  </div></details>
+
+  <details class="check"><summary><span class="ru">Самопроверка</span><span class="nl">Controle</span></summary><div>
+    <ol>
+      <li><span class="ru">Объясни, почему у охотников-собирателей почти не было имущественного неравенства.</span><span class="nl">Leg uit waarom er bij jagers-verzamelaars weinig verschil tussen rijk en arm was.</span><br><i class="muted"><span class="ru">Они кочевали → могли владеть только тем, что унесут → накопить богатство невозможно → различий почти нет.</span><span class="nl">Ze trokken rond → je kunt alleen bezitten wat je kunt dragen → rijkdom opstapelen kan niet → weinig verschil.</span></i></li>
+      <li><span class="ru">Как конец ледникового периода изменил жизнь охотников в Нидерландах?</span><span class="nl">Hoe veranderde het einde van de ijstijd het leven van jagers in Nederland?</span><br><i class="muted"><span class="ru">Тундра → лес; стада оленей ушли → охота на лесных зверей, рыбалка, лук и стрелы, каноэ; море затопило Доггерленд.</span><span class="nl">Toendra → bos; rendieren verdwenen → jacht op bosdieren, vissen, pijl en boog, kano; de zee overstroomde Doggerland.</span></i></li>
+    </ol>
+  </div></details>
+</section>
+
+<!-- ============ 3. LANDBOUWREVOLUTIE ============ -->
+<section class="page" id="p-landbouw" data-title-ru="Земледельческая революция" data-title-nl="Landbouwrevolutie" data-n="3">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Почему люди стали земледельцами, хотя это была более тяжёлая работа? И почему всё изменилось из-за этого?</span><span class="nl">Waarom werden mensen boer, terwijl dat zwaarder werk was? En waarom veranderde daardoor alles?</span></div></div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Где и когда</span><span class="nl">Waar en wanneer</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <p>Около <b>9500 г. до н.э.</b> люди на Ближнем Востоке, в области <span class="nlt">Vruchtbare Halvemaan</span> («Плодородный полумесяц»: юг Турции, Сирия, Ирак, Израиль, Иордания), начали <b>сами выращивать растения и разводить животных</b>: <span class="nlt">akkerbouw</span> (земледелие: пшеница, ячмень, чечевица, горох) и <span class="nlt">veeteelt</span> (скотоводство: козы, овцы, коровы, свиньи). Приручение диких растений и животных называют <span class="nlt">domesticatie</span>.</p>
+        <p>Этот переход называют <span class="nlt">landbouwrevolutie</span> (или <i>neolithische revolutie</i>). Земледелие возникло <b>независимо в нескольких местах</b>: Китай (рис, просо), Мексика (кукуруза), Анды (картофель), Новая Гвинея, Африка (сорго).</p>
+      </div>
+      <div class="nl">
+        <p>Rond <b>9500 v.Chr.</b> begonnen mensen in het Midden-Oosten, in de <span class="nlt">Vruchtbare Halvemaan</span> (Zuid-Turkije, Syrië, Irak, Israël, Jordanië), <b>zelf planten te telen en dieren te houden</b>: <span class="nlt">akkerbouw</span> (tarwe, gerst, linzen, erwten) en <span class="nlt">veeteelt</span> (geiten, schapen, runderen, varkens). Het tam maken van wilde planten en dieren heet <span class="nlt">domesticatie</span>.</p>
+        <p>Deze overgang heet de <span class="nlt">landbouwrevolutie</span> (of <i>neolithische revolutie</i>). Landbouw ontstond <b>op meerdere plekken los van elkaar</b>: China (rijst, gierst), Mexico (maïs), de Andes (aardappel), Nieuw-Guinea, Afrika (sorghum).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="pill geo">🗺</span><span class="ru">Почему именно там? (география)</span><span class="nl">Waarom juist daar? (geografie)</span></h3>
+    <div class="bi">
+      <ol class="ru">
+        <li><b>Климат</b>: после конца ледникового периода стало теплее и влажнее.</li>
+        <li><b>Растения</b>: там росли дикие злаки с крупными зёрнами (дикая пшеница, ячмень). Сухое лето → растения «вкладываются» в семена, которые можно хранить.</li>
+        <li><b>Животные</b>: там жили животные, которых можно приручить (стадные, спокойные, быстро растут): дикие козы, овцы, туры, кабаны.</li>
+        <li><b>Положение</b>: длинная полоса с похожим климатом с запада на восток → растения и знания легко распространялись в Европу и Азию.</li>
+      </ol>
+      <ol class="nl">
+        <li><b>Klimaat</b>: na de ijstijd werd het warmer en natter.</li>
+        <li><b>Planten</b>: er groeiden wilde grassen met grote zaden (wilde tarwe, gerst). Droge zomers → planten stoppen energie in zaden die je kunt bewaren.</li>
+        <li><b>Dieren</b>: er leefden dieren die je tam kunt maken (in kuddes, rustig, snel groot): wilde geiten, schapen, oerossen, zwijnen.</li>
+        <li><b>Ligging</b>: een brede strook met hetzelfde klimaat van west naar oost → planten en kennis verspreidden zich makkelijk naar Europa en Azië.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Почему люди вообще начали? Три объяснения</span><span class="nl">Waarom begonnen mensen ermee? Drie verklaringen</span></h3>
+    <div class="grid g3">
+      <div class="regio"><h4><span class="ru">1. Климат</span><span class="nl">1. Klimaat</span></h4><p class="ru">Тепло → дикие злаки росли густо → люди дольше оставались у полей → начали подсевать.</p><p class="nl">Warmer → wilde granen groeiden dicht → mensen bleven langer bij de velden → gingen zelf zaaien.</p></div>
+      <div class="regio"><h4><span class="ru">2. Давление населения</span><span class="nl">2. Bevolkingsdruk</span></h4><p class="ru">Людей стало больше, а охотничьих угодий не хватало → пришлось получать больше еды с того же участка.</p><p class="nl">Meer mensen, te weinig jachtgebied → je moest meer voedsel van hetzelfde stuk grond halen.</p></div>
+      <div class="regio"><h4><span class="ru">3. Религия и праздники</span><span class="nl">3. Geloof en feesten</span></h4><p class="ru"><b>Гёбекли-Тепе</b> (Турция, ок. 9500 до н.э.) — огромное каменное святилище, построенное <b>охотниками</b>. Чтобы кормить строителей и собираться на праздники, нужно было много зерна → возможно, сначала храм, потом поле.</p><p class="nl"><b>Göbekli Tepe</b> (Turkije, ca. 9500 v.Chr.) — een enorm stenen heiligdom, gebouwd door <b>jagers-verzamelaars</b>. Om bouwers en feestgangers te voeden had je veel graan nodig → misschien eerst de tempel, daarna de akker.</p></div>
+    </div>
+    <p class="muted"><span class="ru">Историки спорят, и, вероятно, сработали все причины вместе. На контрольной: «назови причину» — подойдёт любая из трёх с объяснением.</span><span class="nl">Historici zijn het niet eens; waarschijnlijk werkten de oorzaken samen. Op de toets: "noem een oorzaak" — elk van de drie met uitleg is goed.</span></p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Главное: последствия (gevolgen) — цепная реакция</span><span class="nl">Het belangrijkste: de gevolgen — een kettingreactie</span></h3>
+    <table class="tl">
+      <tr><th>#</th><th><span class="ru">следствие</span><span class="nl">gevolg</span></th><th><span class="ru">почему (механизм)</span><span class="nl">waarom (hoe werkt het)</span></th></tr>
+      <tr><td>1</td><td><span class="nlt">vaste woonplaats</span></td><td><span class="ru">Поле нужно засеять, охранять и собрать урожай → нельзя уходить → дома, деревни (<span class="nlt">dorpen</span>).</span><span class="nl">Een akker moet je zaaien, bewaken en oogsten → je kunt niet weg → huizen en <span class="nlt">dorpen</span>.</span></td></tr>
+      <tr><td>2</td><td><span class="nlt">voedseloverschot</span></td><td><span class="ru">Поле даёт с 1 км² намного больше еды, чем лес → можно вырастить больше, чем съешь → излишек и запасы; для хранения — <span class="nlt">aardewerk</span>.</span><span class="nl">Een akker levert per km² veel meer voedsel dan een bos → meer dan je opeet → overschot en voorraad; voor opslag: <span class="nlt">aardewerk</span>.</span></td></tr>
+      <tr><td>3</td><td><span class="nlt">bevolkingsgroei</span></td><td><span class="ru">Есть еда про запас и не нужно нести детей при переходах → детей рождается больше.</span><span class="nl">Er is voorraad en je hoeft kinderen niet mee te dragen → er worden meer kinderen geboren.</span></td></tr>
+      <tr><td>4</td><td><span class="nlt">specialisatie</span></td><td><span class="ru">Излишек может прокормить тех, кто не работает в поле → <span class="nlt">ambachtslieden</span> (ремесленники): гончары, ткачи, позже кузнецы.</span><span class="nl">Het overschot voedt ook mensen die niet op de akker werken → <span class="nlt">ambachtslieden</span>: pottenbakkers, wevers, later smeden.</span></td></tr>
+      <tr><td>5</td><td><span class="nlt">ruilhandel</span> → <span class="nlt">handel</span></td><td><span class="ru">Ремесленник обменивает свой товар на еду; деревни меняются тем, чего у них нет (кремень, соль, топоры).</span><span class="nl">Een ambachtsman ruilt zijn product voor voedsel; dorpen ruilen wat ze zelf niet hebben (vuursteen, zout, bijlen).</span></td></tr>
+      <tr><td>6</td><td><span class="nlt">bezit</span> → <span class="nlt">ongelijkheid</span></td><td><span class="ru">Землю, скот и запасы можно накопить и передать детям → появляются богатые и бедные; есть что отнимать → конфликты и войны.</span><span class="nl">Land, vee en voorraad kun je opstapelen en doorgeven aan je kinderen → rijk en arm; er valt iets te roven → conflicten en oorlog.</span></td></tr>
+      <tr><td>7</td><td><span class="nlt">leiders</span> / <span class="nlt">bestuur</span></td><td><span class="ru">Больше людей, споры о земле, защита запасов, общие работы → нужны вожди, которые решают и командуют.</span><span class="nl">Meer mensen, ruzie over grond, voorraden verdedigen, samen werken → er zijn leiders nodig die beslissen.</span></td></tr>
+      <tr><td>8</td><td><span class="ru">новые проблемы</span><span class="nl">nieuwe problemen</span></td><td><span class="ru">Болезни от скота и тесноты; голод при неурожае (зависимость от 2–3 культур); больше тяжёлой работы; хуже зубы и здоровье.</span><span class="nl">Ziektes door vee en dicht op elkaar wonen; honger bij misoogst (afhankelijk van 2–3 gewassen); zwaarder werk; slechtere tanden en gezondheid.</span></td></tr>
+    </table>
+    <p><span class="pill tech">🛠</span><span class="ru">Новая техника: серп (<span class="nlt">sikkel</span>), зернотёрка (<span class="nlt">maalsteen</span>), шлифованный каменный топор (для расчистки леса), глиняная посуда, ткачество (лён, шерсть), позже — плуг (<span class="nlt">ploeg</span>).</span><span class="nl">Nieuwe techniek: <span class="nlt">sikkel</span>, <span class="nlt">maalsteen</span>, geslepen stenen bijl (om bos te kappen), aardewerk, weven (vlas, wol), later de <span class="nlt">ploeg</span>.</span></p>
+  </div>
+
+  <details class="why"><summary><span class="ru">Почему это «революция», если переход шёл тысячи лет?</span><span class="nl">Waarom heet het een "revolutie" als het duizenden jaren duurde?</span></summary><div class="bi">
+    <p class="ru">Революция — это <b>коренное изменение</b>, а не обязательно быстрое. Земледелие изменило <b>всё сразу</b>: как добывают еду, где живут, сколько людей, кто главный, во что верят. Всё, что будет в следующих эпохах (города, государства, империи, деньги), стоит на одном фундаменте — <b>на излишке еды</b>. Без земледелия не было бы ни Рима, ни Амстердама.</p>
+    <p class="nl">Een revolutie is een <b>ingrijpende verandering</b>, niet per se een snelle. Landbouw veranderde <b>alles tegelijk</b>: hoe je aan eten komt, waar je woont, hoeveel mensen er zijn, wie de baas is, wat je gelooft. Alles uit de volgende tijdvakken (steden, staten, rijken, geld) staat op één fundament: <b>het voedseloverschot</b>. Zonder landbouw geen Rome en geen Amsterdam.</p>
+  </div></details>
+
+  <details class="why"><summary><span class="ru">Если жизнь стала тяжелее — почему не вернулись к охоте?</span><span class="nl">Als het leven zwaarder werd, waarom gingen mensen niet terug naar de jacht?</span></summary><div class="bi">
+    <p class="ru">Это «ловушка». Каждый шаг был выгоден <b>сейчас</b> (чуть больше зерна — чуть надёжнее зима), но вместе шаги изменили всё. Когда людей стало в 10 раз больше, <b>охотой их уже не прокормить</b> — дичи на всех не хватит. Пути назад нет: численность населения «запирает» общество в новом образе жизни. Кроме того, земледельцев много, и они вытесняли охотников с лучших земель.</p>
+    <p class="nl">Een "val". Elke stap was <b>op dat moment</b> voordelig (iets meer graan = iets veiliger winter), maar samen veranderden ze alles. Toen er tien keer zo veel mensen waren, kon je ze <b>met jagen niet meer voeden</b>: er was niet genoeg wild. Terug kon niet meer. Bovendien waren boeren met veel en verdrongen ze jagers van de beste grond.</p>
+  </div></details>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: обязательно ли все должны были стать земледельцами?</span><span class="nl">Andere mogelijkheden: moest iedereen boer worden?</span></summary><div class="bi">
+    <div class="ru"><p>Нет. Охотники-собиратели дожили до наших дней там, где земледелие невозможно или невыгодно: Арктика (инуиты, слишком холодно), пустыня Калахари (сан), Австралия (аборигены — там почти не было растений и животных, пригодных для одомашнивания). А <b>кочевые скотоводы</b> (без полей, только стада) — ещё один путь, который станет важным в следующих эпохах.</p><p>Вопрос для размышления: почему в Америке не было «своих» коров и лошадей? (Подсказка: крупных животных, которых можно приручить, там почти не осталось после ледникового периода, кроме ламы в Андах.) Как это повлияло бы на развитие?</p></div>
+    <div class="nl"><p>Nee. Jagers-verzamelaars bestaan tot vandaag waar landbouw onmogelijk of niet lonend is: het noordpoolgebied (Inuit, te koud), de Kalahari-woestijn (San), Australië (Aboriginals — er waren bijna geen planten en dieren die je kon domesticeren). En <b>rondtrekkende veehoeders</b> (geen akkers, alleen kuddes) zijn nog een weg, die later belangrijk wordt.</p><p>Denkvraag: waarom had Amerika geen "eigen" koeien en paarden? (Tip: na de ijstijd waren daar bijna geen grote tembare dieren over, behalve de lama in de Andes.) Wat betekende dat voor de ontwikkeling?</p></div>
+  </div></details>
+
+  <details class="check"><summary><span class="ru">Самопроверка</span><span class="nl">Controle</span></summary><div>
+    <ol>
+      <li><span class="ru">Объясни связь между земледелием и появлением ремесленников.</span><span class="nl">Leg het verband uit tussen landbouw en het ontstaan van ambachtslieden.</span><br><i class="muted"><span class="ru">Земледелие → излишек еды → излишек кормит людей, которые не работают в поле → они специализируются на ремесле.</span><span class="nl">Landbouw → voedseloverschot → daardoor kun je mensen voeden die niet op het land werken → zij specialiseren zich in een ambacht.</span></i></li>
+      <li><span class="ru">Почему у земледельцев появилось больше неравенства, чем у охотников?</span><span class="nl">Waarom was er bij boeren meer ongelijkheid dan bij jagers?</span><br><i class="muted"><span class="ru">Оседлость → можно копить землю, скот, запасы и передавать по наследству → одни богатеют, другие нет.</span><span class="nl">Vaste woonplaats → je kunt land, vee en voorraden opstapelen en doorgeven → sommigen worden rijker dan anderen.</span></i></li>
+    </ol>
+  </div></details>
+</section>
+
+<!-- ============ 4. NEDERLAND ============ -->
+<section class="page" id="p-nederland" data-title-ru="Нидерланды" data-title-nl="Nederland" data-n="4">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Почему земледелие пришло в Нидерланды только через 4000 лет и почему хюнебеды стоят именно в Дренте?</span><span class="nl">Waarom kwam de landbouw pas 4000 jaar later naar Nederland, en waarom staan de hunebedden juist in Drenthe?</span></div></div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Линия времени Нидерландов</span><span class="nl">Tijdlijn van Nederland</span></h3>
+    <table class="tl">
+      <tr><td>ca. 250.000 <span class="ru">лет назад</span><span class="nl">jaar geleden</span></td><td><span class="ru">Самые старые следы людей (неандертальцев) — Маастрихт-Бельведер.</span><span class="nl">Oudste sporen van mensen (neanderthalers) — Maastricht-Belvédère.</span></td></tr>
+      <tr><td>ca. 13.000 v.Chr.</td><td><span class="ru">Охотники на северного оленя (<span class="nlt">rendierjagers</span>) в тундре.</span><span class="nl"><span class="nlt">rendierjagers</span> in de toendra.</span></td></tr>
+      <tr><td>ca. 8000 v.Chr.</td><td><span class="ru"><span class="nlt">kano van Pesse</span> (Дренте) — одна из древнейших лодок мира.</span><span class="nl">De <span class="nlt">kano van Pesse</span> (Drenthe) — een van de oudste boten ter wereld.</span></td></tr>
+      <tr><td>ca. 6500 v.Chr.</td><td><span class="ru">Море затопило <span class="nlt">Doggerland</span>; Британия стала островом.</span><span class="nl">De zee overstroomt <span class="nlt">Doggerland</span>; Groot-Brittannië wordt een eiland.</span></td></tr>
+      <tr><td>ca. 5300 v.Chr.</td><td><span class="ru">Первые земледельцы: <span class="nlt">Bandkeramiekcultuur</span> в Южном Лимбурге (длинные дома до 30 м, керамика с ленточным узором).</span><span class="nl">Eerste boeren: <span class="nlt">Bandkeramiekcultuur</span> in Zuid-Limburg (langhuizen tot 30 m, aardewerk met bandversiering).</span></td></tr>
+      <tr><td>ca. 5000 – 3400 v.Chr.</td><td><span class="ru"><span class="nlt">Swifterbantcultuur</span> (Флеволанд): охотники-рыболовы, которые <b>постепенно</b> добавили скот и немного зерна.</span><span class="nl"><span class="nlt">Swifterbantcultuur</span> (Flevoland): jagers-vissers die <b>langzaam</b> vee en een beetje graan erbij namen.</span></td></tr>
+      <tr><td>ca. 3400 – 3200 v.Chr.</td><td><span class="ru"><span class="nlt">hunebedden</span> строит <span class="nlt">Trechterbekercultuur</span> (названа по сосудам в форме воронки).</span><span class="nl"><span class="nlt">hunebedden</span> gebouwd door de <span class="nlt">Trechterbekercultuur</span> (genoemd naar bekers in de vorm van een trechter).</span></td></tr>
+      <tr><td>ca. 2000 v.Chr.</td><td><span class="ru">Начало бронзового века (<span class="nlt">Bronstijd</span>).</span><span class="nl">Begin van de <span class="nlt">Bronstijd</span>.</span></td></tr>
+      <tr><td>ca. 800 v.Chr.</td><td><span class="ru"><span class="nlt">IJzertijd</span>; позже на севере строят <span class="nlt">terpen</span> (холмы от наводнений).</span><span class="nl"><span class="nlt">IJzertijd</span>; later bouwen mensen in het noorden <span class="nlt">terpen</span> tegen overstromingen.</span></td></tr>
+      <tr><td>ca. 50 v.Chr.</td><td><span class="ru">Римляне → первые письменные источники → конец предыстории в Нидерландах.</span><span class="nl">De Romeinen → eerste geschreven bronnen → einde van de prehistorie in Nederland.</span></td></tr>
+    </table>
+  </div>
+
+  <h3><span class="ru">Схема: где что было (север вверху, не в масштабе)</span><span class="nl">Schema: wat was waar (noorden boven, niet op schaal)</span></h3>
+  <div class="compass">
+    <div class="empty"><span class="ru">Северное море (раньше — суша Доггерленд)</span><span class="nl">Noordzee (vroeger land: Doggerland)</span></div>
+    <div class="regio"><h4>⬆ Friesland / Groningen</h4><p class="ru">Глина у моря, позже — терпы (железный век).</p><p class="nl">Klei bij de zee, later terpen (IJzertijd).</p></div>
+    <div class="regio"><h4>↗ Drenthe</h4><p class="ru">Высокие песчаные земли, гряда Хондсруг, валуны → <b>хюнебеды</b>; лодка из Пессе.</p><p class="nl">Hoge zandgronden, de Hondsrug, zwerfkeien → <b>hunebedden</b>; kano van Pesse.</p></div>
+    <div class="regio"><h4>⬅ Holland</h4><p class="ru">Болота, торф, дюны — мало кто жил.</p><p class="nl">Moeras, veen, duinen — weinig bewoners.</p></div>
+    <div class="regio"><h4>⏺ Flevoland</h4><p class="ru">Тогда — влажные земли у рек: <b>Swifterbant</b>.</p><p class="nl">Toen natte gebieden bij rivieren: <b>Swifterbant</b>.</p></div>
+    <div class="empty"><span class="ru">Германия</span><span class="nl">Duitsland</span></div>
+    <div class="empty"><span class="ru">← из Бельгии / Франции</span><span class="nl">← België / Frankrijk</span></div>
+    <div class="regio"><h4>⬇ Zuid-Limburg</h4><p class="ru">Плодородный <b>лёсс</b> → первые земледельцы (<b>Bandkeramiek</b>).</p><p class="nl">Vruchtbare <b>löss</b> → eerste boeren (<b>Bandkeramiek</b>).</p></div>
+    <div class="empty"><span class="ru">← путь земледелия из Центральной Европы (Дунай)</span><span class="nl">← route van de landbouw uit Midden-Europa (Donau)</span></div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0"><span class="ru">Почему земледелие пришло так поздно — и почему сначала в Лимбург?</span><span class="nl">Waarom kwam de landbouw zo laat — en eerst in Limburg?</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <ul>
+          <li><b>Расстояние и скорость</b>: земледелие распространялось примерно на 1 км в год — с семьями переселенцев (анализ ДНК показывает: первые земледельцы Европы в основном были потомками переселенцев из Анатолии) и через подражание.</li>
+          <li><b>Приспособление</b>: ближневосточные растения нужно было «научить» расти в холодном влажном климате.</li>
+          <li><b>Почва</b>: <span class="nlt">löss</span> в Лимбурге — плодородный, лёгкий для обработки, сухой. Земледельцы из долины Дуная искали именно такие почвы.</li>
+          <li><b>Не было нужды</b>: в богатых рыбой и дичью болотах (Свифтербант) охотникам и так жилось хорошо → они переходили к земледелию <b>медленно, по чуть-чуть</b>, около 1500 лет.</li>
+        </ul>
+      </div>
+      <div class="nl">
+        <ul>
+          <li><b>Afstand en snelheid</b>: de landbouw verspreidde zich met ongeveer 1 km per jaar — met families die verhuisden (DNA-onderzoek laat zien dat de eerste boeren van Europa vooral afstamden van migranten uit Anatolië) en doordat anderen het nadeden.</li>
+          <li><b>Aanpassing</b>: planten uit het Midden-Oosten moesten wennen aan een koud, nat klimaat.</li>
+          <li><b>Bodem</b>: <span class="nlt">löss</span> in Limburg is vruchtbaar, makkelijk te bewerken en droog. Boeren uit het Donaugebied zochten precies zulke grond.</li>
+          <li><b>Geen noodzaak</b>: in natte gebieden vol vis en wild (Swifterbant) hadden jagers het goed → ze werden <b>langzaam en stukje bij beetje</b> boer, in ongeveer 1500 jaar.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Хюнебеды — что это и почему в Дренте</span><span class="nl">Hunebedden — wat en waarom in Drenthe</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <p><span class="nlt">hunebed</span> — <b>коллективная гробница</b> из огромных камней (до 20+ тонн), построенная ок. 3400–3200 до н.э. В Нидерландах сохранилось <b>54</b> (52 в Дренте, 2 в Гронингене); самый большой — D27 в Боргере. Внутри находили керамику-«воронки», топоры, янтарь.</p>
+        <p><b>Почему здесь?</b> Камни — это <span class="nlt">zwerfkeien</span> (валуны), которые <b>ледник</b> притащил из Скандинавии в предпоследний ледниковый период (ок. 150 000 лет назад). На западе Нидерландов таких камней нет. Плюс песчаные возвышенности Дренте были сухими и пригодными для полей.</p>
+      </div>
+      <div class="nl">
+        <p>Een <span class="nlt">hunebed</span> is een <b>gemeenschappelijk graf</b> van enorme stenen (tot 20+ ton), gebouwd ca. 3400–3200 v.Chr. In Nederland zijn er nog <b>54</b> (52 in Drenthe, 2 in Groningen); de grootste is D27 in Borger. Erin vond men trechterbekers, bijlen en barnsteen.</p>
+        <p><b>Waarom hier?</b> De stenen zijn <span class="nlt">zwerfkeien</span> die het <b>landijs</b> uit Scandinavië meebracht in de voorlaatste ijstijd (ca. 150.000 jaar geleden). In West-Nederland liggen die stenen niet. En de zandgronden van Drenthe waren droog en geschikt voor akkers.</p>
+      </div>
+    </div>
+    <details class="why"><summary><span class="ru">Почему хюнебеды не могли построить охотники-собиратели?</span><span class="nl">Waarom konden jagers-verzamelaars geen hunebed bouwen?</span></summary><div class="bi">
+      <p class="ru">Цепочка: чтобы двигать камни в 20 тонн, нужны <b>десятки людей на недели</b> → их нужно кормить → нужен <b>излишек еды</b> → земледелие. Кроме того, огромная гробница рядом с полями — это знак: «<b>эта земля наша, здесь лежат наши предки</b>». Кочевникам такой знак не нужен: у них нет постоянной земли. Хюнебед — это <b>доказательство оседлого земледельческого общества</b>, которое умеет организовать общий труд.</p>
+      <p class="nl">De keten: om stenen van 20 ton te verplaatsen heb je <b>tientallen mensen wekenlang</b> nodig → die moeten eten → je hebt een <b>voedseloverschot</b> nodig → landbouw. Bovendien zegt een groot graf naast de akkers: "<b>dit land is van ons, hier liggen onze voorouders</b>". Nomaden hebben zo'n teken niet nodig: ze hebben geen vaste grond. Een hunebed is dus <b>bewijs van een landbouwsamenleving met een vaste woonplaats</b> die samen werk kan organiseren.</p>
+    </div></details>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: а если бы Доггерленд не затонул?</span><span class="nl">Andere mogelijkheden: wat als Doggerland niet was overstroomd?</span></summary><div class="bi">
+    <p class="ru">Тогда Британия осталась бы связана с материком сушей. Земледельцы и позже другие народы могли бы проходить туда пешком, история Британии была бы гораздо теснее связана с континентом — например, ей было бы труднее защищаться от вторжений. А для охотников Доггерленд был богатейшим местом (реки, болота, побережье) — его потеря вытеснила людей на окраины. Попробуй сам: что бы ещё изменилось?</p>
+    <p class="nl">Dan was Groot-Brittannië over land verbonden gebleven met het vasteland. Boeren en later andere volken hadden er lopend heen gekund; de geschiedenis van Engeland zou veel meer met het vasteland verbonden zijn — het zou zich bijvoorbeeld moeilijker kunnen verdedigen tegen invallen. Voor jagers was Doggerland juist een rijk gebied (rivieren, moerassen, kust); door het verlies moesten mensen uitwijken. Bedenk zelf: wat zou er nog meer anders zijn?</p>
+  </div></details>
+</section>
+
+<!-- ============ 5. EERSTE STEDEN ============ -->
+<section class="page" id="p-steden" data-title-ru="Первые города" data-title-nl="Eerste steden" data-n="5">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Почему первые города возникли у больших рек в сухих странах — а не, например, в Нидерландах?</span><span class="nl">Waarom ontstonden de eerste steden bij grote rivieren in droge gebieden — en niet bijvoorbeeld in Nederland?</span></div></div>
+
+  <div class="card">
+    <div class="bi">
+      <div class="ru">
+        <p>Около <b>3500–3000 до н.э.</b> возникли первые <span class="nlt">stedelijke gemeenschappen</span> (городские сообщества): в <span class="nlt">Mesopotamië</span> («земля между реками» <b>Тигр</b> и <b>Евфрат</b>, сегодня Ирак; город <b>Урук</b> — ок. 40 000 жителей) и в <span class="nlt">Egypte</span> вдоль <b>Нила</b>. Позже — на Инде и на Жёлтой реке в Китае.</p>
+        <p>Логика: в этих странах <b>очень сухо</b>, дождей мало, но рядом огромная река → земля плодородна только если подвести воду → <span class="nlt">irrigatie</span> (орошение): каналы, плотины, водохранилища.</p>
+      </div>
+      <div class="nl">
+        <p>Rond <b>3500–3000 v.Chr.</b> ontstonden de eerste <span class="nlt">stedelijke gemeenschappen</span>: in <span class="nlt">Mesopotamië</span> ("land tussen de rivieren" <b>Eufraat</b> en <b>Tigris</b>, nu Irak; de stad <b>Uruk</b> had ca. 40.000 inwoners) en in <span class="nlt">Egypte</span> langs de <b>Nijl</b>. Later ook bij de Indus en de Gele Rivier in China.</p>
+        <p>De logica: het is daar <b>erg droog</b>, er valt weinig regen, maar er stroomt een grote rivier → grond is alleen vruchtbaar als je er water naartoe brengt → <span class="nlt">irrigatie</span>: kanalen, dijken, waterbekkens.</p>
+      </div>
+    </div>
+    <h3><span class="ru">Цепочка: от орошения к письменности</span><span class="nl">De keten: van irrigatie naar schrift</span></h3>
+    <div class="cause">
+      <div class="step"><span class="ru">Сухо + большая река</span><span class="nl">Droog + grote rivier</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Орошение — нужны тысячи работников вместе</span><span class="nl">Irrigatie — duizenden mensen moeten samenwerken</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Нужна организация: кто копает, кому сколько воды → правители, чиновники</span><span class="nl">Organisatie nodig: wie graaft, wie krijgt water → leiders, ambtenaren</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Огромный урожай → очень большой излишек</span><span class="nl">Enorme oogst → heel groot overschot</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Много людей не в поле: ремесленники, жрецы, воины, писцы → город</span><span class="nl">Veel mensen niet op het land: ambachtslieden, priesters, soldaten, schrijvers → stad</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Нужно учитывать налоги и запасы → письменность</span><span class="nl">Belasting en voorraden bijhouden → schrift</span></div>
+    </div>
+    <div class="bi">
+      <p class="ru">Первые тексты — это не стихи и не законы, а <b>бухгалтерия храмов</b>: сколько мешков ячменя, сколько овец. <span class="nlt">spijkerschrift</span> (клинопись) в Месопотамии ок. 3200 до н.э.; <span class="nlt">hiërogliefen</span> в Египте примерно тогда же. С письменностью <b>заканчивается предыстория</b> — и эпоха 1.</p>
+      <p class="nl">De eerste teksten zijn geen gedichten of wetten, maar <b>boekhouding van tempels</b>: hoeveel zakken gerst, hoeveel schapen. <span class="nlt">spijkerschrift</span> in Mesopotamië ca. 3200 v.Chr.; <span class="nlt">hiërogliefen</span> in Egypte rond dezelfde tijd. Met het schrift <b>eindigt de prehistorie</b> — en tijdvak 1.</p>
+    </div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3 style="margin-top:0"><span class="ru">Признаки города (на контрольную)</span><span class="nl">Kenmerken van een stedelijke gemeenschap</span></h3>
+      <div class="bi">
+        <ul class="ru"><li>много жителей живут тесно на одном месте;</li><li><span class="nlt">specialisatie</span>: большинство не выращивает еду само;</li><li><span class="nlt">handel</span> и рынок;</li><li><span class="nlt">bestuur</span>: царь/жрецы, чиновники, <span class="nlt">belasting</span> (налоги);</li><li>храмы, дворцы, городские стены;</li><li><span class="nlt">hiërarchie</span> — общество как пирамида;</li><li><span class="nlt">schrift</span>.</li></ul>
+        <ul class="nl"><li>veel inwoners dicht op elkaar;</li><li><span class="nlt">specialisatie</span>: de meesten maken zelf geen voedsel;</li><li><span class="nlt">handel</span> en markt;</li><li><span class="nlt">bestuur</span>: koning/priesters, ambtenaren, <span class="nlt">belasting</span>;</li><li>tempels, paleizen, stadsmuren;</li><li><span class="nlt">hiërarchie</span> — de samenleving als een piramide;</li><li><span class="nlt">schrift</span>.</li></ul>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0"><span class="ru">Металл: медь и бронза</span><span class="nl">Metaal: koper en brons</span></h3>
+      <div class="bi">
+        <p class="ru">Сначала научились плавить <span class="nlt">koper</span> (медь), потом смешивать медь с оловом → <span class="nlt">brons</span>, твёрже. Но олово встречается редко и далеко → нужна <b>дальняя торговля</b> → связи между регионами, богатство тех, кто контролирует пути. <b>Металл усилил неравенство</b>: бронзовое оружие дорогое, его имеют только знатные воины.</p>
+        <p class="nl">Eerst leerde men <span class="nlt">koper</span> smelten, daarna koper met tin mengen → <span class="nlt">brons</span>, harder. Tin is zeldzaam en ver weg → <b>handel over lange afstand</b> → contacten tussen gebieden; rijk worden wie de handelsroutes beheerst. <b>Metaal vergrootte de ongelijkheid</b>: bronzen wapens zijn duur, alleen rijke strijders hebben ze.</p>
+      </div>
+    </div>
+  </div>
+
+  <details class="why"><summary><span class="ru">Почему в Нидерландах тогда не возникло городов?</span><span class="nl">Waarom ontstonden er toen geen steden in Nederland?</span></summary><div class="bi">
+    <p class="ru">Проверим цепочку: дождей в Нидерландах <b>хватает</b> → орошение не нужно → нет причины организовывать тысячи людей → нет сильных правителей; почвы и климат дают меньший урожай → излишек маленький → почти все работают в поле → живут деревнями. Поэтому здесь тысячелетиями оставались деревни, и первые настоящие города появились только при римлянах и в Средние века. <b>Город — не «награда за развитость», а ответ на определённые условия.</b></p>
+    <p class="nl">Test de keten: in Nederland regent het <b>genoeg</b> → irrigatie is niet nodig → geen reden om duizenden mensen te organiseren → geen machtige leiders; bodem en klimaat geven minder oogst → klein overschot → bijna iedereen werkt op het land → mensen wonen in dorpen. Daarom bleven er duizenden jaren dorpen; echte steden kwamen pas met de Romeinen en in de middeleeuwen. <b>Een stad is geen "beloning voor vooruitgang", maar een antwoord op bepaalde omstandigheden.</b></p>
+  </div></details>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: обязательно ли большое поселение = царь и пирамида власти?</span><span class="nl">Andere mogelijkheden: betekent een grote nederzetting altijd een koning en een piramide?</span></summary><div class="bi">
+    <p class="ru">Не обязательно. <b>Чатал-Хююк</b> (Турция, ок. 7000 до н.э.) — поселение на несколько тысяч человек, где дома почти одинаковые, без дворцов. Огромные поселения культуры Триполье (Украина, ок. 4000 до н.э., 10 000+ жителей) тоже не показывают явных правителей. Некоторые историки считают: неравенство — <b>не закон природы</b>, а результат выбора и обстоятельств (например, необходимости управлять орошением и запасами). Подумай: какие условия делают сильного правителя «нужным», а какие — нет?</p>
+    <p class="nl">Niet per se. <b>Çatalhöyük</b> (Turkije, ca. 7000 v.Chr.) was een nederzetting van duizenden mensen met bijna gelijke huizen, zonder paleizen. Ook de enorme nederzettingen van de Trypillia-cultuur (Oekraïne, ca. 4000 v.Chr., 10.000+ inwoners) laten geen duidelijke heersers zien. Sommige historici zeggen: ongelijkheid is <b>geen natuurwet</b>, maar het gevolg van keuzes en omstandigheden (zoals het beheer van irrigatie en voorraden). Denk na: welke omstandigheden maken een machtige leider "nodig", en welke niet?</p>
+  </div></details>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Мост в эпоху 2</span><span class="nl">Brug naar tijdvak 2</span></h3>
+    <p><span class="ru">Города → государства → <b>империи</b> (Египет фараонов, потом Греция и Рим). Тот же вопрос будет работать и дальше: <b>кто производит излишек и кто им распоряжается?</b> В эпохе 2 ответ: крестьяне и рабы производят, а граждане полиса, фараоны и императоры распоряжаются.</span><span class="nl">Steden → staten → <b>rijken</b> (Egypte van de farao's, daarna Grieken en Romeinen). Dezelfde vraag blijft werken: <b>wie maakt het overschot en wie beslist erover?</b> In tijdvak 2: boeren en slaven produceren, burgers, farao's en keizers beslissen.</span></p>
+  </div>
+</section>
+
+<!-- ============ 6. OORZAAK EN GEVOLG ============ -->
+<section class="page" id="p-keten" data-title-ru="Цепь причин" data-title-nl="Oorzaak en gevolg" data-n="6">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Как из одного изменения вытекает следующее? Нажми на звено — увидишь «почему» и «а что если бы нет».</span><span class="nl">Hoe volgt de ene verandering uit de andere? Klik op een schakel voor het "waarom" en het "wat als niet".</span></div></div>
+  <div class="chain" id="chain"></div>
+  <div class="card node-detail" id="nodeDetail"><span class="muted"><span class="ru">Выбери звено цепочки выше.</span><span class="nl">Kies een schakel hierboven.</span></span></div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Упражнение: собери цепочку по порядку</span><span class="nl">Oefening: zet de keten in de goede volgorde</span></h3>
+    <p class="muted"><span class="ru">Нажимай на звенья в порядке «причина → следствие». Второе нажатие снимает выбор.</span><span class="nl">Klik de schakels aan in de volgorde oorzaak → gevolg. Nog een keer klikken = terug.</span></p>
+    <div class="order-items" id="orderItems"></div>
+    <div class="button-row">
+      <button class="action primary" id="orderCheck"><span class="ru">Проверить</span><span class="nl">Controleer</span></button>
+      <button class="action" id="orderNew"><span class="ru">Перемешать заново</span><span class="nl">Opnieuw husselen</span></button>
+    </div>
+    <div id="orderMsg"></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Как писать ответ «объясни» (leg uit) на контрольной</span><span class="nl">Hoe schrijf je een "leg uit"-antwoord?</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <p>Учитель хочет видеть <b>связь</b>, а не два отдельных факта. Схема: <b>причина → механизм (как именно?) → следствие</b>. Слова-связки по-голландски:</p>
+        <p><span class="nlt">doordat</span> (благодаря тому что) · <span class="nlt">daardoor</span> (из-за этого) · <span class="nlt">waardoor</span> (из-за чего) · <span class="nlt">omdat</span> (потому что) · <span class="nlt">dus</span> (значит) · <span class="nlt">zodat</span> (так что)</p>
+        <p>❌ <i>«Люди стали земледельцами. Появились ремесленники.»</i> — нет связи.<br>✅ <i>«Doordat boeren een voedseloverschot hadden, hoefde niet iedereen op het land te werken. Daardoor konden sommige mensen zich specialiseren als ambachtsman.»</i></p>
+      </div>
+      <div class="nl">
+        <p>De docent wil het <b>verband</b> zien, niet twee losse feiten. Schema: <b>oorzaak → hoe werkt het → gevolg</b>. Signaalwoorden:</p>
+        <p><span class="nlt">doordat</span> · <span class="nlt">daardoor</span> · <span class="nlt">waardoor</span> · <span class="nlt">omdat</span> · <span class="nlt">dus</span> · <span class="nlt">zodat</span></p>
+        <p>❌ <i>"Mensen werden boer. Er kwamen ambachtslieden."</i> — geen verband.<br>✅ <i>"Doordat boeren een voedseloverschot hadden, hoefde niet iedereen op het land te werken. Daardoor konden sommige mensen zich specialiseren als ambachtsman."</i></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. WAT ALS ============ -->
+<section class="page" id="p-watals" data-title-ru="Что если?" data-title-nl="Wat als?" data-n="7">
+  <div class="kern"><div class="lbl">Denkvragen</div><div class="q"><span class="ru">Сначала подумай сам и запиши ответ (2–4 предложения с «потому что / поэтому»). Потом открой разбор.</span><span class="nl">Denk eerst zelf na en schrijf een antwoord (2–4 zinnen met "omdat / daardoor"). Open daarna de uitleg.</span></div></div>
+  <div id="watals"></div>
+</section>
+
+<!-- ============ 8. BEGRIPPEN ============ -->
+<section class="page" id="p-begrippen" data-title-ru="Термины" data-title-nl="Begrippen" data-n="8">
+  <div class="kern"><div class="lbl">Begrippen</div><div class="q"><span class="ru">Термины для контрольной: голландский — русский — определение.</span><span class="nl">Begrippen voor de toets: Nederlands — Russisch — betekenis.</span></div></div>
+  <div class="card no-print">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <b><span class="ru">Карточки:</span><span class="nl">Flitskaarten:</span></b>
+      <select id="flashMode">
+        <option value="nl">NL → RU + uitleg</option>
+        <option value="def">uitleg → NL begrip</option>
+        <option value="ru">RU → NL</option>
+      </select>
+      <label style="display:flex;gap:6px;align-items:center"><input type="checkbox" id="flashUnknown"> <span class="ru">только невыученные</span><span class="nl">alleen nog niet gekend</span></label>
+      <span class="score" id="flashCount"></span>
+    </div>
+    <div class="card flash" id="flash" style="margin-top:12px"></div>
+    <div class="button-row" style="justify-content:center">
+      <button class="action" id="flashAgain">↺ <span class="ru">Ещё не знаю</span><span class="nl">Nog niet</span></button>
+      <button class="action primary" id="flashKnown">✓ <span class="ru">Знаю</span><span class="nl">Ken ik</span></button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="no-print" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+      <input id="termSearch" placeholder="zoek / поиск…" style="flex:1;min-width:180px">
+      <button class="action" id="termReset"><span class="ru">Сбросить «знаю»</span><span class="nl">Reset "ken ik"</span></button>
+      <button class="action" onclick="window.print()">🖨 <span class="ru">Печать / PDF</span><span class="nl">Afdrukken</span></button>
+    </div>
+    <table class="terms" id="terms"></table>
+  </div>
+</section>
+
+<!-- ============ 9. TOETS ============ -->
+<section class="page" id="p-toets" data-title-ru="Тест" data-title-nl="Oefentoets" data-n="9">
+  <div class="kern"><div class="lbl">Oefentoets</div><div class="q"><span class="ru">Пробная контрольная: 12 случайных вопросов. Вопросы — по-голландски, как в школе (перевод — в режиме RU + NL).</span><span class="nl">Oefentoets: 12 willekeurige vragen, zoals op school.</span></div></div>
+  <div class="card no-print">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <select id="quizTopic">
+        <option value="all">Alle onderwerpen / все темы</option>
+        <option value="tijd">Tijd en bronnen</option>
+        <option value="jagers">Jagers-verzamelaars</option>
+        <option value="landbouw">Landbouwrevolutie</option>
+        <option value="nl">Nederland</option>
+        <option value="steden">Eerste steden</option>
+        <option value="redeneren">Redeneren (oorzaak/gevolg)</option>
+      </select>
+      <button class="action primary" id="quizStart"><span class="ru">Начать</span><span class="nl">Start</span></button>
+      <span class="score" id="quizBest"></span>
+    </div>
+  </div>
+  <div class="card" id="quizBox"><span class="muted"><span class="ru">Нажми «Начать».</span><span class="nl">Klik op "Start".</span></span></div>
+</section>
+
+<footer>
+  <span class="ru">Самоучитель по истории · эпоха 1 из 10 · материалы для самостоятельной подготовки. Даты приблизительные («ca.» = около).</span>
+  <span class="nl">Zelfstudie geschiedenis · tijdvak 1 van 10 · jaartallen zijn ongeveer ("ca." = circa).</span>
+</footer>
+</main>
+
+<script>
+const T = (ru, nl) => `<span class="ru">${ru}</span><span class="nl">${nl}</span>`;
+const TB = (ru, nl) => `<div class="bi"><div class="ru">${ru}</div><div class="nl">${nl}</div></div>`;
+const $ = id => document.getElementById(id);
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+
+/* ---------- язык ---------- */
+function setLang(l) {
+  document.body.dataset.lang = l;
+  document.querySelectorAll('[data-setlang]').forEach(b => b.classList.toggle('active', b.dataset.setlang === l));
+  document.documentElement.lang = l === 'nl' ? 'nl' : 'ru';
+  store.set('hist-lang', l);
+}
+document.querySelectorAll('[data-setlang]').forEach(b => b.onclick = () => setLang(b.dataset.setlang));
+setLang(store.get('hist-lang', 'both'));
+
+/* ---------- вкладки ---------- */
+const pages = [...document.querySelectorAll('section.page')];
+const tabs = $('tabs');
+pages.forEach(p => {
+  const b = document.createElement('button');
+  b.className = 'tab'; b.dataset.target = p.id;
+  b.innerHTML = `<span class="num">${p.dataset.n}</span>` + T(p.dataset.titleRu, p.dataset.titleNl);
+  b.onclick = () => showPage(p.id, true);
+  tabs.appendChild(b);
+});
+function showPage(id, scroll) {
+  pages.forEach(p => p.classList.toggle('hidden', p.id !== id));
+  tabs.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b.dataset.target === id));
+  const act = tabs.querySelector('.tab.active'); if (act && act.scrollIntoView) act.scrollIntoView({ block: 'nearest', inline: 'center' });
+  if (scroll) { history.replaceState(null, '', '#' + id); window.scrollTo({ top: 0 }); }
+}
+const startId = location.hash && document.getElementById(location.hash.slice(1)) ? location.hash.slice(1) : pages[0].id;
+showPage(startId, false);
+window.addEventListener('beforeprint', () => pages.forEach(p => p.classList.remove('hidden')));
+window.addEventListener('afterprint', () => showPage(tabs.querySelector('.tab.active').dataset.target, false));
+
+/* ---------- тренажёр «век» ---------- */
+let eeuw = null, eeuwOk = 0, eeuwAll = 0;
+function newEeuw() {
+  const bc = Math.random() < 0.55;
+  const year = bc ? (Math.random() < 0.5 ? 100 * (1 + Math.floor(Math.random() * 60)) : 1 + Math.floor(Math.random() * 6000)) : 1 + Math.floor(Math.random() * 2025);
+  eeuw = { year, bc, ans: Math.ceil(year / 100) };
+  $('eeuwQ').innerHTML = `${year} ${bc ? 'v.Chr.' : 'n.Chr.'} → ${T('какой век?', 'welke eeuw?')}`;
+  $('eeuwA').value = ''; $('eeuwMsg').innerHTML = '';
+}
+$('eeuwCheck').onclick = () => {
+  if (!eeuw) return;
+  const v = parseInt($('eeuwA').value, 10), side = $('eeuwAD').value;
+  const ok = v === eeuw.ans && (side === 'v') === eeuw.bc;
+  eeuwAll++; if (ok) eeuwOk++;
+  const expl = `${eeuw.year} : 100 = ${(eeuw.year / 100).toString().replace('.', ',')} → ${T('округляем вверх', 'naar boven afronden')} → <b>${eeuw.ans}e eeuw ${eeuw.bc ? 'v.Chr.' : 'n.Chr.'}</b>`;
+  $('eeuwMsg').innerHTML = `<div class="message ${ok ? 'ok' : 'bad'}">${ok ? '✓ ' : '✗ '}${expl}</div>`;
+  $('eeuwScore').textContent = `${eeuwOk} / ${eeuwAll}`;
+};
+$('eeuwNext').onclick = newEeuw;
+$('eeuwA').addEventListener('keydown', e => { if (e.key === 'Enter') $('eeuwCheck').click(); });
+newEeuw();
+
+/* ---------- цепочка ---------- */
+const CHAIN = [
+  { ru: 'Конец ледникового периода', nl: 'Einde van de ijstijd',
+    why: ['Ок. 9700 до н.э. климат стал теплее и влажнее: леса, дикие злаки, море поднялось.', 'Rond 9700 v.Chr. werd het klimaat warmer en natter: bossen, wilde granen, de zee steeg.'],
+    alt: ['Если бы холод продолжался, злаков с крупными зёрнами было бы мало, и люди, скорее всего, остались бы охотниками ещё надолго.', 'Als de kou was gebleven, waren er weinig granen met grote zaden geweest en waren mensen waarschijnlijk nog lang jagers gebleven.'] },
+  { ru: 'Земледелие и скотоводство', nl: 'Landbouw en veeteelt',
+    why: ['Там, где были дикая пшеница, ячмень и спокойные стадные животные (Плодородный полумесяц), люди начали сеять и приручать.', 'Waar wilde tarwe, gerst en rustige kuddedieren waren (Vruchtbare Halvemaan), gingen mensen zaaien en dieren temmen.'],
+    alt: ['Без пригодных растений и животных (Австралия) люди оставались охотниками-собирателями.', 'Zonder geschikte planten en dieren (Australië) bleven mensen jagers-verzamelaars.'] },
+  { ru: 'Оседлость', nl: 'Vaste woonplaats',
+    why: ['Поле надо засеять, охранять и убрать → нельзя уходить → дома и деревни.', 'Een akker moet je zaaien, bewaken en oogsten → je blijft → huizen en dorpen.'],
+    alt: ['Кочевые скотоводы выбрали другой путь: стадо можно перегонять, поэтому они остались подвижными.', 'Rondtrekkende veehoeders kozen een andere weg: een kudde kun je meenemen, dus bleven ze trekken.'] },
+  { ru: 'Излишек еды', nl: 'Voedseloverschot',
+    why: ['Поле кормит с 1 км² намного больше людей, чем лес; урожай можно хранить (керамика).', 'Een akker voedt per km² veel meer mensen dan een bos; de oogst kun je bewaren (aardewerk).'],
+    alt: ['На бедных почвах излишек маленький → все продолжают работать в поле → нет городов (как в Нидерландах того времени).', 'Op arme grond is het overschot klein → iedereen blijft boer → geen steden (zoals in Nederland toen).'] },
+  { ru: 'Рост населения', nl: 'Bevolkingsgroei',
+    why: ['Есть запасы, не нужно нести детей при переходах → больше детей.', 'Er is voorraad en je hoeft kinderen niet te dragen → meer kinderen.'],
+    alt: ['Болезни и неурожаи часто «съедали» этот рост: население росло рывками, а не плавно.', 'Ziektes en misoogsten maakten de groei vaak weer ongedaan: de bevolking groeide met horten en stoten.'] },
+  { ru: 'Специализация и ремёсла', nl: 'Specialisatie: ambachtslieden',
+    why: ['Излишек кормит тех, кто не работает в поле → гончары, ткачи, позже кузнецы.', 'Het overschot voedt mensen die niet op het land werken → pottenbakkers, wevers, later smeden.'],
+    alt: ['Без излишка каждый сам делает всё, что нужно, — мастерство растёт медленно.', 'Zonder overschot maakt iedereen alles zelf — vakmanschap groeit langzaam.'] },
+  { ru: 'Обмен и торговля', nl: 'Ruilhandel en handel',
+    why: ['Ремесленник меняет товар на еду; деревни меняются тем, чего у них нет (кремень, соль, олово).', 'De ambachtsman ruilt zijn product voor voedsel; dorpen ruilen wat ze missen (vuursteen, zout, tin).'],
+    alt: ['Изолированное поселение (остров, горы) развивается медленнее: меньше новых идей и товаров.', 'Een geïsoleerde nederzetting (eiland, bergen) ontwikkelt zich langzamer: minder nieuwe ideeën en spullen.'] },
+  { ru: 'Имущество и неравенство', nl: 'Bezit en ongelijkheid',
+    why: ['Землю, скот и запасы можно накопить и передать детям → богатые и бедные; появляется, что отнимать → войны.', 'Land, vee en voorraad kun je opstapelen en doorgeven → rijk en arm; er valt iets te roven → oorlog.'],
+    alt: ['Некоторые общества долго сохраняли равенство (Чатал-Хююк): общие правила и обычаи могут сдерживать неравенство.', 'Sommige samenlevingen bleven lang vrij gelijk (Çatalhöyük): regels en gewoontes kunnen ongelijkheid afremmen.'] },
+  { ru: 'Вожди и управление', nl: 'Leiders en bestuur',
+    why: ['Больше людей, споры о земле, защита запасов, общие работы → нужен тот, кто решает.', 'Meer mensen, ruzie over grond, voorraden verdedigen, samen werken → iemand moet beslissen.'],
+    alt: ['Решать можно и советом старейшин или собранием всех — власть одного не единственный вариант.', 'Je kunt ook beslissen met een raad van ouderen of een vergadering — één baas is niet de enige mogelijkheid.'] },
+  { ru: 'Орошение у больших рек', nl: 'Irrigatie bij grote rivieren',
+    why: ['В сухих странах (Месопотамия, Египет) поле живёт только при каналах → тысячи людей должны работать вместе.', 'In droge gebieden (Mesopotamië, Egypte) groeit er alleen iets met kanalen → duizenden mensen moeten samenwerken.'],
+    alt: ['Где дождей хватает (Нидерланды), орошение не нужно → нет толчка к большой организации → остаются деревни.', 'Waar het genoeg regent (Nederland) is irrigatie niet nodig → geen reden voor grote organisatie → dorpen blijven.'] },
+  { ru: 'Первые города', nl: 'Eerste steden',
+    why: ['Огромный излишек + организация → тысячи людей не в поле: жрецы, ремесленники, воины, чиновники → Урук.', 'Enorm overschot + organisatie → duizenden mensen niet op het land: priesters, ambachtslieden, soldaten, ambtenaren → Uruk.'],
+    alt: ['Большие поселения без царей тоже бывали (Триполье) — путь к пирамиде власти не был единственным.', 'Grote nederzettingen zonder koning bestonden ook (Trypillia) — de piramide was niet de enige weg.'] },
+  { ru: 'Письменность → конец предыстории', nl: 'Schrift → einde prehistorie',
+    why: ['Храмам и правителям надо учитывать налоги и запасы → клинопись (ок. 3200 до н.э.) → появляются письменные источники.', 'Tempels en leiders moeten belasting en voorraden bijhouden → spijkerschrift (ca. 3200 v.Chr.) → geschreven bronnen.'],
+    alt: ['Инки управляли огромной империей без письма — с помощью узелковых шнуров (кипу). Значит, письмо — одно из возможных решений задачи учёта.', 'De Inca\'s bestuurden een groot rijk zonder schrift, met knopen in touwtjes (quipu). Schrift is dus één mogelijke oplossing voor het bijhouden van gegevens.'] },
+];
+const chainEl = $('chain');
+CHAIN.forEach((c, i) => {
+  const d = document.createElement('div');
+  d.className = 'node';
+  d.innerHTML = `<div class="n">${i + 1}${i < CHAIN.length - 1 ? ' →' : ''}</div>` + T(c.ru, c.nl);
+  d.onclick = () => {
+    chainEl.querySelectorAll('.node').forEach(n => n.classList.remove('active')); d.classList.add('active');
+    const prev = i > 0 ? CHAIN[i - 1] : null;
+    $('nodeDetail').innerHTML = `<h3 style="margin-top:0">${i + 1}. ${T(c.ru, c.nl)}</h3>` +
+      (prev ? `<p class="muted">${T('Вытекает из: <b>' + prev.ru + '</b>', 'Volgt uit: <b>' + prev.nl + '</b>')}</p>` : '') +
+      `<p><b>🤔 ${T('Почему?', 'Waarom?')}</b></p>` + TB(c.why[0], c.why[1]) +
+      `<p><b>🔀 ${T('А если бы иначе?', 'Wat als het anders was?')}</b></p>` + TB(c.alt[0], c.alt[1]);
+  };
+  chainEl.appendChild(d);
+});
+
+/* ---------- упражнение на порядок ---------- */
+const ORDER_SETS = [
+  [['Еда в одном месте заканчивается', 'Voedsel op één plek raakt op'], ['Охотники кочуют', 'Jagers trekken rond'], ['Имущество — только то, что можно унести', 'Bezit = wat je kunt dragen'], ['Почти нет неравенства', 'Weinig ongelijkheid']],
+  [['Конец ледникового периода', 'Einde van de ijstijd'], ['Дикие злаки растут густо', 'Wilde granen groeien dicht'], ['Люди начинают сеять сами', 'Mensen gaan zelf zaaien'], ['Оседлость: дома и деревни', 'Vaste woonplaats: huizen en dorpen'], ['Строят хюнебеды как знак «эта земля наша»', 'Hunebedden bouwen als teken "dit land is van ons"']],
+  [['Земледелие', 'Landbouw'], ['Излишек еды', 'Voedseloverschot'], ['Не всем нужно работать в поле', 'Niet iedereen hoeft op het land te werken'], ['Появляются ремесленники', 'Er komen ambachtslieden'], ['Обмен товарами (ruilhandel)', 'Ruilhandel']],
+  [['Сухой климат у большой реки', 'Droog klimaat bij een grote rivier'], ['Нужно орошение', 'Irrigatie is nodig'], ['Тысячи людей работают вместе', 'Duizenden mensen werken samen'], ['Появляются правители и чиновники', 'Er komen leiders en ambtenaren'], ['Нужно учитывать налоги и запасы', 'Belasting en voorraden bijhouden'], ['Письменность → конец предыстории', 'Schrift → einde prehistorie']],
+  [['Оседлость', 'Vaste woonplaats'], ['Можно копить землю, скот, запасы', 'Je kunt land, vee en voorraad opstapelen'], ['Богатство передаётся детям', 'Rijkdom gaat naar je kinderen'], ['Богатые и бедные', 'Rijk en arm'], ['Есть что отнимать → конфликты', 'Er valt iets te roven → conflicten']],
+  [['Лёд тает', 'Het ijs smelt'], ['Уровень моря поднимается', 'De zeespiegel stijgt'], ['Доггерленд затоплен', 'Doggerland overstroomt'], ['Британия становится островом', 'Groot-Brittannië wordt een eiland']],
+];
+let orderSet = null, orderPicked = [];
+function newOrder() {
+  const idx = Math.floor(Math.random() * ORDER_SETS.length);
+  orderSet = ORDER_SETS[idx].map((x, i) => ({ ru: x[0], nl: x[1], pos: i }));
+  orderPicked = [];
+  renderOrder(shuffle(orderSet));
+  $('orderMsg').innerHTML = '';
+}
+let orderShown = [];
+function renderOrder(list) {
+  if (list) orderShown = list;
+  const box = $('orderItems'); box.innerHTML = '';
+  orderShown.forEach(it => {
+    const b = document.createElement('button');
+    const k = orderPicked.indexOf(it);
+    b.className = 'order-item' + (k >= 0 ? ' picked' : '');
+    b.innerHTML = `<span class="badge">${k >= 0 ? k + 1 : ''}</span>` + T(it.ru, it.nl);
+    b.onclick = () => { const j = orderPicked.indexOf(it); if (j >= 0) orderPicked.splice(j, 1); else orderPicked.push(it); renderOrder(); $('orderMsg').innerHTML = ''; };
+    box.appendChild(b);
+  });
+}
+$('orderCheck').onclick = () => {
+  if (orderPicked.length < orderSet.length) { $('orderMsg').innerHTML = `<div class="message">${T('Пронумеруй все звенья.', 'Nummer eerst alle schakels.')}</div>`; return; }
+  const ok = orderPicked.every((it, i) => it.pos === i);
+  renderOrder();
+  [...$('orderItems').children].forEach((b, i) => { const it = orderShown[i]; b.classList.add(orderPicked.indexOf(it) === it.pos ? 'right' : 'wrong'); });
+  const right = orderSet.map(x => T(x.ru, x.nl)).join(' → ');
+  $('orderMsg').innerHTML = `<div class="message ${ok ? 'ok' : 'bad'}">${ok ? '✓ ' + T('Верно! Теперь объясни вслух каждую стрелку: «потому что…».', 'Goed! Leg nu elke pijl hardop uit: "omdat…".') : '✗ ' + T('Правильный порядок: ', 'Goede volgorde: ') + right}</div>`;
+};
+$('orderNew').onclick = newOrder;
+newOrder();
+
+/* ---------- что если ---------- */
+const WATALS = [
+  ['Что было бы, если бы ледниковый период не закончился?', 'Wat als de ijstijd niet was geëindigd?',
+   'Скорее всего, люди ещё долго оставались бы охотниками: в холоде мало диких злаков с крупными зёрнами, а значит, нечего «превращать» в поле. Нет земледелия → нет излишка → нет оседлости, ремёсел, городов. Хорошая формулировка: «Doordat het koud bleef, groeiden er weinig wilde granen. Daardoor…»',
+   'Waarschijnlijk waren mensen nog lang jagers-verzamelaars gebleven: in de kou groeien weinig wilde granen met grote zaden, dus is er niets om akkers van te maken. Geen landbouw → geen overschot → geen vaste woonplaats, ambachten of steden. Goede zin: "Doordat het koud bleef, groeiden er weinig wilde granen. Daardoor…"'],
+  ['Почему земледелие не возникло само в Нидерландах, а пришло с юго-востока?', 'Waarom ontstond de landbouw niet vanzelf in Nederland, maar kwam hij uit het zuidoosten?',
+   'Здесь не было диких предков пшеницы, ячменя, коз и овец — их нельзя одомашнить там, где их нет. Кроме того, охотникам в богатых дичью и рыбой местах не было нужды менять жизнь. Поэтому земледелие пришло вместе с переселенцами и через подражание.',
+   'Hier groeiden geen wilde voorouders van tarwe en gerst en leefden geen wilde geiten en schapen — je kunt niet temmen wat er niet is. Bovendien hadden jagers in gebieden vol vis en wild geen reden om te veranderen. Daarom kwam landbouw met migranten en doordat anderen het nadeden.'],
+  ['Почему некоторые народы остались охотниками-собирателями до наших дней? Это «отсталость»?', 'Waarom zijn sommige volken tot nu toe jagers-verzamelaars gebleven? Is dat "achterlijk"?',
+   'Нет, это приспособление к условиям: в Арктике слишком холодно для полей, в пустыне — слишком сухо, в Австралии почти не было растений и животных, пригодных для одомашнивания. Там, где земледелие не даёт преимущества, охота и собирательство — лучший способ выжить.',
+   'Nee, het is een aanpassing aan de omstandigheden: in het noordpoolgebied is het te koud voor akkers, in de woestijn te droog, in Australië waren bijna geen planten en dieren om te domesticeren. Waar landbouw geen voordeel geeft, is jagen en verzamelen de beste manier om te overleven.'],
+  ['Была ли земледельческая революция прогрессом? Приведи аргумент «за» и «против».', 'Was de landbouwrevolutie vooruitgang? Geef een argument voor en een argument tegen.',
+   '«За»: излишек еды позволил прокормить больше людей, появились ремёсла, торговля, города, письменность — всё, что будет дальше. «Против»: для отдельного человека жизнь часто стала хуже — больше работы, однообразная пища, болезни от скота и тесноты, голод при неурожае, неравенство и войны. Ответ зависит от того, что считать прогрессом: для общества в целом — да, для здоровья отдельного человека — не всегда.',
+   'Voor: door het voedseloverschot konden meer mensen leven, er kwamen ambachten, handel, steden en schrift — de basis van alles daarna. Tegen: voor één mens werd het leven vaak slechter — harder werken, eentonig eten, ziektes door vee en drukte, honger bij misoogst, ongelijkheid en oorlog. Het hangt af van wat je vooruitgang noemt: voor de samenleving ja, voor de gezondheid van een individu niet altijd.'],
+  ['Почему письменность появилась в городах, а не в деревнях?', 'Waarom ontstond het schrift in steden en niet in dorpen?',
+   'В деревне все друг друга знают, запасов немного — всё можно запомнить. В городе тысячи людей, огромные склады зерна, налоги, обмен, храмы — запомнить это невозможно. Поэтому первые тексты — это учёт (бухгалтерия) храмов и правителей. Письменность — ответ на проблему учёта.',
+   'In een dorp kent iedereen elkaar en is de voorraad klein: je onthoudt alles. In een stad wonen duizenden mensen, zijn er grote graanschuren, belasting, handel en tempels: dat kun je niet onthouden. Daarom zijn de eerste teksten boekhouding van tempels en leiders. Schrift is een antwoord op het probleem van administratie.'],
+  ['Что было бы, если бы в Месопотамии шло много дождей?', 'Wat als het in Mesopotamië veel had geregend?',
+   'Орошение было бы не нужно → не нужно было бы организовывать тысячи людей для каналов → правители и чиновники стали бы менее важны → излишек, может быть, меньше и распределён по деревням. Возможно, города возникли бы позже или были бы меньше, а письменность — тоже позже. Это показывает роль географии.',
+   'Dan was irrigatie niet nodig → geen duizenden mensen organiseren voor kanalen → leiders en ambtenaren minder belangrijk → misschien een kleiner overschot, verspreid over dorpen. Steden waren dan misschien later of kleiner ontstaan, en het schrift ook later. Dat laat de rol van geografie zien.'],
+  ['Земледелие возникло независимо в 5–7 местах мира. Что это говорит о закономерностях истории?', 'Landbouw ontstond op 5–7 plekken los van elkaar. Wat zegt dat over patronen in de geschiedenis?',
+   'Это говорит о том, что земледелие — не случайное изобретение одного гения, а <b>закономерный ответ людей на похожие условия</b> (тёплый климат после ледникового периода, растения и животные, пригодные для одомашнивания, рост населения). Но время и форма были разными, потому что условия в разных местах различались. Так в истории часто работают закономерности: похожие причины → похожие следствия, но с местными вариантами.',
+   'Het laat zien dat landbouw geen toevallige uitvinding van één slim persoon was, maar <b>een logisch antwoord van mensen op vergelijkbare omstandigheden</b> (warmer klimaat na de ijstijd, planten en dieren om te domesticeren, groei van de bevolking). Tijd en vorm verschilden wel, omdat de omstandigheden verschilden. Zo werken patronen in de geschiedenis vaak: vergelijkbare oorzaken → vergelijkbare gevolgen, met plaatselijke varianten.'],
+  ['Что было бы, если бы на Ближнем Востоке не было животных, которых можно приручить?', 'Wat als er in het Midden-Oosten geen tembare dieren waren geweest?',
+   'Земледелие, вероятно, всё равно появилось бы (злаки были), но: не было бы мяса и молока «под рукой», шерсти, тягловых животных для плуга и перевозок → урожаи меньше, торговля медленнее. С другой стороны, меньше болезней, перешедших от животных к людям. Сравни с Америкой: там почти не было крупных домашних животных, и её развитие пошло иначе.',
+   'Landbouw was er waarschijnlijk toch gekomen (er waren granen), maar: geen vlees en melk bij de hand, geen wol, geen trekdieren voor ploeg en vervoer → kleinere oogsten, langzamere handel. Aan de andere kant: minder ziektes die van dieren op mensen overgaan. Vergelijk met Amerika: daar waren bijna geen grote huisdieren en ging de ontwikkeling anders.'],
+];
+$('watals').innerHTML = WATALS.map((w, i) => `
+  <div class="card">
+    <h3 style="margin-top:0">${i + 1}. ${T(w[0], w[1])}</h3>
+    <textarea class="no-print" placeholder="${'Мой ответ / Mijn antwoord…'}" data-wa="${i}"></textarea>
+    <details class="why"><summary>${T('Разбор', 'Uitleg')}</summary><div>${TB('<p>' + w[2] + '</p>', '<p>' + w[3] + '</p>')}</div></details>
+  </div>`).join('');
+document.querySelectorAll('[data-wa]').forEach(t => {
+  const k = 'hist-t1-wa-' + t.dataset.wa;
+  t.value = store.get(k, '');
+  t.addEventListener('input', () => store.set(k, t.value));
+});
+</script>
+
+<script>
+/* ---------- термины ---------- */
+const TERMS = [
+  ['prehistorie', 'предыстория', 'De tijd waarin mensen nog geen schrift hadden.'],
+  ['geschiedenis', 'история', 'De tijd waarover geschreven bronnen bestaan; ook: alles wat in het verleden gebeurd is.'],
+  ['bron', 'источник', 'Alles waaruit je informatie over het verleden haalt (tekst, voorwerp, afbeelding).'],
+  ['geschreven bron', 'письменный источник', 'Een bron met tekst, bijvoorbeeld een kleitablet met spijkerschrift.'],
+  ['archeologie', 'археология', 'Wetenschap die het verleden onderzoekt via resten in de bodem.'],
+  ['opgraving', 'раскопки', 'Het voorzichtig uitgraven van resten uit het verleden door archeologen.'],
+  ['koolstofdatering (C14)', 'радиоуглеродный анализ', 'Methode om de ouderdom van iets dat geleefd heeft (hout, bot) te bepalen.'],
+  ['tijdvak', 'эпоха (в школьной программе)', 'Een van de tien periodes waarin de geschiedenis op school is verdeeld.'],
+  ['kenmerkend aspect', 'характерная черта эпохи', 'Een verschijnsel dat typisch is voor een tijdvak.'],
+  ['eeuw', 'век', 'Periode van honderd jaar.'],
+  ['v.Chr. / n.Chr.', 'до н.э. / н.э.', 'Voor Christus / na Christus: jaartelling vanaf de geboorte van Jezus.'],
+  ['chronologisch', 'хронологически', 'In de volgorde van de tijd.'],
+  ['anachronisme', 'анахронизм', 'Iets wat niet in de tijd past waarin het geplaatst wordt.'],
+  ['jagers-verzamelaars', 'охотники-собиратели', 'Mensen die leven van jagen, vissen en verzamelen van voedsel uit de natuur.'],
+  ['nomaden', 'кочевники', 'Mensen zonder vaste woonplaats die rondtrekken.'],
+  ['rondtrekken', 'кочевать', 'Steeds naar een andere plek gaan, op zoek naar voedsel.'],
+  ['arbeidsverdeling', 'разделение труда', 'Verschillende mensen doen verschillend werk.'],
+  ['ijstijd', 'ледниковый период', 'Lange koude periode waarin grote delen van de aarde met ijs bedekt waren.'],
+  ['Doggerland', 'Доггерленд', 'Land tussen Engeland en het vasteland dat rond 6500 v.Chr. door de zee overstroomde.'],
+  ['vuursteen', 'кремень', 'Harde steen waarvan werktuigen werden gemaakt; scherp als je hem splijt.'],
+  ['vuistbijl', 'ручное рубило', 'Stenen werktuig dat je in je hand houdt om te hakken en te snijden.'],
+  ['grotschildering', 'наскальный рисунок', 'Prehistorische tekening op de wand van een grot, vaak van dieren.'],
+  ['grafgiften', 'погребальный инвентарь', 'Voorwerpen die met een dode mee het graf in gaan.'],
+  ['natuurgodsdienst', 'вера в духов природы', 'Geloof dat er geesten of goden in de natuur zitten (dieren, bomen, zon).'],
+  ['landbouwrevolutie', 'земледельческая (неолитическая) революция', 'De overgang van jagen en verzamelen naar landbouw en veeteelt.'],
+  ['landbouwsamenleving', 'земледельческое общество', 'Samenleving waarin de meeste mensen leven van landbouw en veeteelt.'],
+  ['akkerbouw', 'земледелие (полеводство)', 'Het verbouwen van gewassen op akkers.'],
+  ['veeteelt', 'скотоводство', 'Het houden van dieren voor vlees, melk, wol of huid.'],
+  ['domesticatie', 'одомашнивание', 'Het tam maken van wilde dieren en het veredelen van wilde planten.'],
+  ['Vruchtbare Halvemaan', 'Плодородный полумесяц', 'Gebied in het Midden-Oosten waar de landbouw rond 9500 v.Chr. begon.'],
+  ['vaste woonplaats', 'оседлость, постоянное жилище', 'Steeds op dezelfde plek blijven wonen.'],
+  ['voedseloverschot', 'излишек еды', 'Meer voedsel dan je zelf nodig hebt.'],
+  ['specialisatie', 'специализация', 'Je richten op één soort werk, bijvoorbeeld pottenbakker.'],
+  ['ambachtslieden', 'ремесленники', 'Mensen die met de hand producten maken (pottenbakker, wever, smid).'],
+  ['ruilhandel', 'меновая торговля', 'Handel waarbij je spullen ruilt tegen andere spullen, zonder geld.'],
+  ['aardewerk', 'керамика, глиняная посуда', 'Potten en schalen van gebakken klei; handig voor voorraad.'],
+  ['bezit', 'имущество', 'Alles wat van jou is: land, vee, spullen.'],
+  ['sociale ongelijkheid', 'социальное неравенство', 'Verschil in rijkdom, macht of aanzien tussen mensen.'],
+  ['Bandkeramiekcultuur', 'культура линейно-ленточной керамики', 'Eerste boeren in Nederland (Zuid-Limburg), vanaf ca. 5300 v.Chr.'],
+  ['löss', 'лёсс', 'Vruchtbare, lichte grond (o.a. in Zuid-Limburg), makkelijk te bewerken.'],
+  ['Swifterbantcultuur', 'культура Свифтербант', 'Jagers-vissers in Flevoland die langzaam ook boer werden (ca. 5000–3400 v.Chr.).'],
+  ['hunebed', 'хюнебед (мегалитическая гробница)', 'Groot stenen gemeenschappelijk graf uit ca. 3400–3200 v.Chr., vooral in Drenthe.'],
+  ['Trechterbekercultuur', 'культура воронковидных кубков', 'Boeren die de hunebedden bouwden; genoemd naar hun trechtervormige bekers.'],
+  ['zwerfkeien', 'валуны', 'Grote stenen die het landijs uit Scandinavië meebracht.'],
+  ['stedelijke gemeenschap', 'городское сообщество', 'Grote nederzetting met specialisatie, handel, bestuur en vaak schrift.'],
+  ['Mesopotamië', 'Месопотамия', 'Gebied tussen de rivieren Eufraat en Tigris (nu Irak).'],
+  ['irrigatie', 'орошение', 'Het aanvoeren van water naar akkers via kanalen.'],
+  ['bestuur', 'управление, власть', 'De mensen die beslissen en regels maken (koning, priesters, ambtenaren).'],
+  ['belasting', 'налог', 'Wat je verplicht moet afstaan aan de leiders (geld, graan, werk).'],
+  ['hiërarchie', 'иерархия', 'Rangorde: wie staat boven wie; vaak getekend als piramide.'],
+  ['spijkerschrift', 'клинопись', 'Schrift met wigvormige tekens in klei, uit Mesopotamië (ca. 3200 v.Chr.).'],
+  ['hiërogliefen', 'иероглифы', 'Egyptisch schrift met plaatjes-tekens.'],
+  ['brons', 'бронза', 'Metaal gemaakt van koper en tin.'],
+  ['terp', 'терп (жилой холм)', 'Zelf opgeworpen heuvel in Friesland/Groningen om droog te wonen (vanaf ca. 600 v.Chr.).'],
+];
+let known = new Set(store.get('hist-t1-known', []));
+function saveKnown() { store.set('hist-t1-known', [...known]); renderTerms(); }
+function renderTerms() {
+  const q = ($('termSearch').value || '').toLowerCase();
+  $('terms').innerHTML = `<tr><th>Begrip (NL)</th><th>RU</th><th>Betekenis</th></tr>` +
+    TERMS.filter(t => !q || t.join(' ').toLowerCase().includes(q))
+      .map(t => `<tr class="${known.has(t[0]) ? 'known' : ''}"><td>${t[0]}</td><td>${t[1]}</td><td>${t[2]}</td></tr>`).join('');
+  $('flashCount').textContent = `✓ ${known.size} / ${TERMS.length}`;
+}
+$('termSearch').oninput = renderTerms;
+$('termReset').onclick = () => { known = new Set(); saveKnown(); nextFlash(); };
+
+let flashCur = null, flashOpen = false;
+function nextFlash() {
+  let pool = TERMS.filter(t => !$('flashUnknown').checked || !known.has(t[0]));
+  if (!pool.length) { flashCur = null; $('flash').innerHTML = '🎉 ' + T('Все термины выучены!', 'Alle begrippen gekend!'); return; }
+  let c; do { c = pool[Math.floor(Math.random() * pool.length)]; } while (pool.length > 1 && c === flashCur);
+  flashCur = c; flashOpen = false; drawFlash();
+}
+function drawFlash() {
+  const [nl, ru, def] = flashCur, m = $('flashMode').value;
+  const front = m === 'nl' ? `<b style="color:var(--nl)">${nl}</b>` : m === 'ru' ? `<b>${ru}</b>` : `<span>${def}</span>`;
+  const back = m === 'nl' ? `${ru}<div class="sub">${def}</div>` : m === 'ru' ? `<b style="color:var(--nl)">${nl}</b><div class="sub">${def}</div>` : `<b style="color:var(--nl)">${nl}</b><div class="sub">${ru}</div>`;
+  $('flash').innerHTML = flashOpen ? `<div>${front}</div><div style="margin-top:12px">${back}</div>` : `<div>${front}</div><div class="sub">${T('нажми, чтобы перевернуть', 'klik om om te draaien')}</div>`;
+}
+$('flash').onclick = () => { if (flashCur) { flashOpen = !flashOpen; drawFlash(); } };
+$('flashKnown').onclick = () => { if (flashCur) { known.add(flashCur[0]); saveKnown(); } nextFlash(); };
+$('flashAgain').onclick = () => { if (flashCur) { known.delete(flashCur[0]); saveKnown(); } nextFlash(); };
+$('flashMode').onchange = () => flashCur && drawFlash();
+$('flashUnknown').onchange = nextFlash;
+renderTerms(); nextFlash();
+
+/* ---------- тест ---------- */
+// mc: {t, q:[nl,ru], o:[[nl,ru] | 'text'], a, e:[nl,ru]}
+// order: {t, type:'order', q:[nl,ru], items:[[nl,ru]...] in de goede volgorde}
+// open: {t, type:'open', q:[nl,ru], model:[nl,ru], rubric:[[nl,ru],...]}
+const Q = [
+  { t: 'tijd', q: ['Wat is de grens tussen prehistorie en geschiedenis?', 'Что является границей между предысторией и историей?'], o: [['het ontstaan van het schrift', 'появление письменности'], ['het ontstaan van de landbouw', 'появление земледелия'], ['het einde van de ijstijd', 'конец ледникового периода'], ['de geboorte van Christus', 'Рождество Христово']], a: 0, e: ['Prehistorie = tijd zonder schrift. Met geschreven bronnen begint de geschiedenis.', 'Предыстория = время без письменности. С письменными источниками начинается история.'] },
+  { t: 'tijd', q: ['In welke eeuw valt het jaar 3450 v.Chr.?', 'В каком веке 3450 г. до н.э.?'], o: ['34e eeuw v.Chr.', '35e eeuw v.Chr.', '4e millennium n.Chr.', '36e eeuw v.Chr.'], a: 1, e: ['3450 : 100 = 34,5 → naar boven afronden → 35e eeuw v.Chr.', '3450 : 100 = 34,5 → округляем вверх → 35-й век до н.э.'] },
+  { t: 'tijd', q: ['Welk jaartal is het oudst?', 'Какая дата самая ранняя?'], o: ['3000 v.Chr.', '5300 v.Chr.', '50 v.Chr.', '800 n.Chr.'], a: 1, e: ['Vóór Christus tel je terug: hoe groter het getal, hoe langer geleden.', 'До н.э. счёт идёт назад: чем больше число, тем раньше.'] },
+  { t: 'tijd', q: ['Waarom duurde de prehistorie in Nederland langer dan in Egypte?', 'Почему предыстория в Нидерландах длилась дольше, чем в Египте?'], o: [['Er waren pas laat geschreven bronnen over Nederland (Romeinen).', 'Письменные источники о Нидерландах появились поздно (римляне).'], ['In Nederland woonden geen mensen.', 'В Нидерландах никто не жил.'], ['De ijstijd duurde in Nederland langer.', 'Ледниковый период в Нидерландах длился дольше.'], ['Egyptenaren hadden geen landbouw.', 'У египтян не было земледелия.']], a: 0, e: ['De prehistorie eindigt waar geschreven bronnen beginnen; over Nederland schreven pas de Romeinen.', 'Предыстория кончается там, где появляются письменные источники; о Нидерландах первыми написали римляне.'] },
+  { t: 'tijd', q: ['Wat kun je NIET dateren met de C14-methode?', 'Что НЕЛЬЗЯ датировать методом C14?'], o: [['een stenen bijl', 'каменный топор'], ['een houten kano', 'деревянную лодку'], ['een bot van een rendier', 'кость оленя'], ['verkoold graan', 'обугленное зерно']], a: 0, e: ['C14 werkt alleen voor materiaal dat geleefd heeft.', 'C14 работает только для того, что было живым.'] },
+  { t: 'tijd', q: ['Welke bron is een geschreven bron?', 'Какой источник — письменный?'], o: [['een kleitablet met spijkerschrift', 'глиняная табличка с клинописью'], ['een hunebed', 'хюнебед'], ['een grotschildering', 'наскальный рисунок'], ['een vuistbijl', 'ручное рубило']], a: 0 },
+  { t: 'tijd', type: 'order', q: ['Zet in chronologische volgorde (oudste eerst).', 'Расставь в хронологическом порядке (сначала самое раннее).'], items: [['kano van Pesse (ca. 8000 v.Chr.)', 'лодка из Пессе'], ['eerste boeren in Limburg (ca. 5300 v.Chr.)', 'первые земледельцы в Лимбурге'], ['bouw van de hunebedden (ca. 3400 v.Chr.)', 'строительство хюнебедов'], ['spijkerschrift (ca. 3200 v.Chr.)', 'клинопись'], ['begin Bronstijd in NL (ca. 2000 v.Chr.)', 'начало бронзового века в NL']] },
+
+  { t: 'jagers', q: ['Waarom trokken jagers-verzamelaars rond?', 'Почему охотники-собиратели кочевали?'], o: [['Het voedsel op één plek raakte op en dieren trokken weg.', 'Еда в одном месте заканчивалась, звери уходили.'], ['Ze vonden reizen leuk.', 'Им нравилось путешествовать.'], ['De leider verbood een vaste woonplaats.', 'Вождь запрещал оседлость.'], ['Ze moesten belasting ontvluchten.', 'Они убегали от налогов.']], a: 0 },
+  { t: 'jagers', q: ['Waarom was er bij jagers-verzamelaars weinig ongelijkheid?', 'Почему у охотников-собирателей было мало неравенства?'], o: [['Ze konden alleen bezitten wat ze konden dragen.', 'Можно было владеть только тем, что унесёшь.'], ['Er was een koning die alles eerlijk verdeelde.', 'Царь делил всё поровну.'], ['Ze hadden geld.', 'У них были деньги.'], ['Iedereen was familie van de farao.', 'Все были родственниками фараона.']], a: 0 },
+  { t: 'jagers', q: ['Hoe groot was een groep jagers-verzamelaars meestal?', 'Какой обычно была группа охотников-собирателей?'], o: ['ca. 20–50 mensen', 'ca. 500 mensen', 'ca. 5.000 mensen', 'ca. 40.000 mensen'], a: 0, e: ['Een gebied kan maar weinig mensen voeden als je alleen jaagt en verzamelt.', 'Территория прокормит мало людей, если только охотиться и собирать.'] },
+  { t: 'jagers', q: ['Waarvoor was vuur NIET belangrijk voor jagers-verzamelaars?', 'Для чего огонь НЕ был важен охотникам?'], o: [['bronzen wapens smelten', 'плавить бронзовое оружие'], ['warmte', 'тепло'], ['voedsel koken', 'готовить пищу'], ['bescherming tegen dieren', 'защита от зверей']], a: 0, e: ['Brons komt pas veel later, met de Bronstijd.', 'Бронза появляется гораздо позже, в бронзовом веке.'] },
+  { t: 'jagers', q: ['Wat leiden archeologen af uit grafgiften?', 'Какой вывод делают археологи из погребальных вещей?'], o: [['Mensen geloofden waarschijnlijk in een leven na de dood.', 'Люди, вероятно, верили в жизнь после смерти.'], ['Mensen konden schrijven.', 'Люди умели писать.'], ['Er was landbouw.', 'Было земледелие.'], ['Er waren steden.', 'Были города.']], a: 0 },
+  { t: 'jagers', q: ['Welke uitspraak over de levenswijze van jagers-verzamelaars is JUIST?', 'Какое утверждение верно?'], o: [['Ze aten vaak gevarieerder dan de eerste boeren.', 'Их пища часто была разнообразнее, чем у первых земледельцев.'], ['Ze hadden grote voorraadschuren.', 'У них были большие амбары.'], ['Ze woonden in steden.', 'Они жили в городах.'], ['Ze hielden koeien en schapen.', 'Они держали коров и овец.']], a: 0 },
+  { t: 'jagers', type: 'open', q: ['Leg uit hoe de manier van voedsel verkrijgen bij jagers-verzamelaars invloed had op hun woonplaats.', 'Объясни, как способ добывания пищи влиял на место жительства охотников-собирателей.'], model: ['Jagers-verzamelaars haalden hun voedsel uit de natuur. Doordat het voedsel op één plek opraakte en dieren wegtrokken, moesten ze steeds verder trekken. Daardoor hadden ze geen vaste woonplaats (nomaden).', 'Охотники-собиратели брали пищу у природы. Поскольку еда в одном месте заканчивалась и звери уходили, приходилось двигаться дальше. Поэтому у них не было постоянного жилища (кочевники).'], rubric: [['voedsel uit de natuur / jagen en verzamelen', 'еда от природы / охота и собирательство'], ['voedsel raakt op / dieren trekken weg', 'еда заканчивается / звери уходят'], ['dus geen vaste woonplaats / rondtrekken', 'поэтому нет постоянного жилья / кочевание']] },
+
+  { t: 'landbouw', q: ['Waar begon de landbouw het eerst (ca. 9500 v.Chr.)?', 'Где впервые возникло земледелие (ок. 9500 до н.э.)?'], o: [['in de Vruchtbare Halvemaan', 'в Плодородном полумесяце'], ['in Drenthe', 'в Дренте'], ['in Egypte langs de Nijl', 'в Египте на Ниле'], ['in Doggerland', 'в Доггерленде']], a: 0 },
+  { t: 'landbouw', q: ['Wat betekent domesticatie?', 'Что значит domesticatie?'], o: [['wilde planten en dieren tam maken / veredelen', 'одомашнивание диких растений и животных'], ['een huis bouwen', 'строить дом'], ['handel drijven', 'торговать'], ['water naar akkers brengen', 'подводить воду к полям']], a: 0 },
+  { t: 'landbouw', q: ['Welk gevolg van de landbouw maakte specialisatie mogelijk?', 'Какое следствие земледелия сделало возможной специализацию?'], o: [['het voedseloverschot', 'излишек еды'], ['de grotschilderingen', 'наскальные рисунки'], ['het rondtrekken', 'кочевание'], ['het einde van de ijstijd', 'конец ледникового периода']], a: 0, e: ['Met een overschot kun je mensen voeden die zelf geen voedsel maken.', 'Излишек кормит людей, которые сами еду не производят.'] },
+  { t: 'landbouw', q: ['Waarom gingen boeren aardewerk maken?', 'Зачем земледельцы стали делать керамику?'], o: [['om voorraden te bewaren en te koken', 'чтобы хранить запасы и готовить'], ['omdat jagers potten nodig hadden om te reizen', 'потому что охотникам были нужны горшки в дороге'], ['om ermee te betalen', 'чтобы ими платить'], ['om ermee te schrijven', 'чтобы на них писать']], a: 0, e: ['Potten zijn zwaar en breekbaar: handig voor wie op één plek woont en een oogst bewaart.', 'Горшки тяжёлые и хрупкие: удобны тому, кто живёт на месте и хранит урожай.'] },
+  { t: 'landbouw', q: ['Welke uitspraak over de landbouwrevolutie is JUIST?', 'Какое утверждение о земледельческой революции верно?'], o: [['Het was een langzame verandering die toch alles veranderde.', 'Это было медленное изменение, которое всё же изменило всё.'], ['Het gebeurde overal in de wereld in hetzelfde jaar.', 'Это произошло везде в один и тот же год.'], ['Het werd uitgevonden door één persoon.', 'Её изобрёл один человек.'], ['Daarna leefde niemand meer van de jacht.', 'После неё никто больше не жил охотой.']], a: 0 },
+  { t: 'landbouw', q: ['Wat was een NADEEL van de landbouw voor de eerste boeren?', 'Какой был МИНУС земледелия для первых земледельцев?'], o: [['meer ziektes en honger bij misoogst', 'больше болезней и голод при неурожае'], ['ze moesten steeds rondtrekken', 'приходилось постоянно кочевать'], ['er was geen voedseloverschot', 'не было излишка'], ['ze konden geen huizen bouwen', 'нельзя было строить дома']], a: 0 },
+  { t: 'landbouw', q: ['Waarom ontstond de landbouw juist in de Vruchtbare Halvemaan?', 'Почему земледелие возникло именно в Плодородном полумесяце?'], o: [['Daar groeiden wilde granen en leefden tembare dieren.', 'Там росли дикие злаки и жили животные, которых можно приручить.'], ['Daar was het het koudst.', 'Там было холоднее всего.'], ['Daar woonden de meeste mensen van de wereld.', 'Там жило больше всего людей мира.'], ['Daar was al schrift.', 'Там уже была письменность.']], a: 0 },
+  { t: 'landbouw', type: 'open', q: ['Leg uit hoe de landbouw leidde tot sociale ongelijkheid.', 'Объясни, как земледелие привело к социальному неравенству.'], model: ['Boeren kregen een vaste woonplaats. Daardoor konden ze bezit opstapelen: land, vee en voorraden. Sommige families kregen meer bezit dan andere en gaven dat door aan hun kinderen. Zo ontstonden rijk en arm.', 'Земледельцы стали оседлыми. Поэтому можно было копить имущество: землю, скот, запасы. У одних семей стало больше, чем у других, и они передавали это детям. Так появились богатые и бедные.'], rubric: [['vaste woonplaats', 'оседлость'], ['bezit opstapelen (land / vee / voorraad)', 'накопление имущества'], ['verschil tussen families, doorgeven → rijk en arm', 'разница между семьями, наследование → богатые и бедные']] },
+  { t: 'landbouw', type: 'open', q: ['Geef een argument vóór en een argument tegen de stelling: "De landbouwrevolutie was vooruitgang."', 'Приведи аргумент «за» и «против» утверждения: «Земледельческая революция была прогрессом».'], model: ['Voor: door het voedseloverschot konden meer mensen leven en ontstonden ambachten, handel en later steden. Tegen: boeren werkten harder, aten eentoniger, kregen meer ziektes en er kwam ongelijkheid en oorlog.', '«За»: благодаря излишку могло жить больше людей, появились ремёсла, торговля, позже города. «Против»: земледельцы работали больше, ели однообразнее, болели чаще, появились неравенство и войны.'], rubric: [['argument vóór met uitleg', 'аргумент «за» с объяснением'], ['argument tegen met uitleg', 'аргумент «против» с объяснением']] },
+
+  { t: 'nl', q: ['Waar woonden de eerste boeren in Nederland?', 'Где жили первые земледельцы в Нидерландах?'], o: ['Zuid-Limburg', 'Drenthe', 'Holland', 'Friesland'], a: 0, e: ['Bandkeramiekcultuur, ca. 5300 v.Chr., op de vruchtbare löss.', 'Культура линейно-ленточной керамики, ок. 5300 до н.э., на плодородном лёссе.'] },
+  { t: 'nl', q: ['Wie bouwden de hunebedden?', 'Кто строил хюнебеды?'], o: ['de Trechterbekercultuur', 'de Bandkeramiekcultuur', 'de Romeinen', 'rendierjagers'], a: 0 },
+  { t: 'nl', q: ['Waarvoor dienden hunebedden?', 'Для чего служили хюнебеды?'], o: [['als gemeenschappelijk graf', 'как коллективная гробница'], ['als woonhuis', 'как жилой дом'], ['als graanschuur', 'как амбар'], ['als verdediging tegen de zee', 'как защита от моря']], a: 0 },
+  { t: 'nl', q: ['Waarom staan de hunebedden vooral in Drenthe?', 'Почему хюнебеды стоят в основном в Дренте?'], o: [['Daar lagen zwerfkeien die het landijs had meegebracht.', 'Там лежали валуны, принесённые ледником.'], ['Daar was de eerste stad van Nederland.', 'Там был первый город Нидерландов.'], ['De Romeinen brachten de stenen mee.', 'Камни привезли римляне.'], ['Daar woonden geen boeren.', 'Там не было земледельцев.']], a: 0 },
+  { t: 'nl', q: ['Wat is bijzonder aan de kano van Pesse?', 'Чем особенна лодка из Пессе?'], o: [['Het is een van de oudste boten ter wereld.', 'Это одна из самых древних лодок в мире.'], ['Hij is van brons.', 'Она из бронзы.'], ['De Romeinen hebben hem gemaakt.', 'Её сделали римляне.'], ['Er staat spijkerschrift op.', 'На ней клинопись.']], a: 0 },
+  { t: 'nl', q: ['Wat gebeurde er rond 6500 v.Chr. met Doggerland?', 'Что случилось ок. 6500 до н.э. с Доггерлендом?'], o: [['Het overstroomde doordat de zeespiegel steeg.', 'Его затопило из-за подъёма уровня моря.'], ['Het werd bedekt met landijs.', 'Его покрыл ледник.'], ['Er werd de eerste stad gebouwd.', 'Там построили первый город.'], ['Er begon de landbouw.', 'Там началось земледелие.']], a: 0 },
+  { t: 'nl', q: ['Wat laat de Swifterbantcultuur zien?', 'Что показывает культура Свифтербант?'], o: [['Jagers-vissers werden langzaam en stap voor stap boer.', 'Охотники-рыболовы становились земледельцами медленно, шаг за шагом.'], ['Boeren gingen terug naar de jacht.', 'Земледельцы вернулись к охоте.'], ['In Flevoland was de eerste stad.', 'Во Флеволанде был первый город.'], ['Mensen konden toen al schrijven.', 'Люди уже умели писать.']], a: 0 },
+  { t: 'nl', type: 'open', q: ['Een hunebed is een bewijs dat er een landbouwsamenleving was. Leg uit waarom.', 'Хюнебед — доказательство земледельческого общества. Объясни почему.'], model: ['Om een hunebed te bouwen had je veel mensen lang nodig. Die moesten gevoed worden, dus er moest een voedseloverschot zijn. Bovendien bouw je zo\'n groot graf alleen als je op één plek blijft wonen (vaste woonplaats); het laat zien dat het land van de groep is.', 'Для строительства нужно много людей надолго. Их надо кормить, значит, нужен излишек еды. Кроме того, такую гробницу строят только оседлые люди; она показывает, что земля принадлежит группе.'], rubric: [['veel mensen / veel werk', 'много людей / много труда'], ['voedseloverschot nodig', 'нужен излишек еды'], ['vaste woonplaats / claim op het land', 'оседлость / «это наша земля»']] },
+
+  { t: 'steden', q: ['Tussen welke rivieren lag Mesopotamië?', 'Между какими реками лежала Месопотамия?'], o: ['Eufraat en Tigris', 'Nijl en Eufraat', 'Rijn en Maas', 'Indus en Ganges'], a: 0 },
+  { t: 'steden', q: ['Waarom was irrigatie nodig in Mesopotamië en Egypte?', 'Зачем в Месопотамии и Египте было нужно орошение?'], o: [['Het was er erg droog.', 'Там было очень сухо.'], ['Het regende er te veel.', 'Там было слишком много дождей.'], ['Er waren geen rivieren.', 'Там не было рек.'], ['Om vis te vangen.', 'Чтобы ловить рыбу.']], a: 0 },
+  { t: 'steden', q: ['Waarvoor werd het schrift in Mesopotamië eerst vooral gebruikt?', 'Для чего в Месопотамии сначала в основном использовали письмо?'], o: [['administratie: voorraden en belasting bijhouden', 'учёт запасов и налогов'], ['verhalen voor kinderen', 'сказки для детей'], ['brieven tussen geliefden', 'любовные письма'], ['wegwijzers', 'дорожные указатели']], a: 0 },
+  { t: 'steden', q: ['Welk kenmerk hoort NIET bij een stedelijke gemeenschap?', 'Какой признак НЕ относится к городскому сообществу?'], o: [['iedereen trekt rond met de kudde', 'все кочуют со стадом'], ['specialisatie', 'специализация'], ['bestuur en belasting', 'управление и налоги'], ['handel', 'торговля']], a: 0 },
+  { t: 'steden', q: ['Brons is een mengsel van…', 'Бронза — это сплав…'], o: ['koper en tin', 'ijzer en koper', 'goud en zilver', 'tin en ijzer'], a: 0 },
+  { t: 'steden', q: ['Waarom zorgde brons voor meer handel?', 'Почему бронза привела к росту торговли?'], o: [['Tin was zeldzaam en kwam van ver.', 'Олово редкое и его везли издалека.'], ['Brons was heel licht.', 'Бронза очень лёгкая.'], ['Iedereen had koper in zijn tuin.', 'У всех была медь в саду.'], ['Brons kon je eten.', 'Бронзу можно было есть.']], a: 0 },
+  { t: 'steden', type: 'open', q: ['Leg uit waarom er in de tijd van jagers en boeren in Nederland geen steden ontstonden.', 'Объясни, почему в Нидерландах в эпоху охотников и земледельцев не возникло городов.'], model: ['In Nederland regende het genoeg, dus irrigatie was niet nodig. Daardoor hoefden mensen niet in grote groepen samen te werken en kwamen er geen machtige leiders. Het voedseloverschot was klein, dus bijna iedereen bleef boer en woonde in dorpen.', 'В Нидерландах хватало дождей, орошение не требовалось. Поэтому не нужно было организовывать большие массы людей, и сильные правители не появились. Излишек был мал, почти все оставались земледельцами и жили в деревнях.'], rubric: [['genoeg regen → geen irrigatie nodig', 'достаточно дождей → орошение не нужно'], ['geen grote samenwerking / leiders', 'нет большой организации / правителей'], ['klein overschot → iedereen boer, dorpen', 'малый излишек → все в поле, деревни']] },
+
+  { t: 'redeneren', q: ['Wat is de OORZAAK in deze zin: "Doordat boeren een voedseloverschot hadden, konden sommigen ambachtsman worden."?', 'Что здесь ПРИЧИНА?'], o: [['het voedseloverschot', 'излишек еды'], ['ambachtsman worden', 'стать ремесленником'], ['beide', 'оба'], ['geen van beide', 'ни то, ни другое']], a: 0 },
+  { t: 'redeneren', q: ['Welk signaalwoord gebruik je voor een GEVOLG?', 'Какое слово-связка вводит СЛЕДСТВИЕ?'], o: ['daardoor', 'omdat', 'doordat', 'want'], a: 0, e: ['Omdat, doordat en want leiden een oorzaak in; daardoor / dus / zodat een gevolg.', 'Omdat, doordat, want вводят причину; daardoor / dus / zodat — следствие.'] },
+  { t: 'redeneren', q: ['Welke keten is LOGISCH juist?', 'Какая цепочка логически верна?'], o: [['landbouw → vaste woonplaats → bezit → ongelijkheid', 'земледелие → оседлость → имущество → неравенство'], ['schrift → landbouw → einde ijstijd → steden', 'письмо → земледелие → конец ледн. периода → города'], ['ongelijkheid → rondtrekken → landbouw', 'неравенство → кочевание → земледелие'], ['steden → jagers-verzamelaars → irrigatie', 'города → охотники → орошение']], a: 0 },
+  { t: 'redeneren', q: ['Een leerling zegt: "Jagers-verzamelaars waren dom, daarom werden ze geen boer." Wat is de beste kritiek?', 'Ученик говорит: «Охотники были глупыми, поэтому не стали земледельцами». Какая критика лучше всего?'], o: [['Het hing af van omstandigheden: klimaat, planten en dieren, genoeg voedsel in de natuur.', 'Это зависело от условий: климат, растения и животные, достаточно еды в природе.'], ['Jagers waren slimmer dan boeren.', 'Охотники были умнее земледельцев.'], ['Niemand weet iets over jagers.', 'Никто ничего не знает об охотниках.'], ['Jagers waren te lui.', 'Охотники были слишком ленивы.']], a: 0 },
+  { t: 'redeneren', type: 'order', q: ['Zet de keten van oorzaak naar gevolg.', 'Расставь цепочку от причины к следствию.'], items: [['droog land bij een rivier', 'сухая земля у реки'], ['irrigatie nodig', 'нужно орошение'], ['veel mensen moeten samenwerken', 'многие должны работать вместе'], ['leiders en ambtenaren', 'правители и чиновники'], ['administratie → schrift', 'учёт → письменность']] },
+  { t: 'redeneren', type: 'order', q: ['Zet de keten van oorzaak naar gevolg.', 'Расставь цепочку от причины к следствию.'], items: [['einde van de ijstijd', 'конец ледникового периода'], ['wilde granen groeien goed', 'дикие злаки хорошо растут'], ['mensen gaan zaaien en oogsten', 'люди начинают сеять и собирать'], ['vaste woonplaats', 'оседлость'], ['bevolkingsgroei', 'рост населения']] },
+  { t: 'redeneren', type: 'open', q: ['Landbouw ontstond op meerdere plekken in de wereld los van elkaar. Wat zegt dat volgens jou? Leg uit.', 'Земледелие возникло в нескольких местах независимо. О чём это говорит? Объясни.'], model: ['Het was geen toevallige uitvinding van één persoon, maar een logisch antwoord op vergelijkbare omstandigheden (warmer klimaat, geschikte planten en dieren, meer mensen). Vergelijkbare oorzaken leiden tot vergelijkbare gevolgen.', 'Это не случайное изобретение одного человека, а закономерный ответ на похожие условия (потепление, подходящие растения и животные, рост населения). Похожие причины ведут к похожим следствиям.'], rubric: [['geen toeval / niet één uitvinder', 'не случайность / не один изобретатель'], ['vergelijkbare omstandigheden genoemd', 'названы похожие условия'], ['oorzaak-gevolg verband gelegd', 'показана причинно-следственная связь']] },
+];
+
+let quiz = null;
+const QN = 12;
+function bestText() { const b = store.get('hist-t1-best', null); return b ? T(`Лучший результат: ${b}%`, `Beste score: ${b}%`) : ''; }
+$('quizBest').innerHTML = bestText();
+const pair = o => Array.isArray(o) ? T(o[1], o[0]) : o;
+const pairNL = o => Array.isArray(o) ? `<span>${o[0]}</span><span class="ru muted"> — ${o[1]}</span>` : o;
+$('quizStart').onclick = () => {
+  const topic = $('quizTopic').value;
+  const pool = Q.filter(q => topic === 'all' || q.t === topic);
+  quiz = { list: shuffle(pool).slice(0, QN), i: 0, pts: 0, answered: false };
+  showQ();
+};
+function qHead(q, label) {
+  return `<div class="score">${T('Вопрос', 'Vraag')} ${quiz.i + 1} / ${quiz.list.length} · ${T('баллы', 'punten')}: ${quiz.pts.toFixed(1).replace('.0', '')}</div>
+    <div class="qtype">${label}</div>
+    <div class="qtext">${q.q[0]}</div><div class="ru muted" style="margin-top:-6px;margin-bottom:10px">${q.q[1]}</div>`;
+}
+function showQ() {
+  const box = $('quizBox'), q = quiz.list[quiz.i];
+  quiz.answered = false;
+  if (!q.type) {
+    const opts = shuffle(q.o.map((o, k) => ({ o, k })));
+    box.innerHTML = qHead(q, T('выбери один ответ', 'meerkeuze')) +
+      opts.map(x => `<button class="opt" data-k="${x.k}">${pairNL(x.o)}</button>`).join('') + `<div id="qMsg"></div>`;
+    box.querySelectorAll('.opt').forEach(b => b.onclick = () => {
+      if (quiz.answered) return; quiz.answered = true;
+      const k = +b.dataset.k, ok = k === q.a;
+      if (ok) quiz.pts++;
+      box.querySelectorAll('.opt').forEach(x => { if (+x.dataset.k === q.a) x.classList.add('right'); });
+      if (!ok) b.classList.add('wrong');
+      feedback(ok, q.e);
+    });
+  } else if (q.type === 'order') {
+    const items = q.items.map((it, pos) => ({ it, pos }));
+    let shown = shuffle(items), picked = [];
+    const draw = () => {
+      box.innerHTML = qHead(q, T('порядок: нажимай по очереди', 'volgorde: klik in de goede volgorde')) +
+        `<div class="order-items">` + shown.map((x, i) => { const k = picked.indexOf(x); return `<button class="order-item ${k >= 0 ? 'picked' : ''}" data-i="${i}"><span class="badge">${k >= 0 ? k + 1 : ''}</span>${pairNL(x.it)}</button>`; }).join('') +
+        `</div><div class="button-row"><button class="action primary" id="qOrd">${T('Проверить', 'Controleer')}</button></div><div id="qMsg"></div>`;
+      box.querySelectorAll('.order-item').forEach(b => b.onclick = () => {
+        if (quiz.answered) return;
+        const x = shown[+b.dataset.i], j = picked.indexOf(x);
+        if (j >= 0) picked.splice(j, 1); else picked.push(x); draw();
+      });
+      $('qOrd').onclick = () => {
+        if (quiz.answered || picked.length < shown.length) return;
+        quiz.answered = true;
+        const ok = picked.every((x, i) => x.pos === i);
+        if (ok) quiz.pts++;
+        box.querySelectorAll('.order-item').forEach(b => { const x = shown[+b.dataset.i]; b.classList.add(picked.indexOf(x) === x.pos ? 'right' : 'wrong'); });
+        feedback(ok, ok ? null : [q.items.map(x => x[0]).join(' → '), q.items.map(x => x[1]).join(' → ')]);
+      };
+    };
+    draw();
+  } else {
+    box.innerHTML = qHead(q, T('открытый вопрос: напиши ответ, потом оцени себя', 'open vraag: schrijf je antwoord en beoordeel jezelf')) +
+      `<textarea id="qOpen" placeholder="Mijn antwoord / мой ответ…"></textarea>
+       <div class="button-row"><button class="action primary" id="qShow">${T('Показать образец', 'Toon modelantwoord')}</button></div><div id="qMsg"></div>`;
+    $('qShow').onclick = () => {
+      $('qShow').disabled = true;
+      $('qMsg').innerHTML = `<div class="message"><b>${T('Образец ответа', 'Modelantwoord')}:</b>${TB('<p>' + q.model[1] + '</p>', '<p>' + q.model[0] + '</p>')}
+        <div class="rubric"><b>${T('Отметь, что есть в ТВОЁМ ответе:', 'Vink aan wat in JOUW antwoord staat:')}</b>
+        ${q.rubric.map((r, i) => `<label><input type="checkbox" data-r="${i}"> ${pairNL(r)}</label>`).join('')}</div>
+        <div class="button-row"><button class="action primary" id="qRub">${T('Засчитать', 'Klaar')}</button></div></div>`;
+      $('qRub').onclick = () => {
+        if (quiz.answered) return; quiz.answered = true;
+        const got = $('qMsg').querySelectorAll('input:checked').length / q.rubric.length;
+        quiz.pts += got;
+        $('qRub').disabled = true;
+        $('qMsg').insertAdjacentHTML('beforeend', `<div class="message ${got === 1 ? 'ok' : got > 0 ? '' : 'bad'}">${T('Баллы за вопрос', 'Punten')}: ${Math.round(got * 100) / 100}</div>` + nextBtn());
+        bindNext();
+      };
+    };
+  }
+}
+function nextBtn() { return `<div class="button-row"><button class="action primary" id="qNext">${quiz.i + 1 < quiz.list.length ? T('Следующий →', 'Volgende →') : T('Результат', 'Uitslag')}</button></div>`; }
+function bindNext() { $('qNext').onclick = () => { quiz.i++; if (quiz.i < quiz.list.length) showQ(); else finish(); }; }
+function feedback(ok, e) {
+  $('qMsg').innerHTML = `<div class="message ${ok ? 'ok' : 'bad'}">${ok ? '✓ ' + T('Верно', 'Goed') : '✗ ' + T('Неверно', 'Fout')}${e ? '<br>' + T(e[1], e[0]) : ''}</div>` + nextBtn();
+  bindNext();
+}
+function finish() {
+  const pct = Math.round(100 * quiz.pts / quiz.list.length);
+  const cijfer = Math.max(1, Math.round((1 + 9 * quiz.pts / quiz.list.length) * 10) / 10);
+  const best = store.get('hist-t1-best', 0); if (pct > best) store.set('hist-t1-best', pct);
+  $('quizBest').innerHTML = bestText();
+  $('quizBox').innerHTML = `<h3 style="margin-top:0">${T('Результат', 'Uitslag')}: ${pct}% · ${T('оценка', 'cijfer')} ≈ ${cijfer.toString().replace('.', ',')}</h3>
+    <p>${pct >= 80 ? T('Отлично! Попробуй объяснить вслух цепочку всей эпохи без подсказок.', 'Uitstekend! Probeer nu de keten van het hele tijdvak hardop uit te leggen.') :
+      pct >= 55 ? T('Хорошо. Перечитай разделы, где были ошибки, и повтори термины.', 'Voldoende. Lees de hoofdstukken met fouten nog eens en herhaal de begrippen.') :
+      T('Стоит повторить: начни с вкладки «Цепь причин», потом термины.', 'Nog oefenen: begin bij "Oorzaak en gevolg", daarna de begrippen.')}</p>
+    <div class="button-row"><button class="action primary" onclick="document.getElementById('quizStart').click()">${T('Новый тест', 'Nieuwe toets')}</button></div>`;
+}
+</script>
+</body>
+</html>
