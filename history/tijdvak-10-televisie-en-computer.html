@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tijdvak 10 · Televisie en computer — самоучитель (RU/NL)</title>
+  <link rel="stylesheet" href="assets/tijdvak.css">
+</head>
+<body data-lang="both">
+<main class="container">
+  <div class="crumbs"><a href="../index.html">← Главная</a> · <a href="index.html">История / Geschiedenis</a></div>
+  <h1>Tijdvak 10 · Tijd van televisie en computer</h1>
+  <p class="subtitle"><span class="ru">С 1950 г. до наших дней: холодная война и атомная угроза, конец колониальных империй, невиданное благосостояние, бунт 60-х, объединение Европы, многокультурное общество, компьютер и интернет. Мир, в котором живёшь ты. Самоучитель для brugklas VWO+.</span><span class="nl">Van 1950 tot nu: de Koude Oorlog en de atoomdreiging, het einde van de koloniale rijken, ongekende welvaart, de opstandige jaren zestig, de eenwording van Europa, de multiculturele samenleving, computer en internet. De wereld waarin jij leeft. Zelfstudie voor de brugklas vwo+.</span></p>
+
+  <div class="topbar">
+    <div class="langs">
+      <span class="muted">Язык / Taal:</span>
+      <button data-setlang="ru">RU</button>
+      <button data-setlang="both" class="active">RU + NL</button>
+      <button data-setlang="nl">NL</button>
+      <span class="muted" style="margin-left:6px">· <span class="nlt">термины</span> всегда по-голландски</span>
+    </div>
+    <nav class="tabs" id="tabs"></nav>
+  </div>
+
+<!-- ============ 0. OVERZICHT ============ -->
+<section class="page" id="p-kaart" data-title-ru="Обзор" data-title-nl="Overzicht" data-n="0">
+  <div class="kern"><div class="lbl">Kernvraag van het tijdvak</div><div class="q"><span class="ru">Как из руин 1945 г. возник мир, в котором ты живёшь: богатый, свободный, связанный интернетом — но и с атомным оружием, неравенством и спорами о том, кто «мы»?</span><span class="nl">Hoe ontstond uit de puinhopen van 1945 de wereld waarin jij leeft: rijk, vrij, verbonden door internet — maar ook met kernwapens, ongelijkheid en discussie over wie "wij" zijn?</span></div></div>
+
+  <div class="bridge">
+    <div class="card"><b><span class="ru">⬅ Что досталось от эпохи 9</span><span class="nl">⬅ Wat tijdvak 9 meegaf</span></b>
+      <p><span class="ru">Разрушенная Европа и две сверхдержавы — США и СССР — с противоположными системами. Атомная бомба. ООН (1945) и Всеобщая декларация прав человека (1948). Урок Версаля: побеждённым надо помогать, а не мстить. Колонии, которые уже начали освобождаться (Индия 1947, Индонезия 1949). Память о Холокосте.</span><span class="nl">Een verwoest Europa en twee supermachten — de VS en de Sovjet-Unie — met tegengestelde systemen. De atoombom. De VN (1945) en de Universele Verklaring van de Rechten van de Mens (1948). De les van Versailles: help de verliezers in plaats van wraak te nemen. Koloniën die al vrij beginnen te worden (India 1947, Indonesië 1949). De herinnering aan de Holocaust.</span></p>
+      <p class="muted"><a href="tijdvak-9-wereldoorlogen.html">Tijdvak 9 · Wereldoorlogen</a></p></div>
+    <div class="card"><b><span class="ru">➡ А что дальше?</span><span class="nl">➡ En wat komt hierna?</span></b>
+      <p><span class="ru">Эпоха 10 не закончена — ты в ней живёшь. Какие из сегодняшних процессов историки через 100 лет назовут главными? Климат? Искусственный интеллект? Миграция? Новое соперничество держав? Вспомни вопрос из эпохи 1: <b>кто производит излишек и кто его контролирует?</b> Он работает и сегодня — только излишек теперь ещё и в данных.</span><span class="nl">Tijdvak 10 is niet af — jij leeft erin. Welke ontwikkelingen van nu noemen historici over 100 jaar de belangrijkste? Klimaat? Kunstmatige intelligentie? Migratie? Een nieuwe rivaliteit tussen grootmachten? Denk aan de vraag uit tijdvak 1: <b>wie maakt het overschot en wie beheerst het?</b> Die werkt nog steeds — alleen zit het overschot nu ook in data.</span></p>
+      <p class="muted"><a href="tijdvak-1-jagers-en-boeren.html">↺ Tijdvak 1 · Jagers en boeren</a></p></div>
+  </div>
+
+  <h3><span class="ru">10 эпох — нажми, чтобы перейти</span><span class="nl">De 10 tijdvakken — klik om te wisselen</span></h3>
+  <div class="tijdvakken" id="tvGrid"></div>
+
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0"><span class="ru">Kenmerkende aspecten эпохи 10</span><span class="nl">Kenmerkende aspecten van tijdvak 10</span></h3>
+    <ol>
+      <li><span class="nlt">De verdeling van de wereld in twee ideologische blokken in de greep van een wapenwedloop en de daaruit voortvloeiende dreiging van een atoomoorlog</span> <span class="ru">— раздел мира на два идеологических блока, гонка вооружений и угроза атомной войны</span></li>
+      <li><span class="nlt">De dekolonisatie maakte een eind aan de westerse hegemonie in de wereld</span> <span class="ru">— деколонизация положила конец господству Запада в мире</span></li>
+      <li><span class="nlt">De eenwording van Europa</span> <span class="ru">— объединение Европы</span></li>
+      <li><span class="nlt">De toenemende westerse welvaart die vanaf de jaren zestig aanleiding gaf tot ingrijpende sociaal-culturele veranderingen</span> <span class="ru">— растущее благосостояние Запада, которое с 1960-х привело к глубоким социально-культурным переменам</span></li>
+      <li><span class="nlt">De ontwikkeling van pluriforme en multiculturele samenlevingen</span> <span class="ru">— развитие плюралистических и многокультурных обществ</span></li>
+    </ol>
+    <p class="muted"><span class="ru">Окна канона (в т.ч.): <b>Виллем Дрес</b> (государство благосостояния), <b>Наводнение 1953</b>, <b>Телевидение</b>, <b>Анни М. Г. Шмидт</b>, <b>Суринам и Антилы</b>, <b>Многоцветные Нидерланды</b>, <b>Сребреница</b> (1995), <b>Европа</b>.</span><span class="nl">Canonvensters (o.a.): <b>Willem Drees</b> (verzorgingsstaat), <b>De Watersnood</b> (1953), <b>De televisie</b>, <b>Annie M.G. Schmidt</b>, <b>Suriname en de Nederlandse Antillen</b>, <b>Veelkleurig Nederland</b>, <b>Srebrenica</b> (1995), <b>Europa</b>.</span></p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Вся эпоха в одной цепочке</span><span class="nl">Het hele tijdvak in één keten</span></h3>
+    <div class="cause">
+      <div class="step"><span class="ru">1945: руины, две сверхдержавы, бомба</span><span class="nl">1945: puin, twee supermachten, de bom</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Холодная война + план Маршалла</span><span class="nl">Koude Oorlog + Marshallplan</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Объединение Европы + рост благосостояния</span><span class="nl">Europese eenwording + groeiende welvaart</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Телевизор, молодёжь, 60-е: долой старые нормы</span><span class="nl">Tv, jongeren, jaren 60: weg met oude normen</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Миграция → многокультурное общество</span><span class="nl">Migratie → multiculturele samenleving</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">1989: конец холодной войны → глобализация, интернет</span><span class="nl">1989: einde Koude Oorlog → globalisering, internet</span></div>
+    </div>
+    <div class="memo"><span class="ru">Самая мирная и самая богатая эпоха в истории Западной Европы — выросла прямо из самой страшной. Не случайно: люди сделали выводы.</span><span class="nl">De vreedzaamste en rijkste periode in de geschiedenis van West-Europa groeide rechtstreeks uit de verschrikkelijkste. Geen toeval: mensen trokken lessen.</span></div>
+  </div>
+</section>
+
+<!-- ============ 1. KOUDE OORLOG ============ -->
+<section class="page" id="p-koude" data-title-ru="Холодная война" data-title-nl="Koude Oorlog" data-n="1">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Почему две сверхдержавы 45 лет готовились к войне, но так и не воевали друг с другом напрямую?</span><span class="nl">Waarom bereidden twee supermachten zich 45 jaar voor op oorlog, maar vochten ze nooit rechtstreeks tegen elkaar?</span></div></div>
+
+  <div class="card">
+    <div class="bi">
+      <div class="ru">
+        <p><span class="nlt">Koude Oorlog</span> (1947–1991) — противостояние двух <b>идеологических блоков</b>: <b>Запад</b> (США: демократия, рыночная экономика, капитализм) и <b>Восток</b> (СССР: однопартийная диктатура, плановая экономика, коммунизм). Посередине Европы — <span class="nlt">IJzeren Gordijn</span> («железный занавес», Черчилль, 1946). <b>Германия разделена</b>: ФРГ и ГДР; Берлин тоже.</p>
+        <p><b>Холодная</b> — потому что прямой войны не было. Почему? <b>Атомное оружие</b>: у США с 1945, у СССР с 1949. Скоро у обоих стало столько ракет, что первая атака означала бы уничтожение обоих: <span class="nlt">afschrikking</span> (сдерживание, «равновесие страха», MAD). <span class="nlt">wapenwedloop</span>: десятки тысяч боеголовок. Вместо этого — <b>войны чужими руками</b> (<span class="nlt">proxyoorlog</span>): Корея (1950–1953), Вьетнам (1955–1975), Афганистан (1979–1989); гонка в космосе (Спутник 1957, Луна 1969); шпионаж и пропаганда.</p>
+        <p><b>Блоки</b>: <span class="nlt">NAVO</span> (НАТО, 1949) — Нидерланды среди основателей; <span class="nlt">Warschaupact</span> (Варшавский договор, 1955). Помощь: <span class="nlt">Marshallplan</span> (1948–1952) — США дают Западной Европе ~13 млрд долларов (Нидерланды получили около 1 млрд), чтобы восстановить экономику и не дать коммунистам набрать силу.</p>
+      </div>
+      <div class="nl">
+        <p>De <span class="nlt">Koude Oorlog</span> (1947–1991): een tegenstelling tussen twee <b>ideologische blokken</b>: het <b>Westen</b> (VS: democratie, markteconomie, kapitalisme) en het <b>Oosten</b> (Sovjet-Unie: eenpartijdictatuur, planeconomie, communisme). Midden door Europa: het <span class="nlt">IJzeren Gordijn</span> (Churchill, 1946). <b>Duitsland verdeeld</b>: de BRD en de DDR; Berlijn ook.</p>
+        <p><b>Koud</b> — omdat er geen rechtstreekse oorlog kwam. Waarom niet? <b>Kernwapens</b>: de VS hadden ze vanaf 1945, de Sovjet-Unie vanaf 1949. Al snel hadden beide zoveel raketten dat een eerste aanval de vernietiging van allebei betekende: <span class="nlt">afschrikking</span> ("evenwicht van de angst", MAD). Een <span class="nlt">wapenwedloop</span>: tienduizenden kernkoppen. In plaats daarvan <b>oorlogen via anderen</b> (<span class="nlt">proxyoorlog</span>): Korea (1950–1953), Vietnam (1955–1975), Afghanistan (1979–1989); een ruimtewedloop (Spoetnik 1957, maan 1969); spionage en propaganda.</p>
+        <p><b>Blokken</b>: de <span class="nlt">NAVO</span> (1949) — Nederland is medeoprichter; het <span class="nlt">Warschaupact</span> (1955). Hulp: het <span class="nlt">Marshallplan</span> (1948–1952) — de VS gaven West-Europa ca. 13 miljard dollar (Nederland ruim 1 miljard) om de economie te herstellen en communisten geen kans te geven.</p>
+      </div>
+    </div>
+    <div class="memo"><span class="ru">Атомная бомба сделала войну сверхдержав настолько страшной, что они на неё не решились. Мир держался на страхе — и на везении.</span><span class="nl">De atoombom maakte een oorlog tussen supermachten zo verschrikkelijk dat ze die niet aandurfden. De vrede rustte op angst — en op geluk.</span></div>
+  </div>
+
+  <div class="card">
+    <table class="tl">
+      <tr><td>1948–1949</td><td><span class="ru"><b>Блокада Берлина</b>: СССР перекрывает дороги в Западный Берлин; союзники почти год снабжают город по воздуху.</span><span class="nl">De <b>Berlijnse blokkade</b>: de Sovjet-Unie sluit de wegen naar West-Berlijn af; de geallieerden bevoorraden de stad bijna een jaar door de lucht.</span></td></tr>
+      <tr><td>1956</td><td><span class="ru">Восстание в <b>Венгрии</b> подавлено советскими танками.</span><span class="nl">Opstand in <b>Hongarije</b> neergeslagen door Sovjettanks.</span></td></tr>
+      <tr><td>1961</td><td><span class="ru"><b>Берлинская стена</b>: ГДР останавливает бегство своих граждан на Запад.</span><span class="nl">De <b>Berlijnse Muur</b>: de DDR stopt de vlucht van eigen burgers naar het Westen.</span></td></tr>
+      <tr><td>1962</td><td><span class="ru"><b>Карибский кризис</b>: советские ракеты на Кубе. Мир ближе всего к атомной войне. Кеннеди и Хрущёв договариваются → «горячая линия».</span><span class="nl">De <b>Cubacrisis</b>: Sovjetraketten op Cuba. De wereld komt het dichtst bij een atoomoorlog. Kennedy en Chroesjtsjov komen tot een akkoord → de "hotline".</span></td></tr>
+      <tr><td>1983</td><td><span class="ru">В Гааге <b>~550 000 человек</b> протестуют против размещения американских крылатых ракет в NL — самая большая демонстрация в истории страны.</span><span class="nl">In Den Haag demonstreren <b>ca. 550.000 mensen</b> tegen de plaatsing van Amerikaanse kruisraketten in NL — de grootste demonstratie in de Nederlandse geschiedenis.</span></td></tr>
+      <tr><td>1985–1989</td><td><span class="ru"><b>Горбачёв</b>: гласность и перестройка; экономика СССР не выдерживает гонки вооружений. <b>9 ноября 1989</b> — <b>падение Берлинской стены</b>. Революции в Восточной Европе (почти без крови).</span><span class="nl"><b>Gorbatsjov</b>: glasnost en perestrojka; de Sovjet-economie houdt de wapenwedloop niet vol. <b>9 november 1989</b>: <b>val van de Berlijnse Muur</b>. Revoluties in Oost-Europa (bijna zonder bloed).</span></td></tr>
+      <tr><td>1990–1991</td><td><span class="ru">Объединение Германии (1990), распад <b>СССР</b> (декабрь 1991). Конец холодной войны.</span><span class="nl">Duitse hereniging (1990), uiteenvallen van de <b>Sovjet-Unie</b> (december 1991). Einde van de Koude Oorlog.</span></td></tr>
+    </table>
+    <details class="why"><summary><span class="ru">Почему холодная война закончилась победой Запада? <span class="vwo">VWO+</span></span><span class="nl">Waarom eindigde de Koude Oorlog met winst voor het Westen?</span></summary><div class="bi">
+      <p class="ru">Несколько причин сразу: (1) <b>экономика</b>: плановая экономика отставала — магазины пустые, технологии старые, а гонка вооружений съедала огромную часть бюджета; (2) <b>информация</b>: телевидение и радио показывали жителям Востока жизнь на Западе — железный занавес не останавливал картинки; (3) <b>решения людей</b>: Горбачёв решил не посылать танки в 1989 г. (в отличие от 1956 и 1968); (4) <b>смелость граждан</b>: «Солидарность» в Польше, демонстрации в Лейпциге. Без любого из этих звеньев конец мог быть позже или кровавее.</p>
+      <p class="nl">Meerdere redenen tegelijk: (1) <b>economie</b>: de planeconomie liep achter — lege winkels, verouderde techniek, en de wapenwedloop slokte een enorm deel van de begroting op; (2) <b>informatie</b>: tv en radio lieten mensen in het Oosten het leven in het Westen zien — het IJzeren Gordijn hield beelden niet tegen; (3) <b>keuzes van mensen</b>: Gorbatsjov besloot in 1989 geen tanks te sturen (anders dan in 1956 en 1968); (4) <b>moed van burgers</b>: Solidariteit in Polen, demonstraties in Leipzig. Zonder één van deze schakels was het einde later of bloediger gekomen.</p>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ 2. DEKOLONISATIE ============ -->
+<section class="page" id="p-dekolonisatie" data-title-ru="Деколонизация" data-title-nl="Dekolonisatie" data-n="2">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Почему империи, строившиеся 450 лет (с эпохи 5), развалились всего за 30?</span><span class="nl">Waarom vielen rijken die 450 jaar waren opgebouwd (sinds tijdvak 5) in slechts 30 jaar uiteen?</span></div></div>
+
+  <div class="card">
+    <div class="bi">
+      <div class="ru">
+        <p><span class="nlt">dekolonisatie</span>: <b>Индия и Пакистан</b> (1947), <b>Индонезия</b> (1949), Гана (1957) и <b>«год Африки» 1960</b> (17 стран), Алжир после кровавой войны с Францией (1962). К 1975 г. почти все колонии стали независимыми. Почему так быстро? Сложим условия:</p>
+        <ul>
+          <li><b>Европа ослабла</b> после двух войн — нет денег и сил держать империи;</li>
+          <li><b>миф развеян</b>: Япония победила европейцев в Азии в 1942 г.;</li>
+          <li><b>национальные движения</b> с образованными лидерами (Ганди, Неру, Сукарно, Нкрума);</li>
+          <li><b>новые сверхдержавы против колоний</b>: и США, и СССР (по разным причинам) не поддерживали старые империи;</li>
+          <li><b>ООН</b> и идея прав человека: право народов на самоопределение;</li>
+          <li><b>холодная война</b>: обе стороны искали союзников среди новых стран.</li>
+        </ul>
+        <p>Конец <span class="nlt">westerse hegemonie</span> (господства Запада): в ООН появилось большинство бывших колоний. Но независимость не решила всё: границы, проведённые европейцами, разделяли народы → гражданские войны; экономическая зависимость осталась (<span class="nlt">neokolonialisme</span>); многие страны попали в зону влияния США или СССР. Часть стран объединилась в <b>Движение неприсоединения</b> (Бандунг, 1955), чтобы не выбирать ни одну из сторон.</p>
+      </div>
+      <div class="nl">
+        <p>De <span class="nlt">dekolonisatie</span>: <b>India en Pakistan</b> (1947), <b>Indonesië</b> (1949), Ghana (1957) en het <b>"Afrikaanse jaar" 1960</b> (17 landen), Algerije na een bloedige oorlog met Frankrijk (1962). In 1975 waren bijna alle koloniën onafhankelijk. Waarom zo snel? Tel de voorwaarden op:</p>
+        <ul>
+          <li><b>Europa was verzwakt</b> na twee oorlogen — geen geld en kracht om rijken te houden;</li>
+          <li><b>de mythe was weg</b>: Japan had in 1942 de Europeanen in Azië verslagen;</li>
+          <li><b>nationale bewegingen</b> met opgeleide leiders (Gandhi, Nehru, Soekarno, Nkrumah);</li>
+          <li><b>de nieuwe supermachten waren tegen koloniën</b>: de VS en de Sovjet-Unie steunden (om verschillende redenen) de oude rijken niet;</li>
+          <li>de <b>VN</b> en het idee van mensenrechten: zelfbeschikkingsrecht van volken;</li>
+          <li>de <b>Koude Oorlog</b>: beide kanten zochten bondgenoten onder de nieuwe landen.</li>
+        </ul>
+        <p>Het einde van de <span class="nlt">westerse hegemonie</span>: in de VN kregen voormalige koloniën de meerderheid. Maar onafhankelijkheid loste niet alles op: grenzen die Europeanen hadden getrokken verdeelden volken → burgeroorlogen; economische afhankelijkheid bleef (<span class="nlt">neokolonialisme</span>); veel landen kwamen in de invloedssfeer van de VS of de Sovjet-Unie. Sommige landen vormden de <b>Beweging van Niet-Gebonden Landen</b> (Bandung, 1955) om geen kant te hoeven kiezen.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Нидерланды</span><span class="nl">Nederland</span></h3>
+    <div class="bi">
+      <p class="ru">После Индонезии (1949, эпоха 9) — спор о <b>Новой Гвинее</b>, переданной Индонезии в 1962 г. под давлением США. <b>Суринам</b> стал независимым в <b>1975</b> г. (окно канона) — перед этим около трети населения переехало в Нидерланды. <b>Антилы и Аруба</b> остались в Королевстве (сейчас: Аруба, Кюрасао, Синт-Мартен — отдельные страны в Королевстве; Бонайре, Синт-Эстатиус и Саба — особые муниципалитеты NL). Из Индонезии в 1950-е приехали ~300 000 «индо» (люди смешанного происхождения) и <b>молуккцы</b> — бывшие солдаты колониальной армии, которым обещали временное жильё (лагеря, например Вестерборк!), а вышло — навсегда.</p>
+      <p class="nl">Na Indonesië (1949, tijdvak 9) — de strijd om <b>Nieuw-Guinea</b>, in 1962 onder Amerikaanse druk overgedragen aan Indonesië. <b>Suriname</b> werd in <b>1975</b> onafhankelijk (canonvenster) — daarvoor verhuisde ongeveer een derde van de bevolking naar Nederland. <b>De Antillen en Aruba</b> bleven in het Koninkrijk (nu: Aruba, Curaçao, Sint Maarten — eigen landen binnen het Koninkrijk; Bonaire, Sint Eustatius en Saba — bijzondere gemeenten van NL). Uit Indonesië kwamen in de jaren 1950 ca. 300.000 Indische Nederlanders en <b>Molukkers</b> — oud-militairen van het KNIL, die tijdelijk onderdak beloofd werd (in kampen, o.a. Westerbork!), wat blijvend werd.</p>
+    </div>
+    <div class="memo"><span class="ru">Колонии ушли, а связи остались: язык, родственники, кухня. Деколонизация — одна из причин, почему Нидерланды стали многокультурными.</span><span class="nl">De koloniën gingen, maar de banden bleven: taal, familie, eten. Dekolonisatie is een van de redenen waarom Nederland multicultureel werd.</span></div>
+  </div>
+</section>
+
+<!-- ============ 3. WELVAART ============ -->
+<section class="page" id="p-welvaart" data-title-ru="Благосостояние" data-title-nl="Welvaart" data-n="3">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Как за одно поколение Нидерланды прошли путь от голодной зимы до холодильника, телевизора и машины почти в каждой семье — и кто стал заботиться о больных и стариках вместо детей и церкви?</span><span class="nl">Hoe ging Nederland in één generatie van de Hongerwinter naar een koelkast, tv en auto in bijna elk gezin — en wie ging zorgen voor zieken en ouderen in plaats van kinderen en kerk?</span></div></div>
+
+  <div class="card">
+    <div class="bi">
+      <div class="ru">
+        <p><b>Восстановление</b> (<span class="nlt">wederopbouw</span>): план Маршалла, низкие зарплаты по договорённости правительства, профсоюзов и работодателей (<b>модель согласия</b>), бережливость. Порт Роттердама становится крупнейшим в мире (1962–2004). В 1959 г. открыто огромное месторождение <b>газа в Гронингене</b> — дешёвая энергия и доход государству (а позже, через землетрясения, — проблема для жителей).</p>
+        <p><span class="nlt">Watersnood</span> (наводнение) <b>1 февраля 1953 г.</b> (окно канона): шторм прорвал дамбы в Зеландии и Южной Голландии, погибли <b>1836</b> человек. Ответ — <span class="nlt">Deltawerken</span>: система плотин и штормовых барьеров (1958–1997). Вечная тема NL с эпохи 4: <b>вода требует общей организации</b>.</p>
+        <p><span class="nlt">verzorgingsstaat</span> (государство всеобщего благосостояния): премьер <b>Виллем Дрес</b> (окно канона) — сначала временная пенсия (1947), затем <b><span class="nlt">AOW</span> (1957)</b>: государственная пенсия для всех с 65 лет. Затем пособия по безработице, болезни, нетрудоспособности, бедности (<span class="nlt">Bijstand</span>, 1965 — министр <b>Марга Кломпе</b>). Идея: <b>никто не должен падать ниже минимума</b>, и это обязанность государства, а не милость церкви или детей. Это ответ на «социальный вопрос» эпохи 8 — через 100 лет.</p>
+        <p><span class="nlt">consumptiemaatschappij</span> (общество потребления): зарплаты растут, рабочая неделя сокращается (с 1961 — свободная суббота). Холодильник, стиральная машина, автомобиль, отпуск за границей, <b>телевизор</b> (окно канона; первая трансляция в NL — 1951; с 1960-х в большинстве семей). Реклама создаёт желания. Подростки впервые имеют свои деньги → своя мода и музыка.</p>
+      </div>
+      <div class="nl">
+        <p>De <span class="nlt">wederopbouw</span>: het Marshallplan, lage lonen door afspraken tussen regering, vakbonden en werkgevers (het <b>overlegmodel</b>), zuinigheid. De Rotterdamse haven wordt de grootste ter wereld (1962–2004). In 1959 wordt een enorme <b>gasbel in Groningen</b> ontdekt — goedkope energie en inkomsten voor de staat (en later, door aardbevingen, een probleem voor de bewoners).</p>
+        <p>De <span class="nlt">Watersnood</span> van <b>1 februari 1953</b> (canonvenster): een storm breekt dijken door in Zeeland en Zuid-Holland, <b>1836</b> mensen komen om. Het antwoord: de <span class="nlt">Deltawerken</span> — dammen en stormvloedkeringen (1958–1997). Een eeuwig Nederlands thema sinds tijdvak 4: <b>water vraagt samenwerking</b>.</p>
+        <p>De <span class="nlt">verzorgingsstaat</span>: premier <b>Willem Drees</b> (canonvenster) — eerst een noodwet ouderdomsvoorziening (1947), daarna de <b><span class="nlt">AOW</span> (1957)</b>: een staatspensioen voor iedereen vanaf 65. Daarna uitkeringen bij werkloosheid, ziekte, arbeidsongeschiktheid en armoede (de <span class="nlt">Bijstand</span>, 1965 — minister <b>Marga Klompé</b>). Het idee: <b>niemand mag onder een minimum zakken</b>, en dat is een taak van de staat, geen gunst van kerk of kinderen. Het antwoord op de sociale kwestie van tijdvak 8 — 100 jaar later.</p>
+        <p>De <span class="nlt">consumptiemaatschappij</span>: lonen stijgen, de werkweek wordt korter (vanaf 1961 de vrije zaterdag). Koelkast, wasmachine, auto, vakantie in het buitenland, de <b>televisie</b> (canonvenster; eerste uitzending in NL 1951; vanaf de jaren 60 in de meeste gezinnen). Reclame maakt wensen. Tieners hebben voor het eerst eigen geld → eigen mode en muziek.</p>
+      </div>
+    </div>
+    <details class="why"><summary><span class="ru">Почему государство всеобщего благосостояния появилось именно после 1945? <span class="vwo">VWO+</span></span><span class="nl">Waarom ontstond de verzorgingsstaat juist na 1945?</span></summary><div class="bi">
+      <p class="ru">Цепочка: (1) опыт <b>кризиса 1930-х</b> — бедность без вины показала, что «рынок сам всё решит» не работает; (2) опыт <b>войны</b> — «мы все страдали вместе», чувство общности; (3) <b>всеобщее избирательное право</b> (1917/1919) — у рабочих и бедных есть голос, партиям нужны их голоса; (4) <b>холодная война</b> — Запад хотел показать, что капитализм может быть справедливым и не хуже коммунизма; (5) <b>рост экономики</b> дал деньги на всё это. Вопрос на сегодня: что будет, когда стариков станет больше, а работающих — меньше? (см. Лабораторию)</p>
+      <p class="nl">Een keten: (1) de ervaring van de <b>crisis van de jaren dertig</b> — armoede zonder eigen schuld liet zien dat "de markt lost alles op" niet werkte; (2) de ervaring van de <b>oorlog</b> — "we hebben samen geleden", een gevoel van saamhorigheid; (3) <b>algemeen kiesrecht</b> (1917/1919) — arbeiders en armen hebben een stem, partijen hebben hun stemmen nodig; (4) de <b>Koude Oorlog</b> — het Westen wilde laten zien dat kapitalisme ook rechtvaardig kon zijn en niet onderdeed voor het communisme; (5) <b>economische groei</b> gaf het geld daarvoor. Een vraag voor nu: wat gebeurt er als er meer ouderen en minder werkenden zijn? (zie het Lab)</p>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ 4. JAREN ZESTIG ============ -->
+<section class="page" id="p-zestig" data-title-ru="60-е и эмансипация" data-title-nl="Jaren zestig en emancipatie" data-n="4">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Почему именно сытое и мирное поколение 1960-х восстало против родителей, церкви и властей?</span><span class="nl">Waarom kwam juist de welvarende, vredige generatie van de jaren zestig in opstand tegen ouders, kerk en gezag?</span></div></div>
+
+  <div class="card">
+    <div class="bi">
+      <div class="ru">
+        <p>В 1950-е общество было ещё строгим: <b>столпы</b> (эпоха 8), уважение к власти, роль женщины — дома (до 1957 г. замужняя женщина юридически была «недееспособной», а учительницу при замужестве увольняли). В 1960-е — <b>перелом</b>. Почему? <b>Благосостояние</b>: молодёжь не помнит голода, у неё есть деньги и время. <b>Образование</b>: в университетах в разы больше студентов. <b>Телевизор</b>: люди из разных столпов смотрят одно и то же, видят мир (войну во Вьетнаме, протесты в США). <b>Противозачаточная таблетка</b> (с 1960-х) — женщины решают, когда иметь детей.</p>
+        <p>Что изменилось: <span class="nlt">ontzuiling</span> (распад столпов) — люди меньше ходят в церковь, голосуют не «по столпу»; <b>Provo</b> (1965–1967) — амстердамские провокаторы с белыми велосипедами; студенты занимают здание Университета Амстердама (1969); <b>вторая волна феминизма</b>: «Dolle Mina» (1970), «Baas in eigen buik» — право на аборт (закон 1981 г.); равная оплата. Права геев: в <b>2001 г.</b> Нидерланды первыми в мире разрешили однополые браки. Детская культура тоже стала свободнее: <b>Анни М. Г. Шмидт</b> (окно канона) — «Юп и Йет», «Мип» и стихи, где дети остроумнее взрослых.</p>
+      </div>
+      <div class="nl">
+        <p>In de jaren 1950 was de samenleving nog streng: <b>zuilen</b> (tijdvak 8), respect voor gezag, de vrouw thuis (tot 1957 was een getrouwde vrouw juridisch "handelingsonbekwaam", en een onderwijzeres werd bij haar huwelijk ontslagen). In de jaren 1960 kwam de <b>omslag</b>. Waarom? <b>Welvaart</b>: jongeren kennen geen honger, ze hebben geld en tijd. <b>Onderwijs</b>: veel meer studenten. <b>Televisie</b>: mensen uit verschillende zuilen kijken hetzelfde en zien de wereld (Vietnamoorlog, protesten in de VS). <b>De pil</b> (jaren 1960) — vrouwen beslissen zelf wanneer ze kinderen krijgen.</p>
+        <p>Wat veranderde: <span class="nlt">ontzuiling</span> — minder kerkgang, mensen stemmen niet meer "volgens hun zuil"; <b>Provo</b> (1965–1967) — Amsterdamse provocateurs met witte fietsen; studenten bezetten het Maagdenhuis (1969); de <b>tweede feministische golf</b>: Dolle Mina (1970), "Baas in eigen buik" — recht op abortus (wet 1981); gelijk loon. Homorechten: in <b>2001</b> was Nederland het eerste land ter wereld met het homohuwelijk. Ook kindercultuur werd vrijer: <b>Annie M.G. Schmidt</b> (canonvenster) — Jip en Janneke, Pluk van de Petteflet, versjes waarin kinderen slimmer zijn dan volwassenen.</p>
+      </div>
+    </div>
+    <div class="memo"><span class="ru">Парадокс: протест 60-х стал возможен благодаря тому самому благосостоянию и спокойствию, которое создали «скучные» родители 50-х.</span><span class="nl">Paradox: het protest van de jaren zestig werd mogelijk dankzij precies die welvaart en rust die de "saaie" ouders van de jaren vijftig hadden opgebouwd.</span></div>
+  </div>
+</section>
+
+<!-- ============ 5. EUROPA EN MULTICULTUREEL ============ -->
+<section class="page" id="p-europa" data-title-ru="Европа, миграция, глобализация" data-title-nl="Europa, migratie, globalisering" data-n="5">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Как враги двух мировых войн стали союзом без границ — и как миграция и интернет изменили вопрос «кто мы»?</span><span class="nl">Hoe werden de vijanden van twee wereldoorlogen een unie zonder grenzen — en hoe veranderden migratie en internet de vraag "wie zijn wij"?</span></div></div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Объединение Европы</span><span class="nl">De eenwording van Europa</span></h3>
+    <table class="tl">
+      <tr><td>1944/1948</td><td><span class="ru"><b>Бенилюкс</b>: таможенный союз Бельгии, Нидерландов и Люксембурга.</span><span class="nl">De <b>Benelux</b>: douane-unie van België, Nederland en Luxemburg.</span></td></tr>
+      <tr><td>1951</td><td><span class="ru"><span class="nlt">EGKS</span> — Европейское объединение угля и стали (Франция, ФРГ, Италия, Бенилюкс). Идея Робера Шумана и Жана Монне: если уголь и сталь — сырьё для войны — под общим управлением, война между Францией и Германией становится «не только немыслимой, но и материально невозможной».</span><span class="nl">De <span class="nlt">EGKS</span> — Europese Gemeenschap voor Kolen en Staal (Frankrijk, West-Duitsland, Italië, Benelux). Idee van Robert Schuman en Jean Monnet: als kolen en staal — grondstoffen voor oorlog — gezamenlijk worden beheerd, wordt oorlog tussen Frankrijk en Duitsland "niet alleen ondenkbaar, maar materieel onmogelijk".</span></td></tr>
+      <tr><td>1957</td><td><span class="ru"><b>Римские договоры</b>: <span class="nlt">EEG</span> — общий рынок; общая сельскохозяйственная политика.</span><span class="nl">De <b>Verdragen van Rome</b>: de <span class="nlt">EEG</span> — een gemeenschappelijke markt; gemeenschappelijk landbouwbeleid.</span></td></tr>
+      <tr><td>1973–1995</td><td><span class="ru">Расширение: Британия, Дания, Ирландия; Греция; Испания, Португалия; Австрия, Швеция, Финляндия.</span><span class="nl">Uitbreiding: Groot-Brittannië, Denemarken, Ierland; Griekenland; Spanje, Portugal; Oostenrijk, Zweden, Finland.</span></td></tr>
+      <tr><td>1992</td><td><span class="ru"><b>Маастрихтский договор</b>: Европейский союз (ЕС), европейское гражданство, путь к общей валюте.</span><span class="nl">Het <b>Verdrag van Maastricht</b>: de Europese Unie (EU), Europees burgerschap, de weg naar één munt.</span></td></tr>
+      <tr><td>1995 / 2002</td><td><span class="ru"><b>Шенген</b> — без паспортного контроля; <b>евро</b> в карманах (2002).</span><span class="nl"><b>Schengen</b> — geen paspoortcontrole; de <b>euro</b> in je portemonnee (2002).</span></td></tr>
+      <tr><td>2004–2020</td><td><span class="ru">Вступают страны бывшего Восточного блока (2004); <b>Брексит</b> — Британия выходит (2020).</span><span class="nl">Landen uit het voormalige Oostblok treden toe (2004); <b>Brexit</b> — Groot-Brittannië stapt uit (2020).</span></td></tr>
+    </table>
+    <details class="alt"><summary><span class="ru">Другие варианты: «больше Европы» или «меньше Европы»? <span class="vwo">VWO+</span></span><span class="nl">Andere mogelijkheden: "meer Europa" of "minder Europa"?</span></summary><div class="bi">
+      <p class="ru">Это вечный спор. <b>За интеграцию</b>: мир между бывшими врагами, большой рынок, вместе сильнее против США, Китая, России; общие проблемы (климат, миграция) не решаются в одиночку. <b>Против</b>: решения принимают далеко, в Брюсселе; страны теряют суверенитет (вспомни: в Республике XVII века провинции тоже боялись потерять самостоятельность!). В 2005 г. 62% голландцев на референдуме отклонили Европейскую конституцию. Хороший ответ видит, что это спор о <b>балансе</b>, как и в любом союзе.</p>
+      <p class="nl">Een eeuwige discussie. <b>Voor integratie</b>: vrede tussen oude vijanden, een grote markt, samen sterker tegenover VS, China, Rusland; gezamenlijke problemen (klimaat, migratie) los je niet alleen op. <b>Tegen</b>: besluiten worden ver weg in Brussel genomen; landen verliezen soevereiniteit (denk aan de Republiek in de 17e eeuw, waar gewesten ook bang waren hun zelfstandigheid te verliezen!). In 2005 stemde 62% van de Nederlanders in een referendum tegen de Europese grondwet. Een goed antwoord ziet dat het om een <b>evenwicht</b> gaat, zoals in elk verbond.</p>
+    </div></details>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Многокультурное общество</span><span class="nl">De multiculturele samenleving</span></h3>
+    <div class="bi">
+      <p class="ru">Три потока миграции в NL: (1) <b>из бывших колоний</b> — Индонезия (1950-е), Суринам (1970-е), Антилы; (2) <span class="nlt">gastarbeiders</span> — «гастарбайтеры» из Италии, Испании, затем <b>Турции и Марокко</b> (1960–1970-е), которых пригласили на фабрики, когда своих рабочих не хватало. Думали — временно; многие остались и привезли семьи; (3) <b>беженцы</b> и мигранты из ЕС. Сегодня около четверти жителей NL имеют корни за границей. Это <span class="nlt">pluriforme en multiculturele samenleving</span> (окно канона «Многоцветные Нидерланды»): разные языки, религии, кухни. Споры об <span class="nlt">integratie</span> — что значит «стать своим»? — идут с 1980-х и усилились после 2000 г. Вспомни эпоху 6: и тогда Амстердам рос за счёт иммигрантов (гугенотов, португальских евреев), и тогда терпимость была одновременно силой и спором.</p>
+      <p class="nl">Drie migratiestromen naar NL: (1) <b>uit de voormalige koloniën</b> — Indonesië (jaren 1950), Suriname (jaren 1970), de Antillen; (2) <span class="nlt">gastarbeiders</span> uit Italië, Spanje, daarna <b>Turkije en Marokko</b> (jaren 1960–1970), uitgenodigd voor de fabrieken toen er te weinig eigen arbeiders waren. Men dacht: tijdelijk; velen bleven en haalden hun gezin; (3) <b>vluchtelingen</b> en migranten uit de EU. Nu heeft ongeveer een kwart van de inwoners van NL wortels in het buitenland. Dat is een <span class="nlt">pluriforme en multiculturele samenleving</span> (canonvenster Veelkleurig Nederland): verschillende talen, geloven, keukens. De discussie over <span class="nlt">integratie</span> — wat betekent "erbij horen"? — loopt sinds de jaren 1980 en werd na 2000 heftiger. Denk aan tijdvak 6: ook toen groeide Amsterdam door immigranten (hugenoten, Portugese joden), en ook toen was verdraagzaamheid tegelijk een kracht en een discussie.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Компьютер, интернет, глобализация</span><span class="nl">Computer, internet, globalisering</span></h3>
+    <div class="bi">
+      <p class="ru">Название эпохи — «телевидение и компьютер». Телевизор (1950-е) объединил нацию у одного экрана; компьютер (1940-е — огромные машины; 1980-е — персональные), <b>интернет</b> (1990-е), <b>смартфон</b> (2007) — связали весь мир и одновременно раздробили его на тысячи «каналов». <span class="nlt">globalisering</span>: товары, деньги, люди и идеи движутся по миру быстрее, чем когда-либо (продолжение линии с эпохи 5–6). После 1989 г. казалось, что демократия и рынок победили навсегда («конец истории»). Но 11 сентября 2001, финансовый кризис 2008, пандемия 2020, война России против Украины с 2022 г. показали, что история не закончилась. <b>Сребреница</b> (1995, окно канона): голландские миротворцы ООН не смогли защитить ~8000 боснийских мужчин и мальчиков, убитых сербскими войсками — болезненный урок о границах «миротворчества».</p>
+      <p class="nl">De naam van het tijdvak: "televisie en computer". De tv (jaren 1950) bracht het land samen voor één scherm; de computer (jaren 1940 — enorme machines; jaren 1980 — de pc), het <b>internet</b> (jaren 1990) en de <b>smartphone</b> (2007) verbonden de hele wereld en versplinterden haar tegelijk in duizenden "kanalen". <span class="nlt">globalisering</span>: goederen, geld, mensen en ideeën bewegen sneller dan ooit over de wereld (vervolg van de lijn sinds tijdvak 5–6). Na 1989 leek het of democratie en markt voorgoed hadden gewonnen ("het einde van de geschiedenis"). Maar 11 september 2001, de financiële crisis van 2008, de pandemie van 2020 en de Russische oorlog tegen Oekraïne sinds 2022 lieten zien dat de geschiedenis niet voorbij is. <b>Srebrenica</b> (1995, canonvenster): Nederlandse VN-militairen konden ca. 8000 Bosnische mannen en jongens niet beschermen, die door Servische troepen werden vermoord — een pijnlijke les over de grenzen van vredesmissies.</p>
+    </div>
+    <div class="memo"><span class="ru">Печатный станок (эпоха 5) → газеты (8) → радио (9) → телевизор и интернет (10): каждый новый способ распространять информацию менял, у кого власть.</span><span class="nl">Drukpers (tijdvak 5) → kranten (8) → radio (9) → tv en internet (10): elke nieuwe manier om informatie te verspreiden veranderde wie de macht had.</span></div>
+  </div>
+</section>
+
+<!-- ============ LAB ============ -->
+<section class="page" id="p-lab" data-title-ru="Лаборатория: кто заплатит за пенсии?" data-title-nl="Lab: wie betaalt de AOW?" data-n="6">
+  <div class="kern"><div class="lbl">Lab</div><div class="q"><span class="ru">Государство благосостояния: работающие платят взносы, из которых платятся пенсии и пособия. Что будет, когда стариков становится всё больше?</span><span class="nl">De verzorgingsstaat: werkenden betalen premie, waaruit pensioenen en uitkeringen worden betaald. Wat gebeurt er als er steeds meer ouderen komen?</span></div></div>
+  <div class="card" id="lab"></div>
+  <div class="card">
+    <b><span class="ru">Эксперименты</span><span class="nl">Experimenten</span></b>
+    <ol class="ru"><li>Сравни «1957» и «2040». Почему система, которая легко работала при Дресе, сегодня под давлением?</li><li>Выбери «Кризис 1983». Почему безработица бьёт по государству благосостояния дважды?</li><li>В «2040» найди решение: поднять взносы, снизить пенсии или… повысить пенсионный возраст (ползунок «65+»)? Это выбор не только экономический, но и политический: кто должен уступить?</li></ol>
+    <ol class="nl"><li>Vergelijk "1957" en "2040". Waarom staat een systeem dat onder Drees makkelijk werkte, nu onder druk?</li><li>Kies "Crisis 1983". Waarom raakt werkloosheid de verzorgingsstaat dubbel?</li><li>Zoek bij "2040" een oplossing: hogere premie, lagere AOW of… een hogere pensioenleeftijd (minder "ouderen")? Dat is niet alleen een economische keuze, maar ook een politieke: wie moet inleveren?</li></ol>
+    <div class="memo"><span class="ru">Солидарность поколений: сегодня работающие платят за сегодняшних стариков — в надежде, что завтра кто-то заплатит за них.</span><span class="nl">Solidariteit tussen generaties: de werkenden van nu betalen voor de ouderen van nu — in de hoop dat morgen iemand voor hen betaalt.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span class="ru">Самоучитель по истории · эпоха 10 из 10 · даты приблизительные («ca.» = около). ↺ Вернуться к <a href="tijdvak-1-jagers-en-boeren.html">эпохе 1</a> — и посмотреть на неё глазами человека, прошедшего все 10.</span>
+  <span class="nl">Zelfstudie geschiedenis · tijdvak 10 van 10 · jaartallen zijn ongeveer ("ca." = circa). ↺ Terug naar <a href="tijdvak-1-jagers-en-boeren.html">tijdvak 1</a> — en bekijk het met de ogen van iemand die alle 10 heeft gedaan.</span>
+</footer>
+</main>
+
+<script src="assets/tijdvak.js"></script>
+<script>
+const CHAIN = [
+  { ru: '1945: две сверхдержавы и бомба', nl: '1945: twee supermachten en de bom',
+    why: ['Европа разрушена; США и СССР победили, но у них противоположные системы.', 'Europa verwoest; de VS en de Sovjet-Unie wonnen, maar hebben tegengestelde systemen.'],
+    alt: ['Если бы союз военных лет сохранился, ООН могла бы стать сильнее.', 'Als het oorlogsbondgenootschap was gebleven, had de VN sterker kunnen worden.'] },
+  { ru: 'Холодная война и сдерживание', nl: 'Koude Oorlog en afschrikking',
+    why: ['Атомное оружие у обоих → прямая война = самоубийство → войны чужими руками, гонка вооружений.', 'Kernwapens aan beide kanten → rechtstreekse oorlog = zelfmoord → proxyoorlogen, wapenwedloop.'],
+    law: ['Когда война уничтожит обоих, соперники ищут другие способы бороться.', 'Als oorlog beide vernietigt, zoeken rivalen andere manieren om te strijden.'],
+    alt: ['Карибский кризис 1962 г. показал, что сдерживание могло и не сработать.', 'De Cubacrisis van 1962 liet zien dat afschrikking ook had kunnen mislukken.'] },
+  { ru: 'План Маршалла и НАТО', nl: 'Marshallplan en NAVO',
+    why: ['США помогают Западной Европе восстановиться и защищают её, чтобы сдержать коммунизм.', 'De VS helpen West-Europa herstellen en beschermen het om het communisme in te dammen.'],
+    alt: ['Без помощи бедность могла бы сделать коммунистов сильными во Франции и Италии.', 'Zonder hulp had armoede communisten sterk kunnen maken in Frankrijk en Italië.'] },
+  { ru: 'Деколонизация', nl: 'Dekolonisatie',
+    why: ['Ослабленная Европа, национальные движения, давление США/СССР и ООН → независимость колоний.', 'Verzwakt Europa, nationale bewegingen, druk van VS/Sovjet-Unie en VN → onafhankelijkheid van koloniën.'],
+    alt: ['Где метрополия упорствовала (Алжир, Индонезия), деколонизация была кровавой.', 'Waar het moederland vasthield (Algerije, Indonesië), was dekolonisatie bloedig.'] },
+  { ru: 'Объединение Европы', nl: 'Europese eenwording',
+    why: ['Уголь и сталь под общим управлением → война невозможна; общий рынок → богатство.', 'Kolen en staal gezamenlijk beheerd → oorlog onmogelijk; gemeenschappelijke markt → welvaart.'],
+    law: ['Взаимная зависимость делает войну невыгодной (но не всегда невозможной).', 'Wederzijdse afhankelijkheid maakt oorlog onvoordelig (maar niet altijd onmogelijk).'],
+    alt: ['Без холодной войны и угрозы с Востока объединение могло идти медленнее.', 'Zonder Koude Oorlog en dreiging uit het Oosten was de eenwording misschien langzamer gegaan.'] },
+  { ru: 'Восстановление и рост', nl: 'Wederopbouw en groei',
+    why: ['Маршалл, низкие зарплаты по договорённости, газ, порт → быстрый рост с 1950-х.', 'Marshall, lage lonen door overleg, gas, haven → snelle groei vanaf de jaren 1950.'],
+    alt: ['Наводнение 1953 г. показало уязвимость — и привело к Дельта-работам.', 'De Watersnood van 1953 liet de kwetsbaarheid zien — en leidde tot de Deltawerken.'] },
+  { ru: 'Государство благосостояния', nl: 'Verzorgingsstaat',
+    why: ['Уроки кризиса и войны + всеобщее избирательное право + рост → AOW (1957), пособия.', 'Lessen van crisis en oorlog + algemeen kiesrecht + groei → AOW (1957), uitkeringen.'],
+    law: ['То, что решалось милостью (церковь, семья), становится правом (закон).', 'Wat een gunst was (kerk, familie), wordt een recht (wet).'],
+    alt: ['США выбрали меньшую государственную защиту — другой баланс свободы и безопасности.', 'De VS kozen voor minder staatsbescherming — een ander evenwicht tussen vrijheid en zekerheid.'] },
+  { ru: 'Общество потребления и ТВ', nl: 'Consumptiemaatschappij en tv',
+    why: ['Растущие зарплаты, свободное время, реклама, телевизор в каждой семье.', 'Stijgende lonen, vrije tijd, reclame, een tv in elk gezin.'],
+    alt: ['Телевизор объединял страну, но и ослаблял столпы: все смотрели одно и то же.', 'De tv bracht het land samen, maar verzwakte ook de zuilen: iedereen keek hetzelfde.'] },
+  { ru: '60-е: протест и эмансипация', nl: 'Jaren 60: protest en emancipatie',
+    why: ['Сытая образованная молодёжь, ТВ, таблетка → ontzuiling, феминизм, новые свободы.', 'Welvarende, opgeleide jongeren, tv, de pil → ontzuiling, feminisme, nieuwe vrijheden.'],
+    alt: ['Без благосостояния у молодёжи не было бы ни денег, ни времени на протест.', 'Zonder welvaart hadden jongeren geen geld en tijd voor protest gehad.'] },
+  { ru: 'Миграция и многокультурность', nl: 'Migratie en multiculturaliteit',
+    why: ['Деколонизация + гастарбайтеры + беженцы → многокультурное общество и споры об интеграции.', 'Dekolonisatie + gastarbeiders + vluchtelingen → multiculturele samenleving en integratiedebat.'],
+    alt: ['Если бы «временную» миграцию сразу считали постоянной, интеграцию могли бы готовить раньше.', 'Als men "tijdelijke" migratie meteen als blijvend had gezien, was integratie eerder voorbereid.'] },
+  { ru: '1989–1991: конец холодной войны', nl: '1989–1991: einde Koude Oorlog',
+    why: ['Отстающая экономика, ТВ с Запада, решение Горбачёва, смелость граждан → падение стены, распад СССР.', 'Achterblijvende economie, westerse tv, het besluit van Gorbatsjov, moed van burgers → val van de Muur, einde Sovjet-Unie.'],
+    alt: ['Если бы в 1989 г. послали танки (как в 1956), конец мог быть кровавым и поздним.', 'Als men in 1989 tanks had gestuurd (zoals in 1956), was het einde bloedig en later gekomen.'] },
+  { ru: 'Глобализация и интернет', nl: 'Globalisering en internet',
+    why: ['Открытые границы, контейнеры, интернет, смартфон → мир связан как никогда.', 'Open grenzen, containers, internet, smartphone → de wereld is verbonden als nooit tevoren.'],
+    law: ['Каждая новая технология передачи информации меняет, у кого власть.', 'Elke nieuwe informatietechniek verandert wie de macht heeft.'],
+    alt: ['Кризисы 2008, 2020, 2022 показали, что связанный мир так же быстро передаёт и проблемы.', 'De crises van 2008, 2020 en 2022 lieten zien dat een verbonden wereld ook problemen snel doorgeeft.'] }
+];
+
+const ORDER_SETS = [
+  [['План Маршалла (1948)', 'Marshallplan (1948)'], ['НАТО (1949)', 'NAVO (1949)'], ['Берлинская стена (1961)', 'Berlijnse Muur (1961)'], ['Карибский кризис (1962)', 'Cubacrisis (1962)'], ['Падение стены (1989)', 'Val van de Muur (1989)']],
+  [['Индия (1947)', 'India (1947)'], ['Индонезия (1949)', 'Indonesië (1949)'], ['«Год Африки» (1960)', '"Afrikaanse jaar" (1960)'], ['Новая Гвинея (1962)', 'Nieuw-Guinea (1962)'], ['Суринам (1975)', 'Suriname (1975)']],
+  [['EGKS (1951)', 'EGKS (1951)'], ['EEG, Римские договоры (1957)', 'EEG, Verdragen van Rome (1957)'], ['Маастрихт, ЕС (1992)', 'Maastricht, EU (1992)'], ['Евро в карманах (2002)', 'Euro in de portemonnee (2002)'], ['Брексит (2020)', 'Brexit (2020)']],
+  [['Наводнение (1953)', 'Watersnood (1953)'], ['AOW (1957)', 'AOW (1957)'], ['Газ в Гронингене (1959)', 'Gas in Groningen (1959)'], ['Provo (1965)', 'Provo (1965)'], ['Однополые браки (2001)', 'Homohuwelijk (2001)']]
+];
+
+const PATHS = [
+  { t: ['Ты — Кеннеди, октябрь 1962. На Кубе обнаружены советские ракеты.', 'Jij bent Kennedy, oktober 1962. Op Cuba zijn Sovjetraketten ontdekt.'],
+    o: [ [['Бомбить базы и вторгнуться', 'De bases bombarderen en binnenvallen'], ['Выгода: ракеты уничтожены. Риск: советские войска на Кубе (и тактическое ядерное оружие, о котором США не знали) → ответ → атомная война. Генералы советовали именно это.', 'Voordeel: raketten vernietigd. Risico: Sovjettroepen op Cuba (en tactische kernwapens waar de VS niets van wisten) → tegenaanval → atoomoorlog. De generaals adviseerden precies dit.']],
+         [['Морская блокада + тайные переговоры', 'Zeeblokkade + geheim overleg'], ['Выгода: время для обеих сторон отступить, сохранив лицо. Цена: США тайно убрали свои ракеты из Турции. <b>Так и сделали</b> — и мир не сгорел.', 'Voordeel: tijd voor beide kanten om terug te treden met behoud van gezicht. Prijs: de VS haalden in het geheim hun raketten uit Turkije. <b>Zo ging het</b> — en de wereld verbrandde niet.']] ] },
+  { t: ['Ты — министр Нидерландов, 1964. Фабрикам не хватает рабочих.', 'Jij bent minister in Nederland, 1964. Fabrieken komen arbeiders tekort.'],
+    o: [ [['Пригласить гастарбайтеров «на время»', 'Gastarbeiders "tijdelijk" uitnodigen'], ['Выгода: фабрики работают, экономика растёт. Риск: «временные» остаются, привозят семьи, а государство не готовит ни жильё, ни уроки языка, ни интеграцию. <b>Так и вышло</b>.', 'Voordeel: fabrieken draaien, de economie groeit. Risico: "tijdelijken" blijven, halen hun gezin, en de staat regelt geen huisvesting, taallessen of integratie. <b>Zo ging het</b>.']],
+         [['Сразу планировать постоянную миграцию', 'Meteen plannen voor blijvende migratie'], ['Выгода: язык, образование, жильё с первого дня. Цена: дорого и политически трудно в 1960-е («мы же не страна иммиграции»). Вопрос VWO+: почему правительство предпочло считать это временным?', 'Voordeel: taal, onderwijs, huisvesting vanaf dag één. Prijs: duur en politiek moeilijk in de jaren 1960 ("we zijn geen immigratieland"). Vwo+-vraag: waarom deed de regering liever alsof het tijdelijk was?']] ] },
+  { t: ['Ты — Горбачёв, ноябрь 1989. Жители ГДР толпой идут к Берлинской стене.', 'Jij bent Gorbatsjov, november 1989. Inwoners van de DDR lopen massaal naar de Berlijnse Muur.'],
+    o: [ [['Ввести танки, как в 1956 и 1968', 'Tanks sturen, zoals in 1956 en 1968'], ['Выгода: блок сохраняется (на время). Цена: кровь, конец реформ, новая гонка вооружений, на которую у СССР нет денег.', 'Voordeel: het blok blijft (voorlopig) bestaan. Prijs: bloed, einde van de hervormingen, een nieuwe wapenwedloop waarvoor de Sovjet-Unie geen geld heeft.']],
+         [['Не вмешиваться', 'Niet ingrijpen'], ['Выгода: мир, реформы, деньги на экономику. Цена: потеря Восточной Европы, а через два года — и самого СССР. <b>Так и вышло</b>. На Западе Горбачёва уважают, в России многие его не простили.', 'Voordeel: vrede, hervormingen, geld voor de economie. Prijs: verlies van Oost-Europa, en twee jaar later van de Sovjet-Unie zelf. <b>Zo ging het</b>. In het Westen wordt Gorbatsjov gerespecteerd; in Rusland hebben velen het hem niet vergeven.']] ] }
+];
+
+const WATALS = [
+  ['Почему холодная война не стала горячей между США и СССР?', 'Waarom werd de Koude Oorlog tussen de VS en de Sovjet-Unie niet heet?',
+   'Главная причина — <b>атомное сдерживание</b>: обе стороны знали, что прямая война уничтожит и их самих. Поэтому конфликт шёл через войны чужими руками, гонку вооружений и пропаганду. Но были моменты, когда всё висело на волоске (Карибский кризис 1962, ложная тревога 1983 — офицер Петров не стал докладывать). Хороший ответ говорит о сдерживании <b>и</b> о роли случая и решений людей.',
+   'De belangrijkste reden is <b>nucleaire afschrikking</b>: beide kanten wisten dat een rechtstreekse oorlog henzelf zou vernietigen. Daarom liep het conflict via proxyoorlogen, wapenwedloop en propaganda. Maar er waren momenten waarop het aan een zijden draad hing (Cubacrisis 1962, vals alarm 1983 — officier Petrov sloeg geen alarm). Een goed antwoord noemt afschrikking <b>én</b> de rol van toeval en menselijke keuzes.'],
+  ['Как опыт двух мировых войн привёл к объединению Европы?', 'Hoe leidde de ervaring van twee wereldoorlogen tot de Europese eenwording?',
+   'Лидеры (Шуман, Монне, Аденауэр) сделали вывод: национализм и соперничество за ресурсы привели к катастрофе. Решение — связать экономики так, чтобы война стала невыгодной и невозможной (уголь и сталь под общим управлением). Плюс холодная война: перед угрозой СССР Западной Европе нужно было единство. Сравни с 1919: тогда победители мстили — теперь стали партнёрами.',
+   'Leiders (Schuman, Monnet, Adenauer) trokken de conclusie: nationalisme en rivaliteit om grondstoffen hadden tot een ramp geleid. De oplossing: economieën zo verbinden dat oorlog onvoordelig en onmogelijk wordt (kolen en staal gezamenlijk beheerd). Plus de Koude Oorlog: tegenover de dreiging van de Sovjet-Unie had West-Europa eenheid nodig. Vergelijk met 1919: toen namen winnaars wraak — nu werden ze partners.'],
+  ['Почему протесты 1960-х случились в богатом, а не в бедном обществе?', 'Waarom kwamen de protesten van de jaren zestig in een rijke en niet in een arme samenleving?',
+   'Бедные заняты выживанием. Благосостояние дало молодёжи <b>деньги, время и образование</b>; телевизор показал мир и альтернативы; люди, которые не боятся голода, начинают требовать не хлеба, а <b>свободы и смысла</b>. Это похоже на эпоху 7: революцию начала не самая бедная, а образованная буржуазия.',
+   'Arme mensen zijn bezig met overleven. Welvaart gaf jongeren <b>geld, tijd en onderwijs</b>; de tv liet de wereld en alternatieven zien; wie niet bang is voor honger, eist geen brood maar <b>vrijheid en zingeving</b>. Vergelijk met tijdvak 7: niet de armsten maar de opgeleide burgerij begon de revolutie.'],
+  ['Что было бы, если бы Нидерланды не открыли газ в Гронингене?', 'Wat als Nederland het Groninger gas niet had ontdekt?',
+   'Энергия была бы дороже, у государства было бы меньше денег → государство благосостояния росло бы медленнее (часть доходов от газа шла на пособия). Зато не было бы землетрясений в Гронингене и, возможно, переход на другую энергию начался бы раньше. Пример того, что у одного и того же факта есть <b>долгосрочные плюсы и минусы</b>, которые становятся видны через десятилетия.',
+   'Energie was duurder geweest, de staat had minder geld gehad → de verzorgingsstaat was langzamer gegroeid (een deel van de gasinkomsten ging naar uitkeringen). Maar er waren geen aardbevingen in Groningen geweest en misschien was de overstap op andere energie eerder begonnen. Een voorbeeld dat hetzelfde feit <b>voor- en nadelen op lange termijn</b> heeft, die pas na tientallen jaren zichtbaar worden.'],
+  ['Свяжи эпоху 10 с эпохой 1: какой «вопрос об излишке» стоит сегодня?', 'Verbind tijdvak 10 met tijdvak 1: welke "overschotvraag" speelt nu?',
+   'В эпохе 1 излишек зерна создал города, знать, жрецов и налоги. Сегодня «излишек» — огромное богатство общества, и вопрос тот же: <b>кто его производит и кто им распоряжается</b>? Государство благосостояния (налоги и пособия), глобальное неравенство (богатый Север, бедный Юг), технологические компании, контролирующие данные. Хороший ответ показывает, что старый вопрос <b>работает</b> и для современности.',
+   'In tijdvak 1 maakte een graanoverschot steden, adel, priesters en belasting mogelijk. Nu is het "overschot" de enorme rijkdom van de samenleving, en de vraag is dezelfde: <b>wie maakt het en wie beslist erover</b>? De verzorgingsstaat (belasting en uitkeringen), mondiale ongelijkheid (rijk Noorden, arm Zuiden), techbedrijven die data beheersen. Een goed antwoord laat zien dat de oude vraag <b>ook nu werkt</b>.']
+];
+
+const LAB = {
+  note: ['Учебная модель на 100 жителей. ~20 — дети и учащиеся; остальные — взрослые 18–65 (работающие или безработные) и пенсионеры 65+. Пенсия и пособие считаются в долях средней зарплаты; взнос — в % от зарплаты работающих.', 'Denkmodel per 100 inwoners. Ca. 20 zijn kinderen en scholieren; de rest zijn volwassenen 18–65 (werkend of werkloos) en ouderen 65+. AOW en uitkering in delen van het gemiddelde loon; premie in % van het loon van werkenden.'],
+  sliders: [
+    { k: 'old', ru: '👵 Доля 65+ (из 100 жителей)', nl: '👵 Aandeel 65+ (van 100 inwoners)', min: 5, max: 30, v: 9 },
+    { k: 'pens', ru: '💶 Пенсия (% от средней зарплаты)', nl: '💶 AOW (% van gemiddeld loon)', min: 20, max: 70, v: 35, unit: '%' },
+    { k: 'unemp', ru: '📉 Безработица', nl: '📉 Werkloosheid', min: 1, max: 15, v: 2, unit: '%' },
+    { k: 'tax', ru: '🧾 Взнос работающих', nl: '🧾 Premie van werkenden', min: 5, max: 40, v: 8, unit: '%' }
+  ],
+  presets: [
+    { ru: '1957 (Дрес)', nl: '1957 (Drees)', v: [9, 35, 2, 8] },
+    { ru: 'Кризис 1983', nl: 'Crisis 1983', v: [12, 45, 12, 15] },
+    { ru: '2025', nl: '2025', v: [20, 40, 4, 18] },
+    { ru: '2040', nl: '2040', v: [26, 40, 4, 18] }
+  ],
+  calc(v) {
+    const adults = 100 - 20 - v.old, workers = adults * (1 - v.unemp / 100), jobless = adults * v.unemp / 100;
+    const cost = v.old * v.pens / 100 + jobless * 0.7, income = workers * v.tax / 100;
+    const bal = Math.round((income - cost) * 10) / 10;
+    const ratio = (workers / v.old).toFixed(1);
+    const segs = [[v.old * v.pens / 100, '#7c3aed', T('пенсии', 'AOW')], [jobless * 0.7, '#b45309', T('пособия', 'uitkeringen')], [Math.max(bal, 0), '#15803d', T('запас', 'over')]];
+    const ru0 = `На одного пенсионера ${ratio} работающих. Доход ${income.toFixed(1)}, расходы ${cost.toFixed(1)} (в средних зарплатах на 100 жителей). `;
+    const nl0 = `Per oudere ${ratio} werkenden. Inkomsten ${income.toFixed(1)}, uitgaven ${cost.toFixed(1)} (in gemiddelde lonen per 100 inwoners). `;
+    if (bal < -0.5) return { segs, cls: 'bad', ru: ru0 + 'Дефицит! Придётся выбирать: поднять взносы (работающие недовольны), снизить пенсии (пенсионеры недовольны), брать в долг (платят внуки) или позже уходить на пенсию. Именно этот спор идёт в NL сегодня (AOW-возраст растёт с 2013).', nl: nl0 + 'Tekort! Kiezen dus: hogere premie (werkenden boos), lagere AOW (ouderen boos), lenen (de kleinkinderen betalen) of later met pensioen. Precies deze discussie speelt nu in NL (de AOW-leeftijd stijgt sinds 2013).' };
+    if (bal < 0.5) return { segs, cls: '', ru: ru0 + 'Еле сходится. Любой кризис или рост числа пенсионеров — и система в минусе.', nl: nl0 + 'Net rond. Elke crisis of groei van het aantal ouderen — en het systeem komt tekort.' };
+    return { segs, cls: 'ok', ru: ru0 + 'Профицит: много молодых работающих, мало стариков. Так было в 1950–60-е — система казалась лёгкой и щедрой.', nl: nl0 + 'Overschot: veel jonge werkenden, weinig ouderen. Zo was het in de jaren 1950–60 — het systeem leek makkelijk en gul.' };
+  }
+};
+
+const TERMS = [
+  ['Koude Oorlog', 'холодная война', 'Tegenstelling tussen VS en Sovjet-Unie (1947–1991) zonder rechtstreekse oorlog.'],
+  ['ideologisch blok', 'идеологический блок', 'Groep landen met hetzelfde politieke en economische systeem.'],
+  ['kapitalisme', 'капитализм', 'Economie met privébezit en vrije markt.'],
+  ['communisme', 'коммунизм', 'Systeem met staatsbezit, planeconomie en één partij.'],
+  ['planeconomie', 'плановая экономика', 'De staat bepaalt wat, hoeveel en tegen welke prijs er geproduceerd wordt.'],
+  ['IJzeren Gordijn', 'железный занавес', 'Scheidslijn tussen Oost- en West-Europa.'],
+  ['wapenwedloop', 'гонка вооружений', 'Steeds meer en betere wapens maken om de ander bij te houden.'],
+  ['afschrikking', 'сдерживание', 'Een aanval voorkomen door te dreigen met een vernietigend tegenantwoord.'],
+  ['kernwapen / atoombom', 'ядерное оружие', 'Wapen met enorme vernietigingskracht.'],
+  ['proxyoorlog', 'война чужими руками', 'Oorlog waarin supermachten andere landen of groepen steunen in plaats van zelf te vechten.'],
+  ['NAVO', 'НАТО', 'Westers militair bondgenootschap (1949).'],
+  ['Warschaupact', 'Варшавский договор', 'Militair bondgenootschap van het Oostblok (1955).'],
+  ['Marshallplan', 'план Маршалла', 'Amerikaanse hulp voor de wederopbouw van West-Europa (1948–1952).'],
+  ['Berlijnse Muur', 'Берлинская стена', 'Muur tussen Oost- en West-Berlijn (1961–1989).'],
+  ['Cubacrisis', 'Карибский кризис', 'Crisis om Sovjetraketten op Cuba (1962).'],
+  ['dekolonisatie', 'деколонизация', 'Het onafhankelijk worden van koloniën.'],
+  ['westerse hegemonie', 'господство Запада', 'Overheersing van de wereld door westerse landen.'],
+  ['zelfbeschikkingsrecht', 'право на самоопределение', 'Recht van een volk om over zichzelf te beslissen.'],
+  ['neokolonialisme', 'неоколониализм', 'Economische afhankelijkheid van oud-koloniën na de onafhankelijkheid.'],
+  ['Suriname', 'Суринам', 'Onafhankelijk sinds 1975. Canonvenster.'],
+  ['Molukkers', 'молуккцы', 'Oud-KNIL-militairen en hun families, in 1951 naar NL gekomen.'],
+  ['VN', 'ООН', 'Verenigde Naties (1945), organisatie voor vrede en samenwerking.'],
+  ['wederopbouw', 'восстановление', 'Herstel na de oorlog.'],
+  ['overlegmodel / poldermodel', 'модель согласия', 'Afspraken tussen regering, vakbonden en werkgevers.'],
+  ['Watersnood', 'наводнение 1953 г.', 'Stormvloed van 1 februari 1953, 1836 doden. Canonvenster.'],
+  ['Deltawerken', 'Дельта-работы', 'Dammen en stormvloedkeringen tegen overstromingen (1958–1997).'],
+  ['verzorgingsstaat', 'государство благосостояния', 'Staat die zorgt voor een minimum bestaan: pensioen, uitkeringen, zorg.'],
+  ['Willem Drees', 'Виллем Дрес', 'Premier (1948–1958), "vader" van de AOW. Canonvenster.'],
+  ['AOW', 'государственная пенсия', 'Algemene Ouderdomswet (1957): pensioen voor iedereen vanaf 65.'],
+  ['uitkering', 'пособие', 'Geld van de overheid bij werkloosheid, ziekte of armoede.'],
+  ['welvaart', 'благосостояние', 'Hoeveelheid goederen en diensten die mensen kunnen kopen.'],
+  ['consumptiemaatschappij', 'общество потребления', 'Samenleving waarin kopen en consumeren centraal staan.'],
+  ['televisie', 'телевидение', 'Vanaf 1951 in NL; bracht iedereen hetzelfde nieuws en vermaak. Canonvenster.'],
+  ['ontzuiling', 'распад столпов', 'Het verdwijnen van de verzuiling vanaf de jaren 1960.'],
+  ['secularisatie', 'секуляризация', 'Afnemende invloed van kerk en geloof.'],
+  ['tweede feministische golf', 'вторая волна феминизма', 'Vrouwenbeweging vanaf de jaren 1960 (Dolle Mina): gelijke rechten, eigen keuze.'],
+  ['emancipatie', 'эмансипация', 'Strijd voor gelijke rechten van een achtergestelde groep.'],
+  ['normen en waarden', 'нормы и ценности', 'Regels en idealen over hoe je je hoort te gedragen.'],
+  ['Provo', 'Прово', 'Amsterdamse protestbeweging (1965–1967), witte fietsen.'],
+  ['Annie M.G. Schmidt', 'Анни М. Г. Шмидт', 'Schrijfster van kinderboeken en liedjes. Canonvenster.'],
+  ['Europese eenwording', 'объединение Европы', 'Steeds nauwere samenwerking tussen Europese landen.'],
+  ['EGKS', 'ЕОУС', 'Europese Gemeenschap voor Kolen en Staal (1951).'],
+  ['EEG', 'ЕЭС', 'Europese Economische Gemeenschap (1957): gemeenschappelijke markt.'],
+  ['Europese Unie', 'Европейский союз', 'Sinds het Verdrag van Maastricht (1992).'],
+  ['euro', 'евро', 'Gemeenschappelijke munt (in de portemonnee sinds 2002).'],
+  ['soevereiniteit', 'суверенитет', 'Het recht van een staat om zelf te beslissen.'],
+  ['gastarbeider', 'гастарбайтер', 'Arbeider uit het buitenland die "tijdelijk" kwam werken (Turkije, Marokko).'],
+  ['gezinshereniging', 'воссоединение семей', 'Migranten laten hun gezin overkomen.'],
+  ['multiculturele samenleving', 'многокультурное общество', 'Samenleving met mensen van veel culturen. Canonvenster Veelkleurig Nederland.'],
+  ['pluriform', 'плюралистичный', 'Met veel verschillende groepen en opvattingen.'],
+  ['integratie', 'интеграция', 'Het deel worden van een samenleving met behoud van eigen achtergrond.'],
+  ['globalisering', 'глобализация', 'Toenemende wereldwijde verbondenheid door handel, migratie en communicatie.'],
+  ['Srebrenica', 'Сребреница', 'Genocide in Bosnië (1995) ondanks aanwezigheid van Nederlandse VN-militairen. Canonvenster.']
+];
+
+const Q = [
+  { t: 'koude', q: ['Waarom heet de Koude Oorlog "koud"?', 'Почему холодная война «холодная»?'], o: [['De VS en de Sovjet-Unie vochten nooit rechtstreeks tegen elkaar.', 'США и СССР никогда не воевали напрямую.'], ['Hij speelde zich af in de winter.', 'Она шла зимой.'], ['Er vielen geen doden.', 'Не было погибших.'], ['Hij ging alleen over Antarctica.', 'Она шла только за Антарктиду.']], a: 0, e: ['Wel proxyoorlogen: Korea, Vietnam.', 'Но были войны чужими руками: Корея, Вьетнам.'] },
+  { t: 'koude', q: ['Wat betekent afschrikking?', 'Что такое сдерживание?'], o: [['een aanval voorkomen door te dreigen met vernietiging', 'предотвращать нападение угрозой уничтожения'], ['vluchten voor de vijand', 'бежать от врага'], ['een muur bouwen', 'строить стену'], ['onderhandelen zonder wapens', 'переговоры без оружия']], a: 0, e: ['"Evenwicht van de angst".', '«Равновесие страха».'] },
+  { t: 'koude', q: ['Wat was het doel van het Marshallplan?', 'Цель плана Маршалла?'], o: [['West-Europa herstellen en het communisme tegenhouden', 'восстановить Западную Европу и сдержать коммунизм'], ['Duitsland straffen', 'наказать Германию'], ['koloniën terugkrijgen', 'вернуть колонии'], ['de Sovjet-Unie helpen', 'помочь СССР']], a: 0, e: ['Les uit Versailles + Koude Oorlog.', 'Урок Версаля + холодная война.'] },
+  { t: 'koude', type: 'order', q: ['Zet in de goede volgorde.', 'Расставь по порядку.'], items: [['NAVO opgericht (1949)', 'основана НАТО'], ['Berlijnse Muur gebouwd (1961)', 'построена стена'], ['Cubacrisis (1962)', 'Карибский кризис'], ['val van de Muur (1989)', 'падение стены'], ['einde Sovjet-Unie (1991)', 'распад СССР']] },
+  { t: 'koude', type: 'open', q: ['Noem twee oorzaken van het einde van de Koude Oorlog.', 'Назови две причины конца холодной войны.'], model: ['Bijvoorbeeld: de Sovjet-economie liep achter en kon de wapenwedloop niet meer betalen; Gorbatsjov voerde hervormingen door en stuurde in 1989 geen tanks; burgers in Oost-Europa kwamen in verzet (Solidariteit, demonstraties); via tv zagen mensen het welvarende Westen.', 'Например: экономика СССР отставала и не выдерживала гонку вооружений; Горбачёв проводил реформы и не послал танки в 1989; граждане Восточной Европы протестовали; ТВ показывало богатый Запад.'], rubric: [['eerste oorzaak', 'первая причина'], ['tweede oorzaak', 'вторая причина']] },
+  { t: 'dekolonisatie', q: ['Welke factor versnelde de dekolonisatie na 1945?', 'Что ускорило деколонизацию после 1945?'], o: [['Europese landen waren verzwakt door de oorlog.', 'Европейские страны были ослаблены войной.'], ['De koloniën wilden bij Europa blijven.', 'Колонии хотели остаться с Европой.'], ['De VS steunden de koloniale rijken.', 'США поддерживали империи.'], ['Er waren geen nationale bewegingen.', 'Не было национальных движений.']], a: 0, e: ['Plus: VN, supermachten, nationale bewegingen.', 'Плюс ООН, сверхдержавы, национальные движения.'] },
+  { t: 'dekolonisatie', q: ['Wanneer werd Suriname onafhankelijk?', 'Когда Суринам стал независимым?'], o: ['1975', '1949', '1863', '2010'], a: 0, e: ['1949 Indonesië; 1863 afschaffing slavernij; 2010 nieuwe staatkundige indeling van de Antillen.', '1949 — Индонезия; 1863 — отмена рабства; 2010 — новое устройство Антил.'] },
+  { t: 'dekolonisatie', q: ['Wat is neokolonialisme?', 'Что такое неоколониализм?'], o: [['economische afhankelijkheid van oud-koloniën na hun onafhankelijkheid', 'экономическая зависимость бывших колоний после независимости'], ['het stichten van nieuwe koloniën', 'основание новых колоний'], ['een kunststroming', 'течение в искусстве'], ['terugkeer van kolonisten naar Europa', 'возвращение колонистов в Европу']], a: 0, e: ['Politiek vrij, economisch afhankelijk.', 'Политически свободны, экономически зависимы.'] },
+  { t: 'welvaart', q: ['Wat regelde de AOW (1957)?', 'Что установил AOW (1957)?'], o: [['een staatspensioen voor iedereen vanaf 65', 'государственная пенсия для всех с 65 лет'], ['kinderbijslag', 'детские пособия'], ['gratis onderwijs', 'бесплатное образование'], ['een minimumloon', 'минимальная зарплата']], a: 0, e: ['Willem Drees.', 'Виллем Дрес.'] },
+  { t: 'welvaart', q: ['Wat was het gevolg van de Watersnood van 1953?', 'Что последовало за наводнением 1953?'], o: [['de aanleg van de Deltawerken', 'строительство Дельта-работ'], ['de oprichting van de EU', 'основание ЕС'], ['de AOW', 'закон AOW'], ['de ontdekking van gas', 'открытие газа']], a: 0, e: ['1958–1997.', '1958–1997.'] },
+  { t: 'welvaart', q: ['Wat is een consumptiemaatschappij?', 'Что такое общество потребления?'], o: [['een samenleving waarin kopen en consumeren centraal staan', 'общество, где покупки и потребление в центре'], ['een samenleving zonder geld', 'общество без денег'], ['een samenleving van boeren', 'общество крестьян'], ['een samenleving met rantsoenering', 'общество с карточками']], a: 0, e: ['Tv, auto, koelkast, reclame.', 'ТВ, машина, холодильник, реклама.'] },
+  { t: 'welvaart', type: 'open', q: ['Leg uit waarom de verzorgingsstaat juist na 1945 ontstond. Noem twee redenen.', 'Объясни, почему государство благосостояния возникло именно после 1945. Две причины.'], model: ['Bijvoorbeeld: de crisis van de jaren dertig liet zien dat armoede je zonder eigen schuld kon treffen; door de oorlog voelden mensen zich verbonden; door algemeen kiesrecht wilden partijen arbeiders helpen; economische groei gaf geld; in de Koude Oorlog wilde het Westen laten zien dat kapitalisme eerlijk kon zijn.', 'Например: кризис 1930-х показал, что бедность может настичь без вины; война сплотила людей; всеобщее избирательное право заставило партии помогать рабочим; рост экономики дал деньги; в холодную войну Запад хотел показать справедливость капитализма.'], rubric: [['eerste reden', 'первая причина'], ['tweede reden', 'вторая причина']] },
+  { t: 'zestig', q: ['Wat is ontzuiling?', 'Что такое распад столпов?'], o: [['Mensen leefden minder in hun eigen zuil; kerk en zuilorganisaties verloren invloed.', 'Люди меньше жили в своём столпе; церковь и организации столпов теряли влияние.'], ['De bouw van nieuwe kerken.', 'Строительство новых церквей.'], ['Het verbod op partijen.', 'Запрет партий.'], ['Het afbreken van zuilen in Rome.', 'Снос колонн в Риме.']], a: 0, e: ['Jaren 1960: tv, welvaart, onderwijs.', '1960-е: ТВ, благосостояние, образование.'] },
+  { t: 'zestig', q: ['Waarom kwamen juist jongeren in de jaren zestig in opstand tegen gezag?', 'Почему именно молодёжь 1960-х восстала против авторитетов?'], o: [['Door welvaart, onderwijs en tv hadden ze tijd, geld en nieuwe ideeën.', 'Благосостояние, образование и ТВ дали время, деньги и идеи.'], ['Ze hadden honger.', 'Они голодали.'], ['Ze mochten niet naar school.', 'Им нельзя было учиться.'], ['De oorlog was net begonnen.', 'Только началась война.']], a: 0, e: ['Paradox van de welvaart.', 'Парадокс благосостояния.'] },
+  { t: 'zestig', q: ['In welk jaar was Nederland het eerste land met het homohuwelijk?', 'В каком году NL первыми разрешили однополые браки?'], o: ['2001', '1969', '1981', '2015'], a: 0, e: ['1981: abortuswet.', '1981 — закон об абортах.'] },
+  { t: 'europa', q: ['Waarom begon de Europese samenwerking met kolen en staal?', 'Почему объединение Европы началось с угля и стали?'], o: [['Dat waren grondstoffen voor oorlog: samen beheren maakt oorlog onmogelijk.', 'Это сырьё для войны: общее управление делает войну невозможной.'], ['Omdat Nederland veel kolen had.', 'У NL было много угля.'], ['Omdat de VS het verboden.', 'США запретили другое.'], ['Toevallig.', 'Случайно.']], a: 0, e: ['EGKS 1951.', 'ЕОУС 1951.'] },
+  { t: 'europa', type: 'order', q: ['Zet in de goede volgorde.', 'Расставь по порядку.'], items: [['EGKS (1951)', 'ЕОУС'], ['EEG (1957)', 'ЕЭС'], ['Verdrag van Maastricht (1992)', 'Маастрихт'], ['euro in de portemonnee (2002)', 'евро наличными'], ['Brexit (2020)', 'Брексит']] },
+  { t: 'europa', q: ['Waarom kwamen in de jaren 1960 gastarbeiders naar Nederland?', 'Почему в 1960-е в NL приехали гастарбайтеры?'], o: [['Er waren te weinig arbeiders voor de groeiende industrie.', 'Растущей промышленности не хватало рабочих.'], ['Ze waren gevlucht voor oorlog.', 'Они бежали от войны.'], ['Ze kwamen uit de koloniën.', 'Они приехали из колоний.'], ['Ze wilden in Nederland studeren.', 'Хотели учиться в NL.']], a: 0, e: ['Turkije, Marokko; men dacht: tijdelijk.', 'Турция, Марокко; думали — временно.'] },
+  { t: 'europa', q: ['Wat gebeurde er in Srebrenica in 1995?', 'Что произошло в Сребренице в 1995?'], o: [['Ca. 8000 Bosnische mannen en jongens werden vermoord, ondanks Nederlandse VN-militairen.', 'Около 8000 боснийских мужчин и мальчиков убиты, несмотря на голландских миротворцев ООН.'], ['De euro werd ingevoerd.', 'Ввели евро.'], ['De Muur viel.', 'Пала стена.'], ['Er was een overstroming.', 'Было наводнение.']], a: 0, e: ['Canonvenster.', 'Окно канона.'] },
+  { t: 'redeneren', q: ['Welke lange lijn loopt van tijdvak 5 tot 10?', 'Какая длинная линия идёт от эпохи 5 к 10?'], o: [['Steeds snellere verspreiding van informatie: drukpers → krant → radio → tv → internet.', 'Всё более быстрое распространение информации: печать → газета → радио → ТВ → интернет.'], ['Steeds minder handel.', 'Всё меньше торговли.'], ['Steeds meer macht voor de kerk.', 'Всё больше власти у церкви.'], ['Steeds minder steden.', 'Всё меньше городов.']], a: 0, e: ['Elke nieuwe techniek veranderde wie de macht had.', 'Каждая новая технология меняла, у кого власть.'] },
+  { t: 'redeneren', type: 'open', q: ['Vergelijk de reactie van de winnaars in 1919 en in 1945 op het verslagen Duitsland, en leg het verschil uit.', 'Сравни отношение победителей к Германии в 1919 и 1945 и объясни разницу.'], model: ['In 1919 straften de winnaars Duitsland (schuld, herstelbetalingen, gebiedsverlies); in 1945 hielpen ze West-Duitsland met het Marshallplan en namen het op in NAVO en Europese samenwerking. Verklaring: les uit Versailles (straf leidde tot Hitler) en de Koude Oorlog (bondgenoot nodig tegen de Sovjet-Unie).', 'В 1919 Германию наказали; в 1945 Западной Германии помогли (план Маршалла), приняли в НАТО и Европу. Причины: урок Версаля и холодная война.'], rubric: [['1919 straf', '1919 — наказание'], ['1945 hulp/opname', '1945 — помощь'], ['verklaring', 'объяснение']] },
+  { t: 'bronnen', q: ['Een Sovjet-affiche uit 1960 toont blije arbeiders en volle winkels. Wat zegt deze bron het best?', 'Советский плакат 1960: счастливые рабочие и полные магазины. О чём лучше всего говорит источник?'], o: [['Hoe de Sovjetregering zich wilde laten zien (propaganda).', 'Каким советское правительство хотело себя показать (пропаганда).'], ['Hoe het leven in de Sovjet-Unie echt was.', 'Какой была реальная жизнь в СССР.'], ['Niets: het is onbruikbaar.', 'Ни о чём, бесполезен.'], ['Hoe Amerikanen over de Sovjet-Unie dachten.', 'Что американцы думали об СССР.']], a: 0, e: ['Betrouwbaar voor het beeld, niet voor de werkelijkheid.', 'Надёжен об образе, не о реальности.'] },
+  { t: 'bronnen', q: ['Een tv-journaal uit 1989 toont mensen die op de Berlijnse Muur dansen. Wat voor bron is dat?', 'Телерепортаж 1989: люди танцуют на Берлинской стене. Что это за источник?'], o: [['een primaire bron (beeld uit de tijd zelf)', 'первичный источник (съёмка того времени)'], ['een secundaire bron', 'вторичный источник'], ['een archeologische bron', 'археологический источник'], ['een historische roman', 'исторический роман']], a: 0, e: ['Let op: ook beelden worden gekozen en gemonteerd.', 'Помни: кадры тоже выбирают и монтируют.'] }
+];
+
+initTijdvak({
+  id: 't10', n: 10, CHAIN, ORDER_SETS, PATHS, WATALS, TERMS, Q, LAB,
+  legUit: ['«Была холодная война. Атомной войны не было.»', 'Doordat zowel de VS als de Sovjet-Unie kernwapens hadden, wisten beide dat een rechtstreekse oorlog henzelf zou vernietigen. Daardoor schrokken ze ervoor terug en voerden ze de strijd via proxyoorlogen, wapenwedloop en propaganda.', '"Er was een Koude Oorlog. Er kwam geen atoomoorlog."'],
+  topics: [['koude', 'Koude Oorlog'], ['dekolonisatie', 'Dekolonisatie'], ['welvaart', 'Welvaart en verzorgingsstaat'], ['zestig', 'Jaren zestig'], ['europa', 'Europa en migratie'], ['redeneren', 'Redeneren'], ['bronnen', 'Bronnen']]
+});
+</script>
+</body>
+</html>
