@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tijdvak 2 · Grieken en Romeinen — самоучитель (RU/NL)</title>
+  <link rel="stylesheet" href="assets/tijdvak.css">
+</head>
+<body data-lang="both">
+<main class="container">
+  <div class="crumbs"><a href="../index.html">← Главная</a> · <a href="index.html">История / Geschiedenis</a></div>
+  <h1>Tijdvak 2 · Tijd van Grieken en Romeinen</h1>
+  <p class="subtitle"><span class="ru">Античность: от греческих полисов к Римской империи и её распаду (3000 до н.э. – 500 н.э.). Самоучитель для brugklas VWO+ (блоки <span class="vwo">VWO+</span> — углубление).</span><span class="nl">De oudheid: van Griekse stadstaten naar het Romeinse Rijk en de val ervan (3000 v.Chr. – 500 n.Chr.). Zelfstudie voor de brugklas vwo+ (blokken <span class="vwo">VWO+</span> = verdieping).</span></p>
+
+  <div class="topbar">
+    <div class="langs">
+      <span class="muted">Язык / Taal:</span>
+      <button data-setlang="ru">RU</button>
+      <button data-setlang="both" class="active">RU + NL</button>
+      <button data-setlang="nl">NL</button>
+      <span class="muted" style="margin-left:6px">· <span class="nlt">термины</span> всегда по-голландски</span>
+    </div>
+    <nav class="tabs" id="tabs"></nav>
+  </div>
+
+<!-- ============ 0. OVERZICHT ============ -->
+<section class="page" id="p-kaart" data-title-ru="Обзор" data-title-nl="Overzicht" data-n="0">
+  <div class="kern"><div class="lbl">Kernvraag van het tijdvak</div><div class="q"><span class="ru">Как из множества маленьких городов-государств выросла одна огромная империя — и почему она не смогла удержаться?</span><span class="nl">Hoe groeide uit veel kleine stadstaten één enorm rijk — en waarom hield dat rijk geen stand?</span></div></div>
+
+  <div class="bridge">
+    <div class="card"><b><span class="ru">⬅ Что досталось от эпохи 1</span><span class="nl">⬅ Wat tijdvak 1 meegaf</span></b>
+      <p><span class="ru">Земледелие → излишек → города → письменность и государство. Без излишка нет ни философов, ни легионов: и тех и других кто-то должен кормить. Греки и римляне — это <b>следующий этаж того же дома</b>: города уже есть, теперь вопрос, <b>как ими управлять</b> и <b>как их объединить</b>.</span><span class="nl">Landbouw → overschot → steden → schrift en staat. Zonder overschot geen filosofen en geen legioenen: iemand moet ze voeden. Grieken en Romeinen zijn <b>de volgende verdieping van hetzelfde huis</b>: steden zijn er al, nu is de vraag <b>hoe je ze bestuurt</b> en <b>hoe je ze samenvoegt</b>.</span></p>
+      <p class="muted"><a href="tijdvak-1-jagers-en-boeren.html">Tijdvak 1 · Jagers en boeren</a></p></div>
+    <div class="card"><b><span class="ru">➡ Что эта эпоха оставит следующей</span><span class="nl">➡ Wat dit tijdvak doorgeeft</span></b>
+      <p><span class="ru">Христианство как общая религия Европы, латынь как язык учёных и церкви, римское право, дороги и города на Рейне — и пустоту власти после падения Рима, которую заполнят франкские короли, монастыри и рыцари.</span><span class="nl">Het christendom als gedeeld geloof van Europa, Latijn als taal van geleerden en kerk, Romeins recht, wegen en steden aan de Rijn — en een machtsvacuüm na de val van Rome, dat Frankische koningen, kloosters en ridders zullen vullen.</span></p>
+      <p class="muted"><a href="tijdvak-3-monniken-en-ridders.html">Tijdvak 3 · Monniken en ridders</a></p></div>
+  </div>
+
+  <h3><span class="ru">10 эпох — нажми, чтобы перейти</span><span class="nl">De 10 tijdvakken — klik om te wisselen</span></h3>
+  <div class="tijdvakken" id="tvGrid"></div>
+
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0"><span class="ru">Kenmerkende aspecten эпохи 2 — что надо уметь объяснить</span><span class="nl">Kenmerkende aspecten van tijdvak 2</span></h3>
+    <ol>
+      <li><span class="nlt">De ontwikkeling van wetenschappelijk denken en het denken over burgerschap en politiek in de Griekse stadstaat</span> <span class="ru">— научное мышление и идеи гражданства и политики в греческом полисе</span></li>
+      <li><span class="nlt">De klassieke vormentaal van de Grieks-Romeinse cultuur</span> <span class="ru">— классический стиль (колонны, пропорции, театр) греко-римской культуры</span></li>
+      <li><span class="nlt">De groei van het Romeinse imperium waardoor de Grieks-Romeinse cultuur zich in Europa verspreidde</span> <span class="ru">— рост Римской империи, через которую греко-римская культура распространилась по Европе</span></li>
+      <li><span class="nlt">De confrontatie tussen de Grieks-Romeinse cultuur en de Germaanse cultuur van Noordwest-Europa</span> <span class="ru">— столкновение греко-римской и германской культуры</span></li>
+      <li><span class="nlt">De ontwikkeling van het jodendom en het christendom als de eerste monotheïstische godsdiensten</span> <span class="ru">— иудаизм и христианство как первые монотеистические религии</span></li>
+    </ol>
+    <p class="muted"><span class="ru">Окно канона Нидерландов: <b>De Romeinse Limes (47 – ca. 400)</b>.</span><span class="nl">Canonvenster: <b>De Romeinse Limes (47 – ca. 400)</b>.</span></p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Вся эпоха в одной цепочке</span><span class="nl">Het hele tijdvak in één keten</span></h3>
+    <div class="cause">
+      <div class="step"><span class="ru">Горы и море Греции</span><span class="nl">Bergen en zee in Griekenland</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Сотни независимых полисов</span><span class="nl">Honderden zelfstandige stadstaten</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Граждане спорят и голосуют → демократия, философия, наука</span><span class="nl">Burgers debatteren en stemmen → democratie, filosofie, wetenschap</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Рим объединяет Средиземноморье армией, дорогами, правом</span><span class="nl">Rome verenigt de Middellandse Zee met leger, wegen en recht</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Романизация до Рейна; граница с германцами</span><span class="nl">Romanisering tot aan de Rijn; grens met de Germanen</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Христианство по римским дорогам</span><span class="nl">Christendom via Romeinse wegen</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Граница слишком дорога → падение Западной империи (476)</span><span class="nl">Grens te duur → val van het West-Romeinse Rijk (476)</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Шпаргалка: три мира эпохи</span><span class="nl">Spiekbrief: drie werelden</span></h3>
+    <div style="overflow-x:auto"><table class="cmp">
+      <tr><th></th><th>Griekse stadstaten</th><th>Romeinse Rijk</th><th>Germanen</th></tr>
+      <tr><td><span class="ru">Власть</span><span class="nl">Bestuur</span></td><td><span class="ru">каждый полис сам по себе; в Афинах — демократия граждан</span><span class="nl">elke polis apart; in Athene democratie van burgers</span></td><td><span class="ru">республика (сенат, консулы), с 27 до н.э. — император</span><span class="nl">republiek (senaat, consuls), vanaf 27 v.Chr. keizer</span></td><td><span class="ru">племена, вожди, собрание воинов</span><span class="nl">stammen, hoofdmannen, vergadering van krijgers</span></td></tr>
+      <tr><td><span class="ru">Экономика</span><span class="nl">Economie</span></td><td><span class="ru">земледелие + морская торговля, рабы</span><span class="nl">landbouw + handel over zee, slaven</span></td><td><span class="ru">огромный рынок, монеты, налоги, поместья (villa), рабы</span><span class="nl">grote markt, munten, belasting, villa's, slaven</span></td><td><span class="ru">деревни, скот, немного полей, обмен</span><span class="nl">dorpen, vee, wat akkers, ruilhandel</span></td></tr>
+      <tr><td><span class="ru">Письмо и знание</span><span class="nl">Schrift en kennis</span></td><td><span class="ru">алфавит, философия, наука, история</span><span class="nl">alfabet, filosofie, wetenschap, geschiedschrijving</span></td><td><span class="ru">латынь, право, инженерия</span><span class="nl">Latijn, recht, techniek</span></td><td><span class="ru">почти нет письма (позже руны); устная традиция</span><span class="nl">bijna geen schrift (later runen); mondelinge traditie</span></td></tr>
+      <tr><td><span class="ru">Вера</span><span class="nl">Geloof</span></td><td><span class="ru">много богов (Зевс, Афина)</span><span class="nl">veel goden (Zeus, Athena)</span></td><td><span class="ru">много богов → с 380 г. христианство</span><span class="nl">veel goden → vanaf 380 christendom</span></td><td><span class="ru">много богов (Вотан, Донар), священные рощи</span><span class="nl">veel goden (Wodan, Donar), heilige bossen</span></td></tr>
+    </table></div>
+  </div>
+</section>
+
+<!-- ============ 1. GRIEKEN ============ -->
+<section class="page" id="p-grieken" data-title-ru="Греческий полис" data-title-nl="De Griekse polis" data-n="1">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Почему в Египте был один фараон на всю страну, а в Греции — сотни отдельных городов, и в одном из них придумали демократию?</span><span class="nl">Waarom had Egypte één farao voor het hele land, terwijl Griekenland uit honderden losse steden bestond — en in één ervan de democratie ontstond?</span></div></div>
+
+  <div class="card">
+    <span class="pill geo">🗺 Geografie</span>
+    <h3 style="margin-top:4px"><span class="ru">Одна река против гор и островов</span><span class="nl">Eén rivier tegenover bergen en eilanden</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <p><b>Египет</b> (ок. 3000 – 30 до н.э.): вся жизнь — вдоль одного Нила. Одна река = одна дорога и одна система орошения → её легко держать в одних руках → <span class="nlt">farao</span>, бог-царь, чиновники, писцы, пирамиды. Излишек Нила кормил огромное государство.</p>
+        <p><b>Греция</b>: горы режут страну на маленькие долины, сотни островов, мало плодородной земли. Связь через горы трудна, а по морю — легко. Поэтому каждая долина жила своим городом: <span class="nlt">polis</span> (мн. ч. poleis), <span class="nlt">stadstaat</span> — город с окрестными полями и своей властью. Их было больше тысячи.</p>
+      </div>
+      <div class="nl">
+        <p><b>Egypte</b> (ca. 3000 – 30 v.Chr.): al het leven lag langs één rivier, de Nijl. Eén rivier = één weg en één irrigatiesysteem → makkelijk in één hand te houden → <span class="nlt">farao</span>, een god-koning, met ambtenaren, schrijvers en piramides. Het overschot van de Nijl voedde een grote staat.</p>
+        <p><b>Griekenland</b>: bergen verdelen het land in kleine dalen, er zijn honderden eilanden en weinig vruchtbare grond. Over de bergen reizen is lastig, over zee makkelijk. Daarom had elk dal zijn eigen stad: een <span class="nlt">polis</span> of <span class="nlt">stadstaat</span> — een stad met het land eromheen en een eigen bestuur. Er waren er meer dan duizend.</p>
+      </div>
+    </div>
+    <div class="cause">
+      <div class="step"><span class="ru">Горы, мало хорошей земли</span><span class="nl">Bergen, weinig goede grond</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Маленькие независимые полисы</span><span class="nl">Kleine zelfstandige poleis</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Людей больше, чем земли → море, торговля, колонии</span><span class="nl">Meer mensen dan grond → zee, handel, kolonies</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Греки по всему Средиземноморью (Марсель, Неаполь)</span><span class="nl">Grieken rond de hele Middellandse Zee (Marseille, Napels)</span></div>
+    </div>
+    <details class="why"><summary><span class="ru">Почему маленький размер полиса важен для демократии?</span><span class="nl">Waarom is de kleine omvang van een polis belangrijk voor democratie?</span></summary><div class="bi">
+      <p class="ru">В полисе несколько тысяч граждан могут <b>собраться на одной площади</b> и проголосовать. В Египте с миллионами жителей так невозможно: нет ни интернета, ни почты, ни выборов по округам. Прямая демократия возможна только там, где все могут прийти пешком. Это <b>условие</b>, а не неизбежность: маленькие полисы бывали и тираниями, и олигархиями.</p>
+      <p class="nl">In een polis kunnen een paar duizend burgers <b>op één plein samenkomen</b> en stemmen. In Egypte met miljoenen inwoners kan dat niet: geen internet, geen post, geen verkiezingen per district. Directe democratie kan alleen waar iedereen er lopend heen kan. Dat is een <b>voorwaarde</b>, geen automatisme: kleine poleis waren ook vaak tirannieën of oligarchieën.</p>
+    </div></details>
+  </div>
+
+  <div class="card">
+    <span class="pill soc">👥 Samenleving</span>
+    <h3 style="margin-top:4px"><span class="ru">Афинская демократия: как она работала</span><span class="nl">De Atheense democratie: hoe werkte die?</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <p><span class="nlt">democratie</span> = «власть народа» (demos + kratos). В Афинах после реформ <b>Клисфена (508/507 до н.э.)</b> главные решения принимало <span class="nlt">volksvergadering</span> — собрание всех граждан. Расцвет — при <b>Перикле</b> (ок. 450 до н.э.).</p>
+        <ul>
+          <li>Голосует <b>каждый гражданин</b> лично (<span class="nlt">directe democratie</span>), а не через выборных депутатов.</li>
+          <li>Многие должности и присяжные в суде выбирались <b>жребием</b> (<span class="nlt">loting</span>): так богатые не могли просто «купить» место.</li>
+          <li><span class="nlt">ostracisme</span>: раз в год можно было выгнать на 10 лет слишком опасного политика, написав имя на черепке.</li>
+        </ul>
+        <p><b>Но:</b> <span class="nlt">burger</span> = свободный мужчина, рождённый от афинских родителей, старше 18. Не голосовали женщины, <span class="nlt">slaven</span> (рабы) и <span class="nlt">metoiken</span> (приезжие). Граждан — около 30–40 тысяч из ~250 тысяч жителей.</p>
+      </div>
+      <div class="nl">
+        <p><span class="nlt">democratie</span> = "macht van het volk" (demos + kratos). In Athene nam na de hervormingen van <b>Kleisthenes (508/507 v.Chr.)</b> de <span class="nlt">volksvergadering</span> de belangrijkste besluiten. Bloeitijd: onder <b>Perikles</b> (ca. 450 v.Chr.).</p>
+        <ul>
+          <li><b>Elke burger</b> stemt zelf (<span class="nlt">directe democratie</span>), niet via gekozen volksvertegenwoordigers.</li>
+          <li>Veel ambtenaren en rechters werden <b>geloot</b> (<span class="nlt">loting</span>): zo konden rijken een plek niet zomaar kopen.</li>
+          <li><span class="nlt">ostracisme</span>: één keer per jaar kon je een gevaarlijke politicus 10 jaar verbannen door zijn naam op een potscherf te schrijven.</li>
+        </ul>
+        <p><b>Maar:</b> een <span class="nlt">burger</span> was een vrije man met Atheense ouders, ouder dan 18. Vrouwen, <span class="nlt">slaven</span> en <span class="nlt">metoiken</span> (vreemdelingen) stemden niet. Ongeveer 30.000–40.000 burgers op ca. 250.000 inwoners.</p>
+      </div>
+    </div>
+    <details class="why"><summary><span class="ru">Почему бедные афиняне получили право голоса? (связь с флотом) <span class="vwo">VWO+</span></span><span class="nl">Waarom kregen arme Atheners stemrecht? (het verband met de vloot)</span></summary><div class="bi">
+      <p class="ru">Закономерность, которая повторится ещё много раз: <b>кто нужен для войны, тот требует права голоса</b>. Сначала Афины защищали <span class="nlt">hoplieten</span> — тяжёлая пехота, которая сама покупала доспехи (средний слой). После победы над персами при <b>Саламине (480 до н.э.)</b> главной силой стал флот — а на вёслах триер сидели бедные граждане. Без них города не защитить → их голос стал весить. Сравни с эпохой 9: после Первой мировой войны многие страны дали право голоса всем мужчинам и женщинам.</p>
+      <p class="nl">Een patroon dat nog vaak terugkomt: <b>wie nodig is voor de oorlog, eist inspraak</b>. Eerst verdedigden <span class="nlt">hoplieten</span> Athene: zware infanterie die zelf haar wapenrusting kocht (de middengroep). Na de overwinning op de Perzen bij <b>Salamis (480 v.Chr.)</b> werd de vloot de belangrijkste macht — en aan de riemen zaten arme burgers. Zonder hen geen verdediging → hun stem telde. Vergelijk met tijdvak 9: na de Eerste Wereldoorlog kregen in veel landen alle mannen en vrouwen stemrecht.</p>
+    </div></details>
+    <div class="memo"><span class="ru">Афинская демократия: голосовал каждый… кто был мужчиной, свободным, взрослым и афинянином. Примерно каждый седьмой.</span><span class="nl">De Atheense democratie: iedereen stemde… als je man, vrij, volwassen en Atheens was. Zo'n één op de zeven.</span></div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3 style="margin-top:0"><span class="ru">Спарта — другой ответ</span><span class="nl">Sparta — een ander antwoord</span></h3>
+      <div class="bi">
+        <p class="ru">Спарта завоевала соседей и превратила их в <span class="nlt">heloten</span> — государственных крепостных, которых было в разы больше, чем спартанцев. Чтобы их удержать, Спарта стала военным лагерем: мальчиков с 7 лет воспитывали как солдат, правили два царя и совет старейшин (<span class="nlt">oligarchie</span> — власть немногих). Логика: <b>кто живёт за счёт подневольного труда, тот вынужден всё время держать оружие наготове</b>.</p>
+        <p class="nl">Sparta veroverde de buren en maakte hen tot <span class="nlt">heloten</span>: staatshorigen, veel talrijker dan de Spartanen zelf. Om hen onder controle te houden werd Sparta een legerkamp: jongens werden vanaf 7 jaar opgeleid tot soldaat; er regeerden twee koningen en een raad van ouderen (<span class="nlt">oligarchie</span> — macht van weinigen). Logica: <b>wie leeft van gedwongen arbeid, moet altijd klaarstaan met wapens</b>.</p>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0"><span class="ru">Персы, Македония, эллинизм</span><span class="nl">Perzen, Macedonië, hellenisme</span></h3>
+      <div class="bi">
+        <p class="ru">Против Персидской империи полисы объединились (Марафон 490, Саламин 480), потом воевали друг с другом (Пелопоннесская война 431–404). Ослабленную Грецию подчинила Македония. <b>Александр Македонский</b> (336–323 до н.э.) завоевал Персию до Индии и Египта → греческий язык и культура разошлись по всему Востоку: <span class="nlt">hellenisme</span>. Город Александрия в Египте стал научной столицей мира.</p>
+        <p class="nl">Tegen het Perzische Rijk werkten de poleis samen (Marathon 490, Salamis 480), daarna vochten ze tegen elkaar (Peloponnesische Oorlog 431–404). Het verzwakte Griekenland kwam onder Macedonië. <b>Alexander de Grote</b> (336–323 v.Chr.) veroverde Perzië tot aan India en Egypte → Griekse taal en cultuur verspreidden zich over het Oosten: <span class="nlt">hellenisme</span>. Alexandrië in Egypte werd de wetenschappelijke hoofdstad van de wereld.</p>
+      </div>
+    </div>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: была ли демократия «естественным» итогом для греков?</span><span class="nl">Andere mogelijkheden: was democratie het "logische" eindpunt voor de Grieken?</span></summary><div class="bi">
+    <p class="ru">Нет. В полисах сменяли друг друга <span class="nlt">monarchie</span> (власть одного), <span class="nlt">aristocratie</span> (власть знатных), <span class="nlt">tirannie</span> (захватчик власти, часто поддержанный бедными против знати) и <span class="nlt">democratie</span>. Афинская демократия просуществовала около 180 лет и была уничтожена Македонией. Аристотель собрал устройства 158 полисов и сравнивал их — то есть уже тогда видели, что вариантов много. Вопрос: почему Спарта, где граждане тоже голосовали в собрании, не стала демократией в афинском смысле?</p>
+    <p class="nl">Nee. In de poleis wisselden <span class="nlt">monarchie</span> (één heerser), <span class="nlt">aristocratie</span> (de adel), <span class="nlt">tirannie</span> (iemand grijpt de macht, vaak met steun van armen tegen de adel) en <span class="nlt">democratie</span> elkaar af. De Atheense democratie bestond ongeveer 180 jaar en werd door Macedonië beëindigd. Aristoteles verzamelde de bestuursvormen van 158 poleis en vergeleek ze — men zag toen al dat er veel varianten waren. Denkvraag: waarom werd Sparta, waar burgers ook in een vergadering stemden, geen democratie zoals Athene?</p>
+  </div></details>
+
+  <details class="check"><summary><span class="ru">Самопроверка</span><span class="nl">Controle</span></summary><div>
+    <ol>
+      <li><span class="ru">Объясни, как география Греции привела к появлению полисов.</span><span class="nl">Leg uit hoe de geografie van Griekenland leidde tot stadstaten.</span><br><i class="muted"><span class="ru">Горы и море делили страну на изолированные долины и острова → в каждой возник свой город со своей властью.</span><span class="nl">Bergen en zee verdeelden het land in losse dalen en eilanden → elk kreeg een eigen stad met een eigen bestuur.</span></i></li>
+      <li><span class="ru">Назови два отличия афинской демократии от нидерландской сегодня.</span><span class="nl">Noem twee verschillen tussen de Atheense democratie en de Nederlandse nu.</span><br><i class="muted"><span class="ru">Прямая (сами голосуют) vs представительная (выбирают парламент); голосовали только свободные мужчины-граждане vs все взрослые; жребий вместо выборов.</span><span class="nl">Direct (zelf stemmen) vs vertegenwoordigend (parlement kiezen); alleen vrije mannelijke burgers vs alle volwassenen; loting in plaats van verkiezingen.</span></i></li>
+    </ol>
+  </div></details>
+</section>
+
+<!-- ============ 2. DENKEN EN VORMENTAAL ============ -->
+<section class="page" id="p-denken" data-title-ru="Наука и стиль" data-title-nl="Denken en vormentaal" data-n="2">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Почему именно греки стали объяснять мир без богов — и почему их колонны до сих пор стоят на банках и дворцах?</span><span class="nl">Waarom gingen juist de Grieken de wereld verklaren zonder goden — en waarom staan hun zuilen nog steeds op banken en paleizen?</span></div></div>
+
+  <div class="card">
+    <span class="pill cult">✨ Cultuur</span>
+    <h3 style="margin-top:4px"><span class="ru">От мифа к логосу</span><span class="nl">Van mythe naar rede</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <p>Раньше гром объясняли гневом Зевса, болезнь — наказанием богов. С VI в. до н.э. греческие мыслители стали искать <b>естественные причины</b>, которые можно проверить наблюдением и рассуждением: это начало <span class="nlt">wetenschappelijk denken</span>.</p>
+        <ul>
+          <li><b>Фалес</b> (ок. 600 до н.э.) — предсказал солнечное затмение, искал «первоначало» всего.</li>
+          <li><b>Пифагор</b>, <b>Евклид</b> — математика и доказательства.</li>
+          <li><b>Гиппократ</b> (ок. 400 до н.э.) — болезнь имеет естественные причины; врач наблюдает и записывает. Клятва Гиппократа.</li>
+          <li><b>Геродот</b> и <b>Фукидид</b> — первые историки: собирают свидетельства и ищут причины войн.</li>
+          <li><span class="nlt">filosofie</span> («любовь к мудрости»): <b>Сократ</b> (задавай вопросы!), <b>Платон</b>, <b>Аристотель</b> (наблюдай и классифицируй).</li>
+          <li><b>Эратосфен</b> (ок. 240 до н.э.) измерил окружность Земли по тени палок — ошибся всего на несколько процентов.</li>
+        </ul>
+      </div>
+      <div class="nl">
+        <p>Vroeger verklaarde men onweer met de woede van Zeus en ziekte met straf van de goden. Vanaf de 6e eeuw v.Chr. zochten Griekse denkers <b>natuurlijke oorzaken</b> die je met waarnemen en redeneren kunt controleren: het begin van <span class="nlt">wetenschappelijk denken</span>.</p>
+        <ul>
+          <li><b>Thales</b> (ca. 600 v.Chr.) — voorspelde een zonsverduistering, zocht de "oerstof" van alles.</li>
+          <li><b>Pythagoras</b>, <b>Euclides</b> — wiskunde en bewijzen.</li>
+          <li><b>Hippocrates</b> (ca. 400 v.Chr.) — ziekte heeft natuurlijke oorzaken; een arts observeert en schrijft op. De eed van Hippocrates.</li>
+          <li><b>Herodotus</b> en <b>Thucydides</b> — de eerste geschiedschrijvers: verzamelen getuigenissen en zoeken oorzaken van oorlogen.</li>
+          <li><span class="nlt">filosofie</span> ("liefde voor wijsheid"): <b>Socrates</b> (stel vragen!), <b>Plato</b>, <b>Aristoteles</b> (observeer en orden).</li>
+          <li><b>Eratosthenes</b> (ca. 240 v.Chr.) mat de omtrek van de aarde met de schaduw van stokken — een paar procent fout.</li>
+        </ul>
+      </div>
+    </div>
+    <details class="why"><summary><span class="ru">Почему это случилось в Греции, а не в Египте или Месопотамии?</span><span class="nl">Waarom gebeurde dit in Griekenland en niet in Egypte of Mesopotamië?</span></summary><div class="bi">
+      <p class="ru">Четыре условия сошлись вместе: (1) <b>культура спора</b> — в собрании полиса побеждает тот, у кого лучше аргумент, а не тот, кто ближе к царю; (2) <b>нет единой касты жрецов</b> со священной книгой, которая «уже всё объяснила»; (3) <b>торговля</b> — греки знали египетскую геометрию и вавилонскую астрономию и видели, что у разных народов разные мифы (значит, мифы можно сомневаться); (4) <b>досуг</b> — у богатых граждан было время думать, потому что работали рабы. Последний пункт неприятный, но честный.</p>
+      <p class="nl">Vier voorwaarden kwamen samen: (1) <b>een debatcultuur</b> — in de volksvergadering wint het beste argument, niet wie het dichtst bij de koning staat; (2) <b>geen machtige priesterstand</b> met een heilig boek dat "alles al verklaart"; (3) <b>handel</b> — Grieken kenden Egyptische meetkunde en Babylonische sterrenkunde en zagen dat elk volk andere mythen had (dus mythen kun je betwijfelen); (4) <b>vrije tijd</b> — rijke burgers hadden tijd om na te denken, omdat slaven het werk deden. Dat laatste is niet leuk, maar wel eerlijk.</p>
+    </div></details>
+    <div class="memo"><span class="ru">Сократ ничего не написал и задавал столько неудобных вопросов, что Афины приговорили его к смерти (399 до н.э.). Демократия тоже может ошибаться.</span><span class="nl">Socrates schreef niets op en stelde zoveel lastige vragen dat Athene hem ter dood veroordeelde (399 v.Chr.). Ook een democratie kan zich vergissen.</span></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Классический стиль (klassieke vormentaal)</span><span class="nl">De klassieke vormentaal</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <p><span class="nlt">klassieke vormentaal</span> — узнаваемый «язык форм» греков и римлян, который потом много раз возрождали:</p>
+        <ul>
+          <li><b>колонны</b> трёх ордеров: <span class="nlt">Dorisch</span> (простая капитель), <span class="nlt">Ionisch</span> (завитки-волюты), <span class="nlt">Korinthisch</span> (листья аканта);</li>
+          <li>треугольный фронтон над колоннами (храм <b>Парфенон</b> в Афинах, ок. 440 до н.э.);</li>
+          <li><b>симметрия</b> и правильные <b>пропорции</b>; статуи — реалистичное, идеально сложенное тело;</li>
+          <li>римляне добавили <b>арку</b>, <b>купол</b> (Пантеон) и бетон;</li>
+          <li><span class="nlt">theater</span>: трагедия и комедия, амфитеатр.</li>
+        </ul>
+        <p><b>Почему это важно потом?</b> Этот стиль будут копировать в эпоху Возрождения (эпоха 5), в XVII веке — <b>Королевский дворец на площади Дам</b> в Амстердаме (бывшая ратуша, 1648–1665), и в XVIII–XIX вв. (неоклассицизм: банки, суды, парламенты). Колонны «говорят»: здесь порядок, разум и власть, как в Афинах и Риме.</p>
+      </div>
+      <div class="nl">
+        <p>De <span class="nlt">klassieke vormentaal</span> is de herkenbare stijl van Grieken en Romeinen, die later steeds opnieuw terugkwam:</p>
+        <ul>
+          <li><b>zuilen</b> in drie orden: <span class="nlt">Dorisch</span> (eenvoudig kapiteel), <span class="nlt">Ionisch</span> (krullen), <span class="nlt">Korinthisch</span> (acanthusbladeren);</li>
+          <li>een driehoekig <b>fronton</b> boven de zuilen (het <b>Parthenon</b> in Athene, ca. 440 v.Chr.);</li>
+          <li><b>symmetrie</b> en <b>verhoudingen</b>; beelden met een realistisch, ideaal lichaam;</li>
+          <li>de Romeinen voegden de <b>boog</b>, de <b>koepel</b> (het Pantheon) en beton toe;</li>
+          <li><span class="nlt">theater</span>: tragedie en komedie, amfitheater.</li>
+        </ul>
+        <p><b>Waarom later belangrijk?</b> Deze stijl wordt gekopieerd in de renaissance (tijdvak 5), in de 17e eeuw bij het <b>Paleis op de Dam</b> (oud stadhuis van Amsterdam, 1648–1665) en in de 18e–19e eeuw (neoclassicisme: banken, rechtbanken, parlementen). Zuilen "zeggen": hier heersen orde, verstand en gezag, net als in Athene en Rome.</p>
+      </div>
+    </div>
+    <div class="memo"><span class="ru">Видишь колонны и треугольник над входом — значит, здание хочет выглядеть умным и солидным, как Афины. Банкам это особенно нравится.</span><span class="nl">Zie je zuilen met een driehoek erboven, dan wil het gebouw slim en betrouwbaar lijken, zoals Athene. Banken vinden dat heel fijn.</span></div>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: могла ли греческая наука привести к промышленной революции?</span><span class="nl">Andere mogelijkheden: had de Griekse wetenschap tot een industriële revolutie kunnen leiden?</span></summary><div class="bi">
+    <p class="ru">Герон Александрийский (I в. н.э.) построил паровой шар — <span class="nlt">aeolipiel</span>, который вращался от пара. Но его использовали как игрушку. Почему? Труд рабов был дешёвым → не было экономической причины экономить рабочую силу машинами. Сравни с эпохой 8: в Англии XVIII века труд был дорогим, а уголь дешёвым — и паровая машина «окупилась». <b>Изобретение без экономической нужды остаётся фокусом</b>.</p>
+    <p class="nl">Heron van Alexandrië (1e eeuw n.Chr.) bouwde een stoombal, de <span class="nlt">aeolipiel</span>, die door stoom ronddraaide. Maar het bleef speelgoed. Waarom? Slavenarbeid was goedkoop → geen economische reden om arbeid door machines te vervangen. Vergelijk met tijdvak 8: in Engeland in de 18e eeuw was arbeid duur en steenkool goedkoop — daar loonde de stoommachine wél. <b>Een uitvinding zonder economische noodzaak blijft een goocheltruc.</b></p>
+  </div></details>
+</section>
+
+<!-- ============ 3. ROME ============ -->
+<section class="page" id="p-rome" data-title-ru="Рим: от города к империи" data-title-nl="Rome: van stad tot rijk" data-n="3">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Как один город в Италии подчинил всё Средиземноморье и почему для этого пришлось отказаться от республики?</span><span class="nl">Hoe kreeg één stad in Italië de hele Middellandse Zee onder controle — en waarom moest daarvoor de republiek verdwijnen?</span></div></div>
+
+  <div class="card">
+    <table class="tl">
+      <tr><th><span class="ru">когда</span><span class="nl">wanneer</span></th><th><span class="ru">что</span><span class="nl">wat</span></th></tr>
+      <tr><td>753 v.Chr.</td><td><span class="ru">Легенда об основании Рима (Ромул и Рем). Сначала — цари.</span><span class="nl">Legende van de stichting van Rome (Romulus en Remus). Eerst koningen.</span></td></tr>
+      <tr><td>509 v.Chr.</td><td><span class="ru">Изгнание царя → <span class="nlt">republiek</span>: два <span class="nlt">consuls</span> на 1 год, <span class="nlt">senaat</span> из знати (<span class="nlt">patriciërs</span>); простые граждане (<span class="nlt">plebejers</span>) борются за права и получают своих <span class="nlt">volkstribunen</span>.</span><span class="nl">Koning verdreven → <span class="nlt">republiek</span>: twee <span class="nlt">consuls</span> voor 1 jaar, een <span class="nlt">senaat</span> van de adel (<span class="nlt">patriciërs</span>); gewone burgers (<span class="nlt">plebejers</span>) vechten voor rechten en krijgen <span class="nlt">volkstribunen</span>.</span></td></tr>
+      <tr><td>ca. 270 v.Chr.</td><td><span class="ru">Рим контролирует Италию; побеждённые становятся <b>союзниками</b> и дают солдат.</span><span class="nl">Rome beheerst Italië; overwonnenen worden <b>bondgenoten</b> en leveren soldaten.</span></td></tr>
+      <tr><td>264–146 v.Chr.</td><td><span class="ru">Пунические войны с Карфагеном (Ганнибал со слонами через Альпы, 218). Карфаген разрушен, Греция подчинена (146).</span><span class="nl">Punische Oorlogen tegen Carthago (Hannibal met olifanten over de Alpen, 218). Carthago verwoest, Griekenland onderworpen (146).</span></td></tr>
+      <tr><td>58–50 v.Chr.</td><td><span class="ru"><b>Юлий Цезарь</b> завоёвывает Галлию — и пишет о ней книгу. Так у нас появляются первые тексты о жителях Нидерландов.</span><span class="nl"><b>Julius Caesar</b> verovert Gallië — en schrijft er een boek over. Zo krijgen we de eerste teksten over de bewoners van Nederland.</span></td></tr>
+      <tr><td>27 v.Chr.</td><td><span class="ru"><b>Август</b> — первый <span class="nlt">keizer</span>. Конец республики, начало <span class="nlt">keizerrijk</span>; ~200 лет мира: <span class="nlt">Pax Romana</span>.</span><span class="nl"><b>Augustus</b> — de eerste <span class="nlt">keizer</span>. Einde van de republiek, begin van het <span class="nlt">keizerrijk</span>; ca. 200 jaar vrede: <span class="nlt">Pax Romana</span>.</span></td></tr>
+      <tr><td>117 n.Chr.</td><td><span class="ru">Империя наибольшего размера (Траян): от Шотландии до Ирака, ~60 млн жителей.</span><span class="nl">Het rijk is het grootst (Trajanus): van Schotland tot Irak, ca. 60 miljoen inwoners.</span></td></tr>
+      <tr><td>212 n.Chr.</td><td><span class="ru">Все свободные жители империи получают римское гражданство.</span><span class="nl">Alle vrije inwoners van het rijk krijgen het Romeinse burgerrecht.</span></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <span class="pill tech">🛠 Techniek</span> <span class="pill eco">🌾 Economie</span>
+    <h3 style="margin-top:4px"><span class="ru">Почему Рим смог удержать так много земли</span><span class="nl">Waarom Rome zoveel land kon vasthouden</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <ul>
+          <li><b>Армия</b>: <span class="nlt">legioen</span> (~5000 профессиональных солдат), дисциплина, лагеря по одному плану. Солдат служит 20–25 лет, на пенсии получает землю — часто в провинции (так возникают римские города).</li>
+          <li><b>Дороги</b> (~80 000 км мощёных) — чтобы армия, почта и товары двигались быстро.</li>
+          <li><b>Включение побеждённых</b>: местная знать получала гражданство и должности — ей было выгоднее с Римом, чем против него. Это хитрее, чем просто страх.</li>
+          <li><b>Право</b> (<span class="nlt">Romeins recht</span>): одни записанные законы для всех граждан; основа права многих стран Европы, в т.ч. Нидерландов.</li>
+          <li><b>Деньги и рынок</b>: одна монета, одни меры, мир на море → вино из Италии, масло из Испании, зерно из Египта.</li>
+        </ul>
+        <p>Результат — <span class="nlt">romanisering</span>: провинции перенимают латынь, города, бани, виллы, богов и вкусы Рима. Так <b>греко-римская культура разошлась по Европе</b> (kenmerkend aspect 3).</p>
+      </div>
+      <div class="nl">
+        <ul>
+          <li><b>Leger</b>: een <span class="nlt">legioen</span> (ca. 5000 beroepssoldaten), discipline, legerkampen volgens één plan. Een soldaat dient 20–25 jaar en krijgt daarna land — vaak in een provincie (zo ontstaan Romeinse steden).</li>
+          <li><b>Wegen</b> (ca. 80.000 km verhard) — zodat leger, post en goederen snel reizen.</li>
+          <li><b>Overwonnenen erbij betrekken</b>: de plaatselijke elite kreeg burgerrecht en functies — samenwerken met Rome loonde meer dan verzet. Slimmer dan alleen angst.</li>
+          <li><b>Recht</b> (<span class="nlt">Romeins recht</span>): dezelfde geschreven wetten voor alle burgers; basis van het recht in veel Europese landen, ook Nederland.</li>
+          <li><b>Geld en markt</b>: één munt, dezelfde maten, vrede op zee → wijn uit Italië, olijfolie uit Spanje, graan uit Egypte.</li>
+        </ul>
+        <p>Gevolg: <span class="nlt">romanisering</span> — provincies nemen Latijn, steden, badhuizen, villa's, goden en smaak van Rome over. Zo <b>verspreidde de Grieks-Romeinse cultuur zich in Europa</b> (kenmerkend aspect 3).</p>
+      </div>
+    </div>
+    <details class="why"><summary><span class="ru">Почему республика превратилась в империю? <span class="vwo">VWO+</span></span><span class="nl">Waarom werd de republiek een keizerrijk?</span></summary><div class="bi">
+      <p class="ru">Цепочка: завоевания → огромная добыча и рабы → богачи скупают землю, работают рабы → мелкие крестьяне (основа армии) разоряются → армия становится <b>профессиональной</b>, солдаты зависят от своего полководца (он платит и даёт землю) → полководцы с личными армиями воюют за власть (Марий, Сулла, Цезарь, Помпей) → гражданские войны → люди устали и приняли одного правителя, Августа, который сохранил «вывеску» сената. <b>Учреждения для города-государства не справились с управлением империей.</b></p>
+      <p class="nl">De keten: veroveringen → enorme buit en slaven → rijken kopen land op, slaven werken → kleine boeren (de basis van het leger) raken verarmd → het leger wordt een <b>beroepsleger</b>; soldaten zijn trouw aan hun generaal (hij betaalt en geeft land) → generaals met eigen legers vechten om de macht (Marius, Sulla, Caesar, Pompeius) → burgeroorlogen → de mensen waren het moe en accepteerden één heerser, Augustus, die de senaat als "uithangbord" liet bestaan. <b>Het bestuur van een stadstaat was niet geschikt voor een wereldrijk.</b></p>
+    </div></details>
+    <div class="memo"><span class="ru">«Все дороги ведут в Рим» — это не метафора, а логистика. По ним шли легионы туда и налоги обратно.</span><span class="nl">"Alle wegen leiden naar Rome" is geen beeldspraak maar logistiek. Legioenen gingen erover heen, belastingen kwamen erover terug.</span></div>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: а если бы победил Ганнибал?</span><span class="nl">Andere mogelijkheden: wat als Hannibal had gewonnen?</span></summary><div class="bi">
+    <p class="ru">Карфаген был торговой морской державой, вроде будущих Нидерландов XVII века: ему нужны были порты и пути, а не огромные сухопутные провинции. Вероятно, Средиземноморье осталось бы разделённым между несколькими державами, а латынь не стала бы языком Европы — и французский, испанский, итальянский (романские языки, «дети латыни») просто не появились бы. Вывод: <b>крупные последствия иногда зависят от исхода нескольких сражений</b>, но стоит спросить, хватило бы у Карфагена людей, чтобы удержать Италию.</p>
+    <p class="nl">Carthago was een handelsmacht op zee, een beetje zoals de Republiek in de 17e eeuw: het wilde havens en routes, geen grote provincies op het land. Waarschijnlijk was de Middellandse Zee verdeeld gebleven tussen meerdere machten, en was Latijn niet de taal van Europa geworden — Frans, Spaans en Italiaans (Romaanse talen, "kinderen van het Latijn") hadden dan niet bestaan. Conclusie: <b>grote gevolgen hangen soms af van een paar veldslagen</b> — maar vraag ook of Carthago genoeg mensen had om Italië te houden.</p>
+  </div></details>
+</section>
+
+<!-- ============ 4. NEDERLAND ============ -->
+<section class="page" id="p-nederland" data-title-ru="Римляне и германцы в NL" data-title-nl="Romeinen en Germanen in NL" data-n="4">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Почему граница Римской империи прошла прямо через Нидерланды — по Рейну — и что это значило для людей по обе её стороны?</span><span class="nl">Waarom liep de grens van het Romeinse Rijk dwars door Nederland — langs de Rijn — en wat betekende dat voor de mensen aan beide kanten?</span></div></div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Хронология: римляне в Нидерландах</span><span class="nl">Tijdlijn: Romeinen in Nederland</span></h3>
+    <table class="tl">
+      <tr><td>ca. 57–50 v.Chr.</td><td><span class="ru">Цезарь воюет на юге (эбуроны, менапии). Первые письменные сведения о наших краях → <b>конец предыстории</b> в NL.</span><span class="nl">Caesar vecht in het zuiden (Eburonen, Menapiërs). Eerste geschreven bronnen over onze streken → <b>einde van de prehistorie</b> in NL.</span></td></tr>
+      <tr><td>ca. 12 v.Chr.</td><td><span class="ru">Лагерь на Хюнербергe в <b>Неймегене</b>; походы вглубь Германии.</span><span class="nl">Legerkamp op de Hunerberg in <b>Nijmegen</b>; tochten diep Germanië in.</span></td></tr>
+      <tr><td>9 n.Chr.</td><td><span class="ru"><b>Битва в Тевтобургском лесу</b>: германец Арминий уничтожил три легиона Вара. Рим отказался от завоевания Германии.</span><span class="nl"><b>Slag in het Teutoburgerwoud</b>: de Germaan Arminius vernietigde drie legioenen van Varus. Rome gaf de verovering van Germanië op.</span></td></tr>
+      <tr><td>47 n.Chr.</td><td><span class="ru">Император Клавдий: граница — <b>Рейн</b>. Начало <span class="nlt">limes</span> — линии крепостей вдоль реки. Канал Корбулона между Рейном и Маасом. <i>Окно канона.</i></span><span class="nl">Keizer Claudius: de grens is de <b>Rijn</b>. Begin van de <span class="nlt">limes</span>: een rij forten langs de rivier. Kanaal van Corbulo tussen Rijn en Maas. <i>Canonvenster.</i></span></td></tr>
+      <tr><td>69–70 n.Chr.</td><td><span class="ru"><b>Восстание батавов</b> под руководством Юлия Цивилиса; подавлено, но батавы остаются союзниками.</span><span class="nl"><b>Bataafse Opstand</b> onder Julius Civilis; neergeslagen, daarna blijven de Bataven bondgenoten.</span></td></tr>
+      <tr><td>ca. 100 n.Chr.</td><td><span class="ru"><b>Ulpia Noviomagus</b> (Неймеген) получает права города — старейший город NL. Другие: <b>Traiectum</b> (Утрехт), <b>Forum Hadriani</b> (Ворбург), <b>Coriovallum</b> (Херлен), <b>Mosae Trajectum</b> (Маастрихт).</span><span class="nl"><b>Ulpia Noviomagus</b> (Nijmegen) krijgt stadsrechten — oudste stad van NL. Andere: <b>Traiectum</b> (Utrecht), <b>Forum Hadriani</b> (Voorburg), <b>Coriovallum</b> (Heerlen), <b>Mosae Trajectum</b> (Maastricht).</span></td></tr>
+      <tr><td>ca. 260–400</td><td><span class="ru">Набеги франков и саксов; граница слабеет; около 400 г. римские войска уходят.</span><span class="nl">Invallen van Franken en Saksen; de grens verzwakt; rond 400 trekken de Romeinse troepen weg.</span></td></tr>
+    </table>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3 style="margin-top:0"><span class="ru">Почему именно Рейн?</span><span class="nl">Waarom juist de Rijn?</span></h3>
+      <div class="bi">
+        <p class="ru"><b>1)</b> Тевтобург показал: леса и болота Германии без городов и дорог трудно завоевать и <b>нечем облагать налогом</b> — завоевание не окупается. <b>2)</b> Река — естественная преграда и одновременно дорога: по Рейну можно возить снабжение для крепостей. <b>3)</b> На юге (песок, лёсс Лимбурга) уже были поля, которые кормили армию. Вывод: империя растёт, <b>пока завоевание приносит больше, чем стоит</b>.</p>
+        <p class="nl"><b>1)</b> Teutoburg liet zien: de bossen en moerassen van Germanië zonder steden en wegen zijn moeilijk te veroveren en er valt <b>weinig belasting te halen</b> — verovering loont niet. <b>2)</b> Een rivier is een natuurlijke barrière én een weg: over de Rijn kun je voorraden naar de forten varen. <b>3)</b> In het zuiden (zand, löss in Limburg) waren al akkers die het leger konden voeden. Conclusie: een rijk groeit <b>zolang verovering meer oplevert dan het kost</b>.</p>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0"><span class="ru">Граница — не стена, а фильтр</span><span class="nl">De grens: geen muur, maar een filter</span></h3>
+      <div class="bi">
+        <p class="ru"><span class="nlt">limes</span> в NL — не Великая стена, а цепь <span class="nlt">castella</span> (небольших крепостей: Валкенбург, Звамердам, Утрехт), сторожевых башен и дороги вдоль реки. Через неё шли <b>торговля</b>: фризы с севера продавали скот и кожу, покупали вино, керамику, монеты. С 2021 года <b>Нижнегерманский лимес</b> — объект Всемирного наследия ЮНЕСКО.</p>
+        <p class="nl">De <span class="nlt">limes</span> in NL was geen Chinese Muur, maar een rij <span class="nlt">castella</span> (kleine forten: Valkenburg, Zwammerdam, Utrecht), wachttorens en een weg langs de rivier. Er ging <b>handel</b> overheen: Friezen uit het noorden verkochten vee en leer en kochten wijn, aardewerk en munten. Sinds 2021 is de <b>Neder-Germaanse Limes</b> UNESCO-werelderfgoed.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Два мира рядом: римляне и германцы</span><span class="nl">Twee werelden naast elkaar: Romeinen en Germanen</span></h3>
+    <div style="overflow-x:auto"><table class="cmp">
+      <tr><th></th><th><span class="ru">Юг Рейна (римское)</span><span class="nl">Ten zuiden van de Rijn (Romeins)</span></th><th><span class="ru">Север Рейна (германцы, фризы)</span><span class="nl">Ten noorden van de Rijn (Germanen, Friezen)</span></th></tr>
+      <tr><td><span class="ru">Поселения</span><span class="nl">Wonen</span></td><td><span class="ru">города с каменными домами, бани, храмы, <span class="nlt">villa</span> (поместья) в Лимбурге</span><span class="nl">steden met stenen huizen, badhuizen, tempels, <span class="nlt">villa's</span> in Limburg</span></td><td><span class="ru">деревни, дома-хлева (люди и скот под одной крышей), на севере — <span class="nlt">terpen</span></span><span class="nl">dorpen, woonstalhuizen (mens en vee onder één dak), in het noorden <span class="nlt">terpen</span></span></td></tr>
+      <tr><td><span class="ru">Власть</span><span class="nl">Gezag</span></td><td><span class="ru">наместник, законы, налоги, перепись</span><span class="nl">stadhouder, wetten, belasting, volkstelling</span></td><td><span class="ru">вождь, совет воинов, верность дружины</span><span class="nl">hoofdman, raad van krijgers, trouw van de volgelingen</span></td></tr>
+      <tr><td><span class="ru">Деньги и письмо</span><span class="nl">Geld en schrift</span></td><td><span class="ru">монеты, латынь, надписи</span><span class="nl">munten, Latijn, inscripties</span></td><td><span class="ru">обмен, почти без письма</span><span class="nl">ruilhandel, bijna geen schrift</span></td></tr>
+      <tr><td><span class="ru">Вера</span><span class="nl">Geloof</span></td><td><span class="ru">римские боги + местные (напр. богиня <b>Нехаленния</b> в Зеландии — римско-местная смесь)</span><span class="nl">Romeinse goden + lokale (bijv. godin <b>Nehalennia</b> in Zeeland — Romeins-inheems mengsel)</span></td><td><span class="ru">Вотан, Донар, Фрейя; жертвы в болотах и рощах</span><span class="nl">Wodan, Donar, Freya; offers in moerassen en bossen</span></td></tr>
+    </table></div>
+    <div class="bi" style="margin-top:10px">
+      <p class="ru"><b>Батавы</b> жили в речной области (Бетюве). Они <b>не платили налогов</b>, а вместо этого давали Риму солдат, особенно отличных всадников, умевших переплывать реки с конями. Солдат батавов было так много, что почти в каждой семье кто-то служил. Римская пропаганда XIX века сделала батавов «предками голландцев» — это миф (сравни с эпохой 7: «Батавская республика» 1795).</p>
+      <p class="nl">De <b>Bataven</b> woonden in het rivierengebied (de Betuwe). Ze <b>betaalden geen belasting</b>, maar leverden soldaten, vooral goede ruiters die met paard en al rivieren overzwommen. Er waren zoveel Bataafse soldaten dat bijna elke familie iemand in het leger had. Later werden de Bataven tot "voorouders van de Nederlanders" gemaakt — een mythe (vergelijk tijdvak 7: de "Bataafse Republiek" van 1795).</p>
+    </div>
+    <div class="src"><b><span class="ru">Источник</span><span class="nl">Bron</span>:</b> <span class="ru">Тацит, «Германия» (98 н.э.): «Германцы не живут в городах... селятся отдельно, где понравится ручей, поле или роща». <i>Вопрос: почему римлянину кажется странным жить без города? Насколько надёжен этот источник — Тацит сам бывал в Германии?</i></span><span class="nl">Tacitus, "Germania" (98 n.Chr.): "De Germanen wonen niet in steden ... ze wonen verspreid, waar een beek, een veld of een bos hun bevalt." <i>Vraag: waarom vindt een Romein wonen zonder stad vreemd? Hoe betrouwbaar is de bron — was Tacitus zelf in Germanië?</i></span></div>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: а если бы Рим завоевал всю Германию?</span><span class="nl">Andere mogelijkheden: wat als Rome heel Germanië had veroverd?</span></summary><div class="bi">
+    <p class="ru">Тогда граница прошла бы по Эльбе, весь север Нидерландов и Германия стали бы римскими. Возможно, там говорили бы на языке-потомке латыни, как во Франции. Нидерландский и немецкий — германские языки — именно потому, что Рейн остался границей. <b>Язык, на котором ты сдаёшь контрольную, — следствие битвы 9 года н.э.</b> (с оговоркой: Англия была римской, но заговорила по-германски после ухода римлян — значит, решает ещё и то, кто пришёл потом).</p>
+    <p class="nl">Dan had de grens bij de Elbe gelegen en waren Noord-Nederland en Duitsland Romeins geworden. Misschien sprak men daar dan een taal die van het Latijn afstamt, zoals in Frankrijk. Nederlands en Duits zijn Germaanse talen juist doordat de Rijn de grens bleef. <b>De taal van je toets is een gevolg van een veldslag in het jaar 9</b> (met een kanttekening: Engeland was wél Romeins, maar ging na het vertrek van de Romeinen toch Germaans spreken — het hangt dus ook af van wie er daarna kwam).</p>
+  </div></details>
+</section>
+
+<!-- ============ 5. GELOOF ============ -->
+<section class="page" id="p-geloof" data-title-ru="Иудаизм и христианство" data-title-nl="Jodendom en christendom" data-n="5">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Как религия маленького народа и затем секта, которую преследовали, стала официальной верой огромной империи?</span><span class="nl">Hoe werd het geloof van een klein volk, en daarna een vervolgde sekte, het officiële geloof van een enorm rijk?</span></div></div>
+
+  <div class="card">
+    <div class="bi">
+      <div class="ru">
+        <p>Почти все народы древности были <span class="nlt">polytheïsme</span> — верили во многих богов. Евреи (<span class="nlt">joden</span>) первыми стали верить в <b>одного Бога</b>: <span class="nlt">monotheïsme</span>. Их священная книга — <span class="nlt">Tenach</span> (у христиан — Ветхий Завет): Авраам, Моисей и <b>10 заповедей</b>, Иерусалимский храм. Важная черта: Бог связан не с местом и царём, а с <b>книгой и законом</b> — поэтому вера выжила, когда евреев изгнали (Вавилонский плен 586 до н.э.; римляне разрушили храм в 70 н.э. → <span class="nlt">diaspora</span>, рассеяние).</p>
+        <p><b>Иисус</b> (ок. 4 до н.э. – ок. 30 н.э.) — еврейский проповедник в римской провинции Иудея. Его последователи считали его <b>Мессией</b> (Христос — «помазанник»). Апостол <b>Павел</b> решил: обращаться можно и к не-евреям, без соблюдения всех еврейских законов → <span class="nlt">christendom</span> стало религией для всех.</p>
+      </div>
+      <div class="nl">
+        <p>Bijna alle volken in de oudheid hadden <span class="nlt">polytheïsme</span>: geloof in veel goden. De <span class="nlt">joden</span> geloofden als eersten in <b>één God</b>: <span class="nlt">monotheïsme</span>. Hun heilige boek is de <span class="nlt">Tenach</span> (bij christenen het Oude Testament): Abraham, Mozes en de <b>Tien Geboden</b>, de tempel in Jeruzalem. Belangrijk: God is niet gebonden aan een plek of koning, maar aan <b>een boek en een wet</b> — daardoor overleefde het geloof toen de joden werden verdreven (Babylonische ballingschap 586 v.Chr.; de Romeinen verwoestten de tempel in 70 n.Chr. → <span class="nlt">diaspora</span>, verspreiding).</p>
+        <p><b>Jezus</b> (ca. 4 v.Chr. – ca. 30 n.Chr.) was een joodse prediker in de Romeinse provincie Judea. Zijn volgelingen zagen hem als de <b>Messias</b> (Christus = "de gezalfde"). De apostel <b>Paulus</b> besloot: ook niet-joden mogen meedoen, zonder alle joodse wetten → het <span class="nlt">christendom</span> werd een geloof voor iedereen.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">От преследований к государственной религии</span><span class="nl">Van vervolging naar staatsgodsdienst</span></h3>
+    <div class="cause">
+      <div class="step"><span class="ru">Христиане не приносят жертвы императору → «враги государства»</span><span class="nl">Christenen offeren niet aan de keizer → "vijanden van de staat"</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Преследования (Нерон 64, Диоклетиан 303) — но число христиан растёт</span><span class="nl">Vervolgingen (Nero 64, Diocletianus 303) — toch groeit het aantal christenen</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">313: Константин разрешает христианство (Миланский эдикт)</span><span class="nl">313: Constantijn staat het christendom toe (Edict van Milaan)</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">380: Феодосий делает его государственной религией</span><span class="nl">380: Theodosius maakt het staatsgodsdienst</span></div>
+    </div>
+    <details class="why"><summary><span class="ru">Почему христианство распространилось так быстро?</span><span class="nl">Waarom verspreidde het christendom zich zo snel?</span></summary><div class="bi">
+      <div class="ru"><p>Здесь видно, как <b>империя сама подготовила почву</b> для религии, которую преследовала:</p><ul><li><b>дороги и мир</b> (Pax Romana) — проповедники легко путешествовали;</li><li><b>общий язык</b> (греческий на Востоке, латынь на Западе) — Евангелия написаны по-гречески и понятны везде;</li><li><b>города</b> — много людей рядом, общины быстро растут;</li><li><b>содержание</b>: все равны перед Богом, спасение и жизнь после смерти для бедных, рабов и женщин; забота о больных и вдовах;</li><li><b>организация</b>: епископы в каждом городе, как чиновники в империи.</li></ul></div>
+      <div class="nl"><p>Hier zie je hoe <b>het rijk zelf de bodem bereidde</b> voor een geloof dat het vervolgde:</p><ul><li><b>wegen en vrede</b> (Pax Romana) — predikers reisden makkelijk;</li><li><b>een gemeenschappelijke taal</b> (Grieks in het oosten, Latijn in het westen) — de evangeliën zijn in het Grieks geschreven en overal te begrijpen;</li><li><b>steden</b> — veel mensen dicht bij elkaar, gemeenten groeien snel;</li><li><b>de boodschap</b>: iedereen is gelijk voor God, verlossing en leven na de dood ook voor armen, slaven en vrouwen; zorg voor zieken en weduwen;</li><li><b>organisatie</b>: een bisschop in elke stad, net als ambtenaren in het rijk.</li></ul></div>
+    </div></details>
+    <div class="memo"><span class="ru">Рим строил дороги для легионов, а по ним пришли апостолы. Инфраструктура не выбирает, кто по ней поедет.</span><span class="nl">Rome legde wegen aan voor legioenen, maar de apostelen liepen erover. Infrastructuur kiest niet wie erover reist.</span></div>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: почему императору было выгодно стать христианином? <span class="vwo">VWO+</span></span><span class="nl">Andere mogelijkheden: waarom was het christendom handig voor de keizer?</span></summary><div class="bi">
+    <p class="ru">Константин сказал, что перед битвой (312) увидел знак креста. Но была и логика власти: огромную разную империю трудно удерживать вместе. <b>Один Бог — один император — одна церковь</b> по всей империи — сильный «клей». Альтернатива — сохранить много богов (как пытался император Юлиан в 361–363) — не удалась: христиане уже были организованы и многочисленны в городах. Подумай: что получила церковь от союза с государством, а что потеряла?</p>
+    <p class="nl">Constantijn zei dat hij vóór een veldslag (312) een kruisteken had gezien. Maar er was ook een machtslogica: een groot en divers rijk is moeilijk bij elkaar te houden. <b>Eén God — één keizer — één kerk</b> in het hele rijk is sterke "lijm". Het alternatief — de oude goden houden (keizer Julianus probeerde dat in 361–363) — lukte niet: christenen waren al talrijk en georganiseerd in de steden. Denk na: wat won de kerk door het verbond met de staat, en wat verloor ze?</p>
+  </div></details>
+</section>
+
+<!-- ============ 6. VAL ============ -->
+<section class="page" id="p-val" data-title-ru="Падение Рима" data-title-nl="De val van Rome" data-n="6">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Почему пала Западная Римская империя, а Восточная прожила ещё почти 1000 лет?</span><span class="nl">Waarom viel het West-Romeinse Rijk, terwijl het Oost-Romeinse Rijk nog bijna 1000 jaar bleef bestaan?</span></div></div>
+
+  <div class="card">
+    <div class="bi">
+      <div class="ru">
+        <p>Империя не рухнула за один день. Причины переплетены — их удобно разложить по нашим пяти линиям:</p>
+        <ul>
+          <li><span class="pill eco">Economie</span> Завоевания закончились → нет новой добычи и рабов. Армия на длинной границе стоит дорого → налоги растут → императоры портят монету (меньше серебра) → цены растут. Крестьяне бегут под защиту крупных землевладельцев и становятся зависимыми (<span class="nlt">colonen</span>) — <b>зародыш средневековой зависимости</b> (эпоха 3).</li>
+          <li><span class="pill soc">Samenleving</span> III век: за 50 лет — около 25 императоров, многих убили свои солдаты. Армия решает, кто правит.</li>
+          <li><span class="pill geo">Geografie</span> С 375 г. гунны из степей давят на готов → германские народы прорываются через границу. Западная часть ближе к германцам и беднее; богатый Восток с неприступным Константинополем мог откупаться и защищаться.</li>
+          <li><span class="pill tech">Leger</span> Всё больше германцев служит в армии и даже командует ею (<span class="nlt">foederati</span> — союзные племена, которым давали землю за службу).</li>
+        </ul>
+        <p><b>395</b>: империя окончательно разделена на Западную и Восточную. <b>410</b>: вестготы разграбили Рим. <b>476</b>: германский командир Одоакр сместил последнего императора Запада, Ромула Августула. Эту дату считают <b>концом античности</b>. Восточная (Византийская) империя существовала до <b>1453</b>.</p>
+      </div>
+      <div class="nl">
+        <p>Het rijk viel niet op één dag. De oorzaken zijn met elkaar verweven — je kunt ze ordenen langs de vijf rode draden:</p>
+        <ul>
+          <li><span class="pill eco">Economie</span> De veroveringen stopten → geen nieuwe buit en slaven. Een leger langs een lange grens is duur → hogere belasting → keizers maakten munten met minder zilver → prijzen stegen. Boeren vluchtten onder de bescherming van grootgrondbezitters en werden afhankelijk (<span class="nlt">colonen</span>) — <b>een kiem van de middeleeuwse horigheid</b> (tijdvak 3).</li>
+          <li><span class="pill soc">Samenleving</span> 3e eeuw: in 50 jaar ongeveer 25 keizers, vaak vermoord door hun eigen soldaten. Het leger bepaalt wie regeert.</li>
+          <li><span class="pill geo">Geografie</span> Vanaf 375 drukken de Hunnen uit de steppe op de Goten → Germaanse volken breken door de grens. Het westen lag dichter bij de Germanen en was armer; het rijke oosten met het onneembare Constantinopel kon zich vrijkopen en verdedigen.</li>
+          <li><span class="pill tech">Leger</span> Steeds meer Germanen dienden in het leger en voerden het zelfs aan (<span class="nlt">foederati</span>: bondgenootstammen die land kregen in ruil voor dienst).</li>
+        </ul>
+        <p><b>395</b>: het rijk wordt definitief gesplitst in West en Oost. <b>410</b>: de Visigoten plunderen Rome. <b>476</b>: de Germaanse aanvoerder Odoaker zet de laatste westerse keizer, Romulus Augustulus, af. Die datum geldt als <b>einde van de oudheid</b>. Het Oost-Romeinse (Byzantijnse) Rijk bestond nog tot <b>1453</b>.</p>
+      </div>
+    </div>
+    <div class="memo"><span class="ru">Рим пал не потому, что «пришли варвары», а потому, что варвары уже давно были внутри — в армии, на полях и в штабах. 476 год — это скорее смена вывески.</span><span class="nl">Rome viel niet omdat "de barbaren kwamen", maar omdat de barbaren er al lang in zaten — in het leger, op het land en in de staf. 476 was meer een nieuw uithangbord.</span></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Что осталось после Рима (мост в эпоху 3)</span><span class="nl">Wat bleef er over na Rome (brug naar tijdvak 3)</span></h3>
+    <div class="bi">
+      <div class="ru"><ul><li><b>Церковь</b>: епископы и папа остаются, когда чиновники уходят; монастыри хранят латынь и книги.</li><li><b>Латынь</b> — язык церкви и учёных ещё 1000+ лет.</li><li><b>Города</b> сжимаются, торговля падает → экономика снова почти целиком <b>аграрная</b>: кто владеет землёй, тот и правит.</li><li><b>Германские короли</b> (франки!) хотят выглядеть как римские императоры — Карл Великий в 800 г. станет «императором».</li></ul><p>Получается логичный шаг: <b>нет государства, налогов и денег → власть держится на земле и личной верности</b>. Так рождается мир монахов и рыцарей.</p></div>
+      <div class="nl"><ul><li><b>De kerk</b>: bisschoppen en de paus blijven als de ambtenaren vertrekken; kloosters bewaren Latijn en boeken.</li><li><b>Latijn</b> blijft nog 1000+ jaar de taal van kerk en geleerden.</li><li><b>Steden</b> krimpen, handel neemt af → de economie wordt weer bijna helemaal <b>agrarisch</b>: wie het land bezit, heeft de macht.</li><li><b>Germaanse koningen</b> (de Franken!) willen lijken op Romeinse keizers — Karel de Grote wordt in 800 "keizer".</li></ul><p>Een logische stap: <b>geen staat, belasting en geld → macht rust op grond en persoonlijke trouw</b>. Zo ontstaat de wereld van monniken en ridders.</p></div>
+    </div>
+    <p><a href="tijdvak-3-monniken-en-ridders.html">→ <span class="ru">Эпоха 3: монахи и рыцари</span><span class="nl">Tijdvak 3: monniken en ridders</span></a></p>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: можно ли было спасти Запад?</span><span class="nl">Andere mogelijkheden: had het westen gered kunnen worden?</span></summary><div class="bi">
+    <p class="ru">Восток показывает, что <b>падение не было неизбежным</b>: богатая экономика, короче граница, крепкая столица, налоги в золоте — и империя прожила до 1453 г. Император Юстиниан (VI в.) даже отвоевал Италию на время. Для Запада варианты: сократить границу, раньше и честнее включить германцев как граждан (как когда-то италийцев), меньше гражданских войн. Но каждая мера требовала денег, которых не было. Хорошая формулировка для ответа: «<b>Doordat</b> de grens te duur werd en de belastingen te weinig opbrachten, <b>kon</b> het westen zich niet meer verdedigen; het oosten was rijker <b>en daardoor</b> sterker».</p>
+    <p class="nl">Het oosten laat zien dat <b>de val niet onvermijdelijk was</b>: een rijke economie, een kortere grens, een sterke hoofdstad, belasting in goud — en het rijk bleef bestaan tot 1453. Keizer Justinianus (6e eeuw) heroverde zelfs een tijd Italië. Opties voor het westen: de grens inkorten, Germanen eerder en eerlijker als burgers opnemen (zoals vroeger de Italianen), minder burgeroorlogen. Maar elke maatregel kostte geld dat er niet was. Een goede zin voor de toets: "<b>Doordat</b> de grens te duur werd en de belastingen te weinig opbrachten, <b>kon</b> het westen zich niet meer verdedigen; het oosten was rijker <b>en daardoor</b> sterker."</p>
+  </div></details>
+</section>
+
+<!-- ============ LAB ============ -->
+<section class="page" id="p-lab" data-title-ru="Лаборатория: бюджет империи" data-title-nl="Lab: de keizerlijke begroting" data-n="7">
+  <div class="kern"><div class="lbl">Lab</div><div class="q"><span class="ru">Ты — император. Хватит ли налогов, чтобы содержать армию на границе и кормить Рим? Подвигай ползунки.</span><span class="nl">Jij bent keizer. Is er genoeg belasting om het leger aan de grens te betalen en Rome te voeden? Schuif maar.</span></div></div>
+  <div class="card" id="lab"></div>
+  <div class="card">
+    <b><span class="ru">Эксперименты</span><span class="nl">Experimenten</span></b>
+    <ol class="ru"><li>Сравни «Эпоху завоеваний» и «Расцвет». Откуда в первом случае деньги и почему этот источник не вечен?</li><li>Включи «Кризис III века». Что можно сделать: поднять налоги, уменьшить армию, испортить монету? У каждого варианта назови цену.</li><li>Включи «Запад, ок. 400 г.». Почему наём германцев (дешевле легионов) решает проблему сегодня, но создаёт новую завтра?</li></ol>
+    <ol class="nl"><li>Vergelijk "Tijd van veroveringen" en "Bloeitijd". Waar komt het geld in het eerste geval vandaan, en waarom is die bron niet eeuwig?</li><li>Kies "Crisis van de 3e eeuw". Wat kun je doen: belasting verhogen, het leger verkleinen, de munt minder zilver geven? Noem van elke keuze de prijs.</li><li>Kies "Het westen rond 400". Waarom lost het inhuren van Germanen (goedkoper dan legioenen) vandaag het probleem op, maar maakt het morgen een nieuw probleem?</li></ol>
+    <div class="memo"><span class="ru">Империя — это велосипед: пока едешь (завоёвываешь), держишь равновесие. Остановился — нужно другое, гораздо более дорогое равновесие.</span><span class="nl">Een rijk is een fiets: zolang je rijdt (verovert), blijf je overeind. Sta je stil, dan heb je een ander, veel duurder evenwicht nodig.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span class="ru">Самоучитель по истории · эпоха 2 из 10 · даты приблизительные («ca.» = около).</span>
+  <span class="nl">Zelfstudie geschiedenis · tijdvak 2 van 10 · jaartallen zijn ongeveer ("ca." = circa).</span>
+</footer>
+</main>
+
+<script src="assets/tijdvak.js"></script>
+<script>
+const CHAIN = [
+  { ru: 'Горы, море, мало земли', nl: 'Bergen, zee, weinig grond',
+    why: ['Греция разрезана горами на долины и острова; хорошей земли мало.', 'Griekenland is door bergen verdeeld in dalen en eilanden; er is weinig goede grond.'],
+    alt: ['На равнине у одной реки (Египет) получилось одно большое царство.', 'Op een vlakte langs één rivier (Egypte) ontstond één groot rijk.'] },
+  { ru: 'Независимые полисы', nl: 'Zelfstandige stadstaten',
+    why: ['Каждая долина живёт своим городом со своей властью, армией и богами-покровителями.', 'Elk dal heeft een eigen stad met eigen bestuur, leger en beschermgod.'],
+    law: ['Раздробленная география → раздробленная власть.', 'Versnipperde geografie → versnipperde macht.'],
+    alt: ['Полисы могли бы объединиться добровольно — но объединились только против персов и ненадолго.', 'De poleis hadden zich vrijwillig kunnen verenigen — dat deden ze alleen tegen de Perzen, en kort.'] },
+  { ru: 'Граждане решают сами → демократия', nl: 'Burgers beslissen zelf → democratie',
+    why: ['Маленький полис позволяет собрать всех граждан; бедные гребцы флота требуют голоса.', 'In een kleine polis kunnen alle burgers samenkomen; arme roeiers van de vloot eisen inspraak.'],
+    law: ['Кто нужен для обороны, тот требует права голоса.', 'Wie nodig is voor de verdediging, eist inspraak.'],
+    alt: ['В Спарте, жившей за счёт илотов, победила олигархия и казарма.', 'In Sparta, dat leefde van de heloten, won de oligarchie en het legerkamp.'] },
+  { ru: 'Спор и наука', nl: 'Debat en wetenschap',
+    why: ['Привычка спорить аргументами + знания Египта и Вавилона + нет единой касты жрецов → ищут естественные причины.', 'Gewend aan debat met argumenten + kennis uit Egypte en Babylon + geen machtige priesterstand → men zoekt natuurlijke oorzaken.'],
+    alt: ['Где царь и жрецы владеют «истиной», сомнение опасно — знание растёт, но медленнее спорит с традицией.', 'Waar koning en priesters de "waarheid" bezitten, is twijfel gevaarlijk — kennis groeit, maar botst minder met de traditie.'] },
+  { ru: 'Рим объединяет Италию', nl: 'Rome verenigt Italië',
+    why: ['Побеждённые становятся союзниками, дают солдат и получают долю добычи.', 'Overwonnenen worden bondgenoten, leveren soldaten en krijgen een deel van de buit.'],
+    law: ['Включать побеждённых выгоднее, чем только пугать.', 'Overwonnenen erbij betrekken werkt beter dan alleen angst.'],
+    alt: ['Если бы Рим только грабил, союзники перешли бы к Ганнибалу — многие и так колебались.', 'Als Rome alleen had geplunderd, waren de bondgenoten naar Hannibal overgelopen — velen twijfelden al.'] },
+  { ru: 'Завоевания Средиземноморья', nl: 'Verovering van de Middellandse Zee',
+    why: ['Армия союзников + победа над Карфагеном → провинции, добыча, рабы.', 'Leger met bondgenoten + overwinning op Carthago → provincies, buit, slaven.'],
+    alt: ['Победа Ганнибала оставила бы Средиземноморье разделённым.', 'Een overwinning van Hannibal had de Middellandse Zee verdeeld gelaten.'] },
+  { ru: 'Республика → империя', nl: 'Republiek → keizerrijk',
+    why: ['Разорение крестьян → профессиональная армия верна полководцу → гражданские войны → Август.', 'Boeren verarmd → beroepsleger trouw aan de generaal → burgeroorlogen → Augustus.'],
+    alt: ['Реформы братьев Гракхов (раздать землю бедным) могли спасти крестьянскую армию — их убили.', 'De hervormingen van de Gracchen (land voor armen) hadden het boerenleger kunnen redden — ze werden vermoord.'] },
+  { ru: 'Романизация провинций', nl: 'Romanisering van de provincies',
+    why: ['Дороги, города, гражданство для местной знати, торговля → латынь и римский образ жизни.', 'Wegen, steden, burgerrecht voor de lokale elite, handel → Latijn en Romeinse leefwijze.'],
+    alt: ['На Востоке говорили по-гречески и остались греками: римская культура там наложилась на более старую.', 'In het oosten sprak men Grieks en bleef men Grieks: daar lag Rome over een oudere cultuur heen.'] },
+  { ru: 'Граница по Рейну', nl: 'Grens langs de Rijn',
+    why: ['Тевтобург (9 н.э.) + Германия без городов не окупается → лимес с 47 г.', 'Teutoburg (9 n.Chr.) + Germanië zonder steden levert niets op → limes vanaf 47.'],
+    law: ['Империя растёт, пока завоевание приносит больше, чем стоит.', 'Een rijk groeit zolang veroveren meer oplevert dan het kost.'],
+    alt: ['Без поражения Вара Рим, возможно, дошёл бы до Эльбы — и мы говорили бы на романском языке.', 'Zonder de nederlaag van Varus was Rome misschien tot de Elbe gekomen — en spraken wij een Romaanse taal.'] },
+  { ru: 'Христианство по римским дорогам', nl: 'Christendom via Romeinse wegen',
+    why: ['Мир, дороги, общий язык, города + послание о равенстве → рост; 380 — государственная религия.', 'Vrede, wegen, één taal, steden + boodschap van gelijkheid → groei; 380 staatsgodsdienst.'],
+    alt: ['Если бы Константин остался язычником, христианство, вероятно, всё равно росло бы — но медленнее и без государственной силы.', 'Als Constantijn heiden was gebleven, was het christendom waarschijnlijk toch gegroeid — maar trager en zonder steun van de staat.'] },
+  { ru: 'Кризис: граница дорога, налоги тяжелы', nl: 'Crisis: dure grens, zware belasting',
+    why: ['Нет новых завоеваний, длинная граница, порча монеты, императоры от армии.', 'Geen nieuwe veroveringen, lange grens, slechtere munten, keizers door het leger gekozen.'],
+    alt: ['Восток с его богатством и короткой границей выдержал — значит, кризис можно было пережить.', 'Het rijke oosten met een kortere grens hield stand — de crisis was dus te overleven.'] },
+  { ru: 'Падение Запада (476)', nl: 'Val van het westen (476)',
+    why: ['Германцы внутри армии и на землях империи; гунны толкают готов; в 476 Одоакр смещает последнего императора.', 'Germanen in het leger en op het land van het rijk; Hunnen duwen de Goten; in 476 zet Odoaker de laatste keizer af.'],
+    law: ['Нет денег и налогов → власть держится на земле и личной верности. Это и есть начало средневековья.', 'Geen geld en belasting → macht rust op grond en trouw. Dat is het begin van de middeleeuwen.'],
+    alt: ['Германские короли не уничтожили всё римское: они взяли церковь, латынь и право — и пытались сами стать «римлянами».', 'Germaanse koningen vernietigden niet alles: ze namen kerk, Latijn en recht over — en wilden zelf "Romeinen" worden.'] }
+];
+
+const ORDER_SETS = [
+  [['Горы делят Грецию на долины', 'Bergen verdelen Griekenland in dalen'], ['Возникают независимые полисы', 'Er ontstaan zelfstandige poleis'], ['Земли не хватает', 'Er is te weinig grond'], ['Греки основывают колонии по Средиземноморью', 'Grieken stichten kolonies rond de Middellandse Zee']],
+  [['Персы нападают на Грецию', 'De Perzen vallen Griekenland aan'], ['Афины строят большой флот', 'Athene bouwt een grote vloot'], ['Бедные граждане гребут на триерах', 'Arme burgers roeien op de schepen'], ['Бедные получают больший голос в собрании', 'Armen krijgen meer inspraak in de volksvergadering']],
+  [['Рим завоёвывает много земель', 'Rome verovert veel gebied'], ['Богачи скупают землю, работают рабы', 'Rijken kopen land, slaven werken'], ['Мелкие крестьяне разоряются', 'Kleine boeren raken verarmd'], ['Армия становится профессиональной и верна полководцу', 'Het leger wordt een beroepsleger, trouw aan de generaal'], ['Гражданские войны → император', 'Burgeroorlogen → keizer']],
+  [['Поражение Вара в Тевтобургском лесу (9)', 'Nederlaag van Varus in het Teutoburgerwoud (9)'], ['Рим отказывается от завоевания Германии', 'Rome stopt met het veroveren van Germanië'], ['Граница по Рейну — лимес (47)', 'Grens langs de Rijn — de limes (47)'], ['Торговля с фризами через границу', 'Handel met de Friezen over de grens']],
+  [['Христиан преследуют', 'Christenen worden vervolgd'], ['Константин разрешает христианство (313)', 'Constantijn staat het christendom toe (313)'], ['Христианство — государственная религия (380)', 'Christendom wordt staatsgodsdienst (380)'], ['После падения Рима церковь остаётся главной организацией Запада', 'Na de val van Rome blijft de kerk de belangrijkste organisatie in het westen']],
+  [['Завоевания прекращаются', 'De veroveringen stoppen'], ['Армия на границе дорога', 'Het leger aan de grens is duur'], ['Налоги растут, монета портится', 'Belasting stijgt, munten worden slechter'], ['Германцев нанимают охранять границу', 'Germanen worden ingehuurd om de grens te bewaken'], ['Германский командир смещает императора (476)', 'Een Germaanse aanvoerder zet de keizer af (476)']]
+];
+
+const PATHS = [
+  { t: ['Афины, 483 до н.э. В серебряных рудниках Лавриона нашли богатую жилу. Что делать с деньгами?', 'Athene, 483 v.Chr. In de zilvermijnen van Laurion is een rijke ader gevonden. Wat doe je met het geld?'],
+    o: [ [['Раздать гражданам', 'Verdelen onder de burgers'], ['Выгода: все довольны сейчас. Риск: персы вернутся, а защиты нет. Так хотели многие. <b>На самом деле</b> Фемистокл убедил построить флот.', 'Voordeel: iedereen blij, nu. Risico: de Perzen komen terug en er is geen verdediging. Veel mensen wilden dit. <b>In werkelijkheid</b> overtuigde Themistocles hen om een vloot te bouwen.']],
+         [['Построить 200 триер', '200 oorlogsschepen bouwen'], ['Выгода: победа при Саламине (480), Афины — морская держава, торговля. Цена: гребцы-бедняки потребовали голоса → демократия углубилась. Условие: нужны тысячи гребцов, то есть граждане.', 'Voordeel: overwinning bij Salamis (480), Athene wordt een zeemacht, handel. Prijs: de arme roeiers eisten inspraak → de democratie werd dieper. Voorwaarde: duizenden roeiers nodig, dus burgers.']] ] },
+  { t: ['Рим, 90 до н.э. Италийские союзники воюют за Рим, но гражданства не имеют. Они требуют прав.', 'Rome, 90 v.Chr. De Italische bondgenoten vechten voor Rome maar hebben geen burgerrecht. Ze eisen rechten.'],
+    o: [ [['Отказать: гражданство только для римлян', 'Weigeren: burgerrecht alleen voor Romeinen'], ['Выгода: голоса и земля остаются у старых граждан. Риск: восстание союзников — так и случилось (Союзническая война 91–88).', 'Voordeel: stemmen en land blijven bij de oude burgers. Risico: opstand van de bondgenoten — dat gebeurde ook (Bondgenotenoorlog 91–88).']],
+         [['Дать гражданство', 'Burgerrecht geven'], ['Выгода: союзники становятся «своими», Италия едина. Цена: старые граждане теряют исключительность. <b>На самом деле</b> Рим проиграл бы войну, поэтому уступил и дал гражданство (89). В 212 г. гражданство получили все свободные жители империи.', 'Voordeel: bondgenoten worden "eigen mensen", Italië is één. Prijs: oude burgers verliezen hun voorrang. <b>In werkelijkheid</b> gaf Rome toe en gaf burgerrecht (89). In 212 kregen alle vrije inwoners van het rijk het burgerrecht.']] ] },
+  { t: ['Ты — вождь батавов, ок. 50 до н.э. Рядом — римская армия.', 'Jij bent leider van de Bataven, ca. 50 v.Chr. Het Romeinse leger staat vlakbij.'],
+    o: [ [['Союз с Римом', 'Bondgenoot van Rome'], ['Выгода: нет налогов, твои воины получают жалованье, гражданство после службы, римские товары. Цена: сыновья уходят служить далеко (даже в Британию). Это реальный выбор батавов.', 'Voordeel: geen belasting, je krijgers krijgen soldij, burgerrecht na hun dienst, Romeinse spullen. Prijs: je zonen dienen ver weg (zelfs in Brittannië). Dit kozen de Bataven echt.']],
+         [['Сопротивляться', 'Verzet bieden'], ['Выгода: свобода и свои обычаи. Риск: римская армия сильнее; поражение = рабство. Батавы попробовали в 69–70 (Цивилис) — и снова стали союзниками на худших условиях.', 'Voordeel: vrijheid en eigen gewoonten. Risico: het Romeinse leger is sterker; verlies = slavernij. De Bataven probeerden het in 69–70 (Civilis) en werden daarna opnieuw bondgenoten, onder slechtere voorwaarden.']] ] },
+  { t: ['Ты — император Запада, ок. 400 н.э. Денег мало, готы просят землю внутри империи.', 'Jij bent keizer in het westen, ca. 400 n.Chr. Er is weinig geld en de Goten vragen land binnen het rijk.'],
+    o: [ [['Пустить готов как союзников (foederati)', 'De Goten toelaten als bondgenoten (foederati)'], ['Выгода: дешёвые воины на границе. Риск: у них свой вождь и своя верность; они могут обратиться против тебя (Аларих разграбил Рим в 410).', 'Voordeel: goedkope krijgers aan de grens. Risico: ze hebben hun eigen leider en trouw; ze kunnen zich tegen je keren (Alarik plunderde Rome in 410).']],
+         [['Отказать и воевать своими легионами', 'Weigeren en vechten met eigen legioenen'], ['Выгода: контроль остаётся у Рима. Риск: нужны огромные налоги, которых нет; поражение при Адрианополе (378) показало, чем это кончается.', 'Voordeel: Rome houdt de controle. Risico: daarvoor is veel belasting nodig, die er niet is; de nederlaag bij Adrianopel (378) liet zien hoe dat afloopt.']] ] }
+];
+
+const WATALS = [
+  ['Что было бы, если бы Греция была одной большой плодородной равниной?', 'Wat als Griekenland één grote vruchtbare vlakte was geweest?',
+   'Скорее всего, там возникло бы одно царство, как в Египте: легко собрать налоги и армию в одни руки. Меньше отдельных полисов → меньше «экспериментов» с властью → меньше шансов на демократию. Меньше нехватки земли → меньше колоний и торговли. Формулировка: «Doordat het land verdeeld was, ontstonden er veel stadstaten; zonder bergen was er waarschijnlijk één koning gekomen».',
+   'Waarschijnlijk was er één koninkrijk ontstaan zoals in Egypte: belasting en leger zijn dan makkelijk in één hand te krijgen. Minder losse poleis → minder "experimenten" met bestuur → minder kans op democratie. Minder tekort aan grond → minder kolonies en handel. Formulering: "Doordat het land verdeeld was, ontstonden er veel stadstaten; zonder bergen was er waarschijnlijk één koning gekomen."'],
+  ['Почему афинская демократия — «демократия» и одновременно «не демократия» по нашим меркам?', 'Waarom is de Atheense democratie wel en niet een democratie volgens onze normen?',
+   'Да: граждане решали сами, лично голосовали, должности по жребию, власть ограничена. Нет: голосовало меньшинство (только свободные мужчины-граждане), рабство считалось нормой, женщины без прав. Хороший ответ сравнивает по <b>одному признаку</b>: «кто имеет право голоса».',
+   'Wel: burgers beslisten zelf, stemden persoonlijk, functies werden geloot, de macht was beperkt. Niet: maar een minderheid stemde (alleen vrije mannelijke burgers), slavernij was normaal, vrouwen hadden geen rechten. Een goed antwoord vergelijkt op <b>één kenmerk</b>: "wie mag stemmen".'],
+  ['Почему Рим не завоевал Германию, хотя был намного сильнее?', 'Waarom veroverde Rome Germanië niet, terwijl het veel sterker was?',
+   'Военная причина: поражение в Тевтобургском лесу (9 н.э.). Экономическая — важнее: без городов, дорог и денег с германцев нечего брать налогами, а держать армию в лесах дорого. Завоевание не окупалось. Географическая: Рейн — удобная граница и транспортная река.',
+   'Militaire reden: de nederlaag in het Teutoburgerwoud (9 n.Chr.). Economische reden — belangrijker: zonder steden, wegen en geld valt er bij de Germanen weinig belasting te halen, en een leger in de bossen is duur. Verovering loonde niet. Geografische reden: de Rijn is een handige grens en vervoersroute.'],
+  ['Что было бы, если бы не было римских дорог и Pax Romana?', 'Wat als er geen Romeinse wegen en Pax Romana waren geweest?',
+   'Христианство распространялось бы гораздо медленнее: апостолы и письма не могли бы так быстро перемещаться, в войнах общины распадались бы. Торговля была бы местной, латынь не стала бы общим языком Запада. Вывод: мир и транспорт помогают распространению <b>любых</b> идей — и религий, и товаров, и болезней (чума Антонина, 165).',
+   'Het christendom had zich veel langzamer verspreid: apostelen en brieven reisden niet zo snel, en in oorlogen vielen gemeenten uiteen. Handel was lokaal gebleven, Latijn was niet de gemeenschappelijke taal van het westen geworden. Conclusie: vrede en vervoer verspreiden <b>alles</b>: ideeën, geloof, goederen en ziekten (de Antonijnse pest, 165).'],
+  ['Была ли Римская империя полезна для жителей Нидерландов? Приведи аргумент «за» и «против».', 'Was het Romeinse Rijk goed voor de bewoners van Nederland? Geef een argument voor en tegen.',
+   '«За»: мир, торговля, города, дороги, новые товары (вино, керамика), гражданство после службы. «Против»: налоги и набор в армию, восстание батавов подавлено, местная культура вытеснялась, рабство. VWO+: ответ зависит от того, <b>кого</b> спросить — местную знать, солдата, крестьянина или фриза за рекой.',
+   'Voor: vrede, handel, steden, wegen, nieuwe producten (wijn, aardewerk), burgerrecht na de dienst. Tegen: belasting en dienstplicht, de Bataafse Opstand neergeslagen, lokale cultuur verdrongen, slavernij. Vwo+: het antwoord hangt af van <b>wie</b> je het vraagt — de lokale elite, een soldaat, een boer of een Fries aan de overkant.'],
+  ['Почему иудаизм не исчез после разрушения Иерусалимского храма в 70 г., хотя многие древние религии исчезли вместе со своими храмами?', 'Waarom verdween het jodendom niet na de verwoesting van de tempel in 70, terwijl veel oude godsdiensten met hun tempel verdwenen?',
+   'Потому что вера держалась на <b>книге и законе</b>, а не только на храме: Тору можно читать в любой синагоге в любой стране. Раввины и учение заменили жертвоприношения. Это пример того, как <b>письменность</b> (из эпохи 1!) делает культуру переносимой.',
+   'Omdat het geloof draaide om <b>een boek en een wet</b>, niet alleen om een tempel: de Thora kun je in elke synagoge in elk land lezen. Rabbijnen en leren namen de plaats in van offers. Een voorbeeld van hoe <b>schrift</b> (uit tijdvak 1!) een cultuur meeneembaar maakt.'],
+  ['Почему Западная империя пала, а Восточная нет? Назови две причины разных видов.', 'Waarom viel het West-Romeinse Rijk wel en het Oost-Romeinse niet? Noem twee verschillende soorten oorzaken.',
+   'Экономическая: Восток был богаче (города, торговля, золото) и мог платить армии или откупаться. Географическая: Константинополь окружён морем и стенами, а граница Востока короче и дальше от главных германских народов. Военно-политическая: на Западе германские командиры фактически правили армией.',
+   'Economisch: het oosten was rijker (steden, handel, goud) en kon het leger betalen of vijanden afkopen. Geografisch: Constantinopel ligt aan zee en achter sterke muren, en de grens in het oosten was korter en lag verder van de grote Germaanse volken. Politiek-militair: in het westen hadden Germaanse aanvoerders feitelijk de macht over het leger.']
+];
+
+const LAB = {
+  note: ['Учебная модель, а не реальный бюджет. 1 единица ≈ условная доля государственных денег.', 'Denkmodel, geen echte begroting. 1 eenheid ≈ een deel van het staatsgeld.'],
+  sliders: [
+    { k: 'tax', ru: 'Налоги провинций', nl: 'Belasting provincies', min: 40, max: 200, v: 140 },
+    { k: 'loot', ru: 'Добыча завоеваний', nl: 'Oorlogsbuit', min: 0, max: 80, v: 0 },
+    { k: 'leg', ru: 'Легионы на границе (×10 000 солдат)', nl: 'Legioenen aan de grens (×10.000 soldaten)', min: 10, max: 45, v: 30 },
+    { k: 'brood', ru: 'Хлеб и зрелища в Риме', nl: 'Brood en spelen in Rome', min: 0, max: 40, v: 15 }
+  ],
+  presets: [
+    { ru: 'Эпоха завоеваний (ок. 60 до н.э.)', nl: 'Tijd van veroveringen (ca. 60 v.Chr.)', v: [90, 65, 25, 10] },
+    { ru: 'Расцвет (ок. 120 н.э.)', nl: 'Bloeitijd (ca. 120 n.Chr.)', v: [140, 0, 30, 15] },
+    { ru: 'Кризис III века', nl: 'Crisis van de 3e eeuw', v: [105, 0, 38, 20] },
+    { ru: 'Запад, ок. 400', nl: 'Het westen rond 400', v: [70, 0, 30, 15] }
+  ],
+  calc(v) {
+    const army = v.leg * 3, inc = v.tax + v.loot, rest = inc - army - v.brood;
+    const segs = [[army, '#b45309', '⚔ ' + army], [v.brood, '#7c3aed', '🍞 ' + v.brood], rest >= 0 ? [rest, '#15803d', '⭐ ' + rest] : [-rest, '#b42318', '⚠ ' + rest]];
+    if (rest < 0) return { segs, cls: 'bad', ru: `Дефицит ${-rest}. Варианты: поднять налоги (крестьяне бегут к крупным землевладельцам — будущие крепостные), испортить монету (цены растут), сократить армию (граница дырявая) или нанять германцев (дёшево, но верны они своему вождю). Солдаты без жалованья выбирают нового императора.`, nl: `Tekort van ${-rest}. Opties: meer belasting (boeren vluchten naar grootgrondbezitters — de latere horigen), munten met minder zilver (prijzen stijgen), kleiner leger (gaten in de grens) of Germanen inhuren (goedkoop, maar trouw aan hun eigen leider). Soldaten zonder soldij kiezen een nieuwe keizer.` };
+    if (v.loot > inc / 3) return { segs, cls: 'ok', ru: `Излишек ${rest}, но треть доходов — добыча. Это работает, пока есть кого завоёвывать. Что будет, когда граница дойдёт до лесов Германии и пустынь?`, nl: `Overschot ${rest}, maar een derde van het geld is buit. Dat werkt zolang er nog iets te veroveren is. Wat gebeurt er als de grens bij de Germaanse bossen en de woestijn komt?` };
+    if (rest < 10) return { segs, cls: '', ru: `Почти ноль (${rest}). Один плохой год, эпидемия или прорыв границы — и начнётся дефицит.`, nl: `Bijna nul (${rest}). Eén slecht jaar, een epidemie of een doorbraak aan de grens — en er is een tekort.` };
+    return { segs, cls: 'ok', ru: `Излишек ${rest}: можно строить дороги, акведуки, города. Это и есть Pax Romana: мир стоит дорого, но окупается торговлей.`, nl: `Overschot ${rest}: er is geld voor wegen, aquaducten en steden. Dat is de Pax Romana: vrede is duur, maar de handel betaalt het terug.` };
+  }
+};
+
+const TERMS = [
+  ['oudheid', 'античность, древность', 'Periode van de Grieken en Romeinen (ca. 3000 v.Chr. – 500 n.Chr.).'],
+  ['farao', 'фараон', 'Koning van het oude Egypte, gezien als god.'],
+  ['polis / stadstaat', 'полис, город-государство', 'Een stad met het land eromheen en een eigen bestuur, leger en wetten.'],
+  ['kolonie', 'колония', 'Nieuwe nederzetting van een stad op een andere plek (bijv. Marseille).'],
+  ['democratie', 'демократия', 'Bestuursvorm waarin het volk (de burgers) de macht heeft.'],
+  ['directe democratie', 'прямая демократия', 'De burgers stemmen zelf over besluiten, zonder volksvertegenwoordigers.'],
+  ['volksvergadering', 'народное собрание', 'Vergadering van alle burgers die besluiten neemt (in Athene).'],
+  ['burger', 'гражданин', 'Inwoner met politieke rechten; in Athene: vrije man met Atheense ouders.'],
+  ['burgerschap', 'гражданство', 'Rechten en plichten die je als burger hebt.'],
+  ['metoiken', 'метеки (приезжие)', 'Vrije vreemdelingen in Athene zonder burgerrechten.'],
+  ['slaaf', 'раб', 'Mens die eigendom is van een ander en geen rechten heeft.'],
+  ['loting', 'жребий', 'Functies verdelen door te loten in plaats van te kiezen.'],
+  ['ostracisme', 'остракизм', 'Verbanning van een politicus voor 10 jaar via een stemming met potscherven.'],
+  ['oligarchie', 'олигархия', 'Bestuur door een kleine groep (vaak rijken).'],
+  ['monarchie', 'монархия', 'Bestuur door één koning of keizer.'],
+  ['aristocratie', 'аристократия', 'Bestuur door de adel.'],
+  ['tirannie', 'тирания', 'Bestuur door iemand die de macht heeft gegrepen.'],
+  ['heloten', 'илоты', 'Onvrije boeren die voor Sparta moesten werken.'],
+  ['hellenisme', 'эллинизм', 'Verspreiding van de Griekse cultuur na de veroveringen van Alexander de Grote.'],
+  ['filosofie', 'философия', '"Liefde voor wijsheid": nadenken over de wereld met redeneringen.'],
+  ['wetenschappelijk denken', 'научное мышление', 'Verklaringen zoeken door waarnemen, redeneren en controleren, niet met goden.'],
+  ['klassieke vormentaal', 'классический стиль', 'Bouw- en beeldstijl van Grieken en Romeinen: zuilen, fronton, symmetrie, ideale verhoudingen.'],
+  ['zuil (Dorisch, Ionisch, Korinthisch)', 'колонна (дорическая, ионическая, коринфская)', 'De drie soorten Griekse zuilen, herkenbaar aan het kapiteel.'],
+  ['tempel', 'храм', 'Gebouw voor een god; Grieks voorbeeld: het Parthenon.'],
+  ['republiek', 'республика', 'Staat zonder koning; in Rome bestuurd door senaat en consuls.'],
+  ['senaat', 'сенат', 'Raad van rijke en voorname Romeinen.'],
+  ['consul', 'консул', 'Een van de twee hoogste bestuurders van de Romeinse republiek, gekozen voor één jaar.'],
+  ['patriciërs / plebejers', 'патриции / плебеи', 'Adel / gewone burgers in Rome.'],
+  ['keizer', 'император', 'Alleenheerser van het Romeinse Rijk (vanaf Augustus, 27 v.Chr.).'],
+  ['keizerrijk / imperium', 'империя', 'Een groot rijk met veel volken onder één heerser.'],
+  ['provincie', 'провинция', 'Veroverd gebied buiten Italië, bestuurd door een Romeinse stadhouder.'],
+  ['legioen', 'легион', 'Legereenheid van ca. 5000 Romeinse beroepssoldaten.'],
+  ['Pax Romana', 'Римский мир', 'Periode van ca. 200 jaar vrede binnen het rijk (vanaf Augustus).'],
+  ['romanisering', 'романизация', 'Het overnemen van de Romeinse cultuur (taal, wonen, geloof, recht) door andere volken.'],
+  ['Romeins recht', 'римское право', 'Geschreven wetten die voor alle burgers golden; basis van veel Europees recht.'],
+  ['limes', 'лимес', 'De grens van het Romeinse Rijk met forten; in NL langs de Rijn (47 – ca. 400). Canonvenster.'],
+  ['castellum', 'кастеллум (крепость)', 'Klein Romeins fort aan de limes, bijv. bij Valkenburg of Utrecht.'],
+  ['villa', 'вилла, поместье', 'Romeinse boerderij met een stenen huis, vooral in Zuid-Limburg.'],
+  ['aquaduct', 'акведук', 'Waterleiding (vaak op bogen) die water naar een stad brengt.'],
+  ['Germanen', 'германцы', 'Volken in Noordwest-Europa buiten het rijk, zonder steden en (bijna) zonder schrift.'],
+  ['Bataven', 'батавы', 'Germaans volk in het rivierengebied; leverden soldaten aan Rome in plaats van belasting.'],
+  ['Friezen', 'фризы', 'Volk in het noorden van NL, buiten het rijk; handelden met de Romeinen.'],
+  ['terp', 'терп', 'Woonheuvel in het noorden tegen overstromingen.'],
+  ['Teutoburgerwoud', 'Тевтобургский лес', 'Plaats van de nederlaag van drie legioenen tegen Arminius (9 n.Chr.).'],
+  ['foederati', 'федераты', 'Germaanse bondgenoten die land kregen binnen het rijk in ruil voor militaire dienst.'],
+  ['polytheïsme', 'многобожие', 'Geloof in veel goden.'],
+  ['monotheïsme', 'единобожие, монотеизм', 'Geloof in één God (jodendom, christendom, later islam).'],
+  ['jodendom', 'иудаизм', 'Monotheïstisch geloof van de joden, met de Tenach en de Tien Geboden.'],
+  ['diaspora', 'диаспора, рассеяние', 'Verspreiding van een volk over veel landen, buiten het eigen land.'],
+  ['christendom', 'христианство', 'Geloof gebaseerd op het leven en de leer van Jezus Christus.'],
+  ['apostel', 'апостол', 'Leerling/verkondiger van Jezus die het geloof verspreidde, bijv. Paulus.'],
+  ['christenvervolging', 'преследования христиан', 'Het straffen en doden van christenen door Romeinse keizers.'],
+  ['staatsgodsdienst', 'государственная религия', 'Het officiële geloof van een staat (christendom vanaf 380).'],
+  ['bisschop', 'епископ', 'Leider van de christelijke kerk in een stad of gebied.'],
+  ['Byzantijnse Rijk', 'Византийская империя', 'Het Oost-Romeinse Rijk met hoofdstad Constantinopel, tot 1453.'],
+  ['bron / primaire bron', 'источник / первичный источник', 'Iets uit de tijd zelf waaruit je informatie haalt (bijv. Tacitus over de Germanen).']
+];
+
+const Q = [
+  { t: 'grieken', q: ['Waarom ontstonden er in Griekenland veel stadstaten in plaats van één rijk?', 'Почему в Греции возникло много полисов, а не одно царство?'], o: [['Bergen en zee verdeelden het land in losse gebieden.', 'Горы и море делили страну на отдельные области.'], ['De Grieken hielden niet van koningen.', 'Греки не любили царей.'], ['De Romeinen verboden één Griekse staat.', 'Римляне запретили единое греческое государство.'], ['Er was genoeg grond voor iedereen.', 'Земли хватало всем.']], a: 0, e: ['Geografie: dalen en eilanden met moeilijke verbindingen → elke streek een eigen polis.', 'География: долины и острова с трудной связью → у каждой области свой полис.'] },
+  { t: 'grieken', q: ['Wie mocht in Athene stemmen in de volksvergadering?', 'Кто мог голосовать в народном собрании Афин?'], o: [['vrije mannen met Atheense ouders', 'свободные мужчины с афинскими родителями'], ['alle inwoners van Athene', 'все жители Афин'], ['alleen rijke mannen', 'только богатые мужчины'], ['mannen en vrouwen boven de 18', 'мужчины и женщины старше 18']], a: 0, e: ['Vrouwen, slaven en metoiken waren uitgesloten.', 'Женщины, рабы и метеки не голосовали.'] },
+  { t: 'grieken', q: ['Wat is het verschil tussen directe en indirecte (vertegenwoordigende) democratie?', 'Чем прямая демократия отличается от представительной?'], o: [['Bij directe democratie stemmen burgers zelf over besluiten.', 'При прямой граждане сами голосуют по решениям.'], ['Bij directe democratie kiest de koning de bestuurders.', 'При прямой царь назначает правителей.'], ['Bij directe democratie mogen vrouwen stemmen.', 'При прямой голосуют женщины.'], ['Er is geen verschil.', 'Разницы нет.']], a: 0, e: ['Athene: direct. Nederland nu: we kiezen volksvertegenwoordigers.', 'Афины — прямая; Нидерланды сейчас — выбираем представителей.'] },
+  { t: 'grieken', q: ['Waarom kregen de arme Atheners na 480 v.Chr. meer politieke invloed?', 'Почему бедные афиняне после 480 г. до н.э. получили больше влияния?'], o: [['Ze roeiden op de oorlogsvloot die Athene beschermde.', 'Они гребли на военном флоте, который защищал Афины.'], ['Ze werden rijk door handel.', 'Они разбогатели на торговле.'], ['De Perzen gaven hun stemrecht.', 'Персы дали им право голоса.'], ['Sparta dwong Athene daartoe.', 'Спарта заставила Афины.']], a: 0, e: ['Wie nodig is voor de verdediging, eist inspraak.', 'Кто нужен для обороны, тот требует права голоса.'] },
+  { t: 'grieken', q: ['Wat is een oligarchie?', 'Что такое олигархия?'], o: [['bestuur door een kleine groep', 'власть небольшой группы'], ['bestuur door het volk', 'власть народа'], ['bestuur door één koning', 'власть одного царя'], ['bestuur door priesters', 'власть жрецов']], a: 0, e: ['oligos = weinig. Voorbeeld: Sparta.', 'oligos = немногие. Пример: Спарта.'] },
+  { t: 'grieken', q: ['Wat wordt bedoeld met hellenisme?', 'Что такое эллинизм?'], o: [['de verspreiding van de Griekse cultuur na Alexander de Grote', 'распространение греческой культуры после Александра Македонского'], ['de democratie van Athene', 'демократия Афин'], ['het Griekse leger', 'греческая армия'], ['het geloof in Griekse goden', 'вера в греческих богов']], a: 0, e: ['Na de veroveringen van Alexander (336–323 v.Chr.) werd het Grieks de taal van het oosten.', 'После завоеваний Александра (336–323) греческий стал языком Востока.'] },
+  { t: 'grieken', type: 'open', q: ['Leg uit hoe de geografie van Griekenland bijdroeg aan het ontstaan van kolonies.', 'Объясни, как география Греции способствовала появлению колоний.'], model: ['Griekenland heeft veel bergen en weinig vruchtbare grond. Doordat de bevolking groeide, was er te weinig land. Omdat reizen over zee makkelijk was, stichtten Grieken nieuwe steden (kolonies) langs de Middellandse Zee.', 'В Греции много гор и мало плодородной земли. Население росло, и земли не хватало. Поскольку по морю путешествовать легко, греки основывали новые города (колонии) по берегам Средиземного моря.'], rubric: [['bergen / weinig vruchtbare grond', 'горы / мало земли'], ['bevolkingsgroei → tekort aan land', 'рост населения → нехватка земли'], ['zee als verbinding → kolonies', 'море как путь → колонии']] },
+  { t: 'denken', q: ['Wat is kenmerkend voor wetenschappelijk denken bij de Grieken?', 'Что характерно для научного мышления греков?'], o: [['Ze zochten natuurlijke verklaringen door waarnemen en redeneren.', 'Искали естественные объяснения через наблюдение и рассуждение.'], ['Ze vroegen de goden om uitleg.', 'Спрашивали объяснений у богов.'], ['Ze geloofden alles wat in oude boeken stond.', 'Верили всему в старых книгах.'], ['Ze deden alleen aan wiskunde.', 'Занимались только математикой.']], a: 0, e: ['Bijvoorbeeld Hippocrates: ziekte heeft natuurlijke oorzaken.', 'Например, Гиппократ: болезнь имеет естественные причины.'] },
+  { t: 'denken', q: ['Welke Griek wordt de "vader van de geneeskunde" genoemd?', 'Кого называют «отцом медицины»?'], o: ['Hippocrates', 'Socrates', 'Perikles', 'Alexander'], a: 0, e: ['Hippocrates (ca. 400 v.Chr.) observeerde zieken en zocht natuurlijke oorzaken.', 'Гиппократ (ок. 400 до н.э.) наблюдал больных и искал естественные причины.'] },
+  { t: 'denken', q: ['Welk gebouw past bij de klassieke vormentaal?', 'Какое здание соответствует классическому стилю?'], o: [['een gebouw met zuilen, een driehoekig fronton en symmetrie', 'здание с колоннами, треугольным фронтоном и симметрией'], ['een houten boerderij met een rieten dak', 'деревянная ферма с соломенной крышей'], ['een kerk met spitse bogen en hoge torens', 'церковь со стрельчатыми арками и высокими башнями'], ['een glazen wolkenkrabber', 'стеклянный небоскрёб']], a: 0, e: ['Spitse bogen = gotiek (middeleeuwen, tijdvak 4).', 'Стрельчатые арки — готика (Средние века, эпоха 4).'] },
+  { t: 'denken', q: ['Waarom hadden rijke Atheners tijd voor filosofie en politiek?', 'Почему у богатых афинян было время на философию и политику?'], o: [['Slaven deden een groot deel van het werk.', 'Значительную часть работы делали рабы.'], ['Er was geen landbouw meer nodig.', 'Земледелие больше не требовалось.'], ['De staat betaalde iedereen een salaris.', 'Государство платило всем жалованье.'], ['Ze hoefden niet te eten.', 'Им не нужно было есть.']], a: 0, e: ['Het overschot (uit tijdvak 1!) en slavenarbeid gaven vrije tijd aan een kleine groep.', 'Излишек (из эпохи 1!) и труд рабов давали досуг небольшой группе.'] },
+  { t: 'denken', type: 'open', q: ['Noem twee voorbeelden van de klassieke vormentaal en leg uit waarom gebouwen uit latere eeuwen die stijl gebruikten.', 'Назови два признака классического стиля и объясни, почему здания более поздних веков использовали этот стиль.'], model: ['Zuilen en een driehoekig fronton (ook: symmetrie, koepel). Latere bouwers gebruikten die stijl omdat ze bewondering hadden voor de Grieken en Romeinen: de stijl straalt orde, verstand en macht uit (bijv. het Paleis op de Dam).', 'Колонны и треугольный фронтон (также: симметрия, купол). Позднее этот стиль использовали из восхищения греками и римлянами: он выражает порядок, разум и власть (например, дворец на площади Дам).'], rubric: [['twee kenmerken (zuilen, fronton, symmetrie, koepel)', 'два признака'], ['bewondering voor de oudheid / uitstraling van orde of macht', 'восхищение античностью / образ порядка или власти']] },
+  { t: 'rome', q: ['Wanneer werd Augustus de eerste keizer?', 'Когда Август стал первым императором?'], o: ['27 v.Chr.', '509 v.Chr.', '476 n.Chr.', '313 n.Chr.'], a: 0, e: ['509 v.Chr. = begin republiek; 476 = einde West-Romeinse Rijk; 313 = Edict van Milaan.', '509 — республика; 476 — конец Запада; 313 — Миланский эдикт.'] },
+  { t: 'rome', q: ['Wat betekent romanisering?', 'Что значит романизация?'], o: [['het overnemen van de Romeinse cultuur door andere volken', 'перенимание римской культуры другими народами'], ['het veroveren van Rome door de Germanen', 'захват Рима германцами'], ['het bouwen van de stad Rome', 'строительство Рима'], ['het christelijk worden van Rome', 'обращение Рима в христианство']], a: 0, e: ['Latijn, steden, villa\'s, badhuizen, Romeinse goden en recht.', 'Латынь, города, виллы, бани, римские боги и право.'] },
+  { t: 'rome', q: ['Welke maatregel hielp Rome het meest om veroverde volken trouw te houden?', 'Какая мера больше всего помогала Риму удерживать покорённые народы?'], o: [['De plaatselijke elite kreeg burgerrecht en functies.', 'Местная знать получала гражданство и должности.'], ['Alle inwoners werden slaaf.', 'Все жители становились рабами.'], ['Rome verbood alle handel.', 'Рим запрещал всю торговлю.'], ['Elke provincie kreeg een eigen keizer.', 'У каждой провинции был свой император.']], a: 0, e: ['Samenwerken met Rome moest meer opleveren dan verzet.', 'Сотрудничать с Римом должно быть выгоднее, чем сопротивляться.'] },
+  { t: 'rome', type: 'order', q: ['Zet in de goede volgorde (oudste eerst).', 'Расставь по порядку (сначала самое раннее).'], items: [['begin van de Romeinse republiek (509 v.Chr.)', 'начало республики'], ['Hannibal trekt over de Alpen (218 v.Chr.)', 'Ганнибал переходит Альпы'], ['Caesar verovert Gallië (58–50 v.Chr.)', 'Цезарь завоёвывает Галлию'], ['Augustus wordt keizer (27 v.Chr.)', 'Август — император'], ['alle vrije inwoners krijgen burgerrecht (212)', 'гражданство всем свободным']] },
+  { t: 'rome', type: 'open', q: ['Leg uit waarom de Romeinse republiek veranderde in een keizerrijk.', 'Объясни, почему Римская республика превратилась в империю.'], model: ['Door de veroveringen raakten kleine boeren verarmd. Daardoor werd het leger een beroepsleger dat trouw was aan zijn generaal. Generaals vochten met hun legers om de macht (burgeroorlogen). Na die oorlogen kreeg Augustus alle macht en werd hij keizer.', 'Из-за завоеваний разорились мелкие крестьяне. Поэтому армия стала профессиональной и верной своему полководцу. Полководцы воевали за власть (гражданские войны). После них Август получил всю власть и стал императором.'], rubric: [['veroveringen → arme boeren / slaven', 'завоевания → разорение крестьян'], ['beroepsleger trouw aan generaal', 'армия верна полководцу'], ['burgeroorlogen → één heerser (Augustus)', 'гражданские войны → один правитель']] },
+  { t: 'nl', q: ['Wat was de limes?', 'Что такое лимес?'], o: [['de grens van het Romeinse Rijk met forten, in NL langs de Rijn', 'граница империи с крепостями, в NL по Рейну'], ['een Romeinse weg naar Rome', 'римская дорога в Рим'], ['een Germaanse godin', 'германская богиня'], ['een Romeinse belasting', 'римский налог']], a: 0, e: ['Canonvenster: De Romeinse Limes, 47 – ca. 400.', 'Окно канона: римский лимес, 47 – ок. 400.'] },
+  { t: 'nl', q: ['Wat leverden de Bataven aan Rome in plaats van belasting?', 'Что батавы давали Риму вместо налогов?'], o: [['soldaten', 'солдат'], ['graan', 'зерно'], ['goud', 'золото'], ['slaven', 'рабов']], a: 0, e: ['Vooral ruiters; bijna elke familie had iemand in het leger.', 'Особенно всадников; почти из каждой семьи кто-то служил.'] },
+  { t: 'nl', q: ['Welke stad wordt gezien als de oudste stad van Nederland?', 'Какой город считается старейшим в Нидерландах?'], o: ['Nijmegen', 'Amsterdam', 'Utrecht', 'Den Haag'], a: 0, e: ['Ulpia Noviomagus kreeg rond 100 n.Chr. stadsrechten.', 'Ульпия Новиомагус получила права города ок. 100 г.'] },
+  { t: 'nl', q: ['Waarom veroverde Rome het gebied ten noorden van de Rijn niet?', 'Почему Рим не завоевал земли к северу от Рейна?'], o: [['Het leverde te weinig op en was moeilijk te veroveren (bossen, geen steden).', 'Это мало приносило и было трудно завоевать (леса, нет городов).'], ['De Rijn was te breed om over te steken.', 'Рейн слишком широк, чтобы переправиться.'], ['De Friezen waren Romeinse burgers.', 'Фризы были римскими гражданами.'], ['De keizer verbood oorlog.', 'Император запретил войну.']], a: 0, e: ['Na Teutoburg (9 n.Chr.) koos Rome voor de Rijn als grens.', 'После Тевтобурга (9 г.) Рим выбрал Рейн границей.'] },
+  { t: 'nl', q: ['Welk verschil tussen Romeinen en Germanen is juist?', 'Какое различие между римлянами и германцами верно?'], o: [['Romeinen woonden in steden en gebruikten schrift; Germanen woonden in dorpen en schreven bijna niet.', 'Римляне жили в городах и писали; германцы — в деревнях и почти не писали.'], ['Germanen hadden een keizer, Romeinen niet.', 'У германцев был император, у римлян нет.'], ['Romeinen waren monotheïstisch vanaf het begin.', 'Римляне с самого начала верили в одного Бога.'], ['Germanen gebruikten munten, Romeinen ruilden.', 'Германцы пользовались монетами, римляне меняли.']], a: 0, e: ['Confrontatie van twee culturen: stad, schrift en staat tegenover dorp, mondelinge traditie en stam.', 'Столкновение культур: город, письмо, государство — против деревни, устной традиции и племени.'] },
+  { t: 'nl', type: 'open', q: ['Noem een voordeel en een nadeel van de Romeinse overheersing voor de Bataven.', 'Назови одну выгоду и один минус римского господства для батавов.'], model: ['Voordeel: geen belasting, soldij en burgerrecht na de dienst, Romeinse handelswaar. Nadeel: jonge mannen moesten ver weg dienen; opstand (69–70) werd neergeslagen.', 'Выгода: нет налогов, жалованье и гражданство после службы, римские товары. Минус: молодые мужчины служили далеко; восстание 69–70 подавлено.'], rubric: [['een juist voordeel', 'верная выгода'], ['een juist nadeel', 'верный минус']] },
+  { t: 'geloof', q: ['Wat is monotheïsme?', 'Что такое монотеизм?'], o: [['geloof in één God', 'вера в одного Бога'], ['geloof in veel goden', 'вера во многих богов'], ['geloof in geesten in de natuur', 'вера в духов природы'], ['geen geloof', 'отсутствие веры']], a: 0, e: ['Jodendom en christendom waren de eerste monotheïstische godsdiensten (kenmerkend aspect).', 'Иудаизм и христианство — первые монотеистические религии.'] },
+  { t: 'geloof', q: ['Waarom werden christenen door Romeinse keizers vervolgd?', 'Почему римские императоры преследовали христиан?'], o: [['Ze weigerden te offeren aan de keizer en de Romeinse goden.', 'Отказывались приносить жертвы императору и богам.'], ['Ze betaalden geen belasting.', 'Не платили налоги.'], ['Ze spraken geen Latijn.', 'Не говорили на латыни.'], ['Ze woonden niet in steden.', 'Не жили в городах.']], a: 0, e: ['Dat zag men als ontrouw aan de staat.', 'Это считали изменой государству.'] },
+  { t: 'geloof', type: 'order', q: ['Zet in de goede volgorde.', 'Расставь по порядку.'], items: [['Jezus predikt in Judea (ca. 30 n.Chr.)', 'Иисус проповедует в Иудее'], ['Paulus verspreidt het geloof onder niet-joden', 'Павел несёт веру не-евреям'], ['vervolging onder Diocletianus (303)', 'преследование при Диоклетиане'], ['Constantijn staat het christendom toe (313)', 'Константин разрешает христианство'], ['christendom wordt staatsgodsdienst (380)', 'христианство — государственная религия']] },
+  { t: 'geloof', type: 'open', q: ['Leg uit hoe het Romeinse Rijk zelf hielp bij de verspreiding van het christendom.', 'Объясни, как сама Римская империя помогла распространению христианства.'], model: ['Door de Pax Romana en de Romeinse wegen konden predikers veilig en snel reizen. Doordat in het hele rijk Grieks of Latijn werd gesproken, kon de boodschap overal begrepen worden. In de steden woonden veel mensen dicht bij elkaar, daardoor groeiden gemeenten snel.', 'Благодаря Pax Romana и римским дорогам проповедники путешествовали безопасно и быстро. Поскольку по всей империи говорили по-гречески или на латыни, проповедь понимали везде. В городах много людей жили рядом, поэтому общины росли быстро.'], rubric: [['wegen / vrede → reizen', 'дороги / мир → путешествия'], ['gemeenschappelijke taal', 'общий язык'], ['steden / veel mensen', 'города / много людей']] },
+  { t: 'val', q: ['In welk jaar eindigde het West-Romeinse Rijk?', 'В каком году пала Западная Римская империя?'], o: ['476', '395', '410', '1453'], a: 0, e: ['395 splitsing, 410 plundering van Rome, 1453 val van Constantinopel (Oost-Romeinse Rijk).', '395 — раздел, 410 — разграбление Рима, 1453 — падение Константинополя.'] },
+  { t: 'val', q: ['Welke oorzaak van de val van het West-Romeinse Rijk is een economische oorzaak?', 'Какая причина падения Западной империи — экономическая?'], o: [['Het leger aan de grens was te duur voor de belastingopbrengst.', 'Армия на границе была слишком дорога для налоговых доходов.'], ['De Hunnen trokken naar het westen.', 'Гунны двинулись на запад.'], ['Er waren veel keizers kort na elkaar.', 'Императоры быстро сменяли друг друга.'], ['Germanen voerden het leger aan.', 'Германцы командовали армией.']], a: 0, e: ['De andere zijn geografische, politieke en militaire oorzaken.', 'Остальные — географическая, политическая и военная причины.'] },
+  { t: 'val', q: ['Waarom bleef het Oost-Romeinse Rijk wél bestaan?', 'Почему Восточная империя устояла?'], o: [['Het was rijker en Constantinopel was goed te verdedigen.', 'Она была богаче, а Константинополь легко защищать.'], ['Er woonden geen christenen.', 'Там не было христиан.'], ['De Germanen wilden er niet heen.', 'Германцы не хотели туда идти.'], ['Het had geen grens.', 'У неё не было границы.']], a: 0, e: ['Dit laat zien dat de val van het westen niet onvermijdelijk was.', 'Это показывает: падение Запада не было неизбежным.'] },
+  { t: 'val', type: 'open', q: ['Leg uit hoe de crisis van het Romeinse Rijk al een stap was naar de middeleeuwse samenleving.', 'Объясни, как кризис Римской империи уже стал шагом к средневековому обществу.'], model: ['Door hoge belastingen en onveiligheid vluchtten boeren naar grootgrondbezitters. Daar werden ze afhankelijk (colonen) in ruil voor bescherming. Steden en handel namen af, dus macht kwam te liggen bij wie grond bezat. Dat lijkt op de horigheid en het hofstelsel van de middeleeuwen.', 'Из-за высоких налогов и опасности крестьяне бежали к крупным землевладельцам и становились зависимыми (колоны) в обмен на защиту. Города и торговля сократились, власть перешла к владельцам земли. Это похоже на крепостную зависимость и поместье средневековья.'], rubric: [['boeren afhankelijk van grootgrondbezitters', 'крестьяне зависят от землевладельцев'], ['bescherming in ruil voor arbeid/afhankelijkheid', 'защита в обмен на зависимость'], ['minder handel/steden → grond = macht', 'меньше торговли → земля = власть']] },
+  { t: 'redeneren', q: ['"Doordat de Romeinen goede wegen hadden, ..." Welke aanvulling is een juist gevolg?', '«Благодаря хорошим дорогам у римлян…» Какое продолжение — верное следствие?'], o: [['konden legers en handelaren zich snel verplaatsen.', 'армии и торговцы быстро перемещались.'], ['werd het klimaat warmer.', 'климат стал теплее.'], ['ontstond de democratie in Athene.', 'возникла демократия в Афинах.'], ['stierven de Germanen uit.', 'германцы вымерли.']], a: 0, e: ['Let op: het gevolg moet logisch uit de oorzaak volgen.', 'Следствие должно логично вытекать из причины.'] },
+  { t: 'redeneren', q: ['Welke uitspraak is een mening en geen feit?', 'Какое утверждение — мнение, а не факт?'], o: [['De Romeinen waren beschaafder dan de Germanen.', 'Римляне были цивилизованнее германцев.'], ['De Romeinen bouwden forten langs de Rijn.', 'Римляне строили крепости вдоль Рейна.'], ['Augustus werd in 27 v.Chr. keizer.', 'Август стал императором в 27 г. до н.э.'], ['De Germanen woonden in dorpen.', 'Германцы жили в деревнях.']], a: 0, e: ['"Beschaafder" is een oordeel; Romeinse bronnen (Tacitus) kijken vanuit Romeins standpunt.', '«Цивилизованнее» — оценка; римские источники смотрят с римской точки зрения.'] },
+  { t: 'redeneren', type: 'open', q: ['Een historicus zegt: "Rome viel niet door de barbaren, maar door zichzelf." Geef een argument voor en een argument tegen.', 'Историк говорит: «Рим пал не из-за варваров, а из-за самого себя». Приведи аргумент за и против.'], model: ['Voor: economische problemen, te dure grens, burgeroorlogen en zwakke keizers verzwakten het rijk van binnenuit. Tegen: de Hunnen en de Germaanse invallen waren een echte bedreiging van buitenaf; zonder die druk had het westen misschien langer bestaan (zoals het oosten).', 'За: экономические проблемы, дорогая граница, гражданские войны и слабые императоры ослабили империю изнутри. Против: гунны и германские вторжения были реальной внешней угрозой; без этого давления Запад мог бы прожить дольше (как Восток).'], rubric: [['argument voor (interne oorzaak)', 'аргумент за (внутренняя причина)'], ['argument tegen (externe oorzaak)', 'аргумент против (внешняя причина)']] },
+  { t: 'bronnen', q: ['Tacitus schreef in 98 n.Chr. over de Germanen. Wat moet je je afvragen over de betrouwbaarheid?', 'Тацит писал о германцах в 98 г. Что надо спросить о надёжности?'], o: [['Was hij er zelf, en wilde hij de Romeinen iets duidelijk maken?', 'Был ли он там сам и что хотел сказать римлянам?'], ['Hoe oud was het papier?', 'Сколько лет бумаге?'], ['Kon hij Latijn?', 'Знал ли он латынь?'], ['Hoeveel exemplaren er gedrukt zijn.', 'Сколько экземпляров напечатано.']], a: 0, e: ['Tacitus gebruikte de "eenvoudige" Germanen soms om Romeinen te bekritiseren. Standpunt en doel van de maker!', 'Тацит иногда хвалил «простых» германцев, чтобы покритиковать римлян. Важны позиция и цель автора!'] },
+  { t: 'bronnen', q: ['Archeologen vinden bij een Fries terpdorp Romeinse munten en aardewerk. Wat is de beste conclusie?', 'У фризской деревни на терпе нашли римские монеты и керамику. Какой вывод лучший?'], o: [['De Friezen handelden met de Romeinen.', 'Фризы торговали с римлянами.'], ['De Friezen woonden in het Romeinse Rijk.', 'Фризы жили в империи.'], ['De Romeinen woonden in het terpdorp.', 'Римляне жили на терпе.'], ['De Friezen maakten zelf munten.', 'Фризы сами чеканили монеты.']], a: 0, e: ['Spullen reizen ook over grenzen: vondst ≠ verovering.', 'Вещи пересекают границы: находка ≠ завоевание.'] }
+];
+
+initTijdvak({
+  id: 't2', n: 2, CHAIN, ORDER_SETS, PATHS, WATALS, TERMS, Q, LAB,
+  pathsTitle: ['Развилки: ты принимаешь решение', 'Keuzepaden: jij beslist'],
+  legUit: ['«Рим завоевал много земель. Появились императоры.»', 'Doordat Rome veel veroverde, raakten de kleine boeren verarmd. Daardoor werd het leger een beroepsleger dat trouw was aan zijn generaal, waardoor generaals om de macht gingen vechten.', '"Rome veroverde veel. Er kwamen keizers."'],
+  topics: [['grieken', 'Griekse stadstaten'], ['denken', 'Wetenschap en vormentaal'], ['rome', 'Rome: republiek en keizerrijk'], ['nl', 'Romeinen en Germanen in NL'], ['geloof', 'Jodendom en christendom'], ['val', 'De val van Rome'], ['redeneren', 'Redeneren'], ['bronnen', 'Bronnen']]
+});
+</script>
+</body>
+</html>
