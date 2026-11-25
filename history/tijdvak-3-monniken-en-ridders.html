@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tijdvak 3 · Monniken en ridders — самоучитель (RU/NL)</title>
+  <link rel="stylesheet" href="assets/tijdvak.css">
+</head>
+<body data-lang="both">
+<main class="container">
+  <div class="crumbs"><a href="../index.html">← Главная</a> · <a href="index.html">История / Geschiedenis</a></div>
+  <h1>Tijdvak 3 · Tijd van monniken en ridders</h1>
+  <p class="subtitle"><span class="ru">Раннее Средневековье (500 – 1000): мир без римского государства — поместья, крепостные, рыцари, монастыри, франкские короли, ислам и викинги. Самоучитель для brugklas VWO+ (блоки <span class="vwo">VWO+</span> — углубление).</span><span class="nl">De vroege middeleeuwen (500 – 1000): een wereld zonder Romeinse staat — hofstelsel, horigen, ridders, kloosters, Frankische koningen, islam en Vikingen. Zelfstudie voor de brugklas vwo+ (blokken <span class="vwo">VWO+</span> = verdieping).</span></p>
+
+  <div class="topbar">
+    <div class="langs">
+      <span class="muted">Язык / Taal:</span>
+      <button data-setlang="ru">RU</button>
+      <button data-setlang="both" class="active">RU + NL</button>
+      <button data-setlang="nl">NL</button>
+      <span class="muted" style="margin-left:6px">· <span class="nlt">термины</span> всегда по-голландски</span>
+    </div>
+    <nav class="tabs" id="tabs"></nav>
+  </div>
+
+<!-- ============ 0. OVERZICHT ============ -->
+<section class="page" id="p-kaart" data-title-ru="Обзор" data-title-nl="Overzicht" data-n="0">
+  <div class="kern"><div class="lbl">Kernvraag van het tijdvak</div><div class="q"><span class="ru">Как управлять страной, если нет денег, налогов, дорог и чиновников? Ответ раннего Средневековья: через <b>землю</b> и <b>личную верность</b>.</span><span class="nl">Hoe bestuur je een land zonder geld, belasting, wegen en ambtenaren? Het antwoord van de vroege middeleeuwen: met <b>grond</b> en <b>persoonlijke trouw</b>.</span></div></div>
+
+  <div class="bridge">
+    <div class="card"><b><span class="ru">⬅ Что досталось от эпохи 2</span><span class="nl">⬅ Wat tijdvak 2 meegaf</span></b>
+      <p><span class="ru">Рим пал на Западе (476). Ушли армия, чиновники, налоги и большая торговля. Остались: <b>церковь</b> с епископами и латынью, <b>германские короли</b>, которые хотят быть «как римляне», и крестьяне, которые ещё в поздней империи стали зависеть от крупных землевладельцев. Всё, что будет дальше, — ответ на вопрос: <b>чем заменить исчезнувшее государство?</b></span><span class="nl">Rome is in het westen gevallen (476). Leger, ambtenaren, belasting en grote handel zijn weg. Over bleven: <b>de kerk</b> met bisschoppen en Latijn, <b>Germaanse koningen</b> die "net als de Romeinen" willen zijn, en boeren die al in het late rijk afhankelijk werden van grootgrondbezitters. Alles wat volgt is een antwoord op de vraag: <b>wat komt in de plaats van de verdwenen staat?</b></span></p>
+      <p class="muted"><a href="tijdvak-2-grieken-en-romeinen.html">Tijdvak 2 · Grieken en Romeinen</a></p></div>
+    <div class="card"><b><span class="ru">➡ Что эта эпоха оставит следующей</span><span class="nl">➡ Wat dit tijdvak doorgeeft</span></b>
+      <p><span class="ru">Христианскую Европу с монастырями и епископствами, систему феодов и рыцарей, а к 1000 году — больше безопасности (викинги осели) и лучшие способы пахать. Это даст <b>снова излишек</b> → торговлю → города. Так начинается эпоха 4.</span><span class="nl">Een christelijk Europa met kloosters en bisdommen, een stelsel van lenen en ridders, en rond 1000 meer veiligheid (de Vikingen vestigden zich) en betere landbouw. Dat geeft <b>weer een overschot</b> → handel → steden. Zo begint tijdvak 4.</span></p>
+      <p class="muted"><a href="tijdvak-4-steden-en-staten.html">Tijdvak 4 · Steden en staten</a></p></div>
+  </div>
+
+  <h3><span class="ru">10 эпох — нажми, чтобы перейти</span><span class="nl">De 10 tijdvakken — klik om te wisselen</span></h3>
+  <div class="tijdvakken" id="tvGrid"></div>
+
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0"><span class="ru">Kenmerkende aspecten эпохи 3</span><span class="nl">Kenmerkende aspecten van tijdvak 3</span></h3>
+    <ol>
+      <li><span class="nlt">De verspreiding van het christendom in geheel Europa</span> <span class="ru">— распространение христианства по всей Европе</span></li>
+      <li><span class="nlt">Het ontstaan en de verspreiding van de islam</span> <span class="ru">— возникновение и распространение ислама</span></li>
+      <li><span class="nlt">De vrijwel volledige vervanging in West-Europa van de agrarisch-urbane cultuur door een zelfvoorzienende agrarische cultuur, georganiseerd via hofstelsel en horigheid</span> <span class="ru">— почти полная замена в Западной Европе аграрно-городской культуры (Рим) на самообеспечивающуюся аграрную, организованную через поместье и крепостную зависимость</span></li>
+      <li><span class="nlt">Het ontstaan van feodale verhoudingen in het bestuur</span> <span class="ru">— возникновение феодальных отношений в управлении</span></li>
+    </ol>
+    <p class="muted"><span class="ru">Окна канона: <b>Виллиброрд (658–739)</b>, <b>Карл Великий (742–814)</b>. Также важны: Дорестад, Бонифаций, викинги.</span><span class="nl">Canonvensters: <b>Willibrord (658–739)</b>, <b>Karel de Grote (742–814)</b>. Ook belangrijk: Dorestad, Bonifatius, Vikingen.</span></p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Вся эпоха в одной цепочке</span><span class="nl">Het hele tijdvak in één keten</span></h3>
+    <div class="cause">
+      <div class="step"><span class="ru">Нет Рима: мало торговли, денег, городов</span><span class="nl">Geen Rome: weinig handel, geld en steden</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Богатство = земля</span><span class="nl">Rijkdom = grond</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Поместье производит всё само (hofstelsel)</span><span class="nl">Het domein maakt alles zelf (hofstelsel)</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Защита в обмен на труд → крепостные (horigen)</span><span class="nl">Bescherming in ruil voor werk → horigen</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Король платит землёй за службу → лены, рыцари</span><span class="nl">Koning betaalt met grond voor dienst → lenen, ridders</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Церковь даёт знание, письмо и законность власти</span><span class="nl">De kerk geeft kennis, schrift en gezag</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Лены наследуются → король слабеет, сеньоры сильнее</span><span class="nl">Lenen worden erfelijk → koning zwakker, heren sterker</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Шпаргалка: Рим против раннего Средневековья</span><span class="nl">Spiekbrief: Rome tegenover de vroege middeleeuwen</span></h3>
+    <div style="overflow-x:auto"><table class="cmp">
+      <tr><th></th><th><span class="ru">Римская империя (эпоха 2)</span><span class="nl">Romeinse Rijk (tijdvak 2)</span></th><th><span class="ru">Раннее Средневековье (эпоха 3)</span><span class="nl">Vroege middeleeuwen (tijdvak 3)</span></th></tr>
+      <tr><td><span class="ru">Экономика</span><span class="nl">Economie</span></td><td><span class="ru">аграрно-городская: рынки, монеты, дальняя торговля</span><span class="nl">agrarisch-urbaan: markten, munten, verre handel</span></td><td><span class="ru">самообеспечение: поместье делает почти всё само</span><span class="nl">zelfvoorzienend: het domein maakt bijna alles zelf</span></td></tr>
+      <tr><td><span class="ru">Власть</span><span class="nl">Bestuur</span></td><td><span class="ru">император, чиновники за жалованье, налоги</span><span class="nl">keizer, betaalde ambtenaren, belasting</span></td><td><span class="ru">король + вассалы, которым дали землю (лены)</span><span class="nl">koning + leenmannen die grond kregen (lenen)</span></td></tr>
+      <tr><td><span class="ru">Армия</span><span class="nl">Leger</span></td><td><span class="ru">профессиональные легионы на жалованье</span><span class="nl">betaalde beroepslegioenen</span></td><td><span class="ru">рыцари, которые сами содержат коня и доспехи за счёт земли</span><span class="nl">ridders die paard en wapens betalen uit hun grond</span></td></tr>
+      <tr><td><span class="ru">Знание</span><span class="nl">Kennis</span></td><td><span class="ru">школы, библиотеки, многие умеют читать</span><span class="nl">scholen, bibliotheken, veel mensen lezen</span></td><td><span class="ru">читают почти только монахи и священники</span><span class="nl">bijna alleen monniken en priesters kunnen lezen</span></td></tr>
+      <tr><td><span class="ru">Вера</span><span class="nl">Geloof</span></td><td><span class="ru">с 380 — христианство в городах</span><span class="nl">vanaf 380 christendom in de steden</span></td><td><span class="ru">миссия по всей Европе; рядом — мир ислама</span><span class="nl">missie in heel Europa; daarnaast de islamitische wereld</span></td></tr>
+    </table></div>
+  </div>
+</section>
+
+<!-- ============ 1. HOFSTELSEL ============ -->
+<section class="page" id="p-hof" data-title-ru="Поместье и крепостные" data-title-nl="Hofstelsel en horigheid" data-n="1">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Почему после Рима люди почти перестали торговать и стали производить всё сами — и почему свободные крестьяне добровольно становились несвободными?</span><span class="nl">Waarom hielden mensen na Rome bijna op met handel drijven en gingen ze alles zelf maken — en waarom werden vrije boeren vrijwillig onvrij?</span></div></div>
+
+  <div class="card">
+    <span class="pill eco">🌾 Economie</span>
+    <div class="bi">
+      <div class="ru">
+        <p>После 476 г. дороги разрушались, разбойники и набеги делали путь опасным, монет почти не чеканили, города сжимались (в Риме из ~1 млн жителей осталось несколько десятков тысяч). Если покупать негде и не на что, остаётся одно: <b>производить всё самому</b>. Это и есть <span class="nlt">zelfvoorzienende landbouw</span> — самообеспечивающееся хозяйство.</p>
+        <p>Его форма — <span class="nlt">hofstelsel</span> (поместная система). Крупный землевладелец — <span class="nlt">heer</span> (сеньор, это может быть знатный человек, епископ или монастырь) — владеет <span class="nlt">domein</span> (поместьем). Оно делится на две части:</p>
+        <ul>
+          <li><span class="nlt">vroonhof</span> (или <i>hof</i>) — земля самого господина с его домом, амбарами, мельницей, мастерскими;</li>
+          <li><span class="nlt">hoeven</span> — участки, которые господин отдал крестьянам. Крестьянин живёт со своего участка, но за это <b>работает на земле господина</b> (<span class="nlt">herendiensten</span>, часто 3 дня в неделю) и отдаёт часть урожая и продукты (яйца, кур, шерсть).</li>
+        </ul>
+        <p>Почти всё нужное — еда, ткань, инструменты, пиво — делали внутри поместья. Покупали только то, чего не сделаешь сам: <b>соль, жернова, железо</b>.</p>
+      </div>
+      <div class="nl">
+        <p>Na 476 raakten wegen in verval, rovers en invallen maakten reizen gevaarlijk, er werden bijna geen munten geslagen en steden krompen (Rome ging van ca. 1 miljoen naar enkele tienduizenden inwoners). Als je niets kunt kopen en geen geld hebt, blijft er één ding over: <b>alles zelf maken</b>. Dat is <span class="nlt">zelfvoorzienende landbouw</span>.</p>
+        <p>De vorm daarvan is het <span class="nlt">hofstelsel</span>. Een grootgrondbezitter — de <span class="nlt">heer</span> (een edelman, bisschop of klooster) — bezit een <span class="nlt">domein</span>. Dat bestaat uit twee delen:</p>
+        <ul>
+          <li>de <span class="nlt">vroonhof</span> (of <i>hof</i>): het land van de heer zelf, met zijn huis, schuren, molen en werkplaatsen;</li>
+          <li>de <span class="nlt">hoeven</span>: stukken land die de heer aan boeren gaf. De boer leeft van zijn hoeve, maar <b>werkt in ruil op het land van de heer</b> (<span class="nlt">herendiensten</span>, vaak 3 dagen per week) en levert een deel van de oogst en producten (eieren, kippen, wol).</li>
+        </ul>
+        <p>Bijna alles — voedsel, stof, gereedschap, bier — werd binnen het domein gemaakt. Je kocht alleen wat je niet zelf kon maken: <b>zout, molenstenen, ijzer</b>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="pill soc">👥 Samenleving</span>
+    <h3 style="margin-top:4px"><span class="ru">Horigheid: зачем становиться несвободным?</span><span class="nl">Horigheid: waarom zou je onvrij worden?</span></h3>
+    <div class="cause">
+      <div class="step"><span class="ru">Нет государства, которое защищает</span><span class="nl">Geen staat die beschermt</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Набеги, неурожаи, голод</span><span class="nl">Invallen, misoogsten, honger</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Свободный крестьянин отдаёт землю сеньору</span><span class="nl">Vrije boer draagt zijn land over aan een heer</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Получает её обратно + защиту и помощь в голод</span><span class="nl">Krijgt het terug + bescherming en hulp bij honger</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Но становится <b>horige</b>: работает на господина, не может уйти</span><span class="nl">Maar wordt <b>horige</b>: werkt voor de heer en mag niet weg</span></div>
+    </div>
+    <div class="bi">
+      <p class="ru"><span class="nlt">horige</span> — не раб: его нельзя продать отдельно, у него есть семья, дом и свой участок, и господин обязан его защищать. Но он <span class="nlt">aan de grond gebonden</span> — «прикреплён к земле»: без разрешения нельзя уйти, жениться на ком-то из чужого поместья; господин его и судит. Сделка неравная, но в мире без полиции и армии — понятная: <b>свобода в обмен на безопасность</b>.</p>
+      <p class="nl">Een <span class="nlt">horige</span> is geen slaaf: hij kan niet los verkocht worden, hij heeft een gezin, een huis en een eigen hoeve, en de heer moet hem beschermen. Maar hij is <span class="nlt">aan de grond gebonden</span>: zonder toestemming mag hij niet vertrekken of met iemand van een ander domein trouwen; de heer is ook zijn rechter. Een ongelijke ruil, maar begrijpelijk in een wereld zonder politie en leger: <b>vrijheid in ruil voor veiligheid</b>.</p>
+    </div>
+    <details class="why"><summary><span class="ru">Почему не возвращались к торговле, раз она выгоднее?</span><span class="nl">Waarom ging men niet terug naar handel, als dat meer oplevert?</span></summary><div class="bi">
+      <p class="ru">Торговле нужна <b>инфраструктура доверия</b>: безопасные дороги, общие деньги, суды, которые заставят вернуть долг, и покупатели с излишком. Всё это исчезло вместе с Римом. Получился порочный круг: нет торговли → нет смысла производить больше, чем нужно → нет излишка → нет торговли. Выйти из круга помогут только безопасность и новые сельские технологии около 1000 г. (эпоха 4).</p>
+      <p class="nl">Handel heeft <b>vertrouwen en voorzieningen</b> nodig: veilige wegen, één munt, rechtbanken die schulden afdwingen en kopers met een overschot. Dat verdween allemaal met Rome. Een vicieuze cirkel: geen handel → geen reden om meer te maken dan je nodig hebt → geen overschot → geen handel. Pas veiligheid en nieuwe landbouwtechniek rond 1000 doorbreken die cirkel (tijdvak 4).</p>
+    </div></details>
+    <div class="memo"><span class="ru">Поместье — это «всё включено»: еда, работа, суд и защита. Выезд с территории не включён.</span><span class="nl">Een domein is "all-inclusive": eten, werk, rechtspraak en bescherming. Vertrekken zit er niet bij in.</span></div>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: везде ли было поместье? <span class="vwo">VWO+</span></span><span class="nl">Andere mogelijkheden: was er overal een hofstelsel?</span></summary><div class="bi">
+    <p class="ru">Нет. Классическое поместье типично для плодородных земель между Луарой и Рейном (франкское ядро). В Нидерландах на севере — у <b>фризов</b> на терпах и в болотистых низинах — было много <b>свободных крестьян</b>: там трудно пахать большими полями, люди жили скотоводством и торговлей, а знать была слабой. Вывод: <b>география и тип хозяйства влияют на свободу</b>. Где земля бедная и сырая, господину меньше смысла держать крепостных. Подумай: почему фризы потом гордились «фризской свободой»?</p>
+    <p class="nl">Nee. Het klassieke hofstelsel hoort bij de vruchtbare gebieden tussen Loire en Rijn (het Frankische kerngebied). In Nederland waren er in het noorden — bij de <b>Friezen</b> op terpen en in natte gebieden — veel <b>vrije boeren</b>: daar kun je moeilijk grote akkers ploegen, men leefde van vee en handel en de adel was zwak. Conclusie: <b>geografie en soort landbouw beïnvloeden vrijheid</b>. Waar de grond arm en nat is, heeft een heer minder aan horigen. Denk na: waarom waren de Friezen later trots op de "Friese vrijheid"?</p>
+  </div></details>
+
+  <details class="check"><summary><span class="ru">Самопроверка</span><span class="nl">Controle</span></summary><div>
+    <ol>
+      <li><span class="ru">Объясни, почему после падения Рима хозяйство стало самообеспечивающимся.</span><span class="nl">Leg uit waarom de economie na de val van Rome zelfvoorzienend werd.</span><br><i class="muted"><span class="ru">Торговля упала (опасно, мало денег, мало городов) → нельзя купить → всё производят сами в поместье.</span><span class="nl">De handel nam af (onveilig, weinig geld, weinig steden) → je kunt niets kopen → je maakt alles zelf op het domein.</span></i></li>
+      <li><span class="ru">Чем крепостной (horige) отличается от раба?</span><span class="nl">Wat is het verschil tussen een horige en een slaaf?</span><br><i class="muted"><span class="ru">Крепостной имеет семью, дом, участок и защиту господина, его не продают; но он прикреплён к земле и обязан работать.</span><span class="nl">Een horige heeft een gezin, huis, hoeve en bescherming, en wordt niet verkocht; maar hij is aan de grond gebonden en moet diensten doen.</span></i></li>
+    </ol>
+  </div></details>
+</section>
+
+<!-- ============ 2. FRANKEN EN LEENSTELSEL ============ -->
+<section class="page" id="p-leen" data-title-ru="Франки и феодализм" data-title-nl="Franken en leenstelsel" data-n="2">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Как король без денег и чиновников управлял огромным королевством — и почему этот способ в итоге ослабил самого короля?</span><span class="nl">Hoe bestuurde een koning zonder geld en ambtenaren een enorm rijk — en waarom maakte die manier de koning uiteindelijk zelf zwakker?</span></div></div>
+
+  <div class="card">
+    <table class="tl">
+      <tr><td>ca. 496</td><td><span class="ru">Король франков <b>Хлодвиг</b> (Меровинг) крестится. Франки — германцы, но с этого момента в союзе с церковью и с римской знатью Галлии. Это их огромное преимущество перед другими германцами.</span><span class="nl">Frankenkoning <b>Clovis</b> (Merovinger) laat zich dopen. De Franken zijn Germanen, maar vanaf nu bondgenoot van de kerk en van de Romeinse elite in Gallië. Een enorm voordeel tegenover andere Germanen.</span></td></tr>
+      <tr><td>732</td><td><span class="ru"><b>Карл Мартелл</b> останавливает арабское войско у Пуатье. Чтобы содержать конницу, раздаёт земли за службу.</span><span class="nl"><b>Karel Martel</b> stopt een Arabisch leger bij Poitiers. Om ruiters te betalen deelt hij land uit in ruil voor dienst.</span></td></tr>
+      <tr><td>751</td><td><span class="ru">Пипин Короткий с согласия папы становится королём → династия <span class="nlt">Karolingers</span>. Взамен он защищает папу.</span><span class="nl">Pepijn de Korte wordt met steun van de paus koning → de <span class="nlt">Karolingers</span>. In ruil beschermt hij de paus.</span></td></tr>
+      <tr><td>768–814</td><td><span class="ru"><b>Карл Великий</b> (<span class="nlt">Karel de Grote</span>): завоёвывает саксов, лангобардов, часть Испании; правит от Северного моря до Рима. <i>Окно канона.</i></span><span class="nl"><b>Karel de Grote</b>: verovert Saksen, Longobarden, een deel van Spanje; regeert van de Noordzee tot Rome. <i>Canonvenster.</i></span></td></tr>
+      <tr><td>800</td><td><span class="ru">Папа коронует Карла <b>императором</b> в Риме на Рождество: «новый Рим», но христианский.</span><span class="nl">De paus kroont Karel met Kerstmis in Rome tot <b>keizer</b>: een "nieuw Rome", maar christelijk.</span></td></tr>
+      <tr><td>843</td><td><span class="ru"><b>Верденский договор</b>: внуки делят империю на три части (зародыши Франции, Германии и полосы между ними — там, где Нидерланды).</span><span class="nl"><b>Verdrag van Verdun</b>: de kleinzonen verdelen het rijk in drie delen (de kiemen van Frankrijk, Duitsland en een strook daartussen — waar Nederland ligt).</span></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Leenstelsel: власть в обмен на землю</span><span class="nl">Het leenstelsel: macht in ruil voor grond</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <p>У короля много земли, но нет денег на жалованье. Решение: он отдаёт землю — <span class="nlt">leen</span> (лен, феод) — в пользование знатному человеку. Тот становится <span class="nlt">leenman</span> / <span class="nlt">vazal</span> (вассалом), а король — его <span class="nlt">leenheer</span> (сеньором). Договор скрепляется клятвой верности (<span class="nlt">eed van trouw</span>).</p>
+        <ul>
+          <li><b>Вассал обязан</b>: воевать за сеньора (приводить рыцарей), давать совет, управлять и судить в своей области.</li>
+          <li><b>Сеньор обязан</b>: защищать вассала и не отбирать лен без причины.</li>
+        </ul>
+        <p>Вассалы короля (герцоги, <span class="nlt">graven</span> — графы) делили свои лены дальше — своим <span class="nlt">achterleenmannen</span>. Получалась лестница: король → графы → рыцари → крестьяне внизу кормят всех. Это и есть <span class="nlt">feodale verhoudingen</span>.</p>
+        <p>Карл Великий пытался держать вассалов под контролем: посылал проверяющих (<span class="nlt">zendgraven</span>, missi dominici) и постоянно ездил по стране — столицы в нашем смысле не было (любил Ахен и Неймеген).</p>
+      </div>
+      <div class="nl">
+        <p>De koning heeft veel grond maar geen geld voor salarissen. Oplossing: hij geeft grond in gebruik — een <span class="nlt">leen</span> — aan een edelman. Die wordt <span class="nlt">leenman</span> of <span class="nlt">vazal</span>, de koning wordt zijn <span class="nlt">leenheer</span>. Ze bezegelen het met een <span class="nlt">eed van trouw</span>.</p>
+        <ul>
+          <li><b>De leenman moet</b>: vechten voor zijn heer (ridders meenemen), raad geven, en in zijn gebied besturen en rechtspreken.</li>
+          <li><b>De leenheer moet</b>: zijn leenman beschermen en het leen niet zonder reden afpakken.</li>
+        </ul>
+        <p>Leenmannen van de koning (hertogen, <span class="nlt">graven</span>) gaven delen van hun leen weer door aan <span class="nlt">achterleenmannen</span>. Zo ontstond een ladder: koning → graven → ridders → boeren onderaan voeden iedereen. Dat zijn <span class="nlt">feodale verhoudingen</span>.</p>
+        <p>Karel de Grote probeerde zijn leenmannen te controleren: hij stuurde <span class="nlt">zendgraven</span> rond en reisde zelf steeds door het rijk — een vaste hoofdstad was er niet (hij hield van Aken en Nijmegen).</p>
+      </div>
+    </div>
+    <details class="why"><summary><span class="ru">Почему рыцарь — это дорого, и как это связано с поместьем?</span><span class="nl">Waarom is een ridder duur, en wat heeft dat met het hofstelsel te maken?</span></summary><div class="bi">
+      <p class="ru">Боевой конь, кольчуга, меч, копьё, годы тренировок — по стоимости как стадо из ~20 коров. Крестьянин такого не потянет. Значит, воину нужна <b>земля с крепостными</b>, которые его кормят, пока он тренируется и воюет. Отсюда связь двух систем: <b>hofstelsel кормит рыцаря, leenstelsel даёт ему землю</b>. Внизу — крестьяне, которые производят излишек; наверху — воины и духовенство, которые им распоряжаются. Наш вопрос «кто производит излишек и кто им распоряжается» снова объясняет всё общество.</p>
+      <p class="nl">Een strijdpaard, maliënkolder, zwaard, lans en jaren training — net zo duur als een kudde van ca. 20 koeien. Een boer kan dat niet betalen. Een krijger heeft dus <b>grond met horigen</b> nodig die hem voeden terwijl hij traint en vecht. Zo hangen de twee stelsels samen: <b>het hofstelsel voedt de ridder, het leenstelsel geeft hem de grond</b>. Onderaan boeren die het overschot maken; bovenaan krijgers en geestelijken die erover beslissen. Onze vraag "wie maakt het overschot en wie beslist erover" verklaart weer de hele samenleving.</p>
+    </div></details>
+    <details class="why"><summary><span class="ru">Почему феодализм ослабил короля? <span class="vwo">VWO+</span></span><span class="nl">Waarom maakte het leenstelsel de koning zwakker?</span></summary><div class="bi">
+      <p class="ru">Лен давали «на время службы», но сыновья вассалов хотели его унаследовать, а король нуждался в их поддержке → лены стали <span class="nlt">erfelijk</span> (наследственными; во Франции закреплено в 877). Теперь земля — уже почти собственность графа, и его люди верны в первую очередь <b>ему</b>, а не далёкому королю. Добавь раздел империи (843) и набеги викингов, от которых защищал местный граф, а не король, — и власть распадается на сотни маленьких. <b>Средство, которое должно было удержать королевство, его же и раздробило.</b></p>
+      <p class="nl">Een leen werd gegeven "zolang je dient", maar de zonen van leenmannen wilden het erven, en de koning had hun steun nodig → lenen werden <span class="nlt">erfelijk</span> (in Frankrijk vastgelegd in 877). Nu is de grond bijna eigendom van de graaf, en zijn mensen zijn eerst trouw aan <b>hem</b>, niet aan de verre koning. Tel daarbij de verdeling van het rijk (843) en de Vikingaanvallen, waartegen de plaatselijke graaf beschermde en niet de koning — en de macht valt uiteen in honderden kleine machten. <b>Het middel om het rijk bij elkaar te houden, versnipperde het juist.</b></p>
+    </div></details>
+    <div class="memo"><span class="ru">Феодализм — это зарплата землёй. Проблема в том, что землю, в отличие от денег, назад не заберёшь: сидящий на ней сын графа очень против.</span><span class="nl">Het leenstelsel is salaris in grond. Probleem: grond krijg je, anders dan geld, niet makkelijk terug — de zoon van de graaf die erop zit, is daar fel op tegen.</span></div>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: можно ли было управлять иначе?</span><span class="nl">Andere mogelijkheden: kon het anders?</span></summary><div class="bi">
+    <p class="ru">На Востоке — да. <b>Византия</b> и <b>Багдадский халифат</b> сохранили деньги, налоги и платных чиновников, потому что там сохранились города и торговля. Значит, феодализм — не «этап, через который проходят все», а <b>ответ на конкретную ситуацию</b>: много земли, мало денег. Когда в эпоху 4 вернутся деньги, короли снова начнут платить чиновникам и наёмникам жалованьем — и феодализм начнёт отступать.</p>
+    <p class="nl">In het oosten wel. <b>Byzantium</b> en het <b>kalifaat van Bagdad</b> hielden geld, belasting en betaalde ambtenaren, omdat daar steden en handel bleven bestaan. Het leenstelsel is dus geen "fase waar iedereen doorheen moet", maar <b>een antwoord op een bepaalde situatie</b>: veel grond, weinig geld. Als in tijdvak 4 het geld terugkomt, gaan koningen weer ambtenaren en huurlingen betalen — en verliest het leenstelsel terrein.</p>
+  </div></details>
+</section>
+
+<!-- ============ 3. CHRISTENDOM ============ -->
+<section class="page" id="p-kerk" data-title-ru="Монахи и миссия" data-title-nl="Monniken en missie" data-n="3">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Как христианство дошло до самых окраин Европы, включая Нидерланды, и почему короли так охотно ему помогали?</span><span class="nl">Hoe bereikte het christendom de uithoeken van Europa, ook Nederland — en waarom hielpen koningen daar zo graag aan mee?</span></div></div>
+
+  <div class="card">
+    <div class="bi">
+      <div class="ru">
+        <p><span class="nlt">klooster</span> (монастырь) — община <span class="nlt">monniken</span> (монахов) или <span class="nlt">nonnen</span>, живущих по правилу. Самое известное — <b>устав святого Бенедикта</b> (ок. 529): <i>ora et labora</i> — «молись и трудись». Монахи давали обеты бедности, послушания и безбрачия.</p>
+        <p>Почему монастыри стали так важны? Они были <b>островками порядка</b> в мире без государства: свои поля и мастерские (то же поместье!), школа, больница, приют для путников. Монахи <b>переписывали книги</b> вручную — так сохранились и Библия, и многие тексты античных авторов. Читать и писать в это время умели почти только духовные лица, поэтому короли брали их в советники и писцы.</p>
+      </div>
+      <div class="nl">
+        <p>Een <span class="nlt">klooster</span> is een gemeenschap van <span class="nlt">monniken</span> of <span class="nlt">nonnen</span> die volgens een regel leven. De bekendste is de <b>Regel van Benedictus</b> (ca. 529): <i>ora et labora</i> — "bid en werk". Monniken beloofden armoede, gehoorzaamheid en niet te trouwen.</p>
+        <p>Waarom werden kloosters zo belangrijk? Ze waren <b>eilandjes van orde</b> in een wereld zonder staat: eigen akkers en werkplaatsen (ook een domein!), een school, een ziekenzaal, een plek voor reizigers. Monniken <b>schreven boeken met de hand over</b> — zo bleven de Bijbel en veel teksten uit de oudheid bewaard. Bijna alleen geestelijken konden lezen en schrijven, dus koningen namen hen als raadgevers en schrijvers.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Миссия в Нидерландах</span><span class="nl">De missie in Nederland</span></h3>
+    <table class="tl">
+      <tr><td>ca. 690</td><td><span class="ru">Англосаксонский монах <b>Виллиброрд</b> (<span class="nlt">Willibrord</span>) приходит проповедовать фризам при поддержке франкского правителя Пипина. <i>Окно канона.</i></span><span class="nl">De Angelsaksische monnik <b>Willibrord</b> komt prediken bij de Friezen, met steun van de Frankische heerser Pepijn. <i>Canonvenster.</i></span></td></tr>
+      <tr><td>695</td><td><span class="ru">Виллиброрд — первый епископ Утрехта. Утрехт становится центром церкви в Нидерландах (и остаётся им до сих пор).</span><span class="nl">Willibrord wordt de eerste bisschop van Utrecht. Utrecht wordt het centrum van de kerk in Nederland (en is dat nog steeds).</span></td></tr>
+      <tr><td>ca. 719</td><td><span class="ru">Фризский король <b>Радбод</b>, враг франков, умирает. Легенда: он уже стоял у купели, но спросил, где его предки — в раю или в аду? «В аду» — «Тогда я лучше буду с ними».</span><span class="nl">De Friese koning <b>Radboud</b>, vijand van de Franken, sterft. Volgens een legende stond hij al bij de doopvont, maar vroeg waar zijn voorouders waren — in de hemel of de hel? "De hel." — "Dan blijf ik liever bij hen."</span></td></tr>
+      <tr><td>754</td><td><span class="ru">Миссионер <b>Бонифаций</b> убит фризами под <b>Доккюмом</b>.</span><span class="nl">Missionaris <b>Bonifatius</b> wordt door Friezen bij <b>Dokkum</b> vermoord.</span></td></tr>
+      <tr><td>ca. 785</td><td><span class="ru">После завоеваний Карла Великого крещение фризов и саксов идёт и мирно, и <b>силой</b>.</span><span class="nl">Na de veroveringen van Karel de Grote worden Friezen en Saksen gedoopt — soms vrijwillig, soms <b>met geweld</b>.</span></td></tr>
+    </table>
+    <details class="why"><summary><span class="ru">Почему миссионеры шли вместе с франкскими войсками?</span><span class="nl">Waarom gingen missionarissen samen op met Frankische legers?</span></summary><div class="bi">
+      <p class="ru">Это союз с выгодой для обеих сторон. <b>Церковь</b> получала защиту, землю для монастырей и новых верующих. <b>Король</b> получал грамотных помощников, порядок и, главное, <b>законность власти</b>: «король по милости Божьей». Крещёный народ проще присоединить, потому что старые святилища и вожди теряют авторитет. Для фризов поэтому христианство выглядело как <b>религия завоевателей</b> — отсюда сопротивление Радбода и смерть Бонифация. Типичный метод миссии: сначала обратить вождя или короля, тогда за ним пойдёт народ; старые праздники и святые места не уничтожать, а «перекрасить» в христианские.</p>
+      <p class="nl">Een verbond waar beide partijen wat aan hadden. <b>De kerk</b> kreeg bescherming, grond voor kloosters en nieuwe gelovigen. <b>De koning</b> kreeg geletterde helpers, orde en vooral <b>gezag</b>: "koning bij de gratie Gods". Een gedoopt volk is makkelijker in te lijven, omdat oude heiligdommen en leiders hun gezag verliezen. Voor de Friezen leek het christendom daarom het <b>geloof van de veroveraars</b> — vandaar het verzet van Radboud en de dood van Bonifatius. Een gewone missiemethode: eerst de leider of koning bekeren, dan volgt het volk; oude feesten en heilige plekken niet vernietigen, maar christelijk "overschilderen".</p>
+    </div></details>
+    <div class="memo"><span class="ru">Миссионер приходил с Евангелием, а за холмом стояли франки с мечами. Фризы прекрасно умели складывать два и два.</span><span class="nl">De missionaris kwam met het evangelie, en achter de heuvel stonden de Franken met zwaarden. De Friezen konden prima één en één optellen.</span></div>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: а если бы Радбод крестился?</span><span class="nl">Andere mogelijkheden: wat als Radboud zich had laten dopen?</span></summary><div class="bi">
+    <p class="ru">Возможно, Фризия стала бы <b>самостоятельным христианским королевством</b> (как позже Дания или Польша, которые крестились сами и этим сохранили независимость). Тогда у франков не было бы «благочестивого» повода её завоёвывать. Сравни: Польша (966) и Венгрия (1000) приняли христианство по своей воле — и остались отдельными странами. Вывод: <b>принять религию самому — способ защититься от тех, кто хочет «крестить» тебя силой</b>.</p>
+    <p class="nl">Misschien was Friesland dan <b>een zelfstandig christelijk koninkrijk</b> geworden (zoals later Denemarken of Polen, die zichzelf bekeerden en zo zelfstandig bleven). De Franken hadden dan geen "vrome" reden gehad om het te veroveren. Vergelijk: Polen (966) en Hongarije (1000) werden uit eigen wil christelijk — en bleven aparte landen. Conclusie: <b>zelf het geloof aannemen beschermt je tegen wie je met geweld wil dopen</b>.</p>
+  </div></details>
+</section>
+
+<!-- ============ 4. ISLAM ============ -->
+<section class="page" id="p-islam" data-title-ru="Ислам" data-title-nl="De islam" data-n="4">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Как новая религия из пустынного города за сто лет распространилась от Испании до Индии — и почему её мир в это время был богаче и учёнее Западной Европы?</span><span class="nl">Hoe verspreidde een nieuw geloof uit een woestijnstad zich binnen honderd jaar van Spanje tot India — en waarom was die wereld toen rijker en geleerder dan West-Europa?</span></div></div>
+
+  <div class="card">
+    <div class="bi">
+      <div class="ru">
+        <p><b>Мухаммед</b> (ок. 570–632) — купец из <b>Мекки</b> (Аравия), торгового города на караванных путях. Около 610 г., по вере мусульман, он начал получать откровения от Бога (<span class="nlt">Allah</span>). Он проповедовал <b>единобожие</b> — как иудеи и христиане, и считал себя последним в ряду пророков после Авраама, Моисея и Иисуса.</p>
+        <p><b>622</b>: Мухаммед с последователями переселяется в Медину — <span class="nlt">hidjra</span>. С этого года мусульмане считают своё летоисчисление. В 630 он возвращается в Мекку победителем.</p>
+        <p>Священная книга — <span class="nlt">Koran</span>. Основа религиозной практики — <span class="nlt">vijf zuilen van de islam</span>:</p>
+        <ol>
+          <li>исповедание веры (нет бога, кроме Аллаха, и Мухаммед — его пророк);</li>
+          <li>молитва 5 раз в день, лицом к Мекке;</li>
+          <li>милостыня бедным;</li>
+          <li>пост в месяц Рамадан;</li>
+          <li>паломничество в Мекку (<span class="nlt">hadj</span>) хотя бы раз в жизни, если можешь.</li>
+        </ol>
+      </div>
+      <div class="nl">
+        <p><b>Mohammed</b> (ca. 570–632) was een koopman uit <b>Mekka</b> (Arabië), een handelsstad op karavaanroutes. Rond 610 kreeg hij volgens moslims openbaringen van God (<span class="nlt">Allah</span>). Hij predikte <b>één God</b> — net als joden en christenen — en zag zichzelf als de laatste profeet na Abraham, Mozes en Jezus.</p>
+        <p><b>622</b>: Mohammed vertrekt met zijn volgelingen naar Medina — de <span class="nlt">hidjra</span>. Vanaf dat jaar telt de islamitische jaartelling. In 630 keert hij als overwinnaar terug naar Mekka.</p>
+        <p>Het heilige boek is de <span class="nlt">Koran</span>. De basis van de geloofspraktijk zijn de <span class="nlt">vijf zuilen van de islam</span>:</p>
+        <ol>
+          <li>de geloofsbelijdenis (er is geen god dan Allah en Mohammed is zijn profeet);</li>
+          <li>vijf keer per dag bidden, richting Mekka;</li>
+          <li>aalmoezen geven aan armen;</li>
+          <li>vasten in de maand ramadan;</li>
+          <li>de bedevaart naar Mekka (<span class="nlt">hadj</span>), minstens één keer als je kunt.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Почему так быстро?</span><span class="nl">Waarom zo snel?</span></h3>
+    <div class="cause">
+      <div class="step"><span class="ru">Ислам объединяет арабские племена</span><span class="nl">De islam verenigt de Arabische stammen</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Соседи (Византия и Персия) обескровлены войной друг с другом</span><span class="nl">Buren (Byzantium en Perzië) zijn uitgeput door oorlog tegen elkaar</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Быстрые завоевания: Сирия, Египет, Персия, Северная Африка</span><span class="nl">Snelle veroveringen: Syrië, Egypte, Perzië, Noord-Afrika</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">711: Испания; 732: остановлены у Пуатье</span><span class="nl">711: Spanje; 732: gestopt bij Poitiers</span></div>
+    </div>
+    <div class="bi">
+      <p class="ru">Важная деталь: завоевать ≠ обратить. Христиан и иудеев (<i>люди Книги</i>) обычно не заставляли менять веру: они платили особый налог и жили по своим законам. Многим жителям бывшей Византии новые правители казались не хуже старых — налоги иногда даже ниже. Обращение в ислам шло <b>постепенно, веками</b>. Правителя исламского мира называли <span class="nlt">kalief</span> (халиф — «преемник» пророка).</p>
+      <p class="nl">Let op: veroveren ≠ bekeren. Christenen en joden ("mensen van het Boek") hoefden meestal niet van geloof te veranderen: ze betaalden een speciale belasting en leefden naar hun eigen regels. Voor veel inwoners van het vroegere Byzantium leken de nieuwe heersers niet slechter dan de oude — de belasting was soms zelfs lager. Bekering tot de islam ging <b>langzaam, over eeuwen</b>. De heerser van de islamitische wereld heette <span class="nlt">kalief</span> ("opvolger" van de profeet).</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Почему исламский мир был тогда «впереди»?</span><span class="nl">Waarom liep de islamitische wereld toen "voorop"?</span></h3>
+    <div class="bi">
+      <p class="ru">Халифат захватил <b>богатейшие города</b> древнего мира: Дамаск, Александрию, позже построил <b>Багдад</b> (762, около миллиона жителей) и <b>Кордову</b> в Испании. Там продолжались торговля, деньги и налоги — то, что на Западе исчезло. В Багдадском «Доме мудрости» переводили на арабский Аристотеля, Евклида, Гиппократа; развивали алгебру (само слово арабское, <i>al-jabr</i>), медицину, астрономию; из Индии пришли «арабские» цифры с нулём. Позже, в эпоху 4, через Испанию и Сицилию эти знания <b>вернутся в Западную Европу</b>. Здесь опять работает наш закон: <b>где есть города и излишек, там есть учёные</b>.</p>
+      <p class="nl">Het kalifaat veroverde de <b>rijkste steden</b> van de oude wereld: Damascus, Alexandrië, en bouwde later <b>Bagdad</b> (762, bijna een miljoen inwoners) en <b>Córdoba</b> in Spanje. Daar bleven handel, geld en belasting bestaan — wat in het westen was verdwenen. In het "Huis van de Wijsheid" in Bagdad vertaalde men Aristoteles, Euclides en Hippocrates in het Arabisch; men ontwikkelde de algebra (een Arabisch woord: <i>al-jabr</i>), geneeskunde en sterrenkunde; uit India kwamen de "Arabische" cijfers met de nul. Later, in tijdvak 4, komt die kennis via Spanje en Sicilië <b>terug in West-Europa</b>. Onze wet werkt weer: <b>waar steden en een overschot zijn, zijn geleerden</b>.</p>
+    </div>
+    <div class="memo"><span class="ru">Когда ты пишешь «0» и решаешь уравнение по алгебре, ты пользуешься тем, что Европа получила из Багдада. Аристотеля Европа тоже во многом «вернула» через арабские переводы.</span><span class="nl">Als je een "0" schrijft of een algebrasom maakt, gebruik je wat Europa uit Bagdad kreeg. Ook Aristoteles kwam grotendeels via Arabische vertalingen terug in Europa.</span></div>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: «тезис Пиренна» — ислам и конец античной торговли <span class="vwo">VWO+</span></span><span class="nl">Andere mogelijkheden: de "these van Pirenne" — islam en het einde van de antieke handel</span></summary><div class="bi">
+    <p class="ru">Бельгийский историк Анри Пиренн (1930-е) утверждал: Средиземноморская торговля пережила 476 год, а оборвалась только, когда <b>арабы захватили южные берега моря</b> в VII веке. Без торговли Запад «замкнулся» на земле → поместья и феодализм. Его фраза: «Без Мухаммеда не было бы Карла Великого». Сегодня многие историки спорят: торговля упала уже раньше, а археология (например, Дорестад) показывает, что на севере торговля даже росла. Хороший пример того, что в истории есть <b>не одна правильная цепочка</b>, а спор аргументов. Твоя позиция?</p>
+    <p class="nl">De Belgische historicus Henri Pirenne (jaren 1930) beweerde: de handel op de Middellandse Zee overleefde 476, en stopte pas toen <b>de Arabieren in de 7e eeuw de zuidkust veroverden</b>. Zonder handel richtte het westen zich op de grond → hofstelsel en leenstelsel. Zijn uitspraak: "Zonder Mohammed geen Karel de Grote." Veel historici zijn het daar nu niet mee eens: de handel was al eerder minder, en archeologie (bijvoorbeeld Dorestad) laat zien dat de handel in het noorden zelfs groeide. Een mooi voorbeeld dat er in de geschiedenis <b>niet één goede keten</b> is, maar een debat met argumenten. Wat vind jij?</p>
+  </div></details>
+</section>
+
+<!-- ============ 5. NEDERLAND ============ -->
+<section class="page" id="p-nederland" data-title-ru="Нидерланды: Дорестад и викинги" data-title-nl="Nederland: Dorestad en Vikingen" data-n="5">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Почему именно в Дорестаде возник крупнейший торговый город Северной Европы — и почему именно туда пришли викинги?</span><span class="nl">Waarom ontstond juist in Dorestad de grootste handelsplaats van Noord-Europa — en waarom kwamen juist daar de Vikingen?</span></div></div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3 style="margin-top:0"><span class="ru">Дорестад (ок. 600 – 850)</span><span class="nl">Dorestad (ca. 600 – 850)</span></h3>
+      <div class="bi">
+        <p class="ru">Дорестад (у нынешнего Вейк-бей-Дюрстеде) стоял там, где <b>Рейн разделяется</b> на Лек и Кромме Рейн — узел путей от Рейнской области к Англии и Скандинавии. Фризские купцы возили вино, керамику, жернова и оружие с юга, а с севера — меха, янтарь, рабов. Здесь чеканили монеты. Город был длинной полосой причалов вдоль реки. <b>Исключение из правила</b> «торговли почти нет»: торговля шла по рекам и морям Севера, а поместья в глубине страны жили сами по себе.</p>
+        <p class="nl">Dorestad (bij het huidige Wijk bij Duurstede) lag waar <b>de Rijn zich splitst</b> in Lek en Kromme Rijn — een knooppunt van routes van het Rijnland naar Engeland en Scandinavië. Friese kooplieden brachten wijn, aardewerk, molenstenen en wapens uit het zuiden, en uit het noorden bont, barnsteen en slaven. Er werden munten geslagen. De stad was een lange strook steigers langs de rivier. <b>Een uitzondering</b> op "bijna geen handel": de handel liep over rivieren en zeeën in het noorden, terwijl domeinen in het binnenland op zichzelf leefden.</p>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0"><span class="ru">Викинги (ок. 800 – 1000)</span><span class="nl">De Vikingen (ca. 800 – 1000)</span></h3>
+      <div class="bi">
+        <p class="ru"><span class="nlt">Vikingen</span> (норманны) из Скандинавии нападали на Дорестад несколько раз (834–863). Почему? (1) <b>Корабли</b>: длинные, лёгкие, с малой осадкой — могли подниматься по рекам. (2) <b>Добыча</b>: богатые торговые места и <b>монастыри</b> (золото, серебро, никакой охраны). (3) <b>Слабость власти</b>: после 843 франкские короли ссорились, быстрой армии не было. Некоторым викингам франки даже отдавали земли в лен, чтобы они защищали от других викингов: <b>Рорик</b> правил Дорестадом и Фрисландией как вассал. Около 850–860 Дорестад пришёл в упадок — также потому, что русло Рейна заилилось.</p>
+        <p class="nl"><span class="nlt">Vikingen</span> (Noormannen) uit Scandinavië vielen Dorestad meerdere keren aan (834–863). Waarom? (1) <b>Schepen</b>: lang, licht en ondiep — ze konden rivieren op varen. (2) <b>Buit</b>: rijke handelsplaatsen en <b>kloosters</b> (goud, zilver, geen bewaking). (3) <b>Zwak gezag</b>: na 843 hadden de Frankische koningen ruzie en er was geen snel leger. Sommige Vikingen kregen van de Franken zelfs land in leen om tegen andere Vikingen te verdedigen: <b>Rorik</b> regeerde Dorestad en Friesland als leenman. Rond 850–860 raakte Dorestad in verval — ook doordat de Rijn daar verzandde.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Как викинги укрепили феодализм</span><span class="nl">Hoe de Vikingen het leenstelsel versterkten</span></h3>
+    <div class="cause">
+      <div class="step"><span class="ru">Быстрые набеги с рек</span><span class="nl">Snelle overvallen vanaf rivieren</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Король далеко и медленный</span><span class="nl">De koning is ver en traag</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Защищает местный граф: крепости (вроде круговых валов в Зеландии — Мидделбург, Синт-Мартенсдейк)</span><span class="nl">De plaatselijke graaf verdedigt: burchten (zoals de ringwalburgen in Zeeland — Middelburg)</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Люди верны тому, кто защищает → графы сильнее короля</span><span class="nl">Mensen zijn trouw aan wie hen beschermt → graven sterker dan de koning</span></div>
+    </div>
+    <div class="bi">
+      <p class="ru">Так около 900–1000 г. появились будущие правители наших областей: <b>графы Голландии</b> (первым был Дирк I, ок. 922), а также графы Гелре и Фландрии, епископ Утрехта как светский правитель. Местная власть — прямое следствие слабости центральной.</p>
+      <p class="nl">Zo ontstonden rond 900–1000 de latere heersers van onze gewesten: <b>de graven van Holland</b> (de eerste was Dirk I, ca. 922), de graven van Gelre en Vlaanderen, en de bisschop van Utrecht als wereldlijk vorst. Lokale macht is een direct gevolg van zwakke centrale macht.</p>
+    </div>
+    <div class="memo"><span class="ru">Викинги — лучший «агитатор» за феодализм: каждый набег объяснял крестьянам, зачем им граф с крепостью.</span><span class="nl">De Vikingen waren de beste reclame voor het leenstelsel: elke overval legde de boeren uit waarom ze een graaf met een burcht nodig hadden.</span></div>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: викинги — только грабители?</span><span class="nl">Andere mogelijkheden: waren de Vikingen alleen plunderaars?</span></summary><div class="bi">
+    <p class="ru">Нет. Викинги были ещё и <b>торговцами и поселенцами</b>: основали Дублин, торговали до Константинополя и Багдада (арабские серебряные монеты находят в Швеции), заселили Исландию, на время — Гренландию и даже Северную Америку (ок. 1000). В Нормандии они осели, крестились и стали французскими феодалами — а потом в 1066 завоевали Англию. Источники о «страшных викингах» писали в основном <b>монахи, чьи монастыри грабили</b>. Как это влияет на картину?</p>
+    <p class="nl">Nee. Vikingen waren ook <b>handelaren en kolonisten</b>: ze stichtten Dublin, handelden tot Constantinopel en Bagdad (in Zweden vindt men Arabische zilveren munten), bewoonden IJsland, een tijd Groenland en zelfs Noord-Amerika (ca. 1000). In Normandië vestigden ze zich, werden christen en Franse edelen — en veroverden in 1066 Engeland. Bronnen over "vreselijke Vikingen" zijn vooral geschreven door <b>monniken van wie de kloosters geplunderd werden</b>. Wat doet dat met het beeld?</p>
+  </div></details>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Мост в эпоху 4</span><span class="nl">Brug naar tijdvak 4</span></h3>
+    <div class="bi">
+      <p class="ru">Около 1000 г. викинги осели и крестились → <b>стало безопаснее</b>. В сельском хозяйстве распространились тяжёлый плуг, хомут для лошади, <b>трёхполье</b> (<span class="nlt">drieslagstelsel</span>) → урожай выше → <b>снова излишек</b> → крестьяне продают его на рынке → растёт торговля → <b>возвращаются города</b>, а с ними деньги. И с деньгами король снова может платить чиновникам вместо того, чтобы раздавать землю. Видишь, как каждое звено эпохи 3 «разворачивается» в эпохе 4?</p>
+      <p class="nl">Rond 1000 vestigden de Vikingen zich en werden christen → <b>het werd veiliger</b>. In de landbouw verspreidden zich de zware ploeg, het haam voor het paard en het <span class="nlt">drieslagstelsel</span> → hogere oogsten → <b>weer een overschot</b> → boeren verkopen dat op de markt → handel groeit → <b>steden komen terug</b>, en daarmee geld. Met geld kan een koning weer ambtenaren betalen in plaats van grond weg te geven. Zie je hoe elke schakel van tijdvak 3 in tijdvak 4 "terugdraait"?</p>
+    </div>
+    <p><a href="tijdvak-4-steden-en-staten.html">→ <span class="ru">Эпоха 4: города и государства</span><span class="nl">Tijdvak 4: steden en staten</span></a></p>
+  </div>
+</section>
+
+<!-- ============ LAB ============ -->
+<section class="page" id="p-lab" data-title-ru="Лаборатория: поместье" data-title-nl="Lab: het domein" data-n="6">
+  <div class="kern"><div class="lbl">Lab</div><div class="q"><span class="ru">Ты — сеньор. Сколько рыцарей ты можешь содержать за счёт своих крестьян — и сколько остаётся самим крестьянам?</span><span class="nl">Jij bent heer. Hoeveel ridders kun je onderhouden met je boeren — en hoeveel houden de boeren zelf over?</span></div></div>
+  <div class="card" id="lab"></div>
+  <div class="card">
+    <b><span class="ru">Эксперименты</span><span class="nl">Experimenten</span></b>
+    <ol class="ru"><li>Включи «Неурожай». Что случится с крестьянами, если сеньор не уменьшит поборы? А если уменьшит — что будет с его рыцарями?</li><li>Включи «Жадный сеньор». Сколько рыцарей теперь? Почему крестьяне могут сбежать, восстать или работать хуже — и почему это плохо и для сеньора?</li><li>Включи «Трёхполье (ок. 1000)». Что можно сделать с новым излишком? Это вход в эпоху 4.</li></ol>
+    <ol class="nl"><li>Kies "Misoogst". Wat gebeurt er met de boeren als de heer de afdracht niet verlaagt? En als hij dat wel doet — wat gebeurt er met zijn ridders?</li><li>Kies "Hebzuchtige heer". Hoeveel ridders nu? Waarom kunnen boeren vluchten, in opstand komen of slechter werken — en waarom is dat ook slecht voor de heer?</li><li>Kies "Drieslagstelsel (ca. 1000)". Wat kun je met het nieuwe overschot doen? Dat is de ingang naar tijdvak 4.</li></ol>
+    <div class="memo"><span class="ru">Рыцарь ест не меньше, чем пять крестьянских семей. Каждый рыцарь в доспехах «стоит» на плечах целой деревни.</span><span class="nl">Eén ridder kost evenveel als vijf boerengezinnen. Elke ridder in harnas staat op de schouders van een heel dorp.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span class="ru">Самоучитель по истории · эпоха 3 из 10 · даты приблизительные («ca.» = около).</span>
+  <span class="nl">Zelfstudie geschiedenis · tijdvak 3 van 10 · jaartallen zijn ongeveer ("ca." = circa).</span>
+</footer>
+</main>
+
+<script src="assets/tijdvak.js"></script>
+<script>
+const CHAIN = [
+  { ru: 'Падение Западного Рима', nl: 'Val van West-Rome',
+    why: ['476: нет императора, армии, чиновников и налогов на Западе.', '476: geen keizer, leger, ambtenaren of belasting meer in het westen.'],
+    alt: ['На Востоке (Византия) государство сохранилось — значит, распад не был всеобщим законом.', 'In het oosten (Byzantium) bleef de staat bestaan — de ineenstorting was dus geen algemene wet.'] },
+  { ru: 'Упадок торговли и городов', nl: 'Minder handel en steden',
+    why: ['Дороги опасны, монет мало, покупателей мало → торговля сжимается, города пустеют.', 'Wegen onveilig, weinig munten, weinig kopers → handel krimpt, steden lopen leeg.'],
+    alt: ['На Севере торговля по воде шла (Дорестад): по рекам безопаснее и дешевле, чем по суше.', 'In het noorden ging de handel over water door (Dorestad): over rivieren is veiliger en goedkoper dan over land.'] },
+  { ru: 'Богатство = земля', nl: 'Rijkdom = grond',
+    why: ['Если не на что и негде купить, ценно только то, что растёт на твоей земле.', 'Als je niets kunt kopen, is alleen waardevol wat op je eigen grond groeit.'],
+    law: ['Где мало денег, власть принадлежит тому, у кого земля.', 'Waar weinig geld is, heeft wie grond bezit de macht.'],
+    alt: ['В исламском мире деньги остались, поэтому власть держалась на налогах и жалованье.', 'In de islamitische wereld bleef geld bestaan, dus macht rustte op belasting en salaris.'] },
+  { ru: 'Поместье (hofstelsel)', nl: 'Hofstelsel',
+    why: ['Поместье производит почти всё само: поля, мастерские, мельница; покупают лишь соль и железо.', 'Het domein maakt bijna alles zelf: akkers, werkplaatsen, molen; men koopt alleen zout en ijzer.'],
+    alt: ['На сырых землях фризов поместий было мало, крестьяне оставались свободными.', 'Op de natte gronden van de Friezen waren weinig domeinen; boeren bleven vrij.'] },
+  { ru: 'Крепостная зависимость (horigheid)', nl: 'Horigheid',
+    why: ['Нет защиты от государства → крестьянин отдаёт свободу сеньору в обмен на защиту и помощь.', 'Geen bescherming door een staat → de boer ruilt zijn vrijheid voor bescherming en hulp van een heer.'],
+    law: ['Безопасность в обмен на свободу — сделка, которую люди заключают, когда страшно.', 'Veiligheid in ruil voor vrijheid — een ruil die mensen maken als ze bang zijn.'],
+    alt: ['Если бы рядом была сильная власть с законами и судами, крестьянам не надо было бы идти под сеньора.', 'Met een sterke staat met wetten en rechtbanken hadden boeren zich niet aan een heer hoeven geven.'] },
+  { ru: 'Франки + церковь', nl: 'Franken + kerk',
+    why: ['Хлодвиг крестится (ок. 496); Пипин и папа (751): король даёт защиту, церковь — законность власти и грамотных людей.', 'Clovis laat zich dopen (ca. 496); Pepijn en de paus (751): de koning geeft bescherming, de kerk gezag en geletterde mensen.'],
+    alt: ['Германские короли, оставшиеся «неправильными» христианами (ариане), не получили поддержки церкви и исчезли.', 'Germaanse koningen die "verkeerde" christenen bleven (ariaanse), kregen geen steun van de kerk en verdwenen.'] },
+  { ru: 'Лены и рыцари (leenstelsel)', nl: 'Lenen en ridders (leenstelsel)',
+    why: ['Нет денег на армию → король платит землёй; вассал за это служит с рыцарями.', 'Geen geld voor een leger → de koning betaalt met grond; de leenman dient daarvoor met ridders.'],
+    law: ['Феодализм = жалованье землёй вместо денег.', 'Leenstelsel = salaris in grond in plaats van geld.'],
+    alt: ['С деньгами можно было бы платить наёмникам и чиновникам, как в Византии.', 'Met geld had je huurlingen en ambtenaren kunnen betalen, zoals in Byzantium.'] },
+  { ru: 'Карл Великий — император (800)', nl: 'Karel de Grote keizer (800)',
+    why: ['Завоевания + союз с папой → коронация в Риме; «новая Римская империя», но христианская.', 'Veroveringen + verbond met de paus → kroning in Rome; een "nieuw Romeins Rijk", maar christelijk.'],
+    alt: ['Без опоры на церковь Карл был бы просто удачливым полководцем, а не «императором».', 'Zonder de kerk was Karel gewoon een succesvolle legeraanvoerder geweest, geen "keizer".'] },
+  { ru: 'Миссия по всей Европе', nl: 'Missie in heel Europa',
+    why: ['Монахи (Виллиброрд, Бонифаций) идут к фризам и саксам под защитой франков; сначала обращают вождей.', 'Monniken (Willibrord, Bonifatius) gaan naar Friezen en Saksen onder bescherming van de Franken; eerst bekeren ze de leiders.'],
+    alt: ['Народы, крестившиеся сами (Польша, Венгрия), сохранили независимость.', 'Volken die zichzelf bekeerden (Polen, Hongarije), bleven zelfstandig.'] },
+  { ru: 'Ислам и его мир', nl: 'De islam en zijn wereld',
+    why: ['Мухаммед (622 — хиджра); арабские завоевания до Испании (711); города, торговля и наука сохраняются.', 'Mohammed (622 hidjra); Arabische veroveringen tot Spanje (711); steden, handel en wetenschap blijven bestaan.'],
+    alt: ['Если бы Византия и Персия не ослабили друг друга, арабские завоевания, вероятно, были бы гораздо меньше.', 'Als Byzantium en Perzië elkaar niet hadden uitgeput, waren de Arabische veroveringen waarschijnlijk veel kleiner geweest.'] },
+  { ru: 'Раздел империи и викинги', nl: 'Verdeling en Vikingen',
+    why: ['843 — Верден; набеги викингов, король далеко → защищают местные графы.', '843 Verdun; Vikingaanvallen, de koning is ver weg → plaatselijke graven verdedigen.'],
+    alt: ['Единая сильная империя с флотом могла бы отбивать викингов, как позже Англия Альфреда Великого.', 'Een sterk verenigd rijk met een vloot had de Vikingen kunnen tegenhouden, zoals later Engeland onder Alfred de Grote.'] },
+  { ru: 'Лены наследуются → власть дробится', nl: 'Erfelijke lenen → versnipperde macht',
+    why: ['Сыновья вассалов наследуют лены; люди верны графу, а не королю → сотни маленьких правителей (графы Голландии с ок. 922).', 'Zonen erven de lenen; mensen zijn trouw aan de graaf, niet aan de koning → honderden kleine heersers (graven van Holland vanaf ca. 922).'],
+    law: ['Средство удержать королевство его же и раздробило.', 'Het middel om het rijk bij elkaar te houden, versnipperde het juist.'],
+    alt: ['Когда вернутся деньги (эпоха 4), короли снова начнут собирать власть в своих руках.', 'Als het geld terugkomt (tijdvak 4), gaan koningen de macht weer naar zich toe trekken.'] }
+];
+
+const ORDER_SETS = [
+  [['Рим падает, торговля сжимается', 'Rome valt, de handel krimpt'], ['Мало денег и рынков', 'Weinig geld en markten'], ['Поместье производит всё само', 'Het domein maakt alles zelf'], ['Крестьяне становятся крепостными ради защиты', 'Boeren worden horig voor bescherming']],
+  [['У короля нет денег на армию', 'De koning heeft geen geld voor een leger'], ['Он даёт землю в лен', 'Hij geeft grond in leen'], ['Вассал служит с рыцарями', 'De leenman dient met ridders'], ['Лены становятся наследственными', 'Lenen worden erfelijk'], ['Король слабеет', 'De koning wordt zwakker']],
+  [['Хлодвиг крестится (ок. 496)', 'Clovis wordt gedoopt (ca. 496)'], ['Карл Мартелл побеждает у Пуатье (732)', 'Karel Martel wint bij Poitiers (732)'], ['Карл Великий — император (800)', 'Karel de Grote wordt keizer (800)'], ['Верденский договор (843)', 'Verdrag van Verdun (843)']],
+  [['Хиджра Мухаммеда (622)', 'Hidjra van Mohammed (622)'], ['Арабы завоёвывают Египет и Персию', 'Arabieren veroveren Egypte en Perzië'], ['Арабы в Испании (711)', 'Arabieren in Spanje (711)'], ['Основан Багдад (762)', 'Bagdad gesticht (762)']],
+  [['Виллиброрд — епископ Утрехта (695)', 'Willibrord bisschop van Utrecht (695)'], ['Бонифаций убит под Доккюмом (754)', 'Bonifatius vermoord bij Dokkum (754)'], ['Викинги грабят Дорестад (834)', 'Vikingen plunderen Dorestad (834)'], ['Первый граф Голландии Дирк I (ок. 922)', 'Eerste graaf van Holland, Dirk I (ca. 922)']],
+  [['Набеги викингов', 'Vikingaanvallen'], ['Король не успевает защитить', 'De koning komt te laat'], ['Местный граф строит крепость', 'De plaatselijke graaf bouwt een burcht'], ['Люди верны графу', 'Mensen zijn trouw aan de graaf'], ['Власть дробится', 'De macht versnippert']]
+];
+
+const PATHS = [
+  { t: ['Ты — свободный крестьянин, ок. 850. Викинги сожгли соседнюю деревню, урожай плохой.', 'Jij bent vrije boer, ca. 850. Vikingen hebben het buurdorp platgebrand, de oogst is slecht.'],
+    o: [ [['Остаться свободным', 'Vrij blijven'], ['Выгода: никому не должен, сам решаешь. Риск: при следующем набеге или голоде никто не поможет. Условие: болотистый край, где сеньоры слабы (как у фризов).', 'Voordeel: je bent niemand iets verschuldigd. Risico: bij de volgende overval of honger helpt niemand je. Voorwaarde: een nat gebied met zwakke heren (zoals bij de Friezen).']],
+         [['Отдаться под защиту сеньора', 'Je onder een heer stellen'], ['Выгода: защита и помощь в голод. Цена: барщина (3 дня в неделю), поборы, нельзя уйти — и дети тоже будут крепостными. Так поступили очень многие.', 'Voordeel: bescherming en hulp bij honger. Prijs: herendiensten (3 dagen per week), afdrachten, je mag niet weg — en je kinderen worden ook horig. Zo deden heel veel mensen.']] ] },
+  { t: ['Ты — король франков, ок. 780. Нужны 2000 конных воинов, а денег почти нет.', 'Jij bent Frankische koning, ca. 780. Je hebt 2000 ruiters nodig, maar bijna geen geld.'],
+    o: [ [['Раздать земли в лен', 'Grond in leen geven'], ['Выгода: армия без денег. Риск: вассалы привыкнут к земле и захотят передать её сыновьям; их люди будут верны им. Это и произошло после смерти Карла.', 'Voordeel: een leger zonder geld. Risico: leenmannen raken gehecht aan de grond en willen hem aan hun zonen geven; hun mensen zijn trouw aan hen. Dat gebeurde na de dood van Karel.']],
+         [['Нанимать за добычу', 'Betalen met buit'], ['Выгода: земля остаётся твоей. Риск: работает, пока ты всё время побеждаешь и грабишь соседей. Карл Великий так и делал — пока завоевания не кончились.', 'Voordeel: de grond blijft van jou. Risico: dat werkt alleen zolang je steeds wint en buren plundert. Karel de Grote deed dat ook — tot de veroveringen ophielden.']] ] },
+  { t: ['Ты — миссионер у фризов, ок. 700.', 'Jij bent missionaris bij de Friezen, ca. 700.'],
+    o: [ [['Идти один, без франкской охраны', 'Alleen gaan, zonder Frankische bescherming'], ['Выгода: фризы не видят в тебе шпиона франков. Риск: тебя могут убить, а вождь не станет слушать слабого чужака.', 'Voordeel: de Friezen zien je niet als spion van de Franken. Risico: je kunt vermoord worden en een leider luistert niet naar een zwakke vreemdeling.']],
+         [['Идти под защитой франков, начать с вождей', 'Met Frankische bescherming gaan en bij de leiders beginnen'], ['Выгода: безопасность, вождь крестится — за ним пойдут другие. Цена: христианство выглядит религией завоевателей → сопротивление (Радбод, Доккюм 754). Так действовали Виллиброрд и Бонифаций.', 'Voordeel: veiligheid; als de leider zich laat dopen, volgen anderen. Prijs: het christendom lijkt het geloof van de veroveraars → verzet (Radboud, Dokkum 754). Zo werkten Willibrord en Bonifatius.']] ] }
+];
+
+const WATALS = [
+  ['Что было бы, если бы после 476 г. на Западе сохранились города, дороги и монеты?', 'Wat als na 476 in het westen steden, wegen en munten waren gebleven?',
+   'Торговля продолжалась бы → можно было бы продавать излишек и покупать товары → не было бы нужды в самообеспечении поместья. Король мог бы платить чиновникам и солдатам деньгами → лены и рыцари не понадобились бы так сильно. Так и было в Византии. Значит, hofstelsel и leenstelsel — <b>следствие</b> исчезновения денег и торговли.',
+   'Dan ging de handel door → je kon je overschot verkopen en spullen kopen → het domein hoefde niet zelfvoorzienend te zijn. De koning kon ambtenaren en soldaten met geld betalen → lenen en ridders waren minder nodig. Zo ging het in Byzantium. Hofstelsel en leenstelsel zijn dus een <b>gevolg</b> van het verdwijnen van geld en handel.'],
+  ['Почему крестьянин мог добровольно стать крепостным? Разве это не глупо?', 'Waarom werd een boer vrijwillig horig? Is dat niet dom?',
+   'Не глупо, если учесть обстоятельства: нет государства, нет полиции, набеги и голод. Сеньор давал защиту, помощь в неурожай и суд. Цена — свобода и работа на господина. Хороший ответ называет и <b>выгоду</b>, и <b>цену</b>, и <b>условие</b> (опасное время без государства).',
+   'Niet dom als je kijkt naar de omstandigheden: geen staat, geen politie, invallen en honger. De heer gaf bescherming, hulp bij misoogst en rechtspraak. De prijs: vrijheid en werken voor de heer. Een goed antwoord noemt het <b>voordeel</b>, de <b>prijs</b> en de <b>voorwaarde</b> (een onveilige tijd zonder staat).'],
+  ['Как связаны hofstelsel и leenstelsel? Объясни одним предложением.', 'Hoe hangen hofstelsel en leenstelsel samen? Leg het uit in één zin.',
+   '«Doordat de leenman een leen kreeg met horigen die voor hem werkten (hofstelsel), kon hij een paard en wapens betalen en als ridder dienen voor zijn leenheer (leenstelsel).» Hofstelsel — экономика (кто производит), leenstelsel — власть (кто за это служит).',
+   '"Doordat de leenman een leen kreeg met horigen die voor hem werkten (hofstelsel), kon hij een paard en wapens betalen en als ridder dienen voor zijn leenheer (leenstelsel)." Hofstelsel = economie (wie produceert), leenstelsel = bestuur (wie dient daarvoor).'],
+  ['Почему коронация Карла Великого папой в 800 г. была выгодна обоим?', 'Waarom was de kroning van Karel de Grote door de paus in 800 voor beiden voordelig?',
+   'Карл получил титул императора и власть «от Бога» — выше любого другого короля, наследник Рима. Папа получил сильного защитника (от лангобардов и Византии) и показал, что <b>императора делает церковь</b>. Это заложит будущий спор: кто главнее — папа или император (эпоха 4).',
+   'Karel kreeg de keizerstitel en gezag "van God" — hoger dan elke andere koning, de opvolger van Rome. De paus kreeg een sterke beschermer (tegen Longobarden en Byzantium) en liet zien dat <b>de kerk de keizer maakt</b>. Dat legt de basis voor een latere strijd: wie is de baas, paus of keizer (tijdvak 4)?'],
+  ['Почему в VIII–X веках учёные Багдада знали Аристотеля, а большинство людей во Франкском королевстве — нет?', 'Waarom kenden geleerden in Bagdad in de 8e–10e eeuw Aristoteles, en de meeste mensen in het Frankische rijk niet?',
+   'В халифате сохранились богатые города, торговля и налоги → был излишек, чтобы содержать учёных и библиотеки, переводить книги. На Западе почти все работали в поле, читали только монахи, книги были редки и дороги. Общий закон: <b>знание растёт там, где есть города и излишек</b>.',
+   'In het kalifaat bleven rijke steden, handel en belasting bestaan → er was een overschot om geleerden en bibliotheken te betalen en boeken te vertalen. In het westen werkte bijna iedereen op het land, alleen monniken lazen, en boeken waren zeldzaam en duur. Algemene wet: <b>kennis groeit waar steden en een overschot zijn</b>.'],
+  ['Что было бы, если бы викинги не нападали на Франкскую империю?', 'Wat als de Vikingen het Frankische rijk niet hadden aangevallen?',
+   'Король меньше нуждался бы в том, чтобы местные графы сами защищали свои земли → графы были бы слабее, а центральная власть — сильнее. Дорестад, возможно, процветал бы дольше (хотя его гибели помогло и заиливание Рейна — ещё одна, природная причина). Вывод: внешняя угроза + медленная связь = власть переходит к тому, кто ближе.',
+   'De koning had de plaatselijke graven minder nodig gehad voor de verdediging → graven waren zwakker gebleven en de centrale macht sterker. Dorestad had misschien langer gebloeid (al kwam het verval ook door het verzanden van de Rijn — een natuurlijke oorzaak). Conclusie: dreiging van buiten + trage verbindingen = de macht gaat naar wie dichtbij is.'],
+  ['Было ли раннее Средневековье «тёмными веками»? Приведи аргумент за и против.', 'Waren de vroege middeleeuwen "donkere eeuwen"? Geef een argument voor en tegen.',
+   '«За»: меньше городов, торговли, грамотных людей, меньше письменных источников (поэтому нам «темно» — мало видно). «Против»: монастыри сохранили книги, Карл Великий развивал школы и письмо (каролингский минускул — предок наших строчных букв), торговля на Севере (Дорестад), а исламский мир переживал расцвет. «Тёмные» — это скорее о <b>нашем знании</b>, а не о жизни людей.',
+   'Voor: minder steden, handel en mensen die konden lezen; minder geschreven bronnen (daarom is het voor ons "donker": we zien weinig). Tegen: kloosters bewaarden boeken, Karel de Grote stimuleerde scholen en schrift (de Karolingische minuskel — voorouder van onze kleine letters), handel in het noorden (Dorestad), en de islamitische wereld bloeide. "Donker" zegt meer over <b>onze kennis</b> dan over het leven toen.']
+];
+
+const LAB = {
+  note: ['Учебная модель. 1 единица = еда одного человека на год. Крестьянской семье для жизни нужно ≈ 5 единиц, содержание рыцаря (конь, оружие, слуги) ≈ 25 единиц.', 'Denkmodel. 1 eenheid = voedsel voor één persoon per jaar. Een boerengezin heeft ≈ 5 eenheden nodig, een ridder (paard, wapens, knechten) ≈ 25 eenheden.'],
+  sliders: [
+    { k: 'h', ru: 'Крестьянские хозяйства (hoeven)', nl: 'Hoeven (boerengezinnen)', min: 10, max: 60, v: 30 },
+    { k: 'y', ru: 'Урожай с хозяйства', nl: 'Oogst per hoeve', min: 4, max: 14, v: 8 },
+    { k: 'a', ru: 'Поборы сеньору (%)', nl: 'Afdracht aan de heer (%)', min: 10, max: 60, v: 30, unit: '%' }
+  ],
+  presets: [
+    { ru: 'Обычный год', nl: 'Normaal jaar', v: [30, 8, 30] },
+    { ru: 'Неурожай', nl: 'Misoogst', v: [30, 5, 30] },
+    { ru: 'Жадный сеньор', nl: 'Hebzuchtige heer', v: [30, 8, 55] },
+    { ru: 'Трёхполье (ок. 1000)', nl: 'Drieslagstelsel (ca. 1000)', v: [30, 11, 30] }
+  ],
+  calc(v) {
+    const total = v.h * v.y, kerk = Math.round(total * 0.1), heer = Math.round(total * v.a / 100), boer = total - kerk - heer;
+    const perFam = boer / v.h, ridders = Math.floor(Math.max(0, heer - 20) / 25);
+    const segs = [[boer, '#64748b', '👨‍🌾 ' + boer], [kerk, '#7c3aed', '⛪ ' + kerk], [heer, '#b45309', '🏰 ' + heer]];
+    const pf = perFam.toFixed(1).replace('.', ',');
+    if (perFam < 5) return { segs, cls: 'bad', ru: `Крестьянской семье остаётся ${pf} — меньше нужных 5. Голод: съедят семена, болезни, побеги и бунты. Сеньор может держать ${ridders} рыцар(я/ей), но на следующий год его поместье станет беднее.`, nl: `Een boerengezin houdt ${pf} over — minder dan de nodige 5. Honger: zaaizaad opeten, ziekte, vluchten en opstand. De heer kan ${ridders} ridder(s) houden, maar volgend jaar is zijn domein armer.` };
+    if (perFam > 7) return { segs, cls: 'ok', ru: `Семье остаётся ${pf} — больше, чем нужно! Этот излишек можно продать на рынке: так крестьяне получают монеты, растёт торговля, появляются города (эпоха 4). Сеньор держит ${ridders} рыцар(я/ей).`, nl: `Een gezin houdt ${pf} over — meer dan nodig! Dat overschot kun je op de markt verkopen: boeren krijgen munten, de handel groeit, steden ontstaan (tijdvak 4). De heer houdt ${ridders} ridder(s).` };
+    return { segs, cls: '', ru: `Семье остаётся ${pf}: хватает, чтобы жить, но не чтобы продавать. Сеньор содержит ${ridders} рыцар(я/ей), церковь получает десятину (${kerk}). Типичное поместье: всё производится и съедается внутри.`, nl: `Een gezin houdt ${pf} over: genoeg om te leven, niet om te verkopen. De heer houdt ${ridders} ridder(s), de kerk krijgt de tiende (${kerk}). Een typisch domein: alles wordt binnen gemaakt en opgegeten.` };
+  }
+};
+
+const TERMS = [
+  ['middeleeuwen', 'Средние века', 'Periode van ca. 500 tot 1500, tussen de oudheid en de nieuwe tijd.'],
+  ['vroege middeleeuwen', 'раннее Средневековье', 'De periode ca. 500 – 1000 (tijdvak 3).'],
+  ['agrarisch-urbane cultuur', 'аграрно-городская культура', 'Samenleving met landbouw én steden, handel en geld (zoals het Romeinse Rijk).'],
+  ['zelfvoorzienende landbouw', 'самообеспечивающееся хозяйство', 'Je maakt zelf (bijna) alles wat je nodig hebt en verkoopt weinig.'],
+  ['hofstelsel', 'поместная система', 'Manier van landbouw waarbij een heer een domein bezit en horigen voor hem werken.'],
+  ['domein', 'поместье', 'Al het land van één heer: vroonhof plus hoeven.'],
+  ['vroonhof', 'господский двор', 'Het deel van het domein dat de heer zelf gebruikt, met zijn huis en schuren.'],
+  ['hoeve', 'крестьянский надел', 'Stuk land dat een boer van de heer in gebruik kreeg.'],
+  ['heer', 'сеньор, господин', 'Eigenaar van een domein: edelman, bisschop of klooster.'],
+  ['horige', 'крепостной', 'Onvrije boer die aan de grond gebonden is en diensten moet doen voor de heer.'],
+  ['horigheid', 'крепостная зависимость', 'Het onvrij zijn van boeren tegenover hun heer.'],
+  ['herendiensten', 'барщина', 'Werk dat een horige op het land van de heer moest doen.'],
+  ['tiende', 'десятина', 'Een tiende deel van de oogst dat aan de kerk werd gegeven.'],
+  ['leenstelsel', 'ленная (феодальная) система', 'Stelsel waarbij een leenheer grond (leen) geeft aan een leenman in ruil voor trouw en dienst.'],
+  ['feodaal / feodalisme', 'феодальный / феодализм', 'Bestuur via persoonlijke trouw en lenen.'],
+  ['leen', 'лен, феод', 'Grond (of een ambt) die je in gebruik krijgt in ruil voor dienst.'],
+  ['leenheer', 'сеньор (в ленной системе)', 'Degene die een leen geeft.'],
+  ['leenman / vazal', 'вассал', 'Degene die een leen krijgt en trouw en dienst belooft.'],
+  ['achterleenman', 'подвассал', 'Leenman van een leenman.'],
+  ['eed van trouw', 'клятва верности', 'Belofte van de leenman om zijn leenheer trouw te dienen.'],
+  ['erfelijk', 'наследственный', 'Wat na je dood naar je kinderen gaat.'],
+  ['graaf', 'граф', 'Bestuurder van een gebied (graafschap) namens de koning; later zelfstandig heerser.'],
+  ['ridder', 'рыцарь', 'Bereden krijger met harnas, die een leen had om zijn paard en wapens te betalen.'],
+  ['burcht', 'крепость, замок', 'Versterkte plek om je te verdedigen (tegen Vikingen); later kasteel.'],
+  ['Franken', 'франки', 'Germaans volk dat het grootste rijk van West-Europa stichtte.'],
+  ['Merovingers / Karolingers', 'Меровинги / Каролинги', 'De twee Frankische koningshuizen; Karel de Grote was een Karolinger.'],
+  ['Karel de Grote', 'Карл Великий', 'Frankische koning (768–814), in 800 tot keizer gekroond. Canonvenster.'],
+  ['zendgraaf', 'посланник короля (missus)', 'Controleur die Karel de Grote rondstuurde om de graven te controleren.'],
+  ['Verdrag van Verdun', 'Верденский договор', 'Verdeling van het Frankische rijk in drie delen (843).'],
+  ['paus', 'папа римский', 'Bisschop van Rome, leider van de westerse kerk.'],
+  ['klooster', 'монастырь', 'Gemeenschap van monniken of nonnen die volgens een regel leven.'],
+  ['monnik / non', 'монах / монахиня', 'Man / vrouw die in een klooster leeft voor het geloof.'],
+  ['Regel van Benedictus', 'устав св. Бенедикта', 'Kloosterregel (ca. 529): ora et labora — bid en werk.'],
+  ['missionaris / missie', 'миссионер / миссия', 'Iemand die het geloof gaat verspreiden; het verspreiden van het geloof.'],
+  ['bekeren', 'обращать (в веру)', 'Iemand een ander geloof laten aannemen.'],
+  ['Willibrord', 'Виллиброрд', 'Monnik, eerste bisschop van Utrecht (695); bracht het christendom naar de Friezen. Canonvenster.'],
+  ['Bonifatius', 'Бонифаций', 'Missionaris, in 754 bij Dokkum door Friezen vermoord.'],
+  ['bisdom', 'епархия', 'Gebied van een bisschop (bijv. Utrecht).'],
+  ['islam', 'ислам', 'Monotheïstisch geloof dat ontstond in Arabië met de profeet Mohammed.'],
+  ['moslim', 'мусульманин', 'Iemand die de islam aanhangt.'],
+  ['Mohammed', 'Мухаммед', 'Profeet van de islam (ca. 570–632).'],
+  ['hidjra', 'хиджра', 'De tocht van Mohammed van Mekka naar Medina (622); begin van de islamitische jaartelling.'],
+  ['Koran', 'Коран', 'Het heilige boek van de islam.'],
+  ['vijf zuilen', 'пять столпов ислама', 'Geloofsbelijdenis, gebed, aalmoezen, vasten (ramadan), bedevaart (hadj).'],
+  ['kalief / kalifaat', 'халиф / халифат', 'Opvolger van Mohammed als leider van de moslims / zijn rijk.'],
+  ['Dorestad', 'Дорестад', 'Grote handelsplaats bij Wijk bij Duurstede (ca. 600–850).'],
+  ['Friezen', 'фризы', 'Volk aan de kust van Nederland; handelaren; verzetten zich lang tegen de Franken.'],
+  ['Vikingen / Noormannen', 'викинги / норманны', 'Krijgers, handelaren en kolonisten uit Scandinavië (ca. 800–1000).'],
+  ['drieslagstelsel', 'трёхполье', 'Landbouwsysteem met drie akkers: wintergraan, zomergraan, braak. Hogere oogst.'],
+  ['ringwalburg', 'кольцевое укрепление', 'Ronde burcht met aarden wal tegen de Vikingen (bijv. Middelburg).']
+];
+
+const Q = [
+  { t: 'hof', q: ['Wat betekent zelfvoorzienende landbouw?', 'Что значит самообеспечивающееся хозяйство?'], o: [['Je maakt bijna alles zelf wat je nodig hebt.', 'Почти всё нужное производишь сам.'], ['Je verkoopt alles op de markt.', 'Всё продаёшь на рынке.'], ['De staat geeft je voedsel.', 'Государство даёт еду.'], ['Je leeft van jagen.', 'Живёшь охотой.']], a: 0, e: ['Kenmerkend aspect: vervanging van de agrarisch-urbane cultuur door een zelfvoorzienende agrarische cultuur.', 'KA: замена аграрно-городской культуры на самообеспечивающуюся аграрную.'] },
+  { t: 'hof', q: ['Hoe heet het deel van het domein dat de heer zelf gebruikte?', 'Как называется часть поместья, которой пользовался сам сеньор?'], o: ['vroonhof', 'hoeve', 'leen', 'bisdom'], a: 0, e: ['De hoeven waren voor de horigen.', 'Наделы (hoeven) — для крепостных.'] },
+  { t: 'hof', q: ['Wat is het belangrijkste verschil tussen een horige en een slaaf?', 'Главное отличие крепостного от раба?'], o: [['Een horige heeft eigen land en bescherming en kan niet los verkocht worden.', 'У крепостного свой надел и защита, его не продают отдельно.'], ['Een horige hoeft niet te werken.', 'Крепостной не обязан работать.'], ['Een horige mag gaan waar hij wil.', 'Крепостной может уйти куда хочет.'], ['Er is geen verschil.', 'Разницы нет.']], a: 0, e: ['Maar hij is wel aan de grond gebonden.', 'Но он прикреплён к земле.'] },
+  { t: 'hof', q: ['Waarom werden veel vrije boeren horig?', 'Почему многие свободные крестьяне становились крепостными?'], o: [['Ze kregen bescherming en hulp van een heer in onveilige tijden.', 'Получали защиту и помощь сеньора в опасные времена.'], ['De paus beval het.', 'Так велел папа.'], ['Ze wilden ridder worden.', 'Хотели стать рыцарями.'], ['Ze kregen er geld voor.', 'Им за это платили.']], a: 0, e: ['Veiligheid in ruil voor vrijheid.', 'Безопасность в обмен на свободу.'] },
+  { t: 'hof', type: 'open', q: ['Leg uit waarom na de val van het West-Romeinse Rijk het hofstelsel ontstond.', 'Объясни, почему после падения Западной империи возникло поместье (hofstelsel).'], model: ['Na de val van Rome werden wegen onveilig en er was weinig geld, waardoor de handel en de steden achteruitgingen. Omdat je weinig kon kopen, moest je alles zelf maken. Daardoor werd grond het belangrijkste bezit en ontstonden domeinen die zelfvoorzienend waren.', 'После падения Рима дороги стали опасны, денег стало мало, поэтому торговля и города пришли в упадок. Купить было почти нечего, приходилось всё делать самим. Поэтому главным богатством стала земля и возникли самообеспечивающиеся поместья.'], rubric: [['minder handel / geld / steden', 'меньше торговли / денег / городов'], ['alles zelf maken (zelfvoorzienend)', 'всё делают сами'], ['grond belangrijkste bezit → domeinen', 'земля — главное богатство → поместья']] },
+  { t: 'leen', q: ['Wat kreeg een leenman van zijn leenheer?', 'Что получал вассал от сеньора?'], o: [['een leen (grond) en bescherming', 'лен (землю) и защиту'], ['een salaris in geld', 'жалованье деньгами'], ['een plek in het klooster', 'место в монастыре'], ['niets', 'ничего']], a: 0, e: ['In ruil gaf de leenman trouw, raad en militaire dienst.', 'Взамен — верность, совет и военная служба.'] },
+  { t: 'leen', q: ['Waarom betaalden koningen hun mannen met grond in plaats van geld?', 'Почему короли платили землёй, а не деньгами?'], o: [['Er was weinig geld; grond was het belangrijkste bezit.', 'Денег было мало, земля — главное богатство.'], ['Grond was goedkoper dan goud.', 'Земля дешевле золота.'], ['De kerk verbood geld.', 'Церковь запрещала деньги.'], ['Ridders wilden geen geld.', 'Рыцари не хотели денег.']], a: 0, e: ['Leenstelsel = salaris in grond.', 'Ленная система = жалованье землёй.'] },
+  { t: 'leen', q: ['Wanneer werd Karel de Grote tot keizer gekroond?', 'Когда Карла Великого короновали императором?'], o: ['800', '476', '843', '732'], a: 0, e: ['Met Kerstmis in Rome door de paus.', 'На Рождество в Риме, папой.'] },
+  { t: 'leen', q: ['Waardoor werd de macht van de koning zwakker?', 'Из-за чего ослабла власть короля?'], o: [['Lenen werden erfelijk en mensen waren trouw aan hun eigen graaf.', 'Лены стали наследственными, люди верны своему графу.'], ['De koning kreeg te veel geld.', 'У короля стало слишком много денег.'], ['De Vikingen steunden de koning.', 'Викинги поддерживали короля.'], ['Er kwamen te veel steden.', 'Появилось слишком много городов.']], a: 0, e: ['Ook de verdeling van 843 en de Vikingaanvallen speelden mee.', 'Также раздел 843 г. и набеги викингов.'] },
+  { t: 'leen', type: 'order', q: ['Zet in de goede volgorde.', 'Расставь по порядку.'], items: [['doop van Clovis (ca. 496)', 'крещение Хлодвига'], ['slag bij Poitiers (732)', 'битва при Пуатье'], ['kroning van Karel de Grote (800)', 'коронация Карла Великого'], ['Verdrag van Verdun (843)', 'Верденский договор']] },
+  { t: 'leen', type: 'open', q: ['Leg uit hoe hofstelsel en leenstelsel met elkaar samenhingen.', 'Объясни, как связаны поместная и ленная системы.'], model: ['Een leenman kreeg van zijn leenheer een leen. Op dat leen werkten horigen in het hofstelsel. Met de opbrengst daarvan kon de leenman een paard en wapens betalen, zodat hij als ridder kon dienen voor zijn leenheer.', 'Вассал получал от сеньора лен. На нём работали крепостные (поместная система). На эти доходы вассал содержал коня и оружие и служил сеньору рыцарем.'], rubric: [['leen van de leenheer', 'лен от сеньора'], ['horigen werken op het leen', 'крепостные работают на лене'], ['opbrengst betaalt de ridder / militaire dienst', 'доход оплачивает рыцаря / службу']] },
+  { t: 'kerk', q: ['Wie was de eerste bisschop van Utrecht?', 'Кто был первым епископом Утрехта?'], o: ['Willibrord', 'Bonifatius', 'Radboud', 'Karel de Grote'], a: 0, e: ['Willibrord, 695. Canonvenster.', 'Виллиброрд, 695. Окно канона.'] },
+  { t: 'kerk', q: ['Waarom was een klooster belangrijk in de vroege middeleeuwen?', 'Почему монастырь был важен в раннем Средневековье?'], o: [['Monniken bewaarden kennis door boeken over te schrijven.', 'Монахи сохраняли знания, переписывая книги.'], ['Kloosters waren legerkampen.', 'Монастыри были военными лагерями.'], ['Kloosters waren markten.', 'Монастыри были рынками.'], ['Monniken waren de koningen.', 'Монахи были королями.']], a: 0, e: ['Ook: scholen, ziekenzorg, landbouw.', 'А также школы, уход за больными, хозяйство.'] },
+  { t: 'kerk', q: ['Waarom verzetten veel Friezen zich tegen het christendom?', 'Почему многие фризы сопротивлялись христианству?'], o: [['Het was het geloof van hun vijanden, de Franken.', 'Это была вера их врагов — франков.'], ['Ze waren al moslim.', 'Они уже были мусульманами.'], ['Ze konden de Bijbel niet lezen.', 'Не могли читать Библию.'], ['De paus verbood hun bekering.', 'Папа запретил их обращение.']], a: 0, e: ['Missie en Frankische verovering gingen samen op.', 'Миссия и франкское завоевание шли вместе.'] },
+  { t: 'kerk', type: 'open', q: ['Leg uit waarom koningen en de kerk elkaar nodig hadden.', 'Объясни, почему короли и церковь нуждались друг в друге.'], model: ['De kerk had bescherming en grond nodig, die de koning kon geven. De koning had de kerk nodig, omdat geestelijken konden lezen en schrijven en omdat de kerk zijn macht als "van God gegeven" erkende. Bekeerde volken waren ook makkelijker te besturen.', 'Церкви нужны были защита и земли, которые давал король. Королю нужна была церковь: духовенство умело читать и писать и признавало его власть «от Бога». Крещёными народами было легче управлять.'], rubric: [['kerk krijgt bescherming/grond', 'церковь получает защиту/землю'], ['koning krijgt gezag of geletterde helpers', 'король получает законность или грамотных помощников']] },
+  { t: 'islam', q: ['Wat gebeurde er in 622?', 'Что произошло в 622 году?'], o: [['de hidjra: Mohammed trok van Mekka naar Medina', 'хиджра: Мухаммед переселился из Мекки в Медину'], ['de Arabieren veroverden Spanje', 'арабы завоевали Испанию'], ['Karel de Grote werd keizer', 'Карл стал императором'], ['Bagdad werd gesticht', 'основан Багдад']], a: 0, e: ['Begin van de islamitische jaartelling.', 'Начало мусульманского летоисчисления.'] },
+  { t: 'islam', q: ['Welke is GEEN van de vijf zuilen van de islam?', 'Что НЕ входит в пять столпов ислама?'], o: [['een kruistocht voeren', 'крестовый поход'], ['vasten tijdens de ramadan', 'пост в Рамадан'], ['aalmoezen geven', 'милостыня'], ['de bedevaart naar Mekka', 'паломничество в Мекку']], a: 0, e: ['Kruistochten zijn christelijk (tijdvak 4).', 'Крестовые походы — христианские (эпоха 4).'] },
+  { t: 'islam', q: ['Waarom kon de islam zich zo snel verspreiden?', 'Почему ислам распространился так быстро?'], o: [['De Arabieren waren verenigd en hun buren waren verzwakt door onderlinge oorlog.', 'Арабы объединились, а соседи были ослаблены войной друг с другом.'], ['Iedereen werd gedwongen moslim te worden.', 'Всех заставляли принять ислам.'], ['Er woonde niemand in Noord-Afrika.', 'В Северной Африке никто не жил.'], ['De Franken hielpen de Arabieren.', 'Франки помогали арабам.']], a: 0, e: ['Bekering ging juist langzaam; christenen en joden mochten hun geloof houden.', 'Обращение шло медленно; христиане и иудеи сохраняли веру.'] },
+  { t: 'islam', q: ['Hoe kwam veel Griekse kennis (Aristoteles) later terug in West-Europa?', 'Как греческие знания (Аристотель) позже вернулись в Западную Европу?'], o: [['via Arabische vertalingen in Spanje en Sicilië', 'через арабские переводы в Испании и на Сицилии'], ['via de Vikingen', 'через викингов'], ['via de Friezen', 'через фризов'], ['ze was nooit weg', 'никуда и не уходили']], a: 0, e: ['Bagdad, Córdoba: vertalingen en nieuwe wetenschap.', 'Багдад, Кордова: переводы и новая наука.'] },
+  { t: 'nl', q: ['Waarom lag Dorestad op een goede plek voor handel?', 'Почему Дорестад был удобен для торговли?'], o: [['Bij de splitsing van de Rijn, op de route naar Engeland en Scandinavië.', 'У разделения Рейна, на пути в Англию и Скандинавию.'], ['Er waren veel bergen.', 'Там было много гор.'], ['Het lag aan de Middellandse Zee.', 'На Средиземном море.'], ['De koning woonde er.', 'Там жил король.']], a: 0, e: ['Handel over water was veiliger en goedkoper dan over land.', 'По воде торговать безопаснее и дешевле.'] },
+  { t: 'nl', q: ['Waarom vielen Vikingen vooral kloosters en handelsplaatsen aan?', 'Почему викинги нападали прежде всего на монастыри и торговые места?'], o: [['Daar was veel rijkdom en weinig verdediging.', 'Там много богатств и мало охраны.'], ['Ze haatten boeken.', 'Ненавидели книги.'], ['De koning vroeg het.', 'Так просил король.'], ['Ze wilden christen worden.', 'Хотели стать христианами.']], a: 0, e: ['Goud, zilver en geen soldaten.', 'Золото, серебро и никаких солдат.'] },
+  { t: 'nl', type: 'open', q: ['Leg uit hoe de Vikingaanvallen de macht van de plaatselijke graven versterkten.', 'Объясни, как набеги викингов усилили власть местных графов.'], model: ['De Vikingen vielen snel en onverwacht aan. De koning was te ver weg om op tijd te helpen. Daardoor verdedigde de plaatselijke graaf de mensen, bijvoorbeeld met een burcht. Mensen werden trouw aan hem in plaats van aan de koning, waardoor de graaf machtiger werd.', 'Викинги нападали быстро и неожиданно. Король был слишком далеко. Поэтому защищал местный граф (например, крепостью). Люди стали верны ему, а не королю, и граф усилился.'], rubric: [['snelle aanvallen / koning te ver', 'быстрые набеги / король далеко'], ['graaf verdedigt (burcht)', 'граф защищает'], ['trouw aan graaf → graaf machtiger', 'верность графу → граф сильнее']] },
+  { t: 'nl', type: 'order', q: ['Zet in de goede volgorde.', 'Расставь по порядку.'], items: [['Willibrord bisschop van Utrecht (695)', 'Виллиброрд — епископ'], ['Bonifatius vermoord bij Dokkum (754)', 'Бонифаций убит'], ['Vikingen plunderen Dorestad (834)', 'викинги грабят Дорестад'], ['Dirk I graaf in Holland (ca. 922)', 'Дирк I — граф']] },
+  { t: 'redeneren', q: ['"Doordat er na de val van Rome weinig geld was, ..." Welke aanvulling klopt?', '«Поскольку после падения Рима было мало денег…» Что верно?'], o: [['betaalden koningen hun mannen met grond.', 'короли платили своим людям землёй.'], ['werd de islam gesticht.', 'возник ислам.'], ['kwamen er meer steden.', 'стало больше городов.'], ['konden meer mensen lezen.', 'больше людей умели читать.']], a: 0, e: ['Oorzaak → gevolg: weinig geld → leenstelsel.', 'Причина → следствие: мало денег → ленная система.'] },
+  { t: 'redeneren', q: ['Welk verschijnsel past NIET bij tijdvak 3?', 'Что НЕ относится к эпохе 3?'], o: [['de Atheense democratie', 'афинская демократия'], ['het hofstelsel', 'поместье'], ['de Vikingen', 'викинги'], ['de hidjra', 'хиджра']], a: 0, e: ['Dat is tijdvak 2 — een anachronisme.', 'Это эпоха 2 — анахронизм.'] },
+  { t: 'redeneren', type: 'open', q: ['Vergelijk het bestuur in het Romeinse Rijk met het bestuur in het rijk van Karel de Grote. Noem één verschil en verklaar het.', 'Сравни управление в Римской империи и в империи Карла Великого. Назови одно отличие и объясни его.'], model: ['In het Romeinse Rijk betaalde de keizer ambtenaren en soldaten met geld uit belasting; Karel de Grote gaf grond (lenen) aan leenmannen in ruil voor trouw en dienst. Dat kwam doordat er in de vroege middeleeuwen weinig geld en handel was.', 'В Римской империи император платил чиновникам и солдатам деньгами из налогов; Карл Великий давал землю (лены) вассалам за верность и службу. Причина: в раннем Средневековье было мало денег и торговли.'], rubric: [['juist verschil (geld/belasting vs grond/lenen)', 'верное отличие'], ['verklaring: weinig geld / handel', 'объяснение: мало денег / торговли']] },
+  { t: 'bronnen', q: ['Een Frankische monnik schrijft dat de Vikingen "duivels" zijn. Wat zeg je over deze bron?', 'Франкский монах пишет, что викинги — «дьяволы». Что скажешь об этом источнике?'], o: [['Hij is partijdig: zijn klooster werd aangevallen.', 'Он пристрастен: его монастырь грабили.'], ['Hij is objectief, want monniken liegen niet.', 'Объективен — монахи не лгут.'], ['De bron is nep.', 'Источник — подделка.'], ['De bron gaat over de Romeinen.', 'Источник о римлянах.']], a: 0, e: ['Een partijdige bron is wel bruikbaar: hij laat zien hoe monniken de Vikingen zagen.', 'Пристрастный источник тоже полезен: показывает, как монахи видели викингов.'] },
+  { t: 'bronnen', q: ['Archeologen vinden in Zweden veel Arabische zilveren munten uit de 9e eeuw. Wat is de beste conclusie?', 'В Швеции нашли много арабских серебряных монет IX века. Лучший вывод?'], o: [['Vikingen handelden (direct of via anderen) met de islamitische wereld.', 'Викинги торговали (прямо или через других) с исламским миром.'], ['Zweden was een kalifaat.', 'Швеция была халифатом.'], ['Arabieren woonden in Zweden.', 'В Швеции жили арабы.'], ['Vikingen maakten Arabische munten.', 'Викинги чеканили арабские монеты.']], a: 0, e: ['Spullen reizen; vondst ≠ verovering of bewoning.', 'Вещи путешествуют; находка ≠ завоевание или поселение.'] }
+];
+
+initTijdvak({
+  id: 't3', n: 3, CHAIN, ORDER_SETS, PATHS, WATALS, TERMS, Q, LAB,
+  legUit: ['«Рим пал. Появилось поместье.»', 'Doordat er na de val van Rome weinig handel en geld was, moesten mensen alles zelf maken. Daardoor ontstonden zelfvoorzienende domeinen: het hofstelsel.', '"Rome viel. Er kwam een hofstelsel."'],
+  topics: [['hof', 'Hofstelsel en horigheid'], ['leen', 'Franken en leenstelsel'], ['kerk', 'Christendom en missie'], ['islam', 'Islam'], ['nl', 'Nederland: Dorestad en Vikingen'], ['redeneren', 'Redeneren'], ['bronnen', 'Bronnen']]
+});
+</script>
+</body>
+</html>
