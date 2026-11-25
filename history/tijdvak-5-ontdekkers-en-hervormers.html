@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tijdvak 5 · Ontdekkers en hervormers — самоучитель (RU/NL)</title>
+  <link rel="stylesheet" href="assets/tijdvak.css">
+</head>
+<body data-lang="both">
+<main class="container">
+  <div class="crumbs"><a href="../index.html">← Главная</a> · <a href="index.html">История / Geschiedenis</a></div>
+  <h1>Tijdvak 5 · Tijd van ontdekkers en hervormers</h1>
+  <p class="subtitle"><span class="ru">XVI век (1500 – 1600): Великие географические открытия, Возрождение, книгопечатание, Реформация — и Нидерландское восстание, из которого родилось новое государство. Самоучитель для brugklas VWO+.</span><span class="nl">De 16e eeuw (1500 – 1600): ontdekkingsreizen, renaissance, boekdrukkunst, reformatie — en de Nederlandse Opstand, waaruit een nieuwe staat ontstond. Zelfstudie voor de brugklas vwo+.</span></p>
+
+  <div class="topbar">
+    <div class="langs">
+      <span class="muted">Язык / Taal:</span>
+      <button data-setlang="ru">RU</button>
+      <button data-setlang="both" class="active">RU + NL</button>
+      <button data-setlang="nl">NL</button>
+      <span class="muted" style="margin-left:6px">· <span class="nlt">термины</span> всегда по-голландски</span>
+    </div>
+    <nav class="tabs" id="tabs"></nav>
+  </div>
+
+<!-- ============ 0. OVERZICHT ============ -->
+<section class="page" id="p-kaart" data-title-ru="Обзор" data-title-nl="Overzicht" data-n="0">
+  <div class="kern"><div class="lbl">Kernvraag van het tijdvak</div><div class="q"><span class="ru">Почему за одно столетие европейцы заново «открыли» мир, древность, человека и Бога — и почему именно Нидерланды из-за этого восстали против своего короля?</span><span class="nl">Waarom "ontdekten" Europeanen in één eeuw opnieuw de wereld, de oudheid, de mens en God — en waarom kwamen juist de Nederlanden daardoor in opstand tegen hun koning?</span></div></div>
+
+  <div class="bridge">
+    <div class="card"><b><span class="ru">⬅ Что досталось от эпохи 4</span><span class="nl">⬅ Wat tijdvak 4 meegaf</span></b>
+      <p><span class="ru">Богатые города и купцы с деньгами для рискованных предприятий; знания античности, вернувшиеся через арабские переводы; <b>книгопечатание</b> (ок. 1450); турки взяли Константинополь (1453) — путь за пряностями подорожал; церковь богата и многих раздражает; Габсбурги унаследовали Нидерланды и хотят централизации, а города держатся за привилегии. Все искры уже рядом с порохом.</span><span class="nl">Rijke steden en kooplieden met geld voor risicovolle ondernemingen; kennis uit de oudheid die via Arabische vertalingen terugkwam; de <b>boekdrukkunst</b> (ca. 1450); de Turken veroverden Constantinopel (1453) — de route naar specerijen werd duurder; de kerk is rijk en ergert veel mensen; de Habsburgers erfden de Nederlanden en willen centraliseren, terwijl de steden hun privileges vasthouden. Alle vonken liggen naast het buskruit.</span></p>
+      <p class="muted"><a href="tijdvak-4-steden-en-staten.html">Tijdvak 4 · Steden en staten</a></p></div>
+    <div class="card"><b><span class="ru">➡ Что эта эпоха оставит следующей</span><span class="nl">➡ Wat dit tijdvak doorgeeft</span></b>
+      <p><span class="ru">Новое государство — <b>Республику Соединённых провинций</b> без короля; тысячи беженцев-купцов из Антверпена в Амстердаме; океанские пути, по которым уже ходят португальцы и испанцы; раскол церкви и религиозные войны; привычку проверять старые авторитеты. Из этого в эпохе 6 вырастет Золотой век и научная революция.</span><span class="nl">Een nieuwe staat — <b>de Republiek der Verenigde Nederlanden</b>, zonder koning; duizenden gevluchte kooplieden uit Antwerpen in Amsterdam; oceaanroutes die Portugezen en Spanjaarden al varen; een gesplitste kerk en godsdienstoorlogen; de gewoonte om oude autoriteiten te controleren. Daaruit groeien in tijdvak 6 de Gouden Eeuw en de wetenschappelijke revolutie.</span></p>
+      <p class="muted"><a href="tijdvak-6-regenten-en-vorsten.html">Tijdvak 6 · Regenten en vorsten</a></p></div>
+  </div>
+
+  <h3><span class="ru">10 эпох — нажми, чтобы перейти</span><span class="nl">De 10 tijdvakken — klik om te wisselen</span></h3>
+  <div class="tijdvakken" id="tvGrid"></div>
+
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0"><span class="ru">Kenmerkende aspecten эпохи 5</span><span class="nl">Kenmerkende aspecten van tijdvak 5</span></h3>
+    <ol>
+      <li><span class="nlt">Het begin van de Europese overzeese expansie</span> <span class="ru">— начало заморской экспансии Европы</span></li>
+      <li><span class="nlt">Het veranderende mens- en wereldbeeld van de renaissance en het begin van een nieuwe wetenschappelijke belangstelling</span> <span class="ru">— новый взгляд Возрождения на человека и мир и начало нового интереса к науке</span></li>
+      <li><span class="nlt">De hernieuwde oriëntatie op het erfgoed van de klassieke Oudheid</span> <span class="ru">— новое обращение к наследию античности</span></li>
+      <li><span class="nlt">De protestantse reformatie die splitsing van de christelijke kerk in West-Europa tot gevolg had</span> <span class="ru">— протестантская Реформация, расколовшая церковь Западной Европы</span></li>
+      <li><span class="nlt">Het conflict in de Nederlanden dat resulteerde in de stichting van een Nederlandse staat</span> <span class="ru">— конфликт в Нидерландах, который привёл к созданию нидерландского государства</span></li>
+    </ol>
+    <p class="muted"><span class="ru">Окна канона: <b>Эразм (1466–1536)</b>, <b>Карл V (1500–1558)</b>, <b>Иконоборчество (1566)</b>, <b>Вильгельм Оранский (1533–1584)</b>; также Иероним Босх (ок. 1450–1516).</span><span class="nl">Canonvensters: <b>Erasmus (1466–1536)</b>, <b>Karel V (1500–1558)</b>, <b>De Beeldenstorm (1566)</b>, <b>Willem van Oranje (1533–1584)</b>; ook Jheronimus Bosch (ca. 1450–1516).</span></p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Вся эпоха: три «открытия» и один взрыв</span><span class="nl">Het hele tijdvak: drie "ontdekkingen" en één explosie</span></h3>
+    <div class="cause">
+      <div class="step"><span class="ru">Деньги городов + книгопечатание</span><span class="nl">Geld van steden + boekdrukkunst</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Открытие мира: корабли в Азию и Америку</span><span class="nl">De wereld ontdekken: schepen naar Azië en Amerika</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Открытие древности и человека: Возрождение, гуманизм</span><span class="nl">De oudheid en de mens ontdekken: renaissance, humanisme</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">«Открытие» Библии без посредников: Реформация</span><span class="nl">De Bijbel zelf lezen: reformatie</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Габсбурги: централизация + преследование еретиков + налоги</span><span class="nl">Habsburgers: centralisatie + ketterijvervolging + belasting</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Восстание (1568) → Республика (1588)</span><span class="nl">Opstand (1568) → Republiek (1588)</span></div>
+    </div>
+    <div class="memo"><span class="ru">Общий корень трёх «открытий»: <b>не верь на слово — проверь сам</b>. Моряк проверяет карту, художник — анатомию, Лютер — Библию. Церкви и королю это не понравилось.</span><span class="nl">De gemeenschappelijke wortel van de drie "ontdekkingen": <b>geloof het niet zomaar — kijk zelf</b>. De zeeman controleert de kaart, de schilder de anatomie, Luther de Bijbel. Kerk en koning vonden dat niet leuk.</span></div>
+  </div>
+</section>
+
+<!-- ============ 1. ONTDEKKINGSREIZEN ============ -->
+<section class="page" id="p-reizen" data-title-ru="Великие открытия" data-title-nl="Ontdekkingsreizen" data-n="1">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Почему около 1500 г. именно маленькие Португалия и Испания поплыли через океаны, а не, например, богатый Китай?</span><span class="nl">Waarom voeren rond 1500 juist de kleine landen Portugal en Spanje over de oceanen, en niet bijvoorbeeld het rijke China?</span></div></div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Почему? Три вида причин</span><span class="nl">Waarom? Drie soorten oorzaken</span></h3>
+    <div class="grid g3">
+      <div class="regio"><h4>💰 <span class="ru">Хотели</span><span class="nl">Wilden</span></h4><p class="ru"><b>Пряности</b> (перец, гвоздика, корица) стоили в Европе в десятки раз дороже, чем в Азии. Посредники — арабы, турки, Венеция — забирали прибыль. Найти <b>прямой морской путь</b> = огромная прибыль. Плюс золото, слава и распространение христианства («God, Gold, Glory»).</p><p class="nl"><b>Specerijen</b> (peper, kruidnagel, kaneel) waren in Europa tientallen keren duurder dan in Azië. Tussenhandelaren — Arabieren, Turken, Venetië — streken de winst op. Een <b>directe zeeroute</b> vinden = enorme winst. Plus goud, roem en het christendom verspreiden ("God, Gold, Glory").</p></div>
+      <div class="regio"><h4>🧭 <span class="ru">Могли</span><span class="nl">Konden</span></h4><p class="ru"><span class="nlt">kompas</span> и <span class="nlt">astrolabium</span> (из Китая и арабского мира), <span class="nlt">karveel</span> — корабль, способный ходить против ветра, лучшие карты, пушки на кораблях. Знание, что Земля круглая (греки!).</p><p class="nl">Het <span class="nlt">kompas</span> en het <span class="nlt">astrolabium</span> (uit China en de islamitische wereld), de <span class="nlt">karveel</span> — een schip dat tegen de wind in kan, betere kaarten, kanonnen aan boord. De kennis dat de aarde rond is (de Grieken!).</p></div>
+      <div class="regio"><h4>🗺 <span class="ru">Должны были</span><span class="nl">Moesten</span></h4><p class="ru">Португалия и Испания — на краю Европы, у Атлантики, далеко от средиземноморской торговли Венеции. У них был океан и опыт Реконкисты — привычка завоёвывать «во имя веры».</p><p class="nl">Portugal en Spanje lagen aan de rand van Europa, aan de Atlantische Oceaan, ver van de Venetiaanse handel. Ze hadden de oceaan en ervaring uit de Reconquista — gewend om te veroveren "voor het geloof".</p></div>
+    </div>
+    <details class="why"><summary><span class="ru">А почему не Китай? <span class="vwo">VWO+</span></span><span class="nl">En waarom niet China?</span></summary><div class="bi">
+      <p class="ru">Китайский адмирал <b>Чжэн Хэ</b> в 1405–1433 ходил к Африке на кораблях в 4–5 раз больше, чем у Колумба. Потом император <b>запретил</b> дальние плавания: деньги нужны на защиту от кочевников на севере, а Китаю и так было почти нечего покупать за морем. Одно решение одного центра — и всё остановилось. В раздробленной Европе всё было иначе: Колумбу отказала Португалия — он пошёл к Испании. <b>Конкуренция многих государств</b> не давала идее умереть. Сравни с греческими полисами: раздробленность снова оказалась двигателем.</p>
+      <p class="nl">De Chinese admiraal <b>Zheng He</b> voer in 1405–1433 naar Afrika met schepen die 4–5 keer zo groot waren als die van Columbus. Daarna <b>verbood</b> de keizer verre reizen: het geld was nodig tegen nomaden in het noorden, en China hoefde overzee weinig te kopen. Eén besluit van één centrum — en alles stopte. In het verdeelde Europa ging het anders: Portugal wees Columbus af, dus ging hij naar Spanje. <b>Concurrentie tussen veel staten</b> liet het idee niet sterven. Vergelijk met de Griekse poleis: versnippering was weer een motor.</p>
+    </div></details>
+  </div>
+
+  <div class="card">
+    <table class="tl">
+      <tr><td>1488</td><td><span class="ru"><b>Бартоломеу Диаш</b> (Португалия) огибает южную оконечность Африки — мыс Доброй Надежды.</span><span class="nl"><b>Bartolomeu Dias</b> (Portugal) vaart rond de zuidpunt van Afrika — Kaap de Goede Hoop.</span></td></tr>
+      <tr><td>1492</td><td><span class="ru"><b>Колумб</b> (на испанские деньги) плывёт на запад, чтобы попасть в Индию, — и находит Америку (думает, что Индию: отсюда «индейцы»).</span><span class="nl"><b>Columbus</b> (met Spaans geld) vaart naar het westen om in Indië te komen — en vindt Amerika (hij denkt Indië: vandaar "indianen").</span></td></tr>
+      <tr><td>1494</td><td><span class="ru"><b>Тордесильясский договор</b>: папа делит «новый» мир между Испанией и Португалией (поэтому в Бразилии говорят по-португальски).</span><span class="nl"><b>Verdrag van Tordesillas</b>: de paus verdeelt de "nieuwe" wereld tussen Spanje en Portugal (daarom spreekt Brazilië Portugees).</span></td></tr>
+      <tr><td>1498</td><td><span class="ru"><b>Васко да Гама</b> доплывает вокруг Африки до Индии. Первый прямой путь за пряностями.</span><span class="nl"><b>Vasco da Gama</b> vaart rond Afrika naar India. De eerste directe route naar de specerijen.</span></td></tr>
+      <tr><td>1519–1522</td><td><span class="ru">Экспедиция <b>Магеллана</b> — первое кругосветное плавание (сам Магеллан погиб, вернулось 18 человек из ~240).</span><span class="nl">De tocht van <b>Magelhaen</b> — de eerste reis rond de wereld (Magelhaen zelf stierf; 18 van de ca. 240 mannen kwamen terug).</span></td></tr>
+      <tr><td>1519–1533</td><td><span class="ru"><span class="nlt">conquistadores</span>: Кортес побеждает ацтеков (Мексика), Писарро — инков (Перу). Горстка испанцев с конями, сталью, союзниками из местных народов — и <b>болезнями</b>.</span><span class="nl">De <span class="nlt">conquistadores</span>: Cortés verslaat de Azteken (Mexico), Pizarro de Inca's (Peru). Een handvol Spanjaarden met paarden, staal, inheemse bondgenoten — en <b>ziekten</b>.</span></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Последствия: кто выиграл, кто заплатил</span><span class="nl">Gevolgen: wie won, wie betaalde</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <ul>
+          <li><b>Катастрофа для коренных народов Америки</b>: оспа, корь, грипп, к которым у них не было иммунитета (вспомни эпоху 1: в Евразии люди веками жили рядом со скотом), + войны и принудительный труд → по оценкам, население упало на <b>80–90%</b> за столетие.</li>
+          <li><b>Начало трансатлантической работорговли</b>: на плантации сахара (Бразилия, Карибы) везут порабощённых африканцев — за 1500–1867 гг. около 12,5 млн человек.</li>
+          <li><span class="nlt">Columbian exchange</span> (обмен Колумба): в Европу — картофель, кукуруза, помидоры, какао, табак; в Америку — лошади, коровы, пшеница, сахарный тростник… и болезни.</li>
+          <li><b>Серебро</b> Америки (рудник Потоси) делает Испанию богатой — и тратится на войны, в том числе против Нидерландов.</li>
+          <li>Центр торговли Европы смещается со Средиземного моря к <b>Атлантике</b> — то есть к Лиссабону, Севилье, <b>Антверпену</b> и позже Амстердаму.</li>
+        </ul>
+      </div>
+      <div class="nl">
+        <ul>
+          <li><b>Een ramp voor de oorspronkelijke bewoners van Amerika</b>: pokken, mazelen en griep, waartegen ze geen afweer hadden (denk aan tijdvak 1: in Eurazië leefden mensen al eeuwen met vee), + oorlog en dwangarbeid → de bevolking daalde naar schatting met <b>80–90%</b> in een eeuw.</li>
+          <li><b>Begin van de trans-Atlantische slavenhandel</b>: voor suikerplantages (Brazilië, Caraïben) worden tot slaaf gemaakte Afrikanen vervoerd — tussen 1500 en 1867 ongeveer 12,5 miljoen mensen.</li>
+          <li><span class="nlt">Columbian exchange</span>: naar Europa aardappel, maïs, tomaat, cacao, tabak; naar Amerika paarden, koeien, tarwe, suikerriet… en ziekten.</li>
+          <li><b>Zilver</b> uit Amerika (mijn van Potosí) maakt Spanje rijk — en wordt uitgegeven aan oorlogen, ook tegen de Nederlanden.</li>
+          <li>Het centrum van de Europese handel verschuift van de Middellandse Zee naar de <b>Atlantische Oceaan</b> — naar Lissabon, Sevilla, <b>Antwerpen</b> en later Amsterdam.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="memo"><span class="ru">Колумб «открыл» Америку так же, как гость «открывает» чужую квартиру: хозяева там жили уже 15 000 лет.</span><span class="nl">Columbus "ontdekte" Amerika zoals een gast een huis "ontdekt": de bewoners woonden er al 15.000 jaar.</span></div>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: почему 600 испанцев победили империю ацтеков?</span><span class="nl">Andere mogelijkheden: waarom versloegen 600 Spanjaarden het Azteekse rijk?</span></summary><div class="bi">
+    <p class="ru">Не только из-за пушек. (1) <b>Союзники</b>: десятки тысяч воинов из народов, угнетённых ацтеками (тласкальцы), пошли с Кортесом. (2) <b>Оспа</b> убила огромную часть жителей Теночтитлана во время осады. (3) Кони, сталь и тактика. Если бы не было оспы и союзников, испанцам, вероятно, пришлось бы торговать и договариваться, как позже голландцам в Азии. Видишь: «превосходство» часто складывается из нескольких причин, и одна из них — <b>случайность биологии</b>, а не заслуга завоевателей.</p>
+    <p class="nl">Niet alleen door kanonnen. (1) <b>Bondgenoten</b>: tienduizenden strijders van volken die door de Azteken onderdrukt werden (Tlaxcalteken) gingen met Cortés mee. (2) <b>Pokken</b> doodden een groot deel van de inwoners van Tenochtitlan tijdens het beleg. (3) Paarden, staal en tactiek. Zonder pokken en bondgenoten hadden de Spanjaarden waarschijnlijk moeten handelen en onderhandelen, zoals later de Nederlanders in Azië. Je ziet: "overmacht" bestaat vaak uit meerdere oorzaken, en één daarvan is <b>toeval van de biologie</b>, geen verdienste van de veroveraars.</p>
+  </div></details>
+</section>
+
+<!-- ============ 2. RENAISSANCE ============ -->
+<section class="page" id="p-renaissance" data-title-ru="Возрождение и гуманизм" data-title-nl="Renaissance en humanisme" data-n="2">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Почему именно в богатых городах Италии люди решили, что греки и римляне знали и умели больше, чем Средневековье, — и что из этого вышло?</span><span class="nl">Waarom vonden mensen juist in de rijke steden van Italië dat Grieken en Romeinen meer wisten en konden dan de middeleeuwen — en wat kwam daaruit voort?</span></div></div>
+
+  <div class="card">
+    <div class="bi">
+      <div class="ru">
+        <p><span class="nlt">renaissance</span> = «возрождение» (ок. 1400–1600, начинается во Флоренции). Возрождают <b>античную культуру</b> — то самое <span class="nlt">erfgoed van de klassieke Oudheid</span> из эпохи 2: латинских и греческих авторов, колонны и купола, реалистичное тело в искусстве.</p>
+        <p><b>Почему Италия?</b> (1) Вокруг — римские руины, античность буквально под ногами. (2) Богатые города (Флоренция, Венеция) с купцами и банкирами — <span class="nlt">mecenassen</span> (меценаты, напр. семья Медичи), которые платят художникам, чтобы показать богатство и вкус. (3) После 1453 в Италию бегут греческие учёные из Константинополя с рукописями. Снова закон: <b>излишек + города = культура</b>.</p>
+        <p><b>Новый взгляд на человека</b>: в Средние века главное — Бог и жизнь после смерти; теперь интересны <b>сам человек</b>, его тело, ум и таланты здесь, на земле. Идеал — <span class="nlt">homo universalis</span>, разносторонний человек (Леонардо да Винчи: художник, инженер, анатом).</p>
+        <p>В искусстве: <span class="nlt">perspectief</span> (глубина на плоской картине), анатомически точные тела, портреты конкретных людей, сюжеты из античных мифов (Боттичелли, Микеланджело — Давид, Сикстинская капелла, Рафаэль).</p>
+      </div>
+      <div class="nl">
+        <p><span class="nlt">renaissance</span> = "wedergeboorte" (ca. 1400–1600, begint in Florence). Men laat de <b>cultuur van de oudheid</b> herleven — het <span class="nlt">erfgoed van de klassieke Oudheid</span> uit tijdvak 2: Latijnse en Griekse schrijvers, zuilen en koepels, het realistische lichaam in de kunst.</p>
+        <p><b>Waarom Italië?</b> (1) Overal Romeinse ruïnes — de oudheid lag letterlijk voor je voeten. (2) Rijke steden (Florence, Venetië) met kooplieden en bankiers — <span class="nlt">mecenassen</span> (bijv. de familie Medici), die kunstenaars betaalden om rijkdom en smaak te tonen. (3) Na 1453 vluchtten Griekse geleerden uit Constantinopel met handschriften naar Italië. Weer de wet: <b>overschot + steden = cultuur</b>.</p>
+        <p><b>Een nieuw mensbeeld</b>: in de middeleeuwen draaide alles om God en het leven na de dood; nu wordt <b>de mens zelf</b> interessant — zijn lichaam, verstand en talenten, hier op aarde. Het ideaal: de <span class="nlt">homo universalis</span>, een veelzijdig mens (Leonardo da Vinci: schilder, ingenieur, anatoom).</p>
+        <p>In de kunst: <span class="nlt">perspectief</span> (diepte op een plat schilderij), anatomisch juiste lichamen, portretten van echte mensen, verhalen uit de klassieke mythen (Botticelli, Michelangelo — David, Sixtijnse Kapel, Rafaël).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Гуманизм и Эразм</span><span class="nl">Humanisme en Erasmus</span></h3>
+    <div class="bi">
+      <p class="ru"><span class="nlt">humanisme</span> — движение учёных, которые изучали античные тексты <b>в оригинале</b>. Девиз: <span class="nlt">ad fontes</span> — «к источникам»: не верь пересказам, читай первоисточник. Главный гуманист Севера — <b>Эразм Роттердамский</b> (ок. 1466–1536, окно канона): издал точный греческий текст Нового Завета (1516) и показал, что в старом латинском переводе есть ошибки. В «Похвале глупости» (1511) высмеивал жадных монахов и суеверия. Но Эразм хотел <b>реформировать церковь изнутри</b>, а не раскалывать её, и с Лютером в итоге разошёлся. Ещё один нидерландский художник рубежа эпох — <b>Иероним Босх</b> (ок. 1450–1516, окно канона) со своими фантастическими картинами греха и ада.</p>
+      <p class="nl">Het <span class="nlt">humanisme</span> is een beweging van geleerden die teksten uit de oudheid <b>in de oorspronkelijke taal</b> bestudeerden. Motto: <span class="nlt">ad fontes</span> — "terug naar de bronnen": geloof de navertelling niet, lees het origineel. De belangrijkste humanist van het noorden is <b>Erasmus</b> (ca. 1466–1536, canonvenster): hij gaf een nauwkeurige Griekse tekst van het Nieuwe Testament uit (1516) en liet zien dat de oude Latijnse vertaling fouten had. In de "Lof der Zotheid" (1511) dreef hij de spot met hebzuchtige monniken en bijgeloof. Maar Erasmus wilde de kerk <b>van binnenuit verbeteren</b>, niet splitsen, en kreeg ruzie met Luther. Een Nederlandse schilder rond die tijd: <b>Jheronimus Bosch</b> (ca. 1450–1516, canonvenster) met zijn fantastische schilderijen over zonde en hel.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Книгопечатание и новая наука</span><span class="nl">Boekdrukkunst en nieuwe wetenschap</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <p>Около <b>1450</b> <b>Иоганн Гутенберг</b> (Майнц) создал печать подвижными металлическими литерами. Книга подешевела в десятки раз; к 1500 г. напечатано около 20 млн экземпляров. Это ускоритель всего: открытий (карты), гуманизма (точные античные тексты), Реформации (памфлеты Лютера) — и восстания (листовки).</p>
+        <p>Новая наука начинает <b>проверять древних</b>: <b>Коперник</b> (1543) — в центре мира Солнце, а не Земля (<span class="nlt">heliocentrisch wereldbeeld</span>); <b>Везалий</b> (1543) вскрывает тела и исправляет ошибки античного врача Галена. Обрати внимание на парадокс: начали с уважения к древним, а кончили тем, что <b>древние тоже ошибались</b>. Полностью это развернётся в эпохе 6 (научная революция).</p>
+      </div>
+      <div class="nl">
+        <p>Rond <b>1450</b> maakte <b>Johannes Gutenberg</b> (Mainz) de boekdrukkunst met losse metalen letters. Een boek werd tientallen keren goedkoper; rond 1500 waren er al zo'n 20 miljoen boeken gedrukt. Dat versnelde alles: ontdekkingen (kaarten), humanisme (nauwkeurige teksten), reformatie (pamfletten van Luther) — en de Opstand (pamfletten).</p>
+        <p>De nieuwe wetenschap begint <b>de ouden te controleren</b>: <b>Copernicus</b> (1543) — de zon staat in het midden, niet de aarde (<span class="nlt">heliocentrisch wereldbeeld</span>); <b>Vesalius</b> (1543) ontleedt lichamen en verbetert fouten van de Griekse arts Galenus. Let op de paradox: men begon met bewondering voor de ouden en eindigde met de ontdekking dat <b>de ouden ook fouten maakten</b>. Dat gaat in tijdvak 6 helemaal door (wetenschappelijke revolutie).</p>
+      </div>
+    </div>
+    <div class="memo"><span class="ru">Печатный станок — интернет XVI века: идеи распространяются быстрее, чем их успевают запретить.</span><span class="nl">De drukpers was het internet van de 16e eeuw: ideeën verspreiden zich sneller dan ze verboden kunnen worden.</span></div>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: был ли Ренессанс «разрывом» со Средневековьем?</span><span class="nl">Andere mogelijkheden: was de renaissance een "breuk" met de middeleeuwen?</span></summary><div class="bi">
+    <p class="ru">Сами гуманисты придумали слово «средние века» — как «тёмный промежуток» между великой античностью и их собственным временем. Это была <b>самореклама</b>. На деле многое шло непрерывно: университеты, готовые к работе (они средневековые!), арабские переводы Аристотеля, вера (почти все художники Возрождения писали религиозные сюжеты). Хороший вопрос для VWO+: <b>кто придумал название эпохи и зачем?</b></p>
+    <p class="nl">De humanisten zelf bedachten het woord "middeleeuwen" — als een "donkere tussentijd" tussen de grote oudheid en hun eigen tijd. Dat was <b>eigen reclame</b>. In werkelijkheid liep veel gewoon door: universiteiten (die zijn middeleeuws!), Arabische vertalingen van Aristoteles, het geloof (bijna alle renaissancekunstenaars schilderden religieuze onderwerpen). Een goede vwo+-vraag: <b>wie bedacht de naam van een periode, en waarom?</b></p>
+  </div></details>
+</section>
+
+<!-- ============ 3. REFORMATIE ============ -->
+<section class="page" id="p-reformatie" data-title-ru="Реформация" data-title-nl="Reformatie" data-n="3">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Критики церкви были и раньше — их сжигали. Почему Лютер выжил, а церковь раскололась навсегда?</span><span class="nl">Er waren al eerder critici van de kerk — die werden verbrand. Waarom overleefde Luther, en splitste de kerk voorgoed?</span></div></div>
+
+  <div class="card">
+    <div class="bi">
+      <div class="ru">
+        <p><b>Что раздражало</b>: церковь богата (владеет землёй, собирает десятину), многие священники плохо образованы, епископы живут как князья, должности продаются. Особенно — <span class="nlt">aflaten</span> (индульгенции): за деньги церковь обещала сокращение наказания за грехи. В 1517 их активно продавали в Германии для строительства собора Святого Петра в Риме.</p>
+        <p><b>1517</b>: монах и профессор <b>Мартин Лютер</b> публикует <b>95 тезисов</b> против индульгенций. Его главная мысль: человек спасается <b>только верой</b> и милостью Бога, а не покупкой индульгенций и добрыми делами; единственный авторитет — <b>Библия</b>, а не папа. Каждый должен иметь возможность читать её сам → Лютер переводит Библию на немецкий. 1521: папа отлучает Лютера, император Карл V объявляет его вне закона — но саксонский курфюрст прячет его в своём замке.</p>
+        <p>Новая церковь: <span class="nlt">protestanten</span> / <span class="nlt">lutheranen</span>. Позже <b>Жан Кальвин</b> (Женева, 1540-е) создаёт более строгое учение — <span class="nlt">calvinisme</span>: предопределение (Бог заранее решил, кто спасётся), простая церковь без статуй, церковью управляют выборные старейшины, а не епископы. Кальвинизм распространится во Франции (гугеноты), Шотландии и — особенно — в <b>Нидерландах</b>.</p>
+      </div>
+      <div class="nl">
+        <p><b>Wat ergerde mensen?</b> De kerk was rijk (land, tienden), veel priesters waren slecht opgeleid, bisschoppen leefden als vorsten, ambten werden verkocht. Vooral de <span class="nlt">aflaten</span>: voor geld beloofde de kerk minder straf voor je zonden. In 1517 werden ze in Duitsland verkocht voor de bouw van de Sint-Pieter in Rome.</p>
+        <p><b>1517</b>: de monnik en professor <b>Maarten Luther</b> publiceert <b>95 stellingen</b> tegen de aflaten. Zijn hoofdgedachte: je wordt <b>alleen door geloof</b> en Gods genade gered, niet door aflaten te kopen of goede werken; het enige gezag is de <b>Bijbel</b>, niet de paus. Iedereen moet de Bijbel zelf kunnen lezen → Luther vertaalt hem in het Duits. 1521: de paus doet Luther in de ban, keizer Karel V verklaart hem vogelvrij — maar de keurvorst van Saksen verbergt hem in zijn burcht.</p>
+        <p>Een nieuwe kerk: <span class="nlt">protestanten</span> / <span class="nlt">lutheranen</span>. Later maakt <b>Johannes Calvijn</b> (Genève, jaren 1540) een strengere leer — het <span class="nlt">calvinisme</span>: predestinatie (God heeft al bepaald wie gered wordt), een sobere kerk zonder beelden, de kerk wordt bestuurd door gekozen ouderlingen, niet door bisschoppen. Het calvinisme verspreidt zich in Frankrijk (hugenoten), Schotland en — vooral — de <b>Nederlanden</b>.</p>
+      </div>
+    </div>
+    <details class="why"><summary><span class="ru">Почему Лютер победил, а Ян Гус (сожжён в 1415) — нет?</span><span class="nl">Waarom won Luther, terwijl Jan Hus (verbrand in 1415) dat niet deed?</span></summary><div class="bi">
+      <p class="ru">Идеи похожи — изменились <b>условия</b>: (1) <b>книгопечатание</b> — за несколько недель тезисы разошлись по всей Германии, за годы — сотни тысяч экземпляров его памфлетов; (2) <b>князья</b>: Германия раздроблена (эпоха 4!), и многим князьям выгодно поддержать Лютера: можно забрать церковные земли и монастыри и не отправлять деньги в Рим; (3) <b>гуманизм</b> уже научил читать первоисточники и сомневаться; (4) император Карл V был занят войнами с Францией и турками. Без защиты князя Лютер, скорее всего, разделил бы судьбу Гуса.</p>
+      <p class="nl">De ideeën leken op elkaar — de <b>omstandigheden</b> waren anders: (1) de <b>drukpers</b> — binnen een paar weken waren de stellingen in heel Duitsland bekend, in een paar jaar honderdduizenden pamfletten; (2) de <b>vorsten</b>: Duitsland was versnipperd (tijdvak 4!) en veel vorsten hadden er belang bij Luther te steunen: ze konden kerkgrond en kloosters inpikken en hoefden geen geld meer naar Rome te sturen; (3) het <b>humanisme</b> had mensen al geleerd bronnen te lezen en te twijfelen; (4) keizer Karel V had het druk met oorlogen tegen Frankrijk en de Turken. Zonder bescherming van een vorst was Luther waarschijnlijk geëindigd zoals Hus.</p>
+    </div></details>
+    <div class="memo"><span class="ru">Лютер хотел исправить церковь, а не создать новую. Эразм хотел того же — но без шума. Шум победил: «Эразм снёс яйцо, а Лютер его высидел».</span><span class="nl">Luther wilde de kerk verbeteren, geen nieuwe maken. Erasmus wilde hetzelfde — maar zonder lawaai. Het lawaai won: "Erasmus legde het ei dat Luther uitbroedde."</span></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Ответ католической церкви</span><span class="nl">Het antwoord van de katholieke kerk</span></h3>
+    <div class="bi">
+      <p class="ru"><span class="nlt">Contrareformatie</span> (Контрреформация): <b>Тридентский собор</b> (1545–1563) исправил злоупотребления (обучение священников, запрет продажи должностей), но <b>подтвердил</b> учение: традиция и папа важны наравне с Библией. Новый орден <span class="nlt">jezuïeten</span> (1540) — учителя и миссионеры (до Японии и Южной Америки). <span class="nlt">inquisitie</span> и список запрещённых книг. Результат — <b>Европа раскололась</b>: католический юг, протестантский север, войны за веру (во Франции, Германии и… в Нидерландах). В Германии компромисс — <b>Аугсбургский мир 1555</b>: вера подданных = вера князя («чья власть, того и вера»).</p>
+      <p class="nl">De <span class="nlt">Contrareformatie</span>: het <b>Concilie van Trente</b> (1545–1563) pakte misstanden aan (opleiding van priesters, geen verkoop van ambten), maar <b>bevestigde</b> de leer: traditie en paus zijn net zo belangrijk als de Bijbel. Een nieuwe orde, de <span class="nlt">jezuïeten</span> (1540): leraren en missionarissen (tot in Japan en Zuid-Amerika). De <span class="nlt">inquisitie</span> en een lijst van verboden boeken. Gevolg: <b>Europa was gesplitst</b>: katholiek zuiden, protestants noorden, godsdienstoorlogen (in Frankrijk, Duitsland en… de Nederlanden). In Duitsland een compromis — de <b>Vrede van Augsburg 1555</b>: het geloof van de onderdanen = het geloof van de vorst ("wiens gebied, diens godsdienst").</p>
+    </div>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: возможна ли была реформа без раскола?</span><span class="nl">Andere mogelijkheden: was hervorming zonder splitsing mogelijk?</span></summary><div class="bi">
+    <p class="ru">Эразм и многие гуманисты надеялись на это. Если бы церковь в 1520-х сразу сделала то, что потом решил Тридентский собор (обучить священников, отменить индульгенции за деньги), часть недовольных, вероятно, осталась бы. Но тогда уже была <b>политика</b>: князья получили церковные земли и не хотели их отдавать. Как только к религиозному спору примешиваются <b>власть и имущество</b>, компромисс становится очень трудным. Это же произойдёт и в Нидерландах.</p>
+    <p class="nl">Erasmus en veel humanisten hoopten dat. Als de kerk in de jaren 1520 meteen had gedaan wat Trente later besloot (priesters opleiden, geen aflaten voor geld), waren veel ontevredenen misschien gebleven. Maar toen speelde er al <b>politiek</b>: vorsten hadden kerkgrond gekregen en wilden die niet teruggeven. Zodra er <b>macht en bezit</b> door een geloofsstrijd heen lopen, wordt een compromis heel moeilijk. Dat gebeurt ook in de Nederlanden.</p>
+  </div></details>
+</section>
+
+<!-- ============ 4. OPSTAND ============ -->
+<section class="page" id="p-opstand" data-title-ru="Нидерландское восстание" data-title-nl="De Opstand" data-n="4">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Как подданные самого могущественного короля мира восстали против него — и почему в итоге отделился только север?</span><span class="nl">Hoe kwamen de onderdanen van de machtigste koning ter wereld tegen hem in opstand — en waarom maakte uiteindelijk alleen het noorden zich los?</span></div></div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Карл V и Филипп II</span><span class="nl">Karel V en Filips II</span></h3>
+    <div class="bi">
+      <p class="ru"><b>Карл V</b> (1500–1558, родился в Генте, окно канона) унаследовал Нидерланды, Испанию с Америкой, Австрию и стал императором. Он объединил <b>17 провинций</b> (последней — Гелре, 1543) и сделал их одним целым (<b>Прагматическая санкция 1549</b>). Он говорил по-нидерландски, уважал знать — и при этом жёстко преследовал протестантов (<span class="nlt">plakkaten</span> — указы против ересей; первые казни лютеран — в Брюсселе, 1523). В 1555 он отрёкся. Его сын <b>Филипп II</b> вырос в Испании, по-нидерландски не говорил, правил из Мадрида через наместников и считал своим долгом <b>искоренить ересь</b>.</p>
+      <p class="nl"><b>Karel V</b> (1500–1558, geboren in Gent, canonvenster) erfde de Nederlanden, Spanje met Amerika, Oostenrijk en werd keizer. Hij voegde <b>17 gewesten</b> samen (als laatste Gelre, 1543) en maakte er één geheel van (<b>Pragmatieke Sanctie 1549</b>). Hij sprak Nederlands, respecteerde de adel — en vervolgde protestanten hard (<span class="nlt">plakkaten</span> tegen ketterij; de eerste lutheranen werden in 1523 in Brussel verbrand). In 1555 deed hij afstand. Zijn zoon <b>Filips II</b> groeide op in Spanje, sprak geen Nederlands, regeerde vanuit Madrid via landvoogden en vond het zijn plicht om <b>de ketterij uit te roeien</b>.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Причины восстания: три линии</span><span class="nl">Oorzaken van de Opstand: drie lijnen</span></h3>
+    <div class="grid g3">
+      <div class="regio"><h4>⛪ <span class="ru">Религия</span><span class="nl">Religieus</span></h4><p class="ru">Жестокие плакаты против протестантов; инквизиция; быстро растёт кальвинизм. Многие католики-горожане тоже против казней соседей.</p><p class="nl">Strenge plakkaten tegen protestanten; de inquisitie; het calvinisme groeit snel. Ook veel katholieke burgers zijn tegen het terechtstellen van hun buren.</p></div>
+      <div class="regio"><h4>🏛 <span class="ru">Политика</span><span class="nl">Politiek</span></h4><p class="ru"><b>Централизация</b>: Филипп правит через испанцев и юристов, а не через местную знать; нарушает <b>привилегии</b> городов и провинций (вспомни эпоху 4!); новые епископства (1559).</p><p class="nl"><b>Centralisatie</b>: Filips regeert via Spanjaarden en juristen, niet via de eigen adel; hij schendt de <b>privileges</b> van steden en gewesten (denk aan tijdvak 4!); nieuwe bisdommen (1559).</p></div>
+      <div class="regio"><h4>💰 <span class="ru">Экономика</span><span class="nl">Economisch</span></h4><p class="ru">Высокие налоги на войны Испании; 1565–1566 — неурожай и дорогой хлеб; позже Альба требует налог <b>«десятый пенни»</b> (10% с каждой продажи) — купцы в ярости.</p><p class="nl">Hoge belastingen voor de Spaanse oorlogen; 1565–1566 misoogst en duur brood; later eist Alva de <b>Tiende Penning</b> (10% op elke verkoop) — kooplieden woedend.</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Ход событий</span><span class="nl">Het verloop</span></h3>
+    <table class="tl">
+      <tr><td>april 1566</td><td><span class="ru"><b>Петиция дворян</b> (<span class="nlt">Smeekschrift</span>) к наместнице Маргарите Пармской: смягчить плакаты. Советник назвал их «нищими» — <span class="nlt">geuzen</span>; они с гордостью взяли это имя.</span><span class="nl">Het <span class="nlt">Smeekschrift</span> van de edelen aan landvoogdes Margaretha van Parma: matig de plakkaten. Een raadsheer noemde hen "bedelaars" — <span class="nlt">geuzen</span>; ze namen die naam trots over.</span></td></tr>
+      <tr><td>aug. 1566</td><td><span class="ru"><b>Иконоборчество</b> (<span class="nlt">Beeldenstorm</span>): кальвинисты громят статуи и картины в сотнях церквей, начиная с Фландрии. <i>Окно канона.</i></span><span class="nl">De <span class="nlt">Beeldenstorm</span>: calvinisten vernielen beelden en schilderijen in honderden kerken, eerst in Vlaanderen. <i>Canonvenster.</i></span></td></tr>
+      <tr><td>1567</td><td><span class="ru">Филипп присылает <b>герцога Альбу</b> с армией. <span class="nlt">Raad van Beroerten</span> («Кровавый совет») — более 1000 казнённых, в т.ч. графы Эгмонт и Горн (1568). Вильгельм Оранский бежит в Германию.</span><span class="nl">Filips stuurt de <b>hertog van Alva</b> met een leger. De <span class="nlt">Raad van Beroerten</span> ("Bloedraad") — meer dan 1000 doodvonnissen, o.a. de graven Egmont en Horne (1568). Willem van Oranje vlucht naar Duitsland.</span></td></tr>
+      <tr><td>1568</td><td><span class="ru">Битва при <b>Хейлигерле</b> — начало <b>Восьмидесятилетней войны</b> (1568–1648).</span><span class="nl">Slag bij <b>Heiligerlee</b> — begin van de <b>Tachtigjarige Oorlog</b> (1568–1648).</span></td></tr>
+      <tr><td>1572</td><td><span class="ru"><span class="nlt">watergeuzen</span> (морские гёзы) захватывают <b>Ден-Брил</b>; города Голландии и Зеландии переходят на сторону Оранского.</span><span class="nl">De <span class="nlt">watergeuzen</span> nemen <b>Den Briel</b> in; steden in Holland en Zeeland kiezen de kant van Oranje.</span></td></tr>
+      <tr><td>1574</td><td><span class="ru">Осада <b>Лейдена</b> снята: прорыли дамбы, и гёзы приплыли по затопленным полям (3 октября до сих пор праздник). В награду — университет (1575).</span><span class="nl">Ontzet van <b>Leiden</b>: dijken werden doorgestoken en de geuzen voeren over het ondergelopen land (3 oktober is nog steeds een feest). Als beloning: een universiteit (1575).</span></td></tr>
+      <tr><td>1576</td><td><span class="ru">Неоплаченные испанские солдаты грабят Антверпен («Испанская ярость») → <b>Гентское умиротворение</b> (<span class="nlt">Pacificatie van Gent</span>): все 17 провинций вместе против испанских войск.</span><span class="nl">Onbetaalde Spaanse soldaten plunderen Antwerpen ("Spaanse Furie") → <b>Pacificatie van Gent</b>: alle 17 gewesten samen tegen de Spaanse troepen.</span></td></tr>
+      <tr><td>1579</td><td><span class="ru">Единство распадается: южные (католические) провинции — <b>Аррасская уния</b> с королём; северные — <b>Утрехтская уния</b> (<span class="nlt">Unie van Utrecht</span>): военный союз, «основа» будущего государства.</span><span class="nl">De eenheid valt uiteen: zuidelijke (katholieke) gewesten sluiten de <b>Unie van Atrecht</b> met de koning; noordelijke de <span class="nlt">Unie van Utrecht</span>: een militair verbond, de "grondwet" van de latere staat.</span></td></tr>
+      <tr><td>1581</td><td><span class="ru"><b>Акт о клятвенном отречении</b> (<span class="nlt">Plakkaat van Verlatinghe</span>): Генеральные штаты объявляют, что Филипп больше не их государь, потому что <b>король, который угнетает подданных, — тиран</b>, и его можно отвергнуть.</span><span class="nl">Het <span class="nlt">Plakkaat van Verlatinghe</span>: de Staten-Generaal verklaren dat Filips niet langer hun vorst is, omdat <b>een koning die zijn onderdanen onderdrukt een tiran is</b>, en die mag je afzetten.</span></td></tr>
+      <tr><td>1584</td><td><span class="ru"><b>Вильгельм Оранский</b> («Молчаливый», окно канона) убит в Делфте Балтазаром Жераром.</span><span class="nl"><b>Willem van Oranje</b> ("de Zwijger", canonvenster) wordt in Delft vermoord door Balthasar Gerards.</span></td></tr>
+      <tr><td>1585</td><td><span class="ru">Испанцы берут <b>Антверпен</b>; протестанты могут уехать → десятки тысяч купцов и ремесленников бегут на север (в Амстердам, Лейден, Харлем) с деньгами и знаниями.</span><span class="nl">De Spanjaarden nemen <b>Antwerpen</b> in; protestanten mogen vertrekken → tienduizenden kooplieden en ambachtslieden trekken naar het noorden (Amsterdam, Leiden, Haarlem) met geld en kennis.</span></td></tr>
+      <tr><td>1588</td><td><span class="ru">После поиска нового государя (никто не согласился) Генеральные штаты берут власть сами → <b>Республика Соединённых провинций</b> (<span class="nlt">Republiek der Zeven Verenigde Nederlanden</span>).</span><span class="nl">Na een zoektocht naar een nieuwe vorst (niemand wilde) nemen de Staten-Generaal zelf de macht → de <span class="nlt">Republiek der Zeven Verenigde Nederlanden</span>.</span></td></tr>
+    </table>
+    <details class="why"><summary><span class="ru">Почему отделился только север? <span class="vwo">VWO+</span></span><span class="nl">Waarom maakte alleen het noorden zich los?</span></summary><div class="bi">
+      <p class="ru">Не потому, что север был «изначально протестантским» — в 1570-х большинство и там было католиками. Причины прежде всего <b>военно-географические</b>: великие реки (Рейн, Маас, Ваал) — естественный ров, который испанская армия с трудом пересекала; на севере можно затопить земли и держаться в окружённых водой городах; у гёзов был флот. Юг (Фландрия, Брабант) открыт для армии с суши, и испанский полководец <b>Фарнезе</b> его отвоевал. А уже <b>после</b> этого граница стала и религиозной: на юге протестанты уехали или перешли в католичество, на севере кальвинистская церковь стала главной. <b>Граница появилась там, где остановилась армия, а не там, где кончалась вера.</b></p>
+      <p class="nl">Niet omdat het noorden "van zichzelf protestants" was — in de jaren 1570 was ook daar de meerderheid katholiek. De oorzaken waren vooral <b>militair-geografisch</b>: de grote rivieren (Rijn, Maas, Waal) vormden een natuurlijke gracht die het Spaanse leger moeilijk overstak; in het noorden kon je land onder water zetten en je verdedigen in steden omringd door water; de geuzen hadden een vloot. Het zuiden (Vlaanderen, Brabant) lag open voor een leger over land, en de Spaanse veldheer <b>Parma</b> heroverde het. Pas <b>daarna</b> werd de grens ook een geloofsgrens: in het zuiden vertrokken of bekeerden protestanten, in het noorden werd de calvinistische kerk de belangrijkste. <b>De grens kwam te liggen waar het leger stopte, niet waar het geloof ophield.</b></p>
+    </div></details>
+    <div class="memo"><span class="ru">Акт 1581 г.: «Король существует для подданных, а не подданные для короля». Через 200 лет почти то же самое напишут американцы в Декларации независимости.</span><span class="nl">Het Plakkaat van 1581: "De vorst is er voor de onderdanen, niet de onderdanen voor de vorst." 200 jaar later schrijven de Amerikanen bijna hetzelfde in hun Onafhankelijkheidsverklaring.</span></div>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: можно ли было избежать восстания?</span><span class="nl">Andere mogelijkheden: had de Opstand voorkomen kunnen worden?</span></summary><div class="bi">
+    <p class="ru">Вероятно, да — по крайней мере в 1566. Если бы Филипп смягчил плакаты (как просили даже католические дворяне), правил через местную знать и уважал привилегии, недовольство могло остаться петициями. Сам Вильгельм Оранский долго хотел <b>не независимости</b>, а «старых прав» и терпимости. Но Филипп выбрал силу (Альба) — и сила объединила против него тех, кто раньше был разобщён. Закономерность, которую мы увидим ещё много раз: <b>жёсткие репрессии превращают недовольных в повстанцев</b> (эпоха 7: американская и французская революции).</p>
+    <p class="nl">Waarschijnlijk wel — zeker in 1566. Als Filips de plakkaten had verzacht (wat zelfs katholieke edelen vroegen), via de eigen adel had geregeerd en de privileges had gerespecteerd, was het misschien bij verzoekschriften gebleven. Willem van Oranje wilde lang <b>geen onafhankelijkheid</b>, maar "de oude rechten" en verdraagzaamheid. Maar Filips koos geweld (Alva) — en dat geweld bracht mensen die eerst verdeeld waren samen tegen hem. Een patroon dat we nog vaak zien: <b>harde onderdrukking maakt van ontevredenen opstandelingen</b> (tijdvak 7: de Amerikaanse en Franse revoluties).</p>
+  </div></details>
+</section>
+
+<!-- ============ LAB ============ -->
+<section class="page" id="p-lab" data-title-ru="Лаборатория: недовольство" data-title-nl="Lab: de onvrede" data-n="5">
+  <div class="kern"><div class="lbl">Lab</div><div class="q"><span class="ru">Почему недовольство превращается в восстание? Подвигай ползунки: налоги, преследования, цена хлеба, нарушение привилегий.</span><span class="nl">Wanneer wordt onvrede een opstand? Schuif met belasting, vervolging, broodprijs en geschonden privileges.</span></div></div>
+  <div class="card" id="lab"></div>
+  <div class="card">
+    <b><span class="ru">Эксперименты</span><span class="nl">Experimenten</span></b>
+    <ol class="ru"><li>Сравни «Карл V, 1550» и «Голодное лето 1566». Какой ползунок изменился сильнее всего? Почему иконоборчество началось именно в этот год?</li><li>Включи «Альба, 1572». Какая линия (религия, политика, экономика) теперь самая большая? Почему к восстанию присоединились и католики-купцы?</li><li>Попробуй найти настройку, при которой Филипп сохраняет и веру, и страну. Что придётся уступить?</li></ol>
+    <ol class="nl"><li>Vergelijk "Karel V, 1550" en "Hongerzomer 1566". Welke schuif veranderde het meest? Waarom begon de Beeldenstorm juist in dat jaar?</li><li>Kies "Alva, 1572". Welke lijn (geloof, politiek, economie) is nu het grootst? Waarom deden nu ook katholieke kooplieden mee?</li><li>Zoek een instelling waarbij Filips zowel het geloof als het land houdt. Wat moet hij toegeven?</li></ol>
+    <div class="memo"><span class="ru">Одна причина рождает протест. Три причины сразу — восстание. Восстанию нужен ещё и вождь (Оранский) и деньги (города Голландии).</span><span class="nl">Eén oorzaak geeft protest. Drie oorzaken tegelijk geven een opstand. En een opstand heeft ook een leider nodig (Oranje) en geld (de Hollandse steden).</span></div>
+  </div>
+</section>
+
+<footer>
+  <span class="ru">Самоучитель по истории · эпоха 5 из 10 · даты приблизительные («ca.» = около).</span>
+  <span class="nl">Zelfstudie geschiedenis · tijdvak 5 van 10 · jaartallen zijn ongeveer ("ca." = circa).</span>
+</footer>
+</main>
+
+<script src="assets/tijdvak.js"></script>
+<script>
+const CHAIN = [
+  { ru: 'Деньги городов и книгопечатание', nl: 'Geld van steden en boekdrukkunst',
+    why: ['Купцы и банкиры эпохи 4 могут финансировать плавания и художников; печать (ок. 1450) удешевляет знание.', 'Kooplieden en bankiers uit tijdvak 4 kunnen reizen en kunstenaars betalen; de drukpers (ca. 1450) maakt kennis goedkoop.'],
+    alt: ['Без печати идеи Лютера остались бы рукописями — как у Гуса, которого сожгли.', 'Zonder drukpers waren Luthers ideeën handschriften gebleven — zoals bij Hus, die verbrand werd.'] },
+  { ru: 'Поиск морского пути за пряностями', nl: 'Zeeroute naar de specerijen',
+    why: ['Посредники (турки, Венеция) делают пряности дорогими; Португалия и Испания на Атлантике; новые корабли и компас.', 'Tussenhandelaren (Turken, Venetië) maken specerijen duur; Portugal en Spanje liggen aan de oceaan; nieuwe schepen en kompas.'],
+    law: ['Где есть посредник с большой наценкой, кто-то ищет путь в обход.', 'Waar een tussenpersoon veel winst maakt, zoekt iemand een omweg.'],
+    alt: ['Китай имел флот лучше, но император запретил плавания — единый центр остановил развитие.', 'China had een betere vloot, maar de keizer verbood verre reizen — één centrum stopte alles.'] },
+  { ru: 'Колонии и обмен Колумба', nl: 'Koloniën en de Columbian exchange',
+    why: ['Конкистадоры + болезни + местные союзники → империи ацтеков и инков пали; серебро и сахар.', 'Conquistadores + ziekten + inheemse bondgenoten → Azteken en Inca\'s vallen; zilver en suiker.'],
+    alt: ['Без оспы европейцам, возможно, пришлось бы торговать, а не завоёвывать.', 'Zonder pokken hadden Europeanen misschien moeten handelen in plaats van veroveren.'] },
+  { ru: 'Возрождение античности', nl: 'Herleving van de oudheid',
+    why: ['Римские руины, богатые меценаты, греческие беженцы → интерес к античным текстам и формам.', 'Romeinse ruïnes, rijke mecenassen, Griekse vluchtelingen → belangstelling voor teksten en vormen uit de oudheid.'],
+    alt: ['Без арабских переводов и византийских рукописей возвращаться было бы почти не к чему.', 'Zonder Arabische vertalingen en Byzantijnse handschriften was er weinig om naar terug te keren.'] },
+  { ru: 'Человек в центре: гуманизм', nl: 'De mens centraal: humanisme',
+    why: ['Ad fontes: читать первоисточник; интерес к человеку и миру здесь, а не только к загробной жизни.', 'Ad fontes: lees de bron; aandacht voor de mens en de wereld hier, niet alleen voor het hiernamaals.'],
+    law: ['Читать первоисточник = рано или поздно найти ошибку у авторитета.', 'Wie de bron leest, vindt vroeg of laat een fout bij een autoriteit.'],
+    alt: ['Гуманисты не были против веры: Эразм хотел очистить церковь, а не разрушить.', 'Humanisten waren niet tegen het geloof: Erasmus wilde de kerk zuiveren, niet afbreken.'] },
+  { ru: 'Новая наука проверяет древних', nl: 'Nieuwe wetenschap controleert de ouden',
+    why: ['Коперник и Везалий (1543) наблюдают и находят ошибки Птолемея и Галена.', 'Copernicus en Vesalius (1543) observeren en vinden fouten van Ptolemaeus en Galenus.'],
+    alt: ['Церковь пока терпит гипотезы — конфликт (Галилей) начнётся в эпохе 6.', 'De kerk duldt de hypotheses nog — het conflict (Galilei) komt in tijdvak 6.'] },
+  { ru: 'Реформация Лютера', nl: 'Reformatie van Luther',
+    why: ['Индульгенции + богатство церкви → 95 тезисов (1517); печать + князья, желающие церковных земель → раскол.', 'Aflaten + rijke kerk → 95 stellingen (1517); drukpers + vorsten die kerkgrond willen → splitsing.'],
+    law: ['Религиозная идея побеждает, когда совпадает с интересами тех, у кого есть власть.', 'Een geloofsidee wint als het samenvalt met de belangen van wie macht heeft.'],
+    alt: ['Быстрая реформа церкви изнутри могла бы удержать часть недовольных.', 'Snelle hervorming van binnenuit had een deel van de ontevredenen kunnen houden.'] },
+  { ru: 'Кальвинизм в Нидерландах', nl: 'Calvinisme in de Nederlanden',
+    why: ['Грамотные города, печать, беглецы из Франции; строгая и организованная церковь с выборными старейшинами.', 'Geletterde steden, drukpers, vluchtelingen uit Frankrijk; een strenge, georganiseerde kerk met gekozen ouderlingen.'],
+    alt: ['Лютеранство в NL распространилось меньше: оно держалось на князьях, а здесь князья были против.', 'Het lutheranisme kwam in NL minder op: het rustte op vorsten, en hier was de vorst tegen.'] },
+  { ru: 'Филипп II: централизация и преследования', nl: 'Filips II: centralisatie en vervolging',
+    why: ['Правит из Испании, через чужих людей, нарушает привилегии, казнит еретиков, повышает налоги.', 'Regeert vanuit Spanje via vreemden, schendt privileges, vervolgt ketters, verhoogt belasting.'],
+    alt: ['Если бы правил как Карл V, через местную знать и мягче, — восстание могло не начаться.', 'Als hij als Karel V via de eigen adel en milder had geregeerd, was de Opstand misschien niet begonnen.'] },
+  { ru: 'Иконоборчество и Альба', nl: 'Beeldenstorm en Alva',
+    why: ['Голод + проповеди → Beeldenstorm (1566); Филипп отвечает армией Альбы и казнями.', 'Honger + hagenpreken → Beeldenstorm (1566); Filips antwoordt met het leger van Alva en doodvonnissen.'],
+    law: ['Жёсткие репрессии объединяют разных недовольных против власти.', 'Harde onderdrukking brengt verschillende ontevredenen samen tegen de macht.'],
+    alt: ['Компромисс Маргариты Пармской (1566) мог успокоить знать, но Мадрид его отверг.', 'Het compromis van Margaretha van Parma (1566) had de adel kunnen kalmeren, maar Madrid wees het af.'] },
+  { ru: 'Восстание: 1568–1588', nl: 'De Opstand: 1568–1588',
+    why: ['Гёзы (1572), Лейден (1574), Утрехтская уния (1579), отречение (1581); юг отвоёван Фарнезе.', 'Geuzen (1572), Leiden (1574), Unie van Utrecht (1579), Plakkaat (1581); het zuiden heroverd door Parma.'],
+    alt: ['Если бы Фарнезе перешёл реки, вероятно, и север вернулся бы к Испании.', 'Als Parma de rivieren was overgestoken, was waarschijnlijk ook het noorden weer Spaans geworden.'] },
+  { ru: 'Республика и беженцы с юга', nl: 'Republiek en vluchtelingen uit het zuiden',
+    why: ['1585: падение Антверпена → купцы и ремесленники на север; 1588: Генеральные штаты правят сами.', '1585: val van Antwerpen → kooplieden en ambachtslieden naar het noorden; 1588: de Staten-Generaal regeren zelf.'],
+    law: ['Беда одного города — богатство другого: Амстердам вырос на беглецах из Антверпена.', 'Het verlies van de ene stad is de winst van de andere: Amsterdam groeide met de Antwerpse vluchtelingen.'],
+    alt: ['Если бы Антверпен устоял, «Золотой век» мог случиться там, а не в Амстердаме.', 'Als Antwerpen had standgehouden, was de Gouden Eeuw misschien daar gekomen in plaats van in Amsterdam.'] }
+];
+
+const ORDER_SETS = [
+  [['Турки берут Константинополь (1453)', 'De Turken nemen Constantinopel in (1453)'], ['Пряности дорожают', 'Specerijen worden duurder'], ['Португалия ищет путь вокруг Африки', 'Portugal zoekt een route rond Afrika'], ['Васко да Гама в Индии (1498)', 'Vasco da Gama in India (1498)']],
+  [['Церковь продаёт индульгенции', 'De kerk verkoopt aflaten'], ['Лютер — 95 тезисов (1517)', 'Luther — 95 stellingen (1517)'], ['Печать распространяет его идеи', 'De drukpers verspreidt zijn ideeën'], ['Князья защищают Лютера', 'Vorsten beschermen Luther'], ['Церковь раскалывается', 'De kerk splitst']],
+  [['Smeekschrift (апр. 1566)', 'Smeekschrift (april 1566)'], ['Beeldenstorm (авг. 1566)', 'Beeldenstorm (aug. 1566)'], ['Альба и Кровавый совет (1567)', 'Alva en de Raad van Beroerten (1567)'], ['Хейлигерле (1568)', 'Heiligerlee (1568)'], ['Ден-Брил (1572)', 'Den Briel (1572)']],
+  [['Гентское умиротворение (1576)', 'Pacificatie van Gent (1576)'], ['Утрехтская уния (1579)', 'Unie van Utrecht (1579)'], ['Plakkaat van Verlatinghe (1581)', 'Plakkaat van Verlatinghe (1581)'], ['Убийство Оранского (1584)', 'Moord op Oranje (1584)'], ['Падение Антверпена (1585)', 'Val van Antwerpen (1585)']],
+  [['Богатые меценаты в Италии', 'Rijke mecenassen in Italië'], ['Интерес к античным текстам и формам', 'Belangstelling voor de oudheid'], ['Ad fontes: читать первоисточник', 'Ad fontes: de bron lezen'], ['Находят ошибки у древних и у церкви', 'Fouten vinden bij de ouden en bij de kerk']]
+];
+
+const PATHS = [
+  { t: ['Ты — король Португалии, ок. 1485. Генуэзец Колумб просит корабли, чтобы плыть на запад в Индию.', 'Jij bent koning van Portugal, ca. 1485. De Genuees Columbus vraagt schepen om naar het westen naar Indië te varen.'],
+    o: [ [['Отказать: мы уже почти обогнули Африку', 'Weigeren: we zijn bijna rond Afrika'], ['Выгода: деньги идут на надёжный путь вокруг Африки (Диаш 1488, да Гама 1498). Риск: если Колумб прав, приз достанется соседу. <b>На самом деле</b> Португалия отказала (Колумб к тому же неверно посчитал размер Земли) — и Испания получила Америку.', 'Voordeel: het geld gaat naar de zekere route rond Afrika (Dias 1488, da Gama 1498). Risico: als Columbus gelijk heeft, gaat de prijs naar de buren. <b>In werkelijkheid</b> weigerde Portugal (Columbus had bovendien de omvang van de aarde verkeerd berekend) — en kreeg Spanje Amerika.']],
+         [['Дать три корабля', 'Drie schepen geven'], ['Выгода: шанс на западный путь. Риск: маленькая цена — три корабля. Мораль для VWO+: даже правильный отказ (расчёт Колумба был неверен!) может обернуться проигрышем из-за неожиданного (Америка на пути).', 'Voordeel: kans op een westelijke route. Risico: een kleine prijs — drie schepen. Les voor vwo+: zelfs een terechte weigering (Columbus rekende verkeerd!) kan verkeerd uitpakken door iets onverwachts (Amerika lag in de weg).']] ] },
+  { t: ['Ты — немецкий князь, 1521. Император требует выдать Лютера.', 'Jij bent een Duitse vorst, 1521. De keizer eist dat je Luther uitlevert.'],
+    o: [ [['Выдать Лютера', 'Luther uitleveren'], ['Выгода: мир с императором и папой. Цена: остаёшься под властью Рима, деньги и земли церкви не твои.', 'Voordeel: vrede met keizer en paus. Prijs: je blijft onder Rome, het geld en land van de kerk zijn niet van jou.']],
+         [['Спрятать и поддержать', 'Verbergen en steunen'], ['Выгода: популярность у подданных, церковные земли и деньги остаются в стране, больше независимости от императора. Риск: война (Шмалькальденская война 1546–1547). Так поступил курфюрст Саксонии — и в 1555 князья добились права выбирать веру.', 'Voordeel: populair bij je onderdanen, kerkgrond en geld blijven in je land, meer onafhankelijkheid van de keizer. Risico: oorlog (Schmalkaldische Oorlog 1546–1547). Dat deed de keurvorst van Saksen — en in 1555 kregen de vorsten het recht het geloof te kiezen.']] ] },
+  { t: ['Ты — Филипп II, 1566. После иконоборчества знать просит смягчить плакаты.', 'Jij bent Filips II, 1566. Na de Beeldenstorm vraagt de adel om mildere plakkaten.'],
+    o: [ [['Уступить: терпимость и привилегии', 'Toegeven: verdraagzaamheid en privileges'], ['Выгода: знать и города остаются верны, налоги идут. Цена: в твоих землях живут еретики — для Филиппа это было неприемлемо по совести.', 'Voordeel: adel en steden blijven trouw, de belasting komt binnen. Prijs: er wonen ketters in je landen — voor Filips onaanvaardbaar voor zijn geweten.']],
+         [['Послать Альбу с армией', 'Alva met een leger sturen'], ['Выгода: быстрый порядок, наказание виновных. Риск: казни и налоги объединяют против тебя всех: дворян, кальвинистов, купцов. <b>Так и вышло</b>: 80-летняя война и потеря севера.', 'Voordeel: snel orde, schuldigen gestraft. Risico: doodvonnissen en belasting brengen iedereen tegen je samen: edelen, calvinisten, kooplieden. <b>Zo ging het ook</b>: een oorlog van 80 jaar en het verlies van het noorden.']] ] }
+];
+
+const WATALS = [
+  ['Что было бы, если бы турки не взяли Константинополь в 1453 г.?', 'Wat als de Turken Constantinopel in 1453 niet hadden veroverd?',
+   'Путь за пряностями через Восточное Средиземноморье остался бы относительно удобным → у Португалии было бы меньше стимула искать путь вокруг Африки (хотя она начала ещё до 1453!). Греческие учёные не бежали бы в Италию с рукописями — Возрождение, возможно, шло бы медленнее. Хороший ответ отмечает, что 1453 — <b>ускоритель</b>, а не единственная причина.',
+   'De route naar specerijen via het oostelijk Middellandse Zeegebied was dan wat makkelijker gebleven → Portugal had minder reden gehad om een route rond Afrika te zoeken (al begon het daar al vóór 1453!). Griekse geleerden waren niet met handschriften naar Italië gevlucht — de renaissance was misschien langzamer gegaan. Een goed antwoord zegt dat 1453 een <b>versneller</b> was, niet de enige oorzaak.'],
+  ['Почему Возрождение началось в Италии, а не в Нидерландах, хотя и там были богатые города?', 'Waarom begon de renaissance in Italië en niet in de Nederlanden, terwijl daar ook rijke steden waren?',
+   'В Италии было больше «материала» античности: римские руины, латинская традиция, рукописи и греческие учёные из Византии. Богатые меценаты были и там, и там — но в Италии они хотели показать связь с великим римским прошлым. Нидерланды дали своё: живопись маслом (ван Эйк), северный гуманизм (Эразм). Значит, деньги — условие, а <b>что именно</b> возродится, зависит от местного наследия.',
+   'In Italië was er meer "materiaal" uit de oudheid: Romeinse ruïnes, de Latijnse traditie, handschriften en Griekse geleerden uit Byzantium. Rijke mecenassen waren er in beide gebieden — maar in Italië wilden ze verbinding met het grote Romeinse verleden tonen. De Nederlanden brachten iets eigens: olieverfschilderkunst (Van Eyck), noordelijk humanisme (Erasmus). Geld is dus een voorwaarde, maar <b>wat</b> er herleeft, hangt af van het lokale erfgoed.'],
+  ['Как книгопечатание связано с тремя событиями эпохи: открытиями, Реформацией и восстанием?', 'Hoe hangt de boekdrukkunst samen met drie gebeurtenissen: ontdekkingen, reformatie en Opstand?',
+   'Открытия: печатные карты и отчёты путешественников быстро распространяли знания о пути. Реформация: тезисы и Библия Лютера в сотнях тысяч экземпляров — церковь не успевала запрещать. Восстание: памфлеты против Альбы, текст Плакаата 1581 г., песня «Вильгельмус». Общий механизм: <b>дешёвое тиражирование идей</b> ослабляет контроль властей над тем, что люди знают и думают.',
+   'Ontdekkingen: gedrukte kaarten en reisverslagen verspreidden kennis over routes. Reformatie: stellingen en de Bijbel van Luther in honderdduizenden exemplaren — de kerk kon het niet bijhouden. Opstand: pamfletten tegen Alva, het Plakkaat van 1581, het Wilhelmus. Het gemeenschappelijke mechanisme: <b>ideeën goedkoop vermenigvuldigen</b> maakt het voor machthebbers moeilijker te bepalen wat mensen weten en denken.'],
+  ['Была ли Восьмидесятилетняя война прежде всего религиозной войной? Приведи аргумент за и против.', 'Was de Tachtigjarige Oorlog vooral een godsdienstoorlog? Geef een argument voor en tegen.',
+   'За: начало — преследования протестантов, иконоборчество; позже Республика стала кальвинистской, а юг — католическим. Против: многие лидеры (Оранский, знать) боролись за привилегии и против централизации; к восстанию присоединились католики (Гентское умиротворение 1576); налоги (десятый пенни) разозлили купцов; граница прошла по линии фронта, а не веры. VWO+: лучше говорить о <b>сочетании</b> религиозных, политических и экономических причин.',
+   'Voor: het begon met vervolging van protestanten en de Beeldenstorm; later werd de Republiek calvinistisch en het zuiden katholiek. Tegen: veel leiders (Oranje, adel) vochten voor privileges en tegen centralisatie; ook katholieken deden mee (Pacificatie van Gent, 1576); belasting (Tiende Penning) maakte kooplieden boos; de grens lag waar het front lag, niet waar het geloof ophield. Vwo+: spreek liever van een <b>combinatie</b> van religieuze, politieke en economische oorzaken.'],
+  ['Что было бы, если бы Вильгельма Оранского не убили в 1584 г.?', 'Wat als Willem van Oranje in 1584 niet was vermoord?',
+   'Возможно, он стал бы новым государем (переговоры о титуле графа Голландии уже шли) → Нидерланды стали бы монархией Оранских, а не республикой регентов. Возможно и иначе: французский или английский принц. Республика без короля возникла отчасти <b>от безысходности</b> — никто подходящий не согласился. Значит, в истории бывают решения, которые принимают за неимением лучшего, а потом они становятся традицией.',
+   'Misschien was hij de nieuwe vorst geworden (er werd al onderhandeld over de titel graaf van Holland) → de Nederlanden waren dan een monarchie van Oranje geworden, geen republiek van regenten. Het kon ook anders: een Franse of Engelse prins. De Republiek zonder koning ontstond deels <b>uit nood</b> — niemand geschikt wilde. In de geschiedenis worden soms besluiten genomen bij gebrek aan beter, die later traditie worden.'],
+  ['Почему коренное население Америки пострадало от европейских болезней, а европейцы от американских — почти нет?', 'Waarom leden de inwoners van Amerika onder Europese ziekten, maar Europeanen nauwelijks onder Amerikaanse?',
+   'Вспомни эпоху 1: в Евразии люди тысячелетиями жили рядом с домашними животными (коровы, свиньи, куры), от которых пришли многие болезни; выжившие передавали детям устойчивость. В Америке почти не было одомашненных животных (кроме ламы) → мало «стадных» болезней → нет иммунитета к оспе и кори. <b>Длинная цепочка</b>: какие животные водились 10 000 лет назад → какие болезни → кто выжил в 1520 г.',
+   'Denk aan tijdvak 1: in Eurazië leefden mensen al duizenden jaren met huisdieren (koeien, varkens, kippen), waar veel ziekten vandaan kwamen; overlevenden gaven weerstand door. In Amerika waren bijna geen gedomesticeerde dieren (behalve de lama) → weinig "kudde"-ziekten → geen afweer tegen pokken en mazelen. Een <b>lange keten</b>: welke dieren er 10.000 jaar geleden leefden → welke ziekten → wie overleefde in 1520.']
+];
+
+const LAB = {
+  note: ['Учебная модель, а не измерение. Шкала 0–10 по каждой линии; сумма — «уровень недовольства».', 'Denkmodel, geen meting. Schaal 0–10 per lijn; de som is het "niveau van onvrede".'],
+  sliders: [
+    { k: 'g', ru: '⛪ Преследование за веру', nl: '⛪ Vervolging om het geloof', min: 0, max: 10, v: 5 },
+    { k: 'p', ru: '🏛 Нарушение привилегий / чужие правители', nl: '🏛 Geschonden privileges / vreemd bestuur', min: 0, max: 10, v: 3 },
+    { k: 'b', ru: '💰 Налоги', nl: '💰 Belasting', min: 0, max: 10, v: 4 },
+    { k: 'h', ru: '🍞 Цена хлеба (голод)', nl: '🍞 Broodprijs (honger)', min: 0, max: 10, v: 2 }
+  ],
+  presets: [
+    { ru: 'Карл V, 1550', nl: 'Karel V, 1550', v: [6, 2, 4, 2] },
+    { ru: 'Голодное лето 1566', nl: 'Hongerzomer 1566', v: [7, 5, 4, 9] },
+    { ru: 'Альба, 1572', nl: 'Alva, 1572', v: [9, 9, 10, 5] },
+    { ru: 'Терпимый король', nl: 'Verdraagzame koning', v: [1, 2, 4, 3] }
+  ],
+  calc(v) {
+    const sum = v.g + v.p + v.b + v.h, lines = [v.g, v.p, v.b + v.h].filter(x => x >= 6).length;
+    const segs = [[v.g, '#be185d', '⛪ ' + v.g], [v.p, '#7c3aed', '🏛 ' + v.p], [v.b, '#b45309', '💰 ' + v.b], [v.h, '#64748b', '🍞 ' + v.h]];
+    if (sum >= 26 && lines >= 2) return { segs, cls: 'bad', ru: `Недовольство ${sum}/40, сразу ${lines} линии «горят». Это уже восстание: против власти объединяются кальвинисты, дворяне и купцы — даже католики. Нужен вождь (Оранский) и деньги (города Голландии) — и они есть.`, nl: `Onvrede ${sum}/40, ${lines} lijnen "branden" tegelijk. Dit is een opstand: calvinisten, edelen en kooplieden — zelfs katholieken — sluiten zich aan. Er is een leider nodig (Oranje) en geld (de Hollandse steden) — en die zijn er.` };
+    if (sum >= 18) return { segs, cls: '', ru: `Недовольство ${sum}/40. Петиции, проповеди в поле, вспышки насилия (как Beeldenstorm). Власть ещё может успокоить, если уступит по самой больной линии.`, nl: `Onvrede ${sum}/40. Verzoekschriften, hagenpreken, uitbarstingen van geweld (zoals de Beeldenstorm). De vorst kan het nog sussen als hij toegeeft op het pijnlijkste punt.` };
+    return { segs, cls: 'ok', ru: `Недовольство ${sum}/40. Люди ворчат, платят налоги и остаются верны. Так было при Карле V, хотя и он преследовал протестантов: его уважали как «своего».`, nl: `Onvrede ${sum}/40. Mensen mopperen, betalen en blijven trouw. Zo was het onder Karel V, hoewel ook hij protestanten vervolgde: hij werd gezien als "een van ons".` };
+  }
+};
+
+const TERMS = [
+  ['overzeese expansie', 'заморская экспансия', 'Uitbreiding van Europese macht en handel over de oceanen.'],
+  ['ontdekkingsreis', 'экспедиция-открытие', 'Reis naar (voor Europeanen) onbekende gebieden.'],
+  ['specerijen', 'пряности', 'Peper, kruidnagel, nootmuskaat, kaneel: dure producten uit Azië.'],
+  ['tussenhandel', 'посредническая торговля', 'Handel waarbij een tussenpersoon koopt en duurder doorverkoopt.'],
+  ['karveel', 'каравелла', 'Snel zeilschip dat ook tegen de wind in kon varen.'],
+  ['kompas / astrolabium', 'компас / астролябия', 'Instrumenten om richting en positie op zee te bepalen.'],
+  ['kolonie', 'колония', 'Gebied dat door een ander land wordt bestuurd en uitgebuit.'],
+  ['conquistadores', 'конкистадоры', 'Spaanse veroveraars in Amerika (Cortés, Pizarro).'],
+  ['Verdrag van Tordesillas', 'Тордесильясский договор', 'Verdeling van de nieuwe wereld tussen Spanje en Portugal (1494).'],
+  ['Columbian exchange', 'обмен Колумба', 'Uitwisseling van planten, dieren en ziekten tussen Amerika en de rest van de wereld na 1492.'],
+  ['trans-Atlantische slavenhandel', 'трансатлантическая работорговля', 'Gedwongen vervoer van tot slaaf gemaakte Afrikanen naar Amerika.'],
+  ['plantage', 'плантация', 'Groot landbouwbedrijf voor één product (suiker, tabak), vaak met slavenarbeid.'],
+  ['renaissance', 'Возрождение', '"Wedergeboorte" van de klassieke cultuur, ca. 1400–1600, begon in Italië.'],
+  ['humanisme', 'гуманизм', 'Stroming die teksten uit de oudheid bestudeert en de mens centraal stelt.'],
+  ['ad fontes', 'к источникам', 'Motto van de humanisten: terug naar de oorspronkelijke bronnen.'],
+  ['mensbeeld / wereldbeeld', 'взгляд на человека / картина мира', 'Hoe mensen denken over de mens / over de wereld.'],
+  ['mecenas', 'меценат', 'Rijke opdrachtgever die kunstenaars en geleerden betaalt.'],
+  ['homo universalis', 'универсальный человек', 'Iemand die in veel vakken goed is (Leonardo da Vinci).'],
+  ['perspectief', 'перспектива', 'Techniek om diepte te tekenen op een plat vlak.'],
+  ['klassiek erfgoed', 'античное наследие', 'Wat we van Grieken en Romeinen hebben geërfd: teksten, kunst, bouwstijl, ideeën.'],
+  ['Erasmus', 'Эразм', 'Humanist uit Rotterdam (ca. 1466–1536), wilde de kerk van binnenuit verbeteren. Canonvenster.'],
+  ['boekdrukkunst', 'книгопечатание', 'Drukken met losse letters (Gutenberg, ca. 1450).'],
+  ['heliocentrisch wereldbeeld', 'гелиоцентрическая система', 'De zon staat in het midden en de aarde draait eromheen (Copernicus).'],
+  ['geocentrisch wereldbeeld', 'геоцентрическая система', 'De aarde staat in het midden (oude opvatting van Ptolemaeus en de kerk).'],
+  ['reformatie', 'Реформация', 'Hervorming van de kerk door Luther en Calvijn, met een splitsing als gevolg.'],
+  ['aflaat', 'индульгенция', 'Kwijtschelding van straf voor zonden, vaak tegen betaling.'],
+  ['95 stellingen', '95 тезисов', 'Kritiek van Luther op de aflaathandel (1517).'],
+  ['protestant', 'протестант', 'Christen die de katholieke kerk en de paus niet erkent (lutheraan, calvinist).'],
+  ['calvinisme', 'кальвинизм', 'Strenge protestantse leer van Calvijn: predestinatie, sobere kerk, gekozen ouderlingen.'],
+  ['predestinatie', 'предопределение', 'Geloof dat God van tevoren bepaald heeft wie gered wordt.'],
+  ['ketter / ketterij', 'еретик / ересь', 'Iemand met een geloof dat de kerk afwijst.'],
+  ['Contrareformatie', 'Контрреформация', 'Reactie van de katholieke kerk: Concilie van Trente, jezuïeten, inquisitie.'],
+  ['jezuïeten', 'иезуиты', 'Katholieke orde (1540) van leraren en missionarissen.'],
+  ['inquisitie', 'инквизиция', 'Kerkelijke rechtbank die ketters opspoorde en berechtte.'],
+  ['Karel V', 'Карл V', 'Heerser over de Nederlanden, Spanje en het Duitse Rijk (1500–1558). Canonvenster.'],
+  ['Filips II', 'Филипп II', 'Zoon van Karel V, koning van Spanje en de Nederlanden vanaf 1555.'],
+  ['landvoogd(es)', 'наместник(ца)', 'Vertegenwoordiger van de vorst in de Nederlanden.'],
+  ['plakkaat', 'плакат (указ)', 'Openbare wet of verordening, bijv. tegen ketterij.'],
+  ['Smeekschrift', 'Петиция дворян', 'Verzoek van edelen (1566) om de plakkaten te verzachten.'],
+  ['geuzen', 'гёзы', '"Bedelaars": naam van de opstandelingen; watergeuzen op zee.'],
+  ['hagenpreek', 'проповедь в поле', 'Calvinistische preek in de open lucht.'],
+  ['Beeldenstorm', 'Иконоборчество', 'Vernieling van beelden en schilderijen in kerken (1566). Canonvenster.'],
+  ['Raad van Beroerten', 'Совет по беспорядкам («Кровавый совет»)', 'Rechtbank van Alva die opstandelingen veroordeelde.'],
+  ['Tiende Penning', 'десятый пенни', 'Belasting van 10% op elke verkoop, door Alva geëist.'],
+  ['Tachtigjarige Oorlog', 'Восьмидесятилетняя война', 'Oorlog tussen de opstandige Nederlanden en Spanje (1568–1648).'],
+  ['Opstand', 'Нидерландское восстание', 'Verzet van de Nederlanden tegen Filips II.'],
+  ['Pacificatie van Gent', 'Гентское умиротворение', 'Verbond van alle gewesten tegen de Spaanse troepen (1576).'],
+  ['Unie van Utrecht', 'Утрехтская уния', 'Verbond van noordelijke gewesten (1579), basis van de Republiek.'],
+  ['Plakkaat van Verlatinghe', 'Акт о клятвенном отречении', 'Verklaring (1581) dat Filips II niet meer de vorst was.'],
+  ['Willem van Oranje', 'Вильгельм Оранский', 'Leider van de Opstand, vermoord in 1584. Canonvenster.'],
+  ['Republiek der Zeven Verenigde Nederlanden', 'Республика Соединённых провинций', 'Staat zonder koning, bestuurd door de Staten-Generaal (vanaf 1588).'],
+  ['gewest', 'провинция (область)', 'Deelgebied van de Nederlanden, bijv. Holland, Zeeland, Utrecht.']
+];
+
+const Q = [
+  { t: 'reizen', q: ['Wat was het belangrijkste economische motief voor de ontdekkingsreizen?', 'Главный экономический мотив открытий?'], o: [['specerijen zonder tussenhandelaren kopen', 'покупать пряности без посредников'], ['nieuwe landen voor boeren zoeken', 'искать землю для крестьян'], ['de aarde opmeten', 'измерить Землю'], ['de paus helpen', 'помочь папе']], a: 0, e: ['God, Gold, Glory — maar het geld kwam van de specerijenhandel.', 'Бог, золото, слава — но деньги шли от пряностей.'] },
+  { t: 'reizen', q: ['Wie bereikte in 1498 als eerste over zee India?', 'Кто первым дошёл морем до Индии в 1498?'], o: ['Vasco da Gama', 'Columbus', 'Magelhaen', 'Dias'], a: 0, e: ['Dias rondde de Kaap (1488), Columbus bereikte Amerika (1492).', 'Диаш обогнул мыс (1488), Колумб дошёл до Америки (1492).'] },
+  { t: 'reizen', q: ['Wat was de belangrijkste oorzaak van de enorme bevolkingsdaling in Amerika na 1492?', 'Главная причина огромного падения населения Америки после 1492?'], o: [['Europese ziekten zoals pokken', 'европейские болезни, например оспа'], ['hongersnood door slechte oogsten', 'голод из-за неурожаев'], ['vertrek naar Europa', 'переселение в Европу'], ['oorlogen tussen Azteken en Inca\'s', 'войны ацтеков и инков']], a: 0, e: ['Ook oorlog en dwangarbeid speelden mee.', 'А также войны и принудительный труд.'] },
+  { t: 'reizen', q: ['Welke techniek hielp Europeanen om over de oceaan te varen?', 'Какая техника помогла плавать через океан?'], o: [['kompas en karveel', 'компас и каравелла'], ['stoommachine', 'паровая машина'], ['drieslagstelsel', 'трёхполье'], ['telegraaf', 'телеграф']], a: 0, e: ['Stoommachine en telegraaf = tijdvak 8.', 'Паровая машина и телеграф — эпоха 8.'] },
+  { t: 'reizen', type: 'order', q: ['Zet in de goede volgorde.', 'Расставь по порядку.'], items: [['val van Constantinopel (1453)', 'падение Константинополя'], ['Dias rond Kaap de Goede Hoop (1488)', 'Диаш у мыса Доброй Надежды'], ['Columbus in Amerika (1492)', 'Колумб в Америке'], ['Vasco da Gama in India (1498)', 'Васко да Гама в Индии'], ['reis van Magelhaen (1519–1522)', 'плавание Магеллана']] },
+  { t: 'reizen', type: 'open', q: ['Noem twee gevolgen van de ontdekkingsreizen voor de inwoners van Amerika of Afrika.', 'Назови два следствия открытий для жителей Америки или Африки.'], model: ['Bijvoorbeeld: veel inheemse Amerikanen stierven door Europese ziekten; Azteken en Inca\'s werden veroverd; dwangarbeid in mijnen; begin van de trans-Atlantische slavenhandel waarbij Afrikanen naar plantages werden gebracht.', 'Например: множество жителей Америки умерли от болезней; ацтеки и инки завоёваны; принудительный труд в рудниках; начало трансатлантической работорговли.'], rubric: [['eerste juist gevolg', 'первое верное следствие'], ['tweede juist gevolg', 'второе верное следствие']] },
+  { t: 'renaissance', q: ['Wat betekent "renaissance"?', 'Что значит «Ренессанс»?'], o: [['wedergeboorte', 'возрождение'], ['hervorming', 'реформа'], ['ontdekking', 'открытие'], ['opstand', 'восстание']], a: 0, e: ['Wedergeboorte van de klassieke cultuur.', 'Возрождение античной культуры.'] },
+  { t: 'renaissance', q: ['Waarom begon de renaissance in Italië?', 'Почему Возрождение началось в Италии?'], o: [['rijke steden met mecenassen en overal Romeinse resten', 'богатые города с меценатами и римские руины повсюду'], ['Italië had de grootste legers', 'у Италии были крупнейшие армии'], ['de paus verbood kunst elders', 'папа запретил искусство в других местах'], ['er waren geen kerken', 'там не было церквей']], a: 0, e: ['Overschot + steden = cultuur; plus het klassieke erfgoed ter plekke.', 'Излишек + города = культура; плюс античное наследие на месте.'] },
+  { t: 'renaissance', q: ['Wat bedoelden humanisten met "ad fontes"?', 'Что гуманисты имели в виду под «ad fontes»?'], o: [['terug naar de oorspronkelijke bronnen', 'назад к первоисточникам'], ['naar de bron van de Nijl reizen', 'путешествие к истокам Нила'], ['water drinken uit een fontein', 'пить воду из фонтана'], ['de paus gehoorzamen', 'слушаться папу']], a: 0, e: ['Bijv. Erasmus en de Griekse tekst van het Nieuwe Testament.', 'Например, Эразм и греческий текст Нового Завета.'] },
+  { t: 'renaissance', q: ['Welke verandering in het mensbeeld hoort bij de renaissance?', 'Какое изменение взгляда на человека связано с Возрождением?'], o: [['De mens en zijn talenten hier op aarde werden belangrijker.', 'Человек и его таланты на земле стали важнее.'], ['Mensen geloofden niet meer in God.', 'Люди перестали верить в Бога.'], ['Alleen priesters waren nog belangrijk.', 'Важны остались только священники.'], ['Kunst werd verboden.', 'Искусство запретили.']], a: 0, e: ['Let op: de meeste renaissancemensen bleven gelovig.', 'Большинство людей Возрождения оставались верующими.'] },
+  { t: 'renaissance', q: ['Wat liet Copernicus zien?', 'Что показал Коперник?'], o: [['De aarde draait om de zon.', 'Земля вращается вокруг Солнца.'], ['De aarde is plat.', 'Земля плоская.'], ['De zon draait om de aarde.', 'Солнце вращается вокруг Земли.'], ['Amerika bestaat.', 'Америка существует.']], a: 0, e: ['Heliocentrisch wereldbeeld (1543).', 'Гелиоцентрическая система (1543).'] },
+  { t: 'renaissance', type: 'open', q: ['Leg uit waarom de boekdrukkunst belangrijk was voor de verspreiding van nieuwe ideeën.', 'Объясни, почему книгопечатание было важно для распространения новых идей.'], model: ['Met de drukpers kon je snel en goedkoop veel exemplaren van een tekst maken. Daardoor konden veel meer mensen boeken en pamfletten lezen. Nieuwe ideeën (humanisme, reformatie) verspreidden zich zo sneller dan de kerk of de vorst ze kon verbieden.', 'Печать позволяла быстро и дёшево делать много копий. Поэтому гораздо больше людей могли читать книги и памфлеты. Новые идеи распространялись быстрее, чем их успевали запретить.'], rubric: [['snel en goedkoop veel exemplaren', 'быстро и дёшево много копий'], ['meer mensen lezen', 'больше читателей'], ['ideeën verspreiden sneller dan verbod', 'идеи быстрее запретов']] },
+  { t: 'reformatie', q: ['Waar was Luther in 1517 vooral tegen?', 'Против чего прежде всего выступил Лютер в 1517?'], o: [['de verkoop van aflaten', 'продажи индульгенций'], ['het lezen van de Bijbel', 'чтения Библии'], ['de ontdekkingsreizen', 'Великих открытий'], ['de renaissancekunst', 'искусства Возрождения']], a: 0, e: ['95 stellingen.', '95 тезисов.'] },
+  { t: 'reformatie', q: ['Waarom steunden veel Duitse vorsten Luther?', 'Почему многие немецкие князья поддержали Лютера?'], o: [['Ze konden kerkgrond inpikken en werden onafhankelijker van paus en keizer.', 'Могли забрать церковные земли и стать независимее от папы и императора.'], ['Luther betaalde hen.', 'Лютер им платил.'], ['Ze wilden op kruistocht.', 'Хотели в крестовый поход.'], ['De keizer vroeg het.', 'Так просил император.']], a: 0, e: ['Geloof + belang = de reformatie won.', 'Вера + интерес = Реформация победила.'] },
+  { t: 'reformatie', q: ['Wat is kenmerkend voor het calvinisme?', 'Что характерно для кальвинизма?'], o: [['predestinatie en een sobere kerk zonder beelden', 'предопределение и простая церковь без статуй'], ['de paus als hoogste leider', 'папа как высший глава'], ['aflaten kopen', 'покупка индульгенций'], ['veel heiligenbeelden', 'много статуй святых']], a: 0, e: ['Daarom vielen calvinisten in 1566 beelden aan.', 'Поэтому кальвинисты в 1566 громили статуи.'] },
+  { t: 'reformatie', q: ['Wat was de Contrareformatie?', 'Что такое Контрреформация?'], o: [['de reactie van de katholieke kerk op de reformatie', 'ответ католической церкви на Реформацию'], ['een protestantse opstand', 'протестантское восстание'], ['de ontdekking van Amerika', 'открытие Америки'], ['een kunststroming', 'течение в искусстве']], a: 0, e: ['Trente, jezuïeten, inquisitie.', 'Тридент, иезуиты, инквизиция.'] },
+  { t: 'reformatie', type: 'open', q: ['Leg uit waarom de ideeën van Luther zich wél verspreidden, terwijl eerdere critici van de kerk werden verbrand.', 'Объясни, почему идеи Лютера распространились, хотя прежних критиков церкви сжигали.'], model: ['Door de boekdrukkunst konden de ideeën van Luther snel in grote aantallen verspreid worden. Bovendien beschermden Duitse vorsten hem, omdat zij er belang bij hadden: ze konden kerkgrond krijgen en waren minder afhankelijk van de paus.', 'Благодаря книгопечатанию идеи Лютера быстро распространялись в огромном числе копий. Кроме того, его защищали немецкие князья, у которых был свой интерес: церковные земли и независимость от папы.'], rubric: [['boekdrukkunst', 'книгопечатание'], ['bescherming door vorsten', 'защита князей'], ['belang van de vorsten (grond/onafhankelijkheid)', 'интерес князей']] },
+  { t: 'opstand', q: ['Welke oorzaak van de Opstand is een politieke oorzaak?', 'Какая причина восстания — политическая?'], o: [['Filips II schond de privileges van steden en gewesten.', 'Филипп II нарушал привилегии городов и провинций.'], ['de vervolging van protestanten', 'преследование протестантов'], ['de Tiende Penning', 'десятый пенни'], ['de hongersnood van 1566', 'голод 1566']], a: 0, e: ['Religieus, politiek, economisch: ken van elk een voorbeeld!', 'Религиозная, политическая, экономическая — знай пример каждой!'] },
+  { t: 'opstand', q: ['Wat gebeurde er in 1566?', 'Что произошло в 1566?'], o: [['het Smeekschrift en de Beeldenstorm', 'петиция дворян и иконоборчество'], ['de moord op Willem van Oranje', 'убийство Оранского'], ['de inname van Den Briel', 'взятие Ден-Брила'], ['de Unie van Utrecht', 'Утрехтская уния']], a: 0, e: ['1572 Den Briel, 1579 Unie van Utrecht, 1584 moord op Oranje.', '1572 Ден-Брил, 1579 уния, 1584 убийство.'] },
+  { t: 'opstand', q: ['Wat stond er in het Plakkaat van Verlatinghe (1581)?', 'Что было в Акте об отречении (1581)?'], o: [['Filips II was niet langer de vorst, omdat hij als een tiran regeerde.', 'Филипп II больше не государь, т.к. правил как тиран.'], ['Iedereen moest calvinist worden.', 'Все должны стать кальвинистами.'], ['Vrede met Spanje.', 'Мир с Испанией.'], ['Willem van Oranje werd koning.', 'Оранский стал королём.']], a: 0, e: ['Een vorst is er voor de onderdanen.', 'Государь существует для подданных.'] },
+  { t: 'opstand', q: ['Waarom maakte alleen het noorden zich los van Spanje?', 'Почему отделился только север?'], o: [['De grote rivieren en het water maakten het noorden moeilijk te veroveren.', 'Большие реки и вода затрудняли завоевание севера.'], ['In het noorden woonden alleen protestanten.', 'На севере жили только протестанты.'], ['Het zuiden wilde altijd al Spaans zijn.', 'Юг всегда хотел быть испанским.'], ['Spanje wilde het noorden niet hebben.', 'Испания не хотела север.']], a: 0, e: ['De grens kwam te liggen waar het leger stopte.', 'Граница прошла там, где остановилась армия.'] },
+  { t: 'opstand', type: 'order', q: ['Zet in de goede volgorde.', 'Расставь по порядку.'], items: [['Beeldenstorm (1566)', 'иконоборчество'], ['inname van Den Briel (1572)', 'взятие Ден-Брила'], ['Unie van Utrecht (1579)', 'Утрехтская уния'], ['Plakkaat van Verlatinghe (1581)', 'отречение'], ['val van Antwerpen (1585)', 'падение Антверпена']] },
+  { t: 'opstand', type: 'open', q: ['Leg uit hoe de val van Antwerpen (1585) bijdroeg aan de bloei van Amsterdam.', 'Объясни, как падение Антверпена (1585) способствовало расцвету Амстердама.'], model: ['Na de val van Antwerpen moesten protestanten vertrekken of katholiek worden. Veel rijke kooplieden en ambachtslieden vluchtten naar het noorden, vooral naar Amsterdam. Ze namen hun geld, handelscontacten en kennis mee. Bovendien blokkeerden de geuzen de Schelde, zodat Antwerpen moeilijk bereikbaar bleef.', 'После падения Антверпена протестантам пришлось уехать или стать католиками. Многие богатые купцы и ремесленники бежали на север, особенно в Амстердам, с деньгами, связями и знаниями. Кроме того, гёзы блокировали Шельду, и Антверпен остался отрезан.'], rubric: [['protestanten vertrekken naar het noorden', 'протестанты уезжают на север'], ['geld / kennis / handelscontacten mee', 'деньги / знания / связи'], ['(extra) Schelde geblokkeerd', '(доп.) Шельда заблокирована']] },
+  { t: 'redeneren', q: ['"Doordat Filips II de Tiende Penning wilde invoeren, ..." Welke aanvulling klopt?', '«Поскольку Филипп II хотел ввести десятый пенни…» Что верно?'], o: [['keerden ook katholieke kooplieden zich tegen hem.', 'против него обратились и купцы-католики.'], ['werd de drukpers uitgevonden.', 'изобрели печатный станок.'], ['ontdekte Columbus Amerika.', 'Колумб открыл Америку.'], ['werd Luther in de ban gedaan.', 'Лютера отлучили.']], a: 0, e: ['Let op de volgorde in de tijd: oorzaak vóór gevolg.', 'Следи за порядком: причина раньше следствия.'] },
+  { t: 'redeneren', type: 'open', q: ['Vergelijk de reformatie in Duitsland met de Opstand in de Nederlanden: noem één overeenkomst.', 'Сравни Реформацию в Германии и восстание в Нидерландах: назови одно сходство.'], model: ['In beide gevallen ging een geloofskwestie samen met politieke belangen: Duitse vorsten wilden onafhankelijk zijn van paus en keizer; Nederlandse edelen en steden wilden hun privileges houden tegen de centralisatie van Filips II.', 'В обоих случаях религиозный вопрос соединился с политическими интересами: немецкие князья хотели независимости от папы и императора; нидерландская знать и города — сохранить привилегии против централизации Филиппа II.'], rubric: [['geloof + politiek belang', 'вера + политический интерес'], ['juist voorbeeld uit beide gebieden', 'верный пример из обоих']] },
+  { t: 'bronnen', q: ['Een spotprent uit 1570 laat Alva zien die op kinderen staat. Wat is de beste vraag bij deze bron?', 'Карикатура 1570 г.: Альба стоит на детях. Лучший вопрос к источнику?'], o: [['Wie maakte de prent en met welk doel?', 'Кто сделал карикатуру и с какой целью?'], ['Hoe lang was Alva?', 'Какого роста был Альба?'], ['Welke kleur had zijn jas?', 'Какого цвета был его плащ?'], ['Is het papier echt?', 'Настоящая ли бумага?']], a: 0, e: ['Propaganda van de opstandelingen: partijdig, maar het laat zien hoe ze Alva wilden afschilderen.', 'Пропаганда повстанцев: пристрастна, но показывает, каким они хотели изобразить Альбу.'] },
+  { t: 'bronnen', q: ['Het Wilhelmus (ca. 1570) is een lied over Willem van Oranje. Wat voor bron is het?', '«Вильгельмус» (ок. 1570) — песня об Оранском. Что это за источник?'], o: [['een primaire bron met een duidelijk standpunt', 'первичный источник с явной позицией'], ['een neutraal geschiedenisboek', 'нейтральный учебник'], ['een archeologische vondst', 'археологическая находка'], ['een secundaire bron uit de 20e eeuw', 'вторичный источник XX века']], a: 0, e: ['Het lied wil steun voor Oranje winnen: het is propaganda uit de tijd zelf.', 'Песня должна привлечь сторонников Оранского: пропаганда того времени.'] }
+];
+
+initTijdvak({
+  id: 't5', n: 5, CHAIN, ORDER_SETS, PATHS, WATALS, TERMS, Q, LAB,
+  legUit: ['«Филипп II ввёл налоги. Началось восстание.»', 'Doordat Filips II de privileges schond, ketters liet vervolgen en de Tiende Penning wilde invoeren, keerden edelen, calvinisten en kooplieden zich tegen hem. Daardoor ontstond een brede opstand.', '"Filips II hief belasting. De Opstand begon."'],
+  topics: [['reizen', 'Ontdekkingsreizen'], ['renaissance', 'Renaissance en humanisme'], ['reformatie', 'Reformatie'], ['opstand', 'De Opstand'], ['redeneren', 'Redeneren'], ['bronnen', 'Bronnen']]
+});
+</script>
+</body>
+</html>
