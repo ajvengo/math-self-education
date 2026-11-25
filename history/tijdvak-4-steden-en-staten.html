@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tijdvak 4 · Steden en staten — самоучитель (RU/NL)</title>
+  <link rel="stylesheet" href="assets/tijdvak.css">
+</head>
+<body data-lang="both">
+<main class="container">
+  <div class="crumbs"><a href="../index.html">← Главная</a> · <a href="index.html">История / Geschiedenis</a></div>
+  <h1>Tijdvak 4 · Tijd van steden en staten</h1>
+  <p class="subtitle"><span class="ru">Высокое и позднее Средневековье (1000 – 1500): возвращение излишка, торговли и городов; бюргеры, гильдии, Ганза; спор папы и императора; крестовые походы; короли и герцоги собирают государства. Самоучитель для brugklas VWO+.</span><span class="nl">De late middeleeuwen (1000 – 1500): het overschot, de handel en de steden komen terug; burgers, gilden, de Hanze; de strijd tussen paus en keizer; kruistochten; vorsten bouwen staten. Zelfstudie voor de brugklas vwo+.</span></p>
+
+  <div class="topbar">
+    <div class="langs">
+      <span class="muted">Язык / Taal:</span>
+      <button data-setlang="ru">RU</button>
+      <button data-setlang="both" class="active">RU + NL</button>
+      <button data-setlang="nl">NL</button>
+      <span class="muted" style="margin-left:6px">· <span class="nlt">термины</span> всегда по-голландски</span>
+    </div>
+    <nav class="tabs" id="tabs"></nav>
+  </div>
+
+<!-- ============ 0. OVERZICHT ============ -->
+<section class="page" id="p-kaart" data-title-ru="Обзор" data-title-nl="Overzicht" data-n="0">
+  <div class="kern"><div class="lbl">Kernvraag van het tijdvak</div><div class="q"><span class="ru">Как возвращение излишка и денег превратило мир сеньоров и крепостных в мир городов, бюргеров и королей с чиновниками?</span><span class="nl">Hoe veranderde de terugkeer van overschot en geld de wereld van heren en horigen in een wereld van steden, burgers en vorsten met ambtenaren?</span></div></div>
+
+  <div class="bridge">
+    <div class="card"><b><span class="ru">⬅ Что досталось от эпохи 3</span><span class="nl">⬅ Wat tijdvak 3 meegaf</span></b>
+      <p><span class="ru">Поместья, крепостные, рыцари и раздробленная власть. Но к 1000 г. викинги осели, стало безопаснее, а в деревнях распространились тяжёлый плуг и трёхполье. Значит, снова появляется <b>излишек</b> — а наш главный закон из эпохи 1 гласит: излишек кормит тех, кто не работает в поле. Всё, что сломалось после Рима, начинает собираться заново, но <b>по-новому</b>.</span><span class="nl">Domeinen, horigen, ridders en versnipperde macht. Maar rond 1000 hadden de Vikingen zich gevestigd, het werd veiliger, en in de dorpen verspreidden de zware ploeg en het drieslagstelsel zich. Er komt dus weer een <b>overschot</b> — en onze hoofdwet uit tijdvak 1 zegt: het overschot voedt mensen die niet op het land werken. Wat na Rome kapotging, komt weer samen, maar <b>op een nieuwe manier</b>.</span></p>
+      <p class="muted"><a href="tijdvak-3-monniken-en-ridders.html">Tijdvak 3 · Monniken en ridders</a></p></div>
+    <div class="card"><b><span class="ru">➡ Что эта эпоха оставит следующей</span><span class="nl">➡ Wat dit tijdvak doorgeeft</span></b>
+      <p><span class="ru">Богатые и самостоятельные города (особенно в Нидерландах), книгопечатание (ок. 1450), знания, вернувшиеся из исламского мира, критику богатой церкви, государства Бургундии и Габсбургов, которые хотят больше власти и налогов. Из этих элементов в эпохе 5 вырастут Возрождение, Реформация, Великие открытия — и <b>Нидерландское восстание</b>.</span><span class="nl">Rijke en zelfstandige steden (vooral in de Nederlanden), de boekdrukkunst (ca. 1450), kennis die uit de islamitische wereld terugkwam, kritiek op de rijke kerk, en de staten van Bourgondië en Habsburg die meer macht en belasting willen. Daaruit groeien in tijdvak 5 renaissance, reformatie, ontdekkingsreizen — en <b>de Nederlandse Opstand</b>.</span></p>
+      <p class="muted"><a href="tijdvak-5-ontdekkers-en-hervormers.html">Tijdvak 5 · Ontdekkers en hervormers</a></p></div>
+  </div>
+
+  <h3><span class="ru">10 эпох — нажми, чтобы перейти</span><span class="nl">De 10 tijdvakken — klik om te wisselen</span></h3>
+  <div class="tijdvakken" id="tvGrid"></div>
+
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0"><span class="ru">Kenmerkende aspecten эпохи 4</span><span class="nl">Kenmerkende aspecten van tijdvak 4</span></h3>
+    <ol>
+      <li><span class="nlt">De opkomst van handel en ambacht die de basis legde voor het herleven van een agrarisch-urbane samenleving</span> <span class="ru">— подъём торговли и ремесла, который заложил основу возрождения аграрно-городского общества</span></li>
+      <li><span class="nlt">De opkomst van de stedelijke burgerij en de toenemende zelfstandigheid van steden</span> <span class="ru">— появление городского бюргерства и растущая самостоятельность городов</span></li>
+      <li><span class="nlt">Het conflict in de christelijke wereld over de vraag of de wereldlijke dan wel de geestelijke macht het primaat behoorde te hebben</span> <span class="ru">— спор, кто главнее: светская власть (император, короли) или духовная (папа)</span></li>
+      <li><span class="nlt">De expansie van de christelijke wereld naar buiten toe, onder andere in de vorm van de kruistochten</span> <span class="ru">— расширение христианского мира, в том числе крестовые походы</span></li>
+      <li><span class="nlt">Het begin van staatsvorming en centralisatie</span> <span class="ru">— начало образования государств и централизации</span></li>
+    </ol>
+    <p class="muted"><span class="ru">Окна канона: <b>Hebban olla vogala (ок. 1100)</b>, <b>Floris V (1254–1296)</b>, <b>Ганза (1356–1450)</b>, <b>Бургундцы (1384–1482)</b>.</span><span class="nl">Canonvensters: <b>Hebban olla vogala (ca. 1100)</b>, <b>Floris V (1254–1296)</b>, <b>De Hanze (1356–1450)</b>, <b>De Bourgondiërs (1384–1482)</b>.</span></p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Вся эпоха в одной цепочке</span><span class="nl">Het hele tijdvak in één keten</span></h3>
+    <div class="cause">
+      <div class="step"><span class="ru">Безопасность + новая агротехника</span><span class="nl">Veiligheid + nieuwe landbouwtechniek</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Излишек и рост населения</span><span class="nl">Overschot en bevolkingsgroei</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Рынки, ремесло, деньги</span><span class="nl">Markten, ambacht, geld</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Города покупают права → бюргеры</span><span class="nl">Steden kopen rechten → burgerij</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Деньги городов → король платит чиновникам и наёмникам</span><span class="nl">Geld van steden → vorst betaalt ambtenaren en huurlingen</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Централизация: государство вместо феодальной лестницы</span><span class="nl">Centralisatie: staat in plaats van leenladder</span></div>
+    </div>
+    <p class="muted"><span class="ru">Параллельно: церковь сильна как никогда (спор с императором, крестовые походы), но именно богатство и власть церкви вызовут критику в эпохе 5.</span><span class="nl">Tegelijk: de kerk is machtiger dan ooit (strijd met de keizer, kruistochten), maar juist die rijkdom en macht leiden in tijdvak 5 tot kritiek.</span></p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Шпаргалка: что изменилось по сравнению с эпохой 3</span><span class="nl">Spiekbrief: wat veranderde sinds tijdvak 3?</span></h3>
+    <div style="overflow-x:auto"><table class="cmp">
+      <tr><th></th><th><span class="ru">Эпоха 3 (500–1000)</span><span class="nl">Tijdvak 3</span></th><th><span class="ru">Эпоха 4 (1000–1500)</span><span class="nl">Tijdvak 4</span></th></tr>
+      <tr><td><span class="ru">Экономика</span><span class="nl">Economie</span></td><td><span class="ru">самообеспечение поместья</span><span class="nl">zelfvoorzienend domein</span></td><td><span class="ru">рынки, деньги, ремесло, дальняя торговля (Ганза, Фландрия, Италия)</span><span class="nl">markten, geld, ambacht, verre handel (Hanze, Vlaanderen, Italië)</span></td></tr>
+      <tr><td><span class="ru">Общество</span><span class="nl">Samenleving</span></td><td><span class="ru">три сословия: молящиеся, воюющие, работающие</span><span class="nl">drie standen: bidders, vechters, werkers</span></td><td><span class="ru">+ четвёртая сила: свободные горожане (<span class="nlt">burgers</span>)</span><span class="nl">+ een nieuwe groep: vrije <span class="nlt">burgers</span> in de stad</span></td></tr>
+      <tr><td><span class="ru">Власть</span><span class="nl">Bestuur</span></td><td><span class="ru">лены, личная верность, раздробленность</span><span class="nl">lenen, persoonlijke trouw, versnippering</span></td><td><span class="ru">король/герцог + чиновники за жалованье + налоги + собрания сословий</span><span class="nl">vorst + betaalde ambtenaren + belasting + Staten</span></td></tr>
+      <tr><td><span class="ru">Церковь</span><span class="nl">Kerk</span></td><td><span class="ru">союз с королями, миссия</span><span class="nl">verbond met koningen, missie</span></td><td><span class="ru">папа против императора; крестовые походы; соборы-готика</span><span class="nl">paus tegen keizer; kruistochten; gotische kathedralen</span></td></tr>
+      <tr><td><span class="ru">Нидерланды</span><span class="nl">Nederland</span></td><td><span class="ru">Дорестад, викинги, первые графы</span><span class="nl">Dorestad, Vikingen, eerste graven</span></td><td><span class="ru">осушение торфяников, дамбы, водные советы, города Голландии и Ганзы, Бургундия</span><span class="nl">veenontginning, dijken, waterschappen, Hollandse steden en Hanzesteden, Bourgondië</span></td></tr>
+    </table></div>
+  </div>
+</section>
+
+<!-- ============ 1. HANDEL EN AMBACHT ============ -->
+<section class="page" id="p-handel" data-title-ru="Торговля и ремесло" data-title-nl="Handel en ambacht" data-n="1">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Что разорвало порочный круг «нет торговли → нет излишка → нет торговли»?</span><span class="nl">Wat doorbrak de vicieuze cirkel "geen handel → geen overschot → geen handel"?</span></div></div>
+
+  <div class="card">
+    <span class="pill tech">🛠 Techniek</span> <span class="pill eco">🌾 Economie</span>
+    <div class="bi">
+      <div class="ru">
+        <p>Около 1000–1300 г. в Европе произошла <b>аграрная революция</b> (вторая после неолита!):</p>
+        <ul>
+          <li><span class="nlt">drieslagstelsel</span> (трёхполье): одно поле — озимые, второе — яровые, третье отдыхает (<span class="nlt">braak</span>). Раньше отдыхала половина земли, теперь треть → урожай выше примерно на треть.</li>
+          <li><b>тяжёлый колёсный плуг</b> переворачивает тяжёлую сырую почву Севера;</li>
+          <li><b>хомут</b> позволил пахать лошадью (быстрее вола); подковы;</li>
+          <li><b>водяные и ветряные мельницы</b> (мельница — первая «машина», которая работает вместо человека);</li>
+          <li><span class="nlt">ontginning</span>: распахивали новые земли — вырубали леса, осушали болота.</li>
+        </ul>
+        <p>Итог: население Европы выросло примерно с 40 до 75 млн (1000 → 1300). У крестьян появился <b>излишек, который можно продать</b>.</p>
+      </div>
+      <div class="nl">
+        <p>Rond 1000–1300 vond in Europa een <b>agrarische revolutie</b> plaats (de tweede na de Nieuwe Steentijd!):</p>
+        <ul>
+          <li>het <span class="nlt">drieslagstelsel</span>: één akker wintergraan, één zomergraan, één ligt <span class="nlt">braak</span>. Vroeger lag de helft braak, nu een derde → ongeveer een derde meer oogst.</li>
+          <li>de <b>zware ploeg</b> met wielen keert de zware natte grond van het noorden om;</li>
+          <li>het <b>haam</b> (paardentuig) maakte ploegen met een paard mogelijk (sneller dan een os); hoefijzers;</li>
+          <li><b>water- en windmolens</b> (de molen is de eerste "machine" die werk van mensen overneemt);</li>
+          <li><span class="nlt">ontginning</span>: nieuw land in gebruik nemen — bossen kappen, moerassen droogleggen.</li>
+        </ul>
+        <p>Gevolg: de bevolking van Europa groeide van ca. 40 naar 75 miljoen (1000 → 1300). Boeren kregen een <b>overschot dat ze konden verkopen</b>.</p>
+      </div>
+    </div>
+    <div class="cause">
+      <div class="step"><span class="ru">Излишек у крестьян</span><span class="nl">Overschot bij boeren</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Продают на рынке → получают монеты</span><span class="nl">Verkopen op de markt → krijgen munten</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Покупают у ремесленников (обувь, ткань, инструменты)</span><span class="nl">Kopen bij ambachtslieden (schoenen, stof, gereedschap)</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Ремесленники и купцы селятся вместе → город</span><span class="nl">Ambachtslieden en kooplieden wonen bij elkaar → stad</span></div>
+    </div>
+    <div class="bi">
+      <p class="ru">Так возникает <span class="nlt">geldeconomie</span> (денежное хозяйство) вместо <span class="nlt">ruilhandel</span>. И <b>сеньоры меняются</b>: вместо барщины им удобнее брать с крестьян деньги (аренду). Крепостная зависимость постепенно слабеет. Круг разорвался: излишек → торговля → больше смысла производить → ещё больший излишек.</p>
+      <p class="nl">Zo ontstaat een <span class="nlt">geldeconomie</span> in plaats van <span class="nlt">ruilhandel</span>. En <b>de heren veranderen</b>: in plaats van herendiensten willen ze liever geld (pacht) van de boeren. De horigheid wordt langzaam minder. De cirkel is doorbroken: overschot → handel → meer reden om te produceren → nog meer overschot.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Торговые зоны Европы</span><span class="nl">Handelsgebieden van Europa</span></h3>
+    <div class="grid g3">
+      <div class="regio"><h4>🇮🇹 <span class="ru">Италия</span><span class="nl">Italië</span></h4><p class="ru">Венеция, Генуя: пряности, шёлк с Востока (через арабских купцов). Банки, векселя, бухгалтерия.</p><p class="nl">Venetië, Genua: specerijen en zijde uit het oosten (via Arabische handelaren). Banken, wissels, boekhouden.</p></div>
+      <div class="regio"><h4>🧶 <span class="ru">Фландрия</span><span class="nl">Vlaanderen</span></h4><p class="ru">Брюгге, Гент, Ипр: <b>сукно</b> из английской шерсти. Первый «промышленный» регион Северной Европы.</p><p class="nl">Brugge, Gent, Ieper: <b>laken</b> van Engelse wol. Het eerste "industriegebied" van Noord-Europa.</p></div>
+      <div class="regio"><h4>⚓ <span class="ru">Ганза</span><span class="nl">De Hanze</span></h4><p class="ru">Союз торговых городов Севера (Любек, Гамбург; в NL — <b>Девентер, Кампен, Зволле, Зютфен</b>, Гронинген): зерно, лес, меха, сельдь, соль.</p><p class="nl">Verbond van handelssteden in het noorden (Lübeck, Hamburg; in NL <b>Deventer, Kampen, Zwolle, Zutphen</b>, Groningen): graan, hout, bont, haring, zout.</p></div>
+    </div>
+    <div class="bi" style="margin-top:10px">
+      <p class="ru">Между Севером и Югом — <b>ярмарки Шампани</b> (XII–XIII вв.), где итальянцы встречались с фламандцами. Нидерланды лежат на <b>перекрёстке</b> трёх зон: устья Рейна, Мааса и Шельды ведут вглубь Европы, а море — в Англию и Балтику. Это наш главный географический козырь на следующие 500 лет.</p>
+      <p class="nl">Tussen noord en zuid lagen de <b>jaarmarkten van Champagne</b> (12e–13e eeuw), waar Italianen en Vlamingen elkaar ontmoetten. De Nederlanden liggen op het <b>kruispunt</b> van drie gebieden: de mondingen van Rijn, Maas en Schelde gaan diep Europa in, en de zee gaat naar Engeland en de Oostzee. Dat is onze belangrijkste geografische troef voor de komende 500 jaar.</p>
+    </div>
+    <div class="memo"><span class="ru">Нидерланды — это дельта, а дельта — это «двери» в Европу. Кто живёт у дверей, тот берёт плату за вход.</span><span class="nl">Nederland is een delta, en een delta is de "voordeur" van Europa. Wie bij de deur woont, vraagt entree.</span></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">1347–1351: Чёрная смерть</span><span class="nl">1347–1351: de Zwarte Dood</span> <span class="vwo">VWO+</span></h3>
+    <div class="bi">
+      <p class="ru">Чума, пришедшая по торговым путям (!) с Чёрного моря, убила примерно <b>треть населения Европы</b>. Парадоксальное следствие: рабочих рук стало мало → выжившие крестьяне и ремесленники могли требовать <b>больше платы и свободы</b> → в Западной Европе крепостная зависимость почти исчезла. Торговля принесла и богатство, и болезнь — та же закономерность, что с римскими дорогами.</p>
+      <p class="nl">De pest kwam via de handelsroutes (!) vanaf de Zwarte Zee en doodde ongeveer <b>een derde van de bevolking van Europa</b>. Een paradoxaal gevolg: er waren minder werkers → overlevende boeren en ambachtslieden konden <b>meer loon en vrijheid</b> eisen → in West-Europa verdween de horigheid bijna. Handel bracht rijkdom én ziekte — hetzelfde patroon als bij de Romeinse wegen.</p>
+    </div>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: а если бы чума не пришла?</span><span class="nl">Andere mogelijkheden: wat als de pest niet was gekomen?</span></summary><div class="bi">
+    <p class="ru">Около 1300 г. Европа уже упёрлась в предел: земли не хватало, начался голод (Великий голод 1315–1317). Без чумы, вероятно, рабочие руки остались бы дешёвыми, а сеньоры дольше держали бы крестьян в зависимости — как это случилось в Восточной Европе, где крепостное право <b>усилилось</b> и продержалось до XIX века (в России — до 1861). Хороший пример: одно и то же событие ведёт к разным результатам в зависимости от того, <b>кто сильнее</b> — крестьяне или землевладельцы.</p>
+    <p class="nl">Rond 1300 zat Europa al aan zijn grens: er was te weinig land, er kwam honger (de Grote Hongersnood 1315–1317). Zonder pest was arbeid waarschijnlijk goedkoop gebleven en hadden heren boeren langer onvrij gehouden — zoals in Oost-Europa, waar de horigheid juist <b>sterker</b> werd en tot de 19e eeuw bleef (in Rusland tot 1861). Een mooi voorbeeld: dezelfde gebeurtenis leidt tot verschillende uitkomsten, afhankelijk van <b>wie sterker is</b> — boeren of grondbezitters.</p>
+  </div></details>
+</section>
+
+<!-- ============ 2. STEDEN EN BURGERIJ ============ -->
+<section class="page" id="p-steden" data-title-ru="Города и бюргеры" data-title-nl="Steden en burgerij" data-n="2">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Зачем сеньору давать городу свободу, если он мог им просто владеть? И почему «городской воздух делает свободным»?</span><span class="nl">Waarom zou een heer een stad vrijheid geven als hij hem gewoon kon bezitten? En waarom "maakt stadslucht vrij"?</span></div></div>
+
+  <div class="card">
+    <div class="bi">
+      <div class="ru">
+        <p>Города вырастали там, где удобно торговать: у брода, моста, на перекрёстке дорог, у замка или монастыря, у устья реки. Жители — купцы и ремесленники — хотели <b>других правил</b>, чем крестьяне поместья: свободно ездить, заключать договоры, судиться не у сеньора, а по понятному праву.</p>
+        <p>Решение: <span class="nlt">stadsrechten</span> — грамота сеньора (графа, герцога, епископа), которая даёт городу права: свой <b>суд</b>, своё <b>управление</b> (<span class="nlt">schout</span> и <span class="nlt">schepenen</span>, позже бургомистры), право на <b>рынок</b>, <b>стены</b>, сбор пошлин. Первые в Голландии — <b>Дордрехт (1220)</b>. Горожанин — <span class="nlt">burger</span> (бюргер) — лично свободен.</p>
+      </div>
+      <div class="nl">
+        <p>Steden groeiden waar handel makkelijk was: bij een doorwaadbare plek, een brug, een kruispunt, een burcht of klooster, een riviermonding. De inwoners — kooplieden en ambachtslieden — wilden <b>andere regels</b> dan de boeren op een domein: vrij reizen, contracten sluiten, en recht krijgen volgens duidelijke regels in plaats van bij de heer.</p>
+        <p>Oplossing: <span class="nlt">stadsrechten</span> — een oorkonde van de landsheer (graaf, hertog, bisschop) die de stad rechten geeft: een eigen <b>rechtbank</b>, een eigen <b>bestuur</b> (<span class="nlt">schout</span> en <span class="nlt">schepenen</span>, later burgemeesters), marktrecht, <b>stadsmuren</b>, tol heffen. De eerste in Holland: <b>Dordrecht (1220)</b>. Een stadsbewoner — een <span class="nlt">burger</span> — is persoonlijk vrij.</p>
+      </div>
+    </div>
+    <details class="why"><summary><span class="ru">Почему сеньоры давали городам права? Ведь они теряли власть!</span><span class="nl">Waarom gaven heren stadsrechten? Ze verloren toch macht!</span></summary><div class="bi">
+      <p class="ru">Потому что сделка выгодна обеим сторонам. Город платит <b>деньги</b> — регулярно и много (налоги, разовые суммы за грамоту, займы). Город может выставить <b>ополчение</b>. Город — союзник против непокорных рыцарей и соседних сеньоров. А деньги — именно то, чего у феодального правителя всегда не хватало. <b>Сеньор продаёт кусочек власти и получает деньги, на которые потом купит гораздо больше власти</b> (наёмников, чиновников). Это ключ к пункту «централизация».</p>
+      <p class="nl">Omdat beide partijen er beter van werden. De stad betaalt <b>geld</b> — regelmatig en veel (belasting, een bedrag voor de oorkonde, leningen). De stad kan een <b>schutterij</b> leveren. De stad is een bondgenoot tegen lastige ridders en buurheren. En geld is precies wat een feodale vorst altijd tekortkwam. <b>De heer verkoopt een stukje macht en krijgt geld, waarmee hij later veel meer macht koopt</b> (huurlingen, ambtenaren). Dat is de sleutel tot "centralisatie".</p>
+    </div></details>
+    <div class="memo"><span class="ru">«Stadslucht maakt vrij»: крепостной, проживший в городе год и день, становился свободным. Город — первое место в Средневековье, где свобода продаётся по цене прописки.</span><span class="nl">"Stadslucht maakt vrij": een horige die een jaar en een dag in de stad woonde, werd vrij. De stad was de eerste plek in de middeleeuwen waar je vrijheid kreeg door er te wonen.</span></div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3 style="margin-top:0"><span class="ru">Гильдии</span><span class="nl">Gilden</span></h3>
+      <div class="bi">
+        <p class="ru"><span class="nlt">gilde</span> — объединение ремесленников одной профессии (пекари, кузнецы, ткачи) или купцов. Гильдия решает: <b>кто может работать</b> в городе (только члены), <b>цены и качество</b>, обучение: <span class="nlt">leerling</span> (ученик) → <span class="nlt">gezel</span> (подмастерье) → <span class="nlt">meester</span> (мастер, после «шедевра» — <span class="nlt">meesterproef</span>). Гильдия помогала вдовам и больным. Минус: <b>нет конкуренции</b>, новичкам и чужакам трудно пробиться, новые методы тормозятся.</p>
+        <p class="nl">Een <span class="nlt">gilde</span> is een vereniging van ambachtslieden met hetzelfde beroep (bakkers, smeden, wevers) of van kooplieden. Het gilde bepaalt <b>wie in de stad mag werken</b> (alleen leden), <b>prijzen en kwaliteit</b>, de opleiding: <span class="nlt">leerling</span> → <span class="nlt">gezel</span> → <span class="nlt">meester</span> (na de <span class="nlt">meesterproef</span>). Het gilde hielp weduwen en zieken. Nadeel: <b>geen concurrentie</b>, nieuwkomers komen er moeilijk in, nieuwe methoden worden afgeremd.</p>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0"><span class="ru">Кто правит городом?</span><span class="nl">Wie bestuurt de stad?</span></h3>
+      <div class="bi">
+        <p class="ru">«Свобода» города ≠ равенство. Наверху — <span class="nlt">patriciaat</span>: богатые купеческие семьи, которые занимают места в совете. Ниже — ремесленники в гильдиях, ещё ниже — подёнщики, слуги, нищие без прав горожанина. Ремесленники часто <b>боролись за место в управлении</b> (во Фландрии — восстания ткачей). Знакомая логика из Афин: кто платит налоги и защищает стены, тот требует голоса.</p>
+        <p class="nl">Een "vrije" stad ≠ gelijkheid. Bovenaan staat het <span class="nlt">patriciaat</span>: rijke koopmansfamilies die in het stadsbestuur zitten. Daaronder ambachtslieden in de gilden, daaronder dagloners, knechten en armen zonder burgerrecht. Ambachtslieden <b>vochten vaak voor inspraak</b> (in Vlaanderen: opstanden van wevers). Bekende logica uit Athene: wie belasting betaalt en de muren verdedigt, eist inspraak.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Ганза и голландские города</span><span class="nl">De Hanze en de Hollandse steden</span></h3>
+    <div class="bi">
+      <p class="ru"><span class="nlt">Hanze</span> — с XIII в. союз купцов, а с 1356 — союз городов (около 200!). Вместе они добивались привилегий в чужих портах, защищали корабли от пиратов, вводили общие правила. <b>Девентер, Кампен, Зволле, Зютфен, Хардервейк</b> на реке Эйссел богатели как перевалочные пункты (окно канона). В XV в. Ганза слабеет: голландские города (Амстердам!) возят балтийское зерно дешевле и сами — так начинается подъём Голландии к «Золотому веку» (эпоха 6). Ранний язык: фраза <b>«Hebban olla vogala nestas hagunnan…»</b> («Все птицы начали вить гнёзда…», ок. 1100) — одна из старейших записей на древненидерландском (окно канона).</p>
+      <p class="nl">De <span class="nlt">Hanze</span> was vanaf de 13e eeuw een verbond van kooplieden en vanaf 1356 een verbond van steden (zo'n 200!). Samen kregen ze voorrechten in buitenlandse havens, beschermden ze schepen tegen piraten en maakten ze gezamenlijke regels. <b>Deventer, Kampen, Zwolle, Zutphen, Harderwijk</b> aan de IJssel werden rijk als overslagplaatsen (canonvenster). In de 15e eeuw wordt de Hanze zwakker: Hollandse steden (Amsterdam!) vervoeren Oostzeegraan goedkoper zelf — het begin van de opkomst van Holland naar de Gouden Eeuw (tijdvak 6). Vroege taal: <b>"Hebban olla vogala nestas hagunnan…"</b> ("Alle vogels zijn nesten begonnen…", ca. 1100) — een van de oudste zinnen in het Oudnederlands (canonvenster).</p>
+    </div>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: города-государства или города внутри государства?</span><span class="nl">Andere mogelijkheden: stadstaten of steden binnen een staat?</span></summary><div class="bi">
+    <p class="ru">В Италии (Венеция, Флоренция) города стали <b>полностью независимыми государствами</b> — как греческие полисы. В Германии многие стали «вольными имперскими городами». А во Франции и Англии города остались <b>под властью короля</b>, но с правами. В Нидерландах — середина: сильные города с привилегиями внутри графств, и они будут <b>защищать свои привилегии</b> от централизующих правителей. Именно это станет одной из причин Нидерландского восстания (эпоха 5). Почему в Италии получилось иначе? (Подсказка: император был далеко и спорил с папой.)</p>
+    <p class="nl">In Italië werden steden (Venetië, Florence) <b>helemaal zelfstandige staten</b> — net als Griekse poleis. In Duitsland werden veel steden "vrije rijkssteden". In Frankrijk en Engeland bleven steden <b>onder de koning</b>, wel met rechten. In de Nederlanden zat het ertussenin: sterke steden met privileges binnen graafschappen, die <b>hun privileges zullen verdedigen</b> tegen vorsten die willen centraliseren. Dat wordt een van de oorzaken van de Opstand (tijdvak 5). Waarom ging het in Italië anders? (Tip: de keizer was ver weg en had ruzie met de paus.)</p>
+  </div></details>
+</section>
+
+<!-- ============ 3. PAUS EN KEIZER, KRUISTOCHTEN ============ -->
+<section class="page" id="p-kerk" data-title-ru="Папа, император, крестоносцы" data-title-nl="Paus, keizer, kruistochten" data-n="3">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Кто главнее в христианском мире — папа или император? И почему тысячи людей пошли воевать за тысячи километров, в Иерусалим?</span><span class="nl">Wie is de baas in de christelijke wereld — de paus of de keizer? En waarom trokken duizenden mensen duizenden kilometers ver om te vechten, naar Jeruzalem?</span></div></div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Борьба за инвеституру (1075–1122)</span><span class="nl">De investituurstrijd (1075–1122)</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <p>Епископы в Средние века были не только священниками, но и <b>крупными феодалами</b>: у них земли, рыцари, суды (например, епископ Утрехта правил большой областью). Поэтому император хотел сам назначать епископов — своих людей. Назначение и вручение посоха и кольца называлось <span class="nlt">investituur</span>.</p>
+        <p>Папа <b>Григорий VII</b> (1075) сказал: назначать епископов может только церковь, а папа выше любого короля. Император <b>Генрих IV</b> отказался → папа отлучил его от церкви (<span class="nlt">excommunicatie</span>) → вассалы перестали подчиняться отлучённому → в <b>1077</b> Генрих в рубище три дня стоял на снегу у замка <b>Каносса</b>, прося прощения. Спор закончился компромиссом — <b>Вормсский конкордат 1122</b>: епископа выбирает церковь, а земли ему как вассалу даёт император.</p>
+      </div>
+      <div class="nl">
+        <p>Bisschoppen waren in de middeleeuwen niet alleen geestelijken, maar ook <b>grote leenheren</b>: ze hadden land, ridders en rechtbanken (de bisschop van Utrecht regeerde bijvoorbeeld over een groot gebied). Daarom wilde de keizer zelf bisschoppen benoemen — zijn eigen mensen. Het benoemen en geven van staf en ring heette de <span class="nlt">investituur</span>.</p>
+        <p>Paus <b>Gregorius VII</b> (1075) zei: alleen de kerk mag bisschoppen benoemen, en de paus staat boven elke koning. Keizer <b>Hendrik IV</b> weigerde → de paus deed hem in de ban (<span class="nlt">excommunicatie</span>) → leenmannen hoefden een gebannen keizer niet meer te gehoorzamen → in <b>1077</b> stond Hendrik drie dagen in boetekleed in de sneeuw bij de burcht van <b>Canossa</b> om vergeving te vragen. Het conflict eindigde met een compromis — het <b>Concordaat van Worms (1122)</b>: de kerk kiest de bisschop, de keizer geeft hem het land als leen.</p>
+      </div>
+    </div>
+    <details class="why"><summary><span class="ru">Почему отлучение было таким сильным оружием?</span><span class="nl">Waarom was de ban zo'n sterk wapen?</span></summary><div class="bi">
+      <p class="ru">Вспомни эпоху 3: власть короля держится на <b>клятве верности</b>, а клятву дают перед Богом. Если церковь объявляет короля вне церкви, клятвы ему больше не действуют. Вассалы, которые и так хотели больше свободы, получают <b>законный повод</b> не подчиняться. Сила папы — не в армии, а в том, что вся феодальная система построена на религиозной верности. Отсюда и вопрос kenmerkend aspect: <b>primaat</b> (первенство) — у светской или духовной власти?</p>
+      <p class="nl">Denk aan tijdvak 3: de macht van de koning rust op de <b>eed van trouw</b>, en die eed zweer je voor God. Als de kerk de koning buiten de kerk zet, gelden de eden aan hem niet meer. Leenmannen die toch al meer vrijheid wilden, krijgen een <b>rechtvaardiging</b> om niet te gehoorzamen. De macht van de paus zat niet in een leger, maar in het feit dat het hele leenstelsel op geloof en trouw rustte. Vandaar de vraag van het kenmerkend aspect: wie heeft het <b>primaat</b> — de wereldlijke of de geestelijke macht?</p>
+    </div></details>
+    <div class="memo"><span class="ru">«Идти в Каноссу» до сих пор значит «униженно просить прощения». Самый могущественный человек Европы три дня мёрз у дверей — и всё ради того, чтобы вассалы снова его слушались.</span><span class="nl">"Naar Canossa gaan" betekent nog steeds "diep door het stof gaan". De machtigste man van Europa stond drie dagen te vriezen voor de deur — allemaal zodat zijn leenmannen weer luisterden.</span></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Крестовые походы (1096–1291)</span><span class="nl">De kruistochten (1096–1291)</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <p><b>1095</b>: византийский император просит помощи против турок-сельджуков. Папа <b>Урбан II</b> призывает рыцарей освободить <b>Иерусалим</b> и Святую землю; участникам обещано прощение грехов. <b>1099</b>: крестоносцы берут Иерусалим (с жестокой резнёй мусульман и евреев) и основывают <b>государства крестоносцев</b>. Мусульмане отвоёвывают их: Саладин берёт Иерусалим в 1187, последняя крепость Акко пала в <b>1291</b>. Всего около восьми больших походов.</p>
+        <p><b>Мотивы — смешанные</b>: вера и прощение грехов; власть папы (он, а не император, «командует» христианским миром); земли и добыча для младших сыновей знати (лен наследует старший!); торговля для Венеции и Генуи; приключение.</p>
+        <p>Другие формы <b>расширения христианского мира</b>: <span class="nlt">Reconquista</span> в Испании (до 1492), немецкая колонизация на восток, крещение Скандинавии и Прибалтики.</p>
+      </div>
+      <div class="nl">
+        <p><b>1095</b>: de Byzantijnse keizer vraagt hulp tegen de Seltsjoekse Turken. Paus <b>Urbanus II</b> roept ridders op om <b>Jeruzalem</b> en het Heilige Land te bevrijden; wie meegaat krijgt vergeving van zonden. <b>1099</b>: de kruisvaarders veroveren Jeruzalem (met een wrede slachting onder moslims en joden) en stichten <b>kruisvaardersstaten</b>. Moslims heroveren ze: Saladin neemt Jeruzalem in 1187, de laatste burcht Akko valt in <b>1291</b>. In totaal ongeveer acht grote kruistochten.</p>
+        <p><b>Motieven — gemengd</b>: geloof en vergeving van zonden; macht van de paus (hij, niet de keizer, "leidt" de christelijke wereld); land en buit voor jongere zonen van edelen (de oudste erft het leen!); handel voor Venetië en Genua; avontuur.</p>
+        <p>Andere vormen van <b>expansie van de christelijke wereld</b>: de <span class="nlt">Reconquista</span> in Spanje (tot 1492), Duitse kolonisatie naar het oosten, de bekering van Scandinavië en het Balticum.</p>
+      </div>
+    </div>
+    <details class="why"><summary><span class="ru">Что крестовые походы изменили в Европе? <span class="vwo">VWO+</span></span><span class="nl">Wat veranderden de kruistochten in Europa?</span></summary><div class="bi">
+      <p class="ru">Военная цель провалилась (в 1291 всё потеряно), но последствия были большими: (1) <b>торговля</b> — итальянские города богатеют на перевозке крестоносцев и восточных товаров (пряности, сахар, шёлк) → спрос на эти товары в Европе; (2) <b>знания</b> — больше контактов с исламским и византийским миром; (3) <b>деньги и власть</b> — многие рыцари продали или заложили земли, чтобы пойти в поход → короли и города усилились; (4) <b>ненависть</b> — погромы евреев в Европе, разграбление христианского Константинополя крестоносцами (1204). Осторожно: многие знания пришли скорее через Испанию и Сицилию, чем через крестовые походы.</p>
+      <p class="nl">Het militaire doel mislukte (in 1291 was alles weg), maar de gevolgen waren groot: (1) <b>handel</b> — Italiaanse steden werden rijk door het vervoer van kruisvaarders en oosterse producten (specerijen, suiker, zijde) → vraag naar die producten in Europa; (2) <b>kennis</b> — meer contact met de islamitische en Byzantijnse wereld; (3) <b>geld en macht</b> — veel ridders verkochten of verpandden land voor de tocht → koningen en steden werden sterker; (4) <b>haat</b> — jodenvervolgingen in Europa, plundering van het christelijke Constantinopel door kruisvaarders (1204). Let op: veel kennis kwam eerder via Spanje en Sicilië dan via de kruistochten.</p>
+    </div></details>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: а если бы папа проиграл императору?</span><span class="nl">Andere mogelijkheden: wat als de paus van de keizer had verloren?</span></summary><div class="bi">
+    <p class="ru">Тогда церковь Запада могла бы стать, как в Византии, <b>частью государства</b>: император назначает патриарха и решает дела церкви. На Западе же спор папы и императора привёл к важной идее: <b>светская и духовная власть — разные вещи</b>. Из этой идеи через много веков вырастет отделение церкви от государства (эпохи 7–8). Даже в проигрыше спорящие стороны создали что-то новое: взаимное ограничение власти.</p>
+    <p class="nl">Dan was de westerse kerk misschien, net als in Byzantium, <b>een deel van de staat</b> geworden: de keizer benoemt de patriarch en beslist over de kerk. In het westen leidde de strijd tot een belangrijk idee: <b>wereldlijke en geestelijke macht zijn verschillende dingen</b>. Daaruit groeit eeuwen later de scheiding van kerk en staat (tijdvak 7–8). Zelfs in de strijd maakten de partijen iets nieuws: ze beperkten elkaars macht.</p>
+  </div></details>
+</section>
+
+<!-- ============ 4. STAATSVORMING ============ -->
+<section class="page" id="p-staat" data-title-ru="Государство и централизация" data-title-nl="Staatsvorming en centralisatie" data-n="4">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Как правитель выбирается из феодальной «лестницы», где все ему что-то должны, но мало кто слушается?</span><span class="nl">Hoe komt een vorst los van de feodale "ladder", waarin iedereen hem iets verschuldigd is, maar bijna niemand gehoorzaamt?</span></div></div>
+
+  <div class="card">
+    <div class="bi">
+      <div class="ru">
+        <p><span class="nlt">staatsvorming</span> — образование государства: одна власть над определённой территорией с <b>общими законами, налогами, судом и армией</b>. <span class="nlt">centralisatie</span> — власть собирается в одном центре (у короля, герцога), а местные сеньоры теряют самостоятельность.</p>
+        <p>Как это делали правители:</p>
+        <ul>
+          <li><b>Деньги вместо земли</b>: налоги, пошлины и займы у городов → платные <span class="nlt">ambtenaren</span> (чиновники), которых можно уволить (в отличие от вассалов!), и <span class="nlt">huurlingen</span> (наёмники).</li>
+          <li><b>Суд</b>: высший суд правителя, куда можно жаловаться на местного сеньора; изучение римского права в университетах.</li>
+          <li><b>Брак и наследство</b>: области собирали через выгодные свадьбы (Бургундцы и Габсбурги — чемпионы).</li>
+          <li><b>Собрания сословий</b>: чтобы получить налог, правитель созывал представителей знати, духовенства и городов — <span class="nlt">Staten</span> (в Англии — <b>парламент</b>, после <b>Великой хартии вольностей 1215</b>, ограничившей короля).</li>
+        </ul>
+      </div>
+      <div class="nl">
+        <p><span class="nlt">staatsvorming</span> is het ontstaan van een staat: één gezag over een bepaald gebied met <b>dezelfde wetten, belasting, rechtspraak en leger</b>. <span class="nlt">centralisatie</span>: de macht komt in één centrum (bij de koning of hertog), en plaatselijke heren verliezen hun zelfstandigheid.</p>
+        <p>Hoe deden vorsten dat?</p>
+        <ul>
+          <li><b>Geld in plaats van grond</b>: belasting, tol en leningen van steden → betaalde <span class="nlt">ambtenaren</span> die je kunt ontslaan (anders dan leenmannen!) en <span class="nlt">huurlingen</span>.</li>
+          <li><b>Rechtspraak</b>: een hoogste rechtbank van de vorst, waar je kunt klagen over je plaatselijke heer; Romeins recht aan de universiteiten.</li>
+          <li><b>Huwelijk en erfenis</b>: gebieden verzamelen via slimme huwelijken (Bourgondiërs en Habsburgers waren daar kampioen in).</li>
+          <li><b>Vergaderingen</b>: om belasting te krijgen riep de vorst vertegenwoordigers van adel, geestelijkheid en steden bijeen — de <span class="nlt">Staten</span> (in Engeland het <b>parlement</b>, na de <b>Magna Carta van 1215</b>, die de koning beperkte).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cause">
+      <div class="step"><span class="ru">Торговля → деньги у городов</span><span class="nl">Handel → geld bij de steden</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Правитель получает налоги и займы</span><span class="nl">Vorst krijgt belasting en leningen</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Платит чиновникам и наёмникам</span><span class="nl">Betaalt ambtenaren en huurlingen</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Меньше зависит от вассалов → централизация</span><span class="nl">Minder afhankelijk van leenmannen → centralisatie</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Но: за налоги города требуют прав (Staten)</span><span class="nl">Maar: voor belasting eisen steden inspraak (Staten)</span></div>
+    </div>
+    <div class="memo"><span class="ru">Вассала, который тебя не слушается, уволить нельзя — у него лен. Чиновника можно — у него только жалованье. В этом вся централизация.</span><span class="nl">Een leenman die niet luistert, kun je niet ontslaan — hij heeft een leen. Een ambtenaar wel — hij heeft alleen een salaris. Dat is centralisatie in één zin.</span></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Нидерланды: от графов к Бургундии</span><span class="nl">De Nederlanden: van graven naar Bourgondië</span></h3>
+    <table class="tl">
+      <tr><td>1254–1296</td><td><span class="ru"><b>Флорис V</b>, граф Голландии: поддерживал города и свободных крестьян («бог мужиков» — <i>der keerlen god</i>), завоевал Западную Фрисландию, давал права городам. Убит заговорщиками-дворянами (1296) — знать боялась его союза с простыми людьми. <i>Окно канона.</i></span><span class="nl"><b>Floris V</b>, graaf van Holland: steunde steden en vrije boeren ("der keerlen god"), veroverde West-Friesland, gaf stadsrechten. Vermoord door edelen (1296) — de adel was bang voor zijn verbond met gewone mensen. <i>Canonvenster.</i></span></td></tr>
+      <tr><td>1350–1490</td><td><span class="ru"><b>Хукские и Кабельяусские распри</b> (<span class="nlt">Hoekse en Kabeljauwse twisten</span>): партии знати и городов воюют за власть в Голландии — пример того, как раздроблённая власть приводит к гражданским войнам.</span><span class="nl"><b>Hoekse en Kabeljauwse twisten</b>: partijen van edelen en steden vechten om de macht in Holland — een voorbeeld van hoe versnipperde macht tot burgeroorlog leidt.</span></td></tr>
+      <tr><td>1384–1482</td><td><span class="ru"><b>Бургундцы</b> (<span class="nlt">Bourgondiërs</span>): герцоги Бургундии через браки, покупки и войны собирают почти все Нидерланды. <b>Филипп Добрый</b> (1419–1467) — главный «собиратель». <i>Окно канона.</i></span><span class="nl"><b>De Bourgondiërs</b>: de hertogen van Bourgondië verzamelen via huwelijken, aankopen en oorlog bijna alle Nederlanden. <b>Filips de Goede</b> (1419–1467) is de grote "verzamelaar". <i>Canonvenster.</i></span></td></tr>
+      <tr><td>1464</td><td><span class="ru">Первые <b>Генеральные штаты</b> (<span class="nlt">Staten-Generaal</span>) — общее собрание представителей всех областей в Брюгге. Также центральные органы: Большой совет (суд), Счётная палата.</span><span class="nl">De eerste <span class="nlt">Staten-Generaal</span> in Brugge — vergadering van vertegenwoordigers van alle gewesten. Ook centrale instellingen: de Grote Raad (rechtspraak), de Rekenkamer.</span></td></tr>
+      <tr><td>1477</td><td><span class="ru">Карл Смелый погиб; его дочь <b>Мария Бургундская</b> вынуждена дать областям и городам <b>Великую привилегию</b> (<span class="nlt">Groot Privilege</span>), вернувшую им права. Она выходит замуж за Максимилиана Габсбурга → Нидерланды достаются <b>Габсбургам</b> (мост в эпоху 5: Карл V).</span><span class="nl">Karel de Stoute sneuvelt; zijn dochter <b>Maria van Bourgondië</b> moet de gewesten en steden het <span class="nlt">Groot Privilege</span> geven, dat hun rechten teruggaf. Ze trouwt met Maximiliaan van Habsburg → de Nederlanden komen bij de <b>Habsburgers</b> (brug naar tijdvak 5: Karel V).</span></td></tr>
+    </table>
+    <details class="why"><summary><span class="ru">Почему в Нидерландах централизация шла труднее, чем во Франции?</span><span class="nl">Waarom ging centralisatie in de Nederlanden moeilijker dan in Frankrijk?</span></summary><div class="bi">
+      <p class="ru">Потому что здесь были <b>очень богатые и сильные города</b> с давними привилегиями. Правителю были нужны их деньги, но каждый раз за деньги они требовали подтверждения прав. Как только правитель слабел (1477), города отбирали права назад. Это <b>торг</b>, который в 1568 перерастёт в восстание: Филипп II захочет централизовать по-испански — а города и знать скажут «нет».</p>
+      <p class="nl">Omdat hier <b>heel rijke en sterke steden</b> met oude privileges waren. De vorst had hun geld nodig, maar elke keer eisten ze in ruil een bevestiging van hun rechten. Zodra de vorst zwak was (1477), haalden de steden hun rechten terug. Een <b>onderhandeling</b> die in 1568 uitgroeit tot een opstand: Filips II wil centraliseren op Spaanse wijze — en steden en adel zeggen "nee".</p>
+    </div></details>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: королевство или федерация?</span><span class="nl">Andere mogelijkheden: koninkrijk of federatie?</span></summary><div class="bi">
+    <p class="ru">Во Франции победил король: сильная центральная власть, Генеральные штаты собирались всё реже. В Англии король и парламент <b>делили власть</b>. В Священной Римской империи (Германия) император так и не смог централизовать — страна осталась из сотен княжеств и вольных городов до XIX века. Вывод: централизация — не закон, а <b>исход борьбы</b> между правителем, знатью и городами. В Нидерландах победят… города и провинции (Республика, эпоха 6).</p>
+    <p class="nl">In Frankrijk won de koning: een sterke centrale macht, de Staten-Generaal kwamen steeds minder vaak bijeen. In Engeland <b>deelden</b> koning en parlement de macht. In het Heilige Roomse Rijk (Duitsland) lukte het de keizer nooit om te centraliseren — het land bleef tot in de 19e eeuw bestaan uit honderden vorstendommen en vrije steden. Conclusie: centralisatie is geen wet, maar <b>de uitkomst van een strijd</b> tussen vorst, adel en steden. In de Nederlanden winnen… de steden en gewesten (de Republiek, tijdvak 6).</p>
+  </div></details>
+</section>
+
+<!-- ============ 5. NEDERLAND: WATER ============ -->
+<section class="page" id="p-water" data-title-ru="Нидерланды: вода и торф" data-title-nl="Nederland: water en veen" data-n="5">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Как голландцы сами создали себе проблему с водой, решая проблему нехватки земли, — и что эта проблема сделала с их обществом?</span><span class="nl">Hoe maakten de Hollanders zelf een waterprobleem terwijl ze een tekort aan land oplosten — en wat deed dat probleem met hun samenleving?</span></div></div>
+
+  <div class="card">
+    <div class="cause">
+      <div class="step"><span class="ru">Рост населения → нужна земля</span><span class="nl">Bevolkingsgroei → land nodig</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Осушение торфяных болот Голландии канавами (ontginning)</span><span class="nl">Ontginning van het Hollandse veen met sloten</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Сухой торф оседает и окисляется → земля опускается</span><span class="nl">Droog veen klinkt in en verteert → de bodem daalt</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Земля ниже реки и моря → наводнения</span><span class="nl">Land lager dan rivier en zee → overstromingen</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Дамбы, шлюзы, водные советы (waterschappen)</span><span class="nl">Dijken, sluizen, waterschappen</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Зерно не растёт на мокрой земле → скот, ремесло, торговля, импорт зерна</span><span class="nl">Op natte grond groeit geen graan → vee, ambacht, handel, graan uit de Oostzee</span></div>
+    </div>
+    <div class="bi">
+      <div class="ru">
+        <p>Колонисты получали от графа или епископа <b>свободную землю</b> на торфяниках (ведь никто там не жил) — поэтому в Голландии было много <b>свободных крестьян</b> и мало поместий. Но опускание почвы — бесплатная плата за осушение. Справиться с водой мог только <b>коллектив</b>: каждый хозяин отвечал за свой кусок дамбы, а надзор вели <span class="nlt">waterschappen</span> (водные советы, например Рейнланд, 1255) с <span class="nlt">dijkgraaf</span> и выборными <span class="nlt">heemraden</span>. Это одни из <b>старейших выборных органов</b> страны — некоторые существуют до сих пор, и выборы в них проходят и сегодня.</p>
+        <p>Катастрофы: <b>наводнение св. Елизаветы 1421</b> (затопило Гротe Вард у Дордрехта, около 20 деревень исчезли — там возник Бисбос); образование <b>Зюйдерзе</b> в результате штормов XII–XIII вв.</p>
+      </div>
+      <div class="nl">
+        <p>Ontginners kregen van de graaf of bisschop <b>vrij land</b> op het veen (er woonde immers niemand) — daarom had Holland veel <b>vrije boeren</b> en weinig domeinen. Maar bodemdaling is de rekening van de ontginning. Alleen <b>samen</b> kon je het water aan: elke eigenaar onderhield zijn stuk dijk, en <span class="nlt">waterschappen</span> (bijv. Rijnland, 1255) met een <span class="nlt">dijkgraaf</span> en <span class="nlt">heemraden</span> hielden toezicht. Het zijn van de <b>oudste gekozen besturen</b> van het land — sommige bestaan nog steeds, en er zijn nog altijd verkiezingen voor.</p>
+        <p>Rampen: de <b>Sint-Elisabethsvloed van 1421</b> (de Grote Waard bij Dordrecht liep onder, ca. 20 dorpen verdwenen — daar ontstond de Biesbosch); het ontstaan van de <b>Zuiderzee</b> door stormvloeden in de 12e–13e eeuw.</p>
+      </div>
+    </div>
+    <details class="why"><summary><span class="ru">Как вода «сделала» голландцев торговцами? <span class="vwo">VWO+</span></span><span class="nl">Hoe maakte het water de Hollanders tot handelaars?</span></summary><div class="bi">
+      <p class="ru">Когда торф осел, поля стали слишком мокрыми для хлеба. Крестьяне перешли на <b>молочный скот</b> (масло, сыр) и стали <b>покупать зерно</b> — из Балтики, на своих кораблях. Лишние руки пошли в ремесло, рыболовство (сельдь!), судоходство и торговлю. Так <b>природное ограничение</b> толкнуло Голландию к рынку, кораблям и городам — около 1500 г. почти половина жителей Голландии жила в городах, больше, чем почти везде в Европе. Отличный пример: <b>география не приговор, а задача</b>; решение задачи меняет общество.</p>
+      <p class="nl">Toen het veen was gedaald, werden de akkers te nat voor graan. Boeren gingen over op <b>melkvee</b> (boter, kaas) en <b>kochten graan</b> — uit de Oostzee, met eigen schepen. De overige handen gingen naar ambacht, visserij (haring!), scheepvaart en handel. Zo duwde een <b>natuurlijke beperking</b> Holland richting markt, schepen en steden — rond 1500 woonde bijna de helft van de Hollanders in een stad, meer dan bijna overal in Europa. Een mooi voorbeeld: <b>geografie is geen vonnis maar een opgave</b>; de oplossing verandert de samenleving.</p>
+    </div></details>
+    <div class="memo"><span class="ru">«Бог создал мир, а голландцы — Нидерланды». Правда, сначала они случайно утопили то, что создали, и пришлось строить заново.</span><span class="nl">"God schiep de wereld, maar de Nederlanders maakten Nederland." Alleen lieten ze het eerst per ongeluk zakken en moesten ze het opnieuw bouwen.</span></div>
+  </div>
+
+  <details class="alt"><summary><span class="ru">Другие варианты: «польдерная модель» — миф или наследие?</span><span class="nl">Andere mogelijkheden: het poldermodel — mythe of erfenis?</span></summary><div class="bi">
+    <p class="ru">Иногда говорят: голландцы привыкли договариваться (<span class="nlt">poldermodel</span>), потому что веками вместе держали дамбы — если сосед не чинит свой кусок, тонут все. Это красивая цепочка, но её стоит проверить: в Голландии были и жестокие гражданские войны (хуки и кабельяусы), и восстания. Как проверить такую гипотезу? Сравни с другими странами, где тоже строили дамбы (Северная Италия, Китай) — там такой культуры согласия не возникло. Значит, вода — <b>одно из условий</b>, а не единственная причина.</p>
+    <p class="nl">Soms zegt men: Nederlanders zijn goed in overleggen (het <span class="nlt">poldermodel</span>), omdat ze eeuwenlang samen dijken onderhielden — als de buurman zijn stuk niet maakt, verdrinkt iedereen. Een mooie keten, maar toets hem: Holland kende ook wrede burgeroorlogen (Hoeken en Kabeljauwen) en opstanden. Hoe toets je zo'n hypothese? Vergelijk met andere landen waar ook dijken werden gebouwd (Noord-Italië, China) — daar ontstond niet zo'n overlegcultuur. Water is dus <b>één van de voorwaarden</b>, niet de enige oorzaak.</p>
+  </div></details>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Мост в эпоху 5</span><span class="nl">Brug naar tijdvak 5</span></h3>
+    <div class="bi">
+      <p class="ru">К 1500 г. у Нидерландов есть: богатые, грамотные (!) города; торговля по всей Северной Европе; правители-Габсбурги, которые хотят больше налогов и централизации; церковь, которую многие считают слишком богатой и мирской. Около 1450 г. <b>Гутенберг</b> изобрёл книгопечатание — новые идеи теперь разносятся в тысячах копий. В 1453 г. турки взяли Константинополь — путь на Восток стал дороже, и Португалия ищет морской путь вокруг Африки. Все фигуры на доске для эпохи 5 расставлены.</p>
+      <p class="nl">Rond 1500 hebben de Nederlanden: rijke, geletterde (!) steden; handel in heel Noord-Europa; Habsburgse vorsten die meer belasting en centralisatie willen; een kerk die veel mensen te rijk en te werelds vinden. Rond 1450 vond <b>Gutenberg</b> de boekdrukkunst uit — nieuwe ideeën gaan nu in duizenden exemplaren rond. In 1453 veroverden de Turken Constantinopel — de route naar het oosten werd duurder, en Portugal zoekt een zeeroute rond Afrika. Alle stukken staan klaar op het bord voor tijdvak 5.</p>
+    </div>
+    <p><a href="tijdvak-5-ontdekkers-en-hervormers.html">→ <span class="ru">Эпоха 5: открыватели и реформаторы</span><span class="nl">Tijdvak 5: ontdekkers en hervormers</span></a></p>
+  </div>
+</section>
+
+<!-- ============ LAB ============ -->
+<section class="page" id="p-lab" data-title-ru="Лаборатория: сколько городов?" data-title-nl="Lab: hoeveel stad?" data-n="6">
+  <div class="kern"><div class="lbl">Lab</div><div class="q"><span class="ru">Сколько горожан может прокормить деревня? Подвигай ползунки и посмотри, какая доля людей может жить в городе.</span><span class="nl">Hoeveel stedelingen kan het platteland voeden? Schuif en kijk welk deel van de mensen in de stad kan wonen.</span></div></div>
+  <div class="card" id="lab"></div>
+  <div class="card">
+    <b><span class="ru">Эксперименты</span><span class="nl">Experimenten</span></b>
+    <ol class="ru"><li>Сравни «Около 1000» и «Около 1250». Какая технология дала разницу?</li><li>Включи «Чума 1350». Крестьян стало меньше. Почему выжившие крестьяне могли требовать больше свободы и денег?</li><li>Включи «Голландия, ок. 1500». Почему в мокрой Голландии городов больше, чем где-либо, хотя своё зерно там растёт плохо? Что будет, если корабли с Балтики не придут (война с Ганзой)?</li></ol>
+    <ol class="nl"><li>Vergelijk "Rond 1000" en "Rond 1250". Welke techniek maakte het verschil?</li><li>Kies "Pest 1350". Er zijn minder boeren. Waarom konden de overlevende boeren meer vrijheid en geld eisen?</li><li>Kies "Holland rond 1500". Waarom heeft het natte Holland meer steden dan bijna overal, terwijl er weinig eigen graan groeit? Wat als de schepen uit de Oostzee niet komen (oorlog met de Hanze)?</li></ol>
+    <div class="memo"><span class="ru">Город — это деревня, которая научилась есть чужой хлеб. Сначала хлеб соседей, потом — хлеб с другого конца Балтики.</span><span class="nl">Een stad is een dorp dat geleerd heeft andermans brood te eten. Eerst dat van de buren, later dat van de andere kant van de Oostzee.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span class="ru">Самоучитель по истории · эпоха 4 из 10 · даты приблизительные («ca.» = около).</span>
+  <span class="nl">Zelfstudie geschiedenis · tijdvak 4 van 10 · jaartallen zijn ongeveer ("ca." = circa).</span>
+</footer>
+</main>
+
+<script src="assets/tijdvak.js"></script>
+<script>
+const CHAIN = [
+  { ru: 'Безопасность около 1000 г.', nl: 'Veiligheid rond 1000',
+    why: ['Викинги осели и крестились; набеги прекратились; местные сеньоры держат порядок.', 'De Vikingen vestigden zich en werden christen; de invallen stopten; plaatselijke heren handhaven de orde.'],
+    alt: ['Без этого любой излишек грабили бы — и вкладывать в поля не имело бы смысла.', 'Zonder veiligheid werd elk overschot geroofd — investeren in akkers had dan geen zin.'] },
+  { ru: 'Аграрная революция', nl: 'Agrarische revolutie',
+    why: ['Трёхполье, тяжёлый плуг, хомут, мельницы, новые земли → урожаи выше.', 'Drieslagstelsel, zware ploeg, haam, molens, nieuw land → hogere oogsten.'],
+    law: ['Снова, как в эпохе 1: новая техника в поле → излишек → всё остальное.', 'Net als in tijdvak 1: nieuwe techniek op de akker → overschot → al het andere.'],
+    alt: ['На юге Европы с лёгкими почвами тяжёлый плуг не был нужен — там города и не исчезали так сильно.', 'In Zuid-Europa met lichte grond was de zware ploeg niet nodig — daar waren steden ook minder verdwenen.'] },
+  { ru: 'Рост населения', nl: 'Bevolkingsgroei',
+    why: ['Больше еды → больше детей выживает: Европа ~40 → ~75 млн (1000–1300).', 'Meer voedsel → meer kinderen overleven: Europa ca. 40 → 75 miljoen (1000–1300).'],
+    alt: ['Около 1300 рост упёрся в предел: голод 1315–1317, затем чума 1347.', 'Rond 1300 liep de groei vast: hongersnood 1315–1317, daarna de pest in 1347.'] },
+  { ru: 'Рынки, деньги, ремесло', nl: 'Markten, geld, ambacht',
+    why: ['Излишек продают → монеты → покупают у ремесленников → специализация.', 'Overschot verkopen → munten → kopen bij ambachtslieden → specialisatie.'],
+    alt: ['Если бы сеньоры забирали весь излишек, у крестьян не было бы что продавать — рынок рос бы медленнее.', 'Als de heren het hele overschot hadden opgeëist, hadden boeren niets te verkopen gehad — de markt was trager gegroeid.'] },
+  { ru: 'Города и городские права', nl: 'Steden en stadsrechten',
+    why: ['Купцам нужны свобода, суд и рынок; сеньору нужны деньги → продаёт права (Дордрехт 1220).', 'Kooplieden willen vrijheid, rechtspraak en een markt; de heer wil geld → hij verkoopt rechten (Dordrecht 1220).'],
+    law: ['Сеньор продаёт кусочек власти за деньги, на которые потом купит больше власти.', 'De heer verkoopt een stukje macht voor geld, waarmee hij later meer macht koopt.'],
+    alt: ['В Италии, где император был далеко, города стали полностью независимыми государствами.', 'In Italië, waar de keizer ver weg was, werden steden helemaal zelfstandige staten.'] },
+  { ru: 'Бюргеры и гильдии', nl: 'Burgerij en gilden',
+    why: ['Горожане лично свободны; гильдии регулируют ремесло; патрициат правит городом.', 'Burgers zijn persoonlijk vrij; gilden regelen het ambacht; het patriciaat bestuurt de stad.'],
+    alt: ['Без гильдий было бы больше конкуренции и новшеств — но и меньше защиты ремесленников.', 'Zonder gilden meer concurrentie en vernieuwing — maar ook minder bescherming voor ambachtslieden.'] },
+  { ru: 'Папа против императора', nl: 'Paus tegen keizer',
+    why: ['Епископы — феодалы; кто их назначает, тот правит. Каносса 1077, Вормс 1122.', 'Bisschoppen zijn leenheren; wie ze benoemt, heeft de macht. Canossa 1077, Worms 1122.'],
+    alt: ['Если бы победил император, церковь стала бы частью государства, как в Византии.', 'Als de keizer had gewonnen, was de kerk een deel van de staat geworden, zoals in Byzantium.'] },
+  { ru: 'Крестовые походы', nl: 'Kruistochten',
+    why: ['1095 призыв папы; вера, власть папы, земли для младших сыновей, торговля.', '1095 oproep van de paus; geloof, macht van de paus, land voor jongere zonen, handel.'],
+    alt: ['Военная цель не достигнута (1291), но выиграли итальянские торговцы и короли.', 'Het militaire doel mislukte (1291), maar Italiaanse handelaren en koningen wonnen.'] },
+  { ru: 'Чума и конец крепостной зависимости', nl: 'Pest en einde van de horigheid',
+    why: ['1347–1351: умерла треть Европы → рук мало → выжившие требуют платы и свободы.', '1347–1351: een derde van Europa sterft → weinig werkers → overlevenden eisen loon en vrijheid.'],
+    alt: ['В Восточной Европе сеньоры оказались сильнее, и крепостное право, наоборот, усилилось.', 'In Oost-Europa waren de heren sterker en werd de horigheid juist zwaarder.'] },
+  { ru: 'Деньги → чиновники и наёмники', nl: 'Geld → ambtenaren en huurlingen',
+    why: ['Налоги и займы городов позволяют платить людям, которых можно уволить.', 'Belasting en leningen van steden maken het mogelijk mensen te betalen die je kunt ontslaan.'],
+    law: ['Вассала не уволишь, чиновника — можно.', 'Een leenman ontsla je niet, een ambtenaar wel.'],
+    alt: ['Где городов и денег мало (Восточная Европа), власть надолго осталась у знати.', 'Waar weinig steden en geld waren (Oost-Europa), bleef de macht lang bij de adel.'] },
+  { ru: 'Централизация (Бургундцы)', nl: 'Centralisatie (Bourgondiërs)',
+    why: ['Браки, покупки, войны + центральный суд, счётная палата, Генеральные штаты (1464).', 'Huwelijken, aankopen, oorlog + centrale rechtbank, Rekenkamer, Staten-Generaal (1464).'],
+    alt: ['В Германии император не смог централизовать — сотни княжеств до XIX века.', 'In Duitsland lukte centralisatie niet — honderden vorstendommen tot de 19e eeuw.'] },
+  { ru: 'Города защищают привилегии', nl: 'Steden verdedigen privileges',
+    why: ['За налоги города требуют прав; при слабом правителе отбирают их назад (Великая привилегия 1477).', 'Voor belasting eisen steden rechten; bij een zwakke vorst nemen ze die terug (Groot Privilege 1477).'],
+    law: ['Чем богаче города, тем дороже правителю централизация.', 'Hoe rijker de steden, hoe duurder centralisatie wordt voor de vorst.'],
+    alt: ['Если бы Габсбурги уважали привилегии, восстания 1568 г., возможно, не было бы.', 'Als de Habsburgers de privileges hadden gerespecteerd, was de Opstand van 1568 misschien niet gekomen.'] }
+];
+
+const ORDER_SETS = [
+  [['Трёхполье и тяжёлый плуг', 'Drieslagstelsel en zware ploeg'], ['Излишек у крестьян', 'Overschot bij boeren'], ['Продажа на рынке за монеты', 'Verkopen op de markt voor munten'], ['Ремесленники и купцы селятся вместе', 'Ambachtslieden en kooplieden wonen bij elkaar'], ['Город получает права', 'De stad krijgt stadsrechten']],
+  [['Города богатеют на торговле', 'Steden worden rijk door handel'], ['Правитель берёт налоги и займы', 'De vorst krijgt belasting en leningen'], ['Платит чиновникам и наёмникам', 'Hij betaalt ambtenaren en huurlingen'], ['Меньше зависит от вассалов', 'Hij is minder afhankelijk van leenmannen']],
+  [['Григорий VII запрещает светскую инвеституру (1075)', 'Gregorius VII verbiedt wereldlijke investituur (1075)'], ['Генрих IV отлучён', 'Hendrik IV in de ban'], ['Каносса (1077)', 'Canossa (1077)'], ['Вормсский конкордат (1122)', 'Concordaat van Worms (1122)']],
+  [['Призыв Урбана II (1095)', 'Oproep van Urbanus II (1095)'], ['Взятие Иерусалима (1099)', 'Verovering van Jeruzalem (1099)'], ['Саладин берёт Иерусалим (1187)', 'Saladin neemt Jeruzalem (1187)'], ['Падение Акко (1291)', 'Val van Akko (1291)']],
+  [['Осушение торфа канавами', 'Veen ontwateren met sloten'], ['Торф оседает', 'Het veen klinkt in'], ['Земля ниже воды', 'Het land ligt lager dan het water'], ['Дамбы и водные советы', 'Dijken en waterschappen'], ['Скот и импорт зерна вместо полей', 'Vee en graanimport in plaats van akkers']],
+  [['Дордрехт получает права (1220)', 'Dordrecht krijgt stadsrechten (1220)'], ['Убийство Флориса V (1296)', 'Moord op Floris V (1296)'], ['Чёрная смерть (1347–1351)', 'De Zwarte Dood (1347–1351)'], ['Первые Генеральные штаты (1464)', 'Eerste Staten-Generaal (1464)'], ['Великая привилегия (1477)', 'Groot Privilege (1477)']]
+];
+
+const PATHS = [
+  { t: ['Ты — граф, ок. 1250. Купцы растущего городка просят городские права.', 'Jij bent graaf, ca. 1250. De kooplieden van een groeiend stadje vragen stadsrechten.'],
+    o: [ [['Отказать: город остаётся частью поместья', 'Weigeren: de stad blijft deel van het domein'], ['Выгода: полный контроль. Риск: купцы уедут к соседу, который даст права; ты теряешь деньги и союзника против непокорной знати.', 'Voordeel: volledige controle. Risico: kooplieden vertrekken naar een buurheer die wél rechten geeft; je verliest geld en een bondgenoot tegen lastige edelen.']],
+         [['Дать права за деньги и ополчение', 'Rechten geven voor geld en een schutterij'], ['Выгода: регулярные деньги, союзник, рост торговли. Цена: город сам судит и правит, будет защищать свои привилегии. Так поступили почти все графы Голландии.', 'Voordeel: vast geld, een bondgenoot, groeiende handel. Prijs: de stad regeert en rechtspreekt zelf en zal haar privileges verdedigen. Zo deden bijna alle graven van Holland.']] ] },
+  { t: ['Ты — император Генрих IV, 1077. Ты отлучён, вассалы отворачиваются.', 'Jij bent keizer Hendrik IV, 1077. Je bent in de ban gedaan, je leenmannen keren zich af.'],
+    o: [ [['Идти войной на Рим', 'Met een leger naar Rome'], ['Выгода: показать силу. Риск: армия — это вассалы, а они как раз не хотят идти за отлучённым.', 'Voordeel: kracht tonen. Risico: je leger bestaat uit leenmannen, en die willen een gebannen keizer juist niet volgen.']],
+         [['Идти в Каноссу просить прощения', 'Naar Canossa gaan om vergeving'], ['Выгода: отлучение снято → вассалы снова обязаны подчиняться. Цена: унижение и признание силы папы. Генрих выбрал это — и позже всё-таки воевал с папой.', 'Voordeel: de ban is opgeheven → leenmannen moeten weer gehoorzamen. Prijs: vernedering en erkenning van de macht van de paus. Hendrik koos dit — en vocht later toch weer met de paus.']] ] },
+  { t: ['Ты — жители торфяной деревни в Голландии, ок. 1300. Земля опускается, зимой поля заливает.', 'Jullie zijn een veendorp in Holland, ca. 1300. De grond daalt, in de winter staan de akkers onder water.'],
+    o: [ [['Каждый спасает свой участок', 'Ieder redt zijn eigen stuk'], ['Выгода: никаких общих собраний и налогов. Риск: одна прорванная дамба у ленивого соседа топит всех.', 'Voordeel: geen vergaderingen en heffingen. Risico: één doorgebroken dijk bij een luie buurman zet iedereen onder water.']],
+         [['Создать водный совет, общие дамбы и сборы', 'Een waterschap oprichten, samen dijken en heffingen'], ['Выгода: защищены все. Цена: правила, сборы, выборы, надзор (dijkgraaf). Так и сделали — waterschappen существуют до сих пор. Плюс: переход на скот и импорт зерна.', 'Voordeel: iedereen beschermd. Prijs: regels, heffingen, verkiezingen, toezicht (dijkgraaf). Zo ging het echt — waterschappen bestaan nog steeds. Plus: overstap naar vee en graanimport.']] ] }
+];
+
+const WATALS = [
+  ['Что было бы, если бы не изобрели трёхполье и тяжёлый плуг?', 'Wat als het drieslagstelsel en de zware ploeg niet waren uitgevonden?',
+   'Урожаи остались бы низкими → маленький излишек → почти все работали бы в поле → мало кому продавать и мало кого кормить в городах. Города росли бы гораздо медленнее, и правителям не у кого было бы брать деньги — феодализм продержался бы дольше. Цепочка эпохи 1 работает снова: техника → излишек → специализация → города.',
+   'De oogsten waren laag gebleven → klein overschot → bijna iedereen op het land → weinig te verkopen en weinig stedelingen te voeden. Steden waren veel trager gegroeid, en vorsten hadden niemand om geld van te krijgen — het leenstelsel was langer gebleven. De keten van tijdvak 1 werkt weer: techniek → overschot → specialisatie → steden.'],
+  ['Почему сеньор мог быть заинтересован в том, чтобы дать городу права, хотя он терял власть?', 'Waarom kon een heer er belang bij hebben een stad rechten te geven, terwijl hij macht verloor?',
+   'Город платит деньги (налоги, займы), даёт ополчение, становится союзником против непокорных вассалов и соседей. Растущая торговля приносит пошлины. На эти деньги сеньор нанимает наёмников и чиновников и становится <b>сильнее</b>, чем был. Хороший ответ называет и выгоду, и цену.',
+   'De stad betaalt geld (belasting, leningen), levert een schutterij en wordt een bondgenoot tegen lastige leenmannen en buren. Groeiende handel brengt tol op. Met dat geld huurt de heer soldaten en ambtenaren en wordt hij <b>sterker</b> dan eerst. Een goed antwoord noemt voordeel én prijs.'],
+  ['Как связаны торговля и централизация? Объясни цепочкой из 3–4 звеньев.', 'Hoe hangen handel en centralisatie samen? Leg uit met een keten van 3–4 schakels.',
+   'Торговля → деньги у городов → правитель получает налоги и займы → платит чиновникам и наёмникам, которых можно уволить → меньше зависит от вассалов → власть собирается в центре. Условие: города должны соглашаться платить — а взамен они требуют прав (Staten).',
+   'Handel → geld bij de steden → de vorst krijgt belasting en leningen → hij betaalt ambtenaren en huurlingen die hij kan ontslaan → minder afhankelijk van leenmannen → de macht komt in het centrum. Voorwaarde: steden moeten willen betalen — en in ruil eisen ze rechten (Staten).'],
+  ['Почему крестовые походы можно назвать и «провалом», и «успехом»?', 'Waarom kun je de kruistochten zowel een "mislukking" als een "succes" noemen?',
+   'Провал: Святая земля потеряна (1291), огромные жертвы, погромы и вражда. Успех (для некоторых): итальянские города разбогатели, выросла торговля восточными товарами, усилились короли и папство (на время), больше контактов с другими культурами. Всё зависит от того, <b>для кого</b> и <b>по какому критерию</b> оценивать.',
+   'Mislukking: het Heilige Land ging verloren (1291), veel doden, jodenvervolging en vijandschap. Succes (voor sommigen): Italiaanse steden werden rijk, handel in oosterse producten groeide, koningen en paus werden (even) sterker, meer contact met andere culturen. Het hangt af van <b>voor wie</b> en <b>volgens welk criterium</b>.'],
+  ['Почему чума 1347 г. ослабила крепостную зависимость на Западе?', 'Waarom maakte de pest van 1347 de horigheid in het westen zwakker?',
+   'Умерла треть населения → работников мало, а земли столько же → труд стал ценным → крестьяне могли уйти к другому сеньору или в город, где платят больше → сеньорам пришлось давать свободу и платить. Закономерность: <b>когда чего-то мало, оно дорожает</b> — даже труд.',
+   'Een derde van de mensen stierf → weinig werkers, evenveel land → arbeid werd waardevol → boeren konden naar een andere heer of naar de stad, waar meer betaald werd → heren moesten vrijheid geven en loon betalen. Het patroon: <b>wat schaars is, wordt duur</b> — ook arbeid.'],
+  ['Что было бы, если бы в Голландии торф не оседал и на нём хорошо рос хлеб?', 'Wat als het Hollandse veen niet was gedaald en er goed graan op groeide?',
+   'Голландия, возможно, осталась бы краем зерновых крестьян, как многие области Европы: меньше нужды в кораблях, торговле зерном, рыболовстве и ремесле, меньше городов. Не было бы нужды в waterschappen. Вероятно, не было бы и такого быстрого подъёма Амстердама. Вывод: <b>трудности природы</b> заставили искать новые решения, которые изменили общество.',
+   'Dan was Holland misschien een land van graanboeren gebleven, zoals veel gebieden in Europa: minder noodzaak voor schepen, graanhandel, visserij en ambacht, minder steden. Geen waterschappen nodig. Waarschijnlijk ook geen snelle opkomst van Amsterdam. Conclusie: <b>moeilijke natuur</b> dwong tot nieuwe oplossingen die de samenleving veranderden.'],
+  ['Кто выиграл от централизации Бургундцев, а кто проиграл?', 'Wie won en wie verloor bij de centralisatie van de Bourgondiërs?',
+   'Выиграли: герцог (больше власти и налогов), купцы (единые правила, монета, мир между областями), чиновники-юристы. Проиграли: местная знать и города, терявшие привилегии и самостоятельность — поэтому они и отобрали права назад в 1477. VWO+: эту борьбу продолжат Карл V и Филипп II.',
+   'Gewonnen: de hertog (meer macht en belasting), kooplieden (dezelfde regels, munt, vrede tussen gewesten), juristen-ambtenaren. Verloren: plaatselijke adel en steden, die privileges en zelfstandigheid kwijtraakten — daarom haalden ze in 1477 hun rechten terug. Vwo+: die strijd gaat door onder Karel V en Filips II.']
+];
+
+const LAB = {
+  note: ['Учебная модель. Показывает, какую долю населения может составлять город при данном излишке.', 'Denkmodel. Laat zien welk deel van de bevolking in de stad kan wonen bij een bepaald overschot.'],
+  sliders: [
+    { k: 'b', ru: 'Крестьяне (тыс.)', nl: 'Boeren (×1000)', min: 20, max: 120, v: 100 },
+    { k: 's', ru: 'Излишек крестьянина (% сверх своей еды)', nl: 'Overschot per boer (% boven eigen voedsel)', min: 0, max: 50, v: 8, unit: '%' },
+    { k: 'i', ru: 'Ввоз зерна (тыс. порций)', nl: 'Graanimport (×1000 porties)', min: 0, max: 80, v: 0 }
+  ],
+  presets: [
+    { ru: 'Около 1000', nl: 'Rond 1000', v: [100, 6, 0] },
+    { ru: 'Около 1250 (трёхполье)', nl: 'Rond 1250 (drieslag)', v: [110, 18, 0] },
+    { ru: 'Чума 1350', nl: 'Pest 1350', v: [70, 25, 0] },
+    { ru: 'Голландия, ок. 1500', nl: 'Holland rond 1500', v: [60, 15, 45] }
+  ],
+  calc(v) {
+    const fed = Math.round(v.b * v.s / 100 + v.i), share = Math.round(100 * fed / (fed + v.b));
+    const segs = [[v.b, '#64748b', '👨‍🌾 ' + v.b], [Math.round(v.b * v.s / 100), '#15803d', '🏘 ' + Math.round(v.b * v.s / 100)], [v.i, '#0369a1', '⚓ ' + v.i]];
+    if (share < 10) return { segs, cls: 'bad', ru: `В городах может жить только ${fed} тыс. человек (${share}%). Почти все — крестьяне. Мир эпохи 3: поместья и редкие рынки.`, nl: `Er kunnen maar ${fed}.000 mensen in de stad wonen (${share}%). Bijna iedereen is boer. De wereld van tijdvak 3: domeinen en weinig markten.` };
+    if (v.i > fed / 2) return { segs, cls: 'ok', ru: `Горожан ${fed} тыс. (${share}%)! Больше половины их еды — привозное зерно. Это Голландия: город живёт торговлей, кораблями и чужим хлебом. Сила — и уязвимость (блокада = голод).`, nl: `${fed}.000 stedelingen (${share}%)! Meer dan de helft van hun voedsel is geïmporteerd graan. Dat is Holland: de stad leeft van handel, schepen en andermans brood. Een kracht — en een zwakte (blokkade = honger).` };
+    return { segs, cls: share >= 15 ? 'ok' : '', ru: `Горожан может быть ${fed} тыс. (${share}%). Есть место для ремесленников, купцов, священников и чиновников. Кто получит их налоги — город, сеньор или король?`, nl: `Er kunnen ${fed}.000 stedelingen zijn (${share}%). Er is plaats voor ambachtslieden, kooplieden, geestelijken en ambtenaren. Wie krijgt hun belasting — de stad, de heer of de vorst?` };
+  }
+};
+
+const TERMS = [
+  ['late middeleeuwen', 'позднее (высокое) Средневековье', 'Periode ca. 1000 – 1500 (tijdvak 4).'],
+  ['agrarisch-urbane samenleving', 'аграрно-городское общество', 'Samenleving met landbouw én steden, handel en geld.'],
+  ['agrarische revolutie', 'аграрная революция', 'Snelle verbetering van de landbouw (drieslagstelsel, zware ploeg, molens) rond 1000–1300.'],
+  ['drieslagstelsel', 'трёхполье', 'Akkers in drie delen: wintergraan, zomergraan, braak.'],
+  ['braak', 'пар (земля под отдыхом)', 'Akker die een jaar niet wordt ingezaaid om te herstellen.'],
+  ['ontginning', 'освоение новых земель', 'Nieuw land geschikt maken voor landbouw (bos kappen, veen ontwateren).'],
+  ['geldeconomie', 'денежное хозяйство', 'Economie waarin je met geld betaalt in plaats van ruilt.'],
+  ['handel', 'торговля', 'Kopen en verkopen van goederen.'],
+  ['ambacht / ambachtsman', 'ремесло / ремесленник', 'Met de hand producten maken (smid, wever, bakker).'],
+  ['jaarmarkt', 'ярмарка', 'Grote markt die één of enkele keren per jaar gehouden wordt (Champagne).'],
+  ['laken', 'сукно', 'Wollen stof; belangrijkste product van Vlaamse steden.'],
+  ['Hanze', 'Ганза', 'Verbond van handelssteden rond Noordzee en Oostzee (ca. 1356–1450 op zijn sterkst). Canonvenster.'],
+  ['stadsrechten', 'городские права', 'Rechten die een landsheer aan een stad gaf: eigen bestuur, rechtspraak, markt, muren.'],
+  ['burger / burgerij', 'бюргер / бюргерство', 'Vrije inwoner van een stad met burgerrecht / alle burgers samen.'],
+  ['"stadslucht maakt vrij"', '«городской воздух делает свободным»', 'Een horige die een jaar en een dag in een stad woonde, werd vrij.'],
+  ['schout en schepenen', 'шаут и шепены', 'Stadsbestuurders en rechters in de middeleeuwse stad.'],
+  ['patriciaat', 'патрициат', 'Rijke families die de stad bestuurden.'],
+  ['gilde', 'гильдия', 'Vereniging van mensen met hetzelfde beroep die regels maakt over werk, prijzen en kwaliteit.'],
+  ['leerling – gezel – meester', 'ученик – подмастерье – мастер', 'De drie stappen in de opleiding van een ambachtsman.'],
+  ['meesterproef', 'шедевр (экзамен мастера)', 'Werkstuk waarmee een gezel bewijst dat hij meester kan worden.'],
+  ['investituur', 'инвеститура', 'Het benoemen van een bisschop (met staf en ring).'],
+  ['investituurstrijd', 'борьба за инвеституру', 'Conflict tussen paus en keizer over wie bisschoppen mocht benoemen (1075–1122).'],
+  ['primaat', 'первенство, верховенство', 'Wie het hoogste gezag heeft: de wereldlijke of de geestelijke macht.'],
+  ['wereldlijke macht', 'светская власть', 'Macht van keizer, koning, graaf.'],
+  ['geestelijke macht', 'духовная власть', 'Macht van paus, bisschoppen en kerk.'],
+  ['excommunicatie / ban', 'отлучение от церкви', 'Iemand uit de kerk zetten; leenmannen hoefden hem dan niet meer te gehoorzamen.'],
+  ['Canossa', 'Каносса', 'Burcht waar keizer Hendrik IV in 1077 de paus om vergeving vroeg.'],
+  ['Concordaat van Worms', 'Вормсский конкордат', 'Compromis van 1122 tussen paus en keizer over de investituur.'],
+  ['kruistocht', 'крестовый поход', 'Christelijke militaire tocht, vooral naar het Heilige Land (1096–1291).'],
+  ['kruisvaarder', 'крестоносец', 'Iemand die meeging op een kruistocht.'],
+  ['Heilige Land', 'Святая земля', 'Het gebied rond Jeruzalem.'],
+  ['Reconquista', 'Реконкиста', 'Herovering van Spanje en Portugal op de moslims (tot 1492).'],
+  ['expansie', 'экспансия, расширение', 'Uitbreiding van een gebied of invloed naar buiten.'],
+  ['Zwarte Dood', 'Чёрная смерть', 'Pestepidemie 1347–1351 waaraan ca. een derde van Europa stierf.'],
+  ['staatsvorming', 'образование государства', 'Het ontstaan van een staat met één gezag, wetten, belasting en leger over een gebied.'],
+  ['centralisatie', 'централизация', 'Macht die in één centrum (bij de vorst) wordt samengebracht.'],
+  ['landsheer / vorst', 'правитель (земли)', 'Heerser van een gewest of land (graaf, hertog, koning).'],
+  ['ambtenaar', 'чиновник', 'Iemand die in betaalde dienst voor de overheid werkt.'],
+  ['huurling', 'наёмник', 'Soldaat die voor geld vecht.'],
+  ['Staten / Staten-Generaal', 'сословное собрание / Генеральные штаты', 'Vergadering van vertegenwoordigers van adel, geestelijkheid en steden; de Staten-Generaal voor alle gewesten (1464).'],
+  ['parlement', 'парламент', 'Vertegenwoordiging die mee beslist over belasting en wetten (Engeland).'],
+  ['Magna Carta', 'Великая хартия вольностей', 'Engels document (1215) dat de macht van de koning beperkte.'],
+  ['privilege', 'привилегия', 'Voorrecht dat een vorst aan een stad of groep gaf.'],
+  ['Groot Privilege', 'Великая привилегия', 'Rechten die Maria van Bourgondië in 1477 aan de gewesten moest geven.'],
+  ['Bourgondiërs', 'Бургундцы', 'Hertogen die rond 1384–1482 de Nederlanden samenvoegden. Canonvenster.'],
+  ['Floris V', 'Флорис V', 'Graaf van Holland (1254–1296), steunde steden en boeren, vermoord. Canonvenster.'],
+  ['Hoekse en Kabeljauwse twisten', 'Хукские и Кабельяусские распри', 'Burgeroorlogen in Holland tussen partijen van edelen en steden (1350–1490).'],
+  ['waterschap', 'водный совет', 'Bestuur dat zorgt voor dijken en waterpeil (bijv. Rijnland, 1255).'],
+  ['dijkgraaf / heemraden', 'дейкграф / хеемрады', 'Voorzitter / leden van het bestuur van een waterschap.'],
+  ['inklinking / bodemdaling', 'оседание почвы', 'Het zakken van de grond na het ontwateren van veen.'],
+  ['Hebban olla vogala', 'Hebban olla vogala', 'Een van de oudste geschreven zinnen in het Nederlands (ca. 1100). Canonvenster.'],
+  ['gotiek', 'готика', 'Bouwstijl van de late middeleeuwen: spitse bogen, hoge kerken, glas-in-lood.']
+];
+
+const Q = [
+  { t: 'handel', q: ['Wat was het belangrijkste gevolg van het drieslagstelsel?', 'Главное следствие трёхполья?'], o: [['hogere oogsten en dus een groter overschot', 'урожаи выше, значит больше излишек'], ['meer horigheid', 'больше крепостной зависимости'], ['minder handel', 'меньше торговли'], ['het einde van de kerk', 'конец церкви']], a: 0, e: ['Een derde in plaats van de helft lag braak.', 'Под паром треть земли вместо половины.'] },
+  { t: 'handel', q: ['Waarom is het overschot belangrijk voor het ontstaan van steden?', 'Почему излишек важен для появления городов?'], o: [['Het overschot voedt mensen die niet op het land werken.', 'Излишек кормит тех, кто не работает в поле.'], ['Steden maakten zelf hun voedsel.', 'Города сами производили еду.'], ['Het overschot werd aan de paus gegeven.', 'Излишек отдавали папе.'], ['Zonder overschot kun je beter vechten.', 'Без излишка лучше воевать.']], a: 0, e: ['Dezelfde wet als in tijdvak 1.', 'Тот же закон, что в эпохе 1.'] },
+  { t: 'handel', q: ['Welke steden hoorden bij de Hanze?', 'Какие города входили в Ганзу?'], o: [['Deventer, Kampen en Zwolle', 'Девентер, Кампен и Зволле'], ['Brugge, Gent en Ieper', 'Брюгге, Гент и Ипр'], ['Venetië en Genua', 'Венеция и Генуя'], ['Rome en Constantinopel', 'Рим и Константинополь']], a: 0, e: ['IJsselsteden. Brugge was een belangrijk Hanzekantoor, maar de Vlaamse steden zijn vooral bekend om laken.', 'Города на Эйсселе. В Брюгге была контора Ганзы, но фламандские города известны сукном.'] },
+  { t: 'handel', q: ['Waarom verdween na de Zwarte Dood de horigheid in West-Europa grotendeels?', 'Почему после Чёрной смерти крепостная зависимость на Западе почти исчезла?'], o: [['Er waren weinig werkers, dus boeren konden loon en vrijheid eisen.', 'Работников стало мало, крестьяне могли требовать плату и свободу.'], ['De paus verbood horigheid.', 'Папа запретил крепостную зависимость.'], ['Alle heren waren dood.', 'Все сеньоры умерли.'], ['De koning kocht alle horigen vrij.', 'Король выкупил всех крепостных.']], a: 0, e: ['Wat schaars is, wordt duur — ook arbeid.', 'Что редко, то дорого — даже труд.'] },
+  { t: 'handel', type: 'open', q: ['Leg uit hoe vernieuwingen in de landbouw leidden tot het herleven van handel en steden.', 'Объясни, как новшества в сельском хозяйстве привели к возрождению торговли и городов.'], model: ['Door het drieslagstelsel en de zware ploeg werden de oogsten groter. Boeren kregen een overschot dat ze op de markt konden verkopen voor geld. Met dat geld kochten ze producten van ambachtslieden. Doordat er zo meer handel kwam, gingen kooplieden en ambachtslieden bij elkaar wonen: steden groeiden.', 'Трёхполье и тяжёлый плуг дали больший урожай. У крестьян появился излишек, который можно продать за деньги. На деньги покупали изделия ремесленников. Торговля росла, купцы и ремесленники селились вместе — города росли.'], rubric: [['nieuwe techniek → hogere oogst', 'новая техника → больше урожай'], ['overschot verkopen / geld', 'продажа излишка / деньги'], ['ambacht en handel → steden', 'ремесло и торговля → города']] },
+  { t: 'steden', q: ['Wat betekent "stadslucht maakt vrij"?', 'Что значит «городской воздух делает свободным»?'], o: [['Een horige die een jaar en een dag in de stad woonde, werd vrij.', 'Крепостной, проживший в городе год и день, становился свободным.'], ['In de stad was de lucht schoner.', 'В городе воздух чище.'], ['Stedelingen betaalden geen belasting.', 'Горожане не платили налогов.'], ['De stad had geen muren.', 'У города не было стен.']], a: 0, e: ['Stadsrecht stond boven het recht van de heer van het domein.', 'Городское право стояло выше права сеньора.'] },
+  { t: 'steden', q: ['Waarom gaven landsheren stadsrechten aan steden?', 'Почему правители давали городам права?'], o: [['Ze kregen er geld en steun voor terug.', 'Получали за это деньги и поддержку.'], ['De paus verplichtte het.', 'Папа обязывал.'], ['Ze wilden zelf in de stad wonen.', 'Хотели сами жить в городе.'], ['Steden hadden sterkere legers dan zij.', 'У городов были армии сильнее.']], a: 0, e: ['Belasting, leningen, schutterij, bondgenoot tegen de adel.', 'Налоги, займы, ополчение, союзник против знати.'] },
+  { t: 'steden', q: ['Wat deed een gilde NIET?', 'Чего гильдия НЕ делала?'], o: [['vrije concurrentie stimuleren', 'поощряла свободную конкуренцию'], ['kwaliteit en prijzen bepalen', 'определяла качество и цены'], ['zorgen voor zieke leden en weduwen', 'заботилась о больных и вдовах'], ['de opleiding regelen', 'регулировала обучение']], a: 0, e: ['Gilden beperkten juist de concurrentie.', 'Гильдии, наоборот, ограничивали конкуренцию.'] },
+  { t: 'steden', q: ['Welke stad kreeg als eerste in Holland stadsrechten (1220)?', 'Какой город первым в Голландии получил права (1220)?'], o: ['Dordrecht', 'Amsterdam', 'Leiden', 'Den Haag'], a: 0, e: ['Dordrecht lag gunstig aan de rivieren.', 'Дордрехт удобно стоял на реках.'] },
+  { t: 'steden', type: 'order', q: ['Zet de opleiding in een gilde in de goede volgorde.', 'Расставь ступени обучения в гильдии.'], items: [['leerling', 'ученик'], ['gezel', 'подмастерье'], ['meesterproef', 'шедевр'], ['meester', 'мастер']] },
+  { t: 'steden', type: 'open', q: ['Leg uit waarom de stedelijke burgerij een nieuwe groep was in de middeleeuwse samenleving.', 'Объясни, почему городское бюргерство было новой группой в средневековом обществе.'], model: ['In de vroege middeleeuwen bestond de samenleving uit geestelijken, edelen en boeren (meestal horig). Burgers waren persoonlijk vrij, leefden van handel en ambacht in plaats van landbouw, en hadden eigen rechten en een eigen bestuur door de stadsrechten. Ze pasten dus niet in de oude drie standen.', 'В раннем Средневековье общество состояло из духовенства, знати и (в основном зависимых) крестьян. Бюргеры были лично свободны, жили торговлей и ремеслом, а не землёй, имели свои права и управление благодаря городским правам. В старые три сословия они не вписывались.'], rubric: [['oude standen (geestelijken, adel, boeren)', 'старые сословия'], ['burgers vrij / handel en ambacht', 'бюргеры свободны / торговля и ремесло'], ['eigen rechten / bestuur (stadsrechten)', 'свои права / управление']] },
+  { t: 'kerk', q: ['Waar ging de investituurstrijd over?', 'О чём был спор об инвеституре?'], o: [['wie bisschoppen mocht benoemen: paus of keizer', 'кто назначает епископов: папа или император'], ['wie Jeruzalem mocht hebben', 'кому принадлежит Иерусалим'], ['wie het meeste belasting kreeg', 'кто получает больше налогов'], ['of de Bijbel vertaald mocht worden', 'можно ли переводить Библию']], a: 0, e: ['Achterliggende vraag: wie heeft het primaat?', 'Скрытый вопрос: у кого верховенство?'] },
+  { t: 'kerk', q: ['Waarom ging keizer Hendrik IV in 1077 naar Canossa?', 'Зачем Генрих IV пошёл в Каноссу в 1077?'], o: [['Hij was in de ban gedaan en zijn leenmannen gehoorzaamden hem niet meer.', 'Его отлучили, и вассалы перестали подчиняться.'], ['Hij wilde op kruistocht.', 'Хотел в крестовый поход.'], ['Hij wilde paus worden.', 'Хотел стать папой.'], ['Hij ging op vakantie.', 'Поехал отдыхать.']], a: 0, e: ['De ban maakte de eed van trouw ongeldig.', 'Отлучение делало клятву верности недействительной.'] },
+  { t: 'kerk', q: ['Welk motief voor de kruistochten is een economisch motief?', 'Какой мотив крестовых походов — экономический?'], o: [['Italiaanse steden wilden handel met het oosten.', 'Итальянские города хотели торговли с Востоком.'], ['vergeving van zonden', 'прощение грехов'], ['de paus wilde meer gezag', 'папа хотел больше власти'], ['avontuur', 'приключение']], a: 0, e: ['Ook: land en buit voor jongere zonen.', 'А также земли и добыча для младших сыновей.'] },
+  { t: 'kerk', type: 'order', q: ['Zet in de goede volgorde.', 'Расставь по порядку.'], items: [['Canossa (1077)', 'Каносса'], ['oproep tot kruistocht (1095)', 'призыв к походу'], ['verovering van Jeruzalem (1099)', 'взятие Иерусалима'], ['Concordaat van Worms (1122)', 'Вормсский конкордат'], ['val van Akko (1291)', 'падение Акко']] },
+  { t: 'kerk', type: 'open', q: ['Noem twee gevolgen van de kruistochten voor Europa.', 'Назови два следствия крестовых походов для Европы.'], model: ['Bijvoorbeeld: Italiaanse steden werden rijk door de handel met het oosten; er kwam meer vraag naar oosterse producten (specerijen, zijde); koningen werden sterker doordat ridders land verkochten; meer contact met de islamitische wereld; jodenvervolgingen.', 'Например: итальянские города разбогатели на торговле; вырос спрос на восточные товары; короли усилились, т.к. рыцари продавали земли; больше контактов с исламским миром; погромы евреев.'], rubric: [['eerste juiste gevolg', 'первое верное следствие'], ['tweede juiste gevolg', 'второе верное следствие']] },
+  { t: 'staat', q: ['Wat is centralisatie?', 'Что такое централизация?'], o: [['De macht komt in één centrum, bij de vorst.', 'Власть собирается в одном центре — у правителя.'], ['De macht wordt over veel heren verdeeld.', 'Власть делится между многими сеньорами.'], ['Steden worden zelfstandig.', 'Города становятся независимыми.'], ['De kerk krijgt alle macht.', 'Церковь получает всю власть.']], a: 0, e: ['Het tegenovergestelde van versnippering in het leenstelsel.', 'Противоположность раздробленности ленной системы.'] },
+  { t: 'staat', q: ['Waarom zijn betaalde ambtenaren beter voor een vorst dan leenmannen?', 'Почему чиновники за жалованье выгоднее правителю, чем вассалы?'], o: [['Je kunt een ambtenaar ontslaan; een leen geef je niet makkelijk terug.', 'Чиновника можно уволить; лен назад не заберёшь.'], ['Ambtenaren zijn sterker in de strijd.', 'Чиновники сильнее в бою.'], ['Ambtenaren betalen belasting aan de vorst.', 'Чиновники платят налоги правителю.'], ['Leenmannen konden niet lezen.', 'Вассалы не умели читать.']], a: 0, e: ['Daarvoor heb je wel geld nodig — van de steden.', 'Для этого нужны деньги — от городов.'] },
+  { t: 'staat', q: ['Wat waren de Staten-Generaal (1464)?', 'Что такое Генеральные штаты (1464)?'], o: [['een vergadering van vertegenwoordigers van alle gewesten', 'собрание представителей всех областей'], ['het leger van de Bourgondiërs', 'армия Бургундцев'], ['een gilde van kooplieden', 'гильдия купцов'], ['de rechtbank van de paus', 'суд папы']], a: 0, e: ['De vorst had hun toestemming nodig voor belasting.', 'Правителю нужно было их согласие на налоги.'] },
+  { t: 'staat', q: ['Hoe kwamen de Bourgondiërs vooral aan hun gebieden in de Nederlanden?', 'Как Бургундцы в основном получали области в Нидерландах?'], o: [['door huwelijken, erfenissen, aankopen en oorlog', 'браками, наследством, покупками и войной'], ['door een besluit van de paus', 'решением папы'], ['door verkiezingen', 'выборами'], ['door kruistochten', 'крестовыми походами']], a: 0, e: ['Filips de Goede was de grote "verzamelaar".', 'Филипп Добрый — главный «собиратель».'] },
+  { t: 'staat', type: 'open', q: ['Leg uit hoe de groei van de steden bijdroeg aan staatsvorming en centralisatie.', 'Объясни, как рост городов способствовал образованию государства и централизации.'], model: ['Door de handel werden de steden rijk. De vorst kon van de steden belasting en leningen krijgen. Met dat geld betaalde hij ambtenaren en huurlingen. Daardoor was hij minder afhankelijk van zijn leenmannen en kreeg hij meer macht in het centrum.', 'Торговля обогатила города. Правитель получал от них налоги и займы. На эти деньги он платил чиновникам и наёмникам. Поэтому меньше зависел от вассалов, и власть собиралась в центре.'], rubric: [['steden rijk door handel', 'города богаты'], ['belasting/leningen voor de vorst', 'налоги/займы правителю'], ['ambtenaren/huurlingen → minder afhankelijk van leenmannen', 'чиновники/наёмники → меньше зависимость от вассалов']] },
+  { t: 'nl', q: ['Waarom daalde de bodem in Holland?', 'Почему в Голландии опускалась земля?'], o: [['Ontwaterd veen klinkt in en verteert.', 'Осушенный торф оседает и разлагается.'], ['Door aardbevingen.', 'Из-за землетрясений.'], ['Doordat er te veel steden waren.', 'Слишком много городов.'], ['Door de Vikingen.', 'Из-за викингов.']], a: 0, e: ['Een gevolg van de ontginning zelf.', 'Следствие самого осушения.'] },
+  { t: 'nl', q: ['Wat is een waterschap?', 'Что такое водный совет (waterschap)?'], o: [['een bestuur dat zorgt voor dijken en waterpeil', 'управление, отвечающее за дамбы и уровень воды'], ['een schip voor de graanhandel', 'корабль для торговли зерном'], ['een gilde van vissers', 'гильдия рыбаков'], ['een kerk aan het water', 'церковь у воды']], a: 0, e: ['Een van de oudste gekozen besturen in Nederland.', 'Один из старейших выборных органов NL.'] },
+  { t: 'nl', q: ['Waarom werd Floris V "der keerlen god" genoemd?', 'Почему Флориса V называли «богом мужиков»?'], o: [['Hij steunde boeren en burgers tegen de adel.', 'Поддерживал крестьян и горожан против знати.'], ['Hij was priester.', 'Он был священником.'], ['Hij verbood belasting.', 'Он отменил налоги.'], ['Hij won een kruistocht.', 'Выиграл крестовый поход.']], a: 0, e: ['Daarom vermoordden edelen hem in 1296.', 'Поэтому знать убила его в 1296.'] },
+  { t: 'nl', type: 'open', q: ['Leg uit hoe de bodemdaling in Holland bijdroeg aan het ontstaan van een handelssamenleving.', 'Объясни, как оседание почвы в Голландии способствовало появлению торгового общества.'], model: ['Door de bodemdaling werden de akkers te nat voor graan. Boeren gingen over op veeteelt en Holland moest graan importeren uit de Oostzee. Daarvoor waren schepen en handel nodig. Mensen die niet meer op het land werkten, gingen in de stad werken in ambacht, visserij en handel.', 'Из-за оседания поля стали слишком мокрыми для хлеба. Крестьяне перешли на скот, а зерно пришлось ввозить с Балтики. Для этого нужны корабли и торговля. Люди, ушедшие из полей, работали в городах: ремесло, рыболовство, торговля.'], rubric: [['te nat voor graan', 'слишком мокро для хлеба'], ['veeteelt / graanimport', 'скот / ввоз зерна'], ['schepen, handel, steden', 'корабли, торговля, города']] },
+  { t: 'redeneren', q: ['Welke uitspraak is een oorzaak en geen gevolg van het ontstaan van steden?', 'Какое утверждение — причина, а не следствие роста городов?'], o: [['een groter voedseloverschot', 'больший излишек еды'], ['de opkomst van de burgerij', 'появление бюргерства'], ['meer belasting voor de vorst', 'больше налогов правителю'], ['het ontstaan van gilden', 'появление гильдий']], a: 0, e: ['Overschot → steden → burgerij, gilden, belasting.', 'Излишек → города → бюргеры, гильдии, налоги.'] },
+  { t: 'redeneren', type: 'open', q: ['Vergelijk de manier waarop een vorst in tijdvak 3 en in tijdvak 4 zijn macht organiseerde.', 'Сравни, как правитель организовывал власть в эпохе 3 и в эпохе 4.'], model: ['In tijdvak 3 gaf de vorst grond (lenen) aan leenmannen in ruil voor trouw en militaire dienst, omdat er weinig geld was. In tijdvak 4 kreeg de vorst geld van steden (belasting, leningen) en betaalde hij ambtenaren en huurlingen. Daardoor was hij minder afhankelijk van leenmannen.', 'В эпохе 3 правитель давал землю (лены) за верность и службу, потому что денег было мало. В эпохе 4 он получал деньги от городов и платил чиновникам и наёмникам, поэтому меньше зависел от вассалов.'], rubric: [['tijdvak 3: lenen / grond / trouw', 'эпоха 3: лены, земля, верность'], ['tijdvak 4: geld / ambtenaren / huurlingen', 'эпоха 4: деньги, чиновники, наёмники'], ['verklaring: weinig geld vs geld van steden', 'объяснение: мало денег vs деньги городов']] },
+  { t: 'bronnen', q: ['Een oorkonde uit 1220 waarin de graaf stadsrechten aan Dordrecht geeft, is een…', 'Грамота 1220 г., где граф даёт права Дордрехту, — это…'], o: [['primaire, geschreven bron', 'первичный письменный источник'], ['secundaire bron', 'вторичный источник'], ['archeologische vondst', 'археологическая находка'], ['mening van een historicus', 'мнение историка']], a: 0, e: ['Uit de tijd zelf en met tekst.', 'Из самого того времени и с текстом.'] },
+  { t: 'bronnen', q: ['Een kroniek die door een monnik in opdracht van de paus over Canossa is geschreven, is waarschijnlijk…', 'Хроника о Каноссе, написанная монахом по заказу папы, вероятно…'], o: [['partijdig in het voordeel van de paus', 'пристрастна в пользу папы'], ['partijdig in het voordeel van de keizer', 'пристрастна в пользу императора'], ['helemaal neutraal', 'полностью нейтральна'], ['onbruikbaar', 'бесполезна']], a: 0, e: ['Partijdig ≠ onbruikbaar: het laat zien hoe de kerk het wilde vertellen.', 'Пристрастный ≠ бесполезный: видно, как церковь хотела это рассказать.'] }
+];
+
+initTijdvak({
+  id: 't4', n: 4, CHAIN, ORDER_SETS, PATHS, WATALS, TERMS, Q, LAB,
+  legUit: ['«Появилось трёхполье. Появились города.»', 'Doordat het drieslagstelsel de oogst vergrootte, kregen boeren een overschot dat ze op de markt verkochten. Daardoor groeide de handel en gingen kooplieden en ambachtslieden in steden wonen.', '"Er kwam een drieslagstelsel. Er kwamen steden."'],
+  topics: [['handel', 'Handel en ambacht'], ['steden', 'Steden en burgerij'], ['kerk', 'Paus, keizer, kruistochten'], ['staat', 'Staatsvorming en centralisatie'], ['nl', 'Nederland: water en veen'], ['redeneren', 'Redeneren'], ['bronnen', 'Bronnen']]
+});
+</script>
+</body>
+</html>
