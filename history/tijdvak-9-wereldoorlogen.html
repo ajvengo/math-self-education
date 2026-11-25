@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tijdvak 9 · Wereldoorlogen — самоучитель (RU/NL)</title>
+  <link rel="stylesheet" href="assets/tijdvak.css">
+</head>
+<body data-lang="both">
+<main class="container">
+  <div class="crumbs"><a href="../index.html">← Главная</a> · <a href="index.html">История / Geschiedenis</a></div>
+  <h1>Tijdvak 9 · Tijd van wereldoorlogen</h1>
+  <p class="subtitle"><span class="ru">1900 – 1950: две мировые войны, Великая депрессия, коммунизм и фашизм, пропаганда по радио, Холокост, немецкая оккупация Нидерландов и начало конца колониальных империй. Самоучитель для brugklas VWO+.</span><span class="nl">1900 – 1950: twee wereldoorlogen, de crisis van de jaren dertig, communisme en fascisme, propaganda via de radio, de Holocaust, de Duitse bezetting van Nederland en het begin van het einde van de koloniale rijken. Zelfstudie voor de brugklas vwo+.</span></p>
+
+  <div class="topbar">
+    <div class="langs">
+      <span class="muted">Язык / Taal:</span>
+      <button data-setlang="ru">RU</button>
+      <button data-setlang="both" class="active">RU + NL</button>
+      <button data-setlang="nl">NL</button>
+      <span class="muted" style="margin-left:6px">· <span class="nlt">термины</span> всегда по-голландски</span>
+    </div>
+    <nav class="tabs" id="tabs"></nav>
+  </div>
+
+<!-- ============ 0. OVERZICHT ============ -->
+<section class="page" id="p-kaart" data-title-ru="Обзор" data-title-nl="Overzicht" data-n="0">
+  <div class="kern"><div class="lbl">Kernvraag van het tijdvak</div><div class="q"><span class="ru">Как Европа, которая в 1900 г. верила в прогресс, науку и цивилизацию, за 30 лет дошла до двух мировых войн и фабрик смерти — и какие условия сделали это возможным?</span><span class="nl">Hoe kwam Europa, dat in 1900 geloofde in vooruitgang, wetenschap en beschaving, in 30 jaar tot twee wereldoorlogen en vernietigingskampen — en welke omstandigheden maakten dat mogelijk?</span></div></div>
+
+  <div class="bridge">
+    <div class="card"><b><span class="ru">⬅ Что досталось от эпохи 8</span><span class="nl">⬅ Wat tijdvak 8 meegaf</span></b>
+      <p><span class="ru">Индустриальные державы с массовыми армиями, железными дорогами, пулемётами и артиллерией. Соперничество за колонии. Раскалённый <b>национализм</b> и «научный» расизм. Социализм и страх перед ним у богатых. Массовые партии и газеты. Колонии, где образованная элита начинает требовать независимости.</span><span class="nl">Industriële grootmachten met massalegers, spoorwegen, machinegeweren en artillerie. Rivaliteit om koloniën. Gloeiend <b>nationalisme</b> en "wetenschappelijk" racisme. Socialisme — en angst daarvoor bij de rijken. Massapartijen en kranten. Koloniën waar een opgeleide elite onafhankelijkheid begint te eisen.</span></p>
+      <p class="muted"><a href="tijdvak-8-burgers-en-stoommachines.html">Tijdvak 8 · Burgers en stoommachines</a></p></div>
+    <div class="card"><b><span class="ru">➡ Что эта эпоха оставит следующей</span><span class="nl">➡ Wat dit tijdvak doorgeeft</span></b>
+      <p><span class="ru">Две сверхдержавы — США и СССР — и атомная бомба → холодная война. Разрушенная Европа, которая решит больше никогда не воевать друг с другом → объединение Европы. ООН и Всеобщая декларация прав человека (1948). Колонии, которые больше не хотят ждать → деколонизация. И память о Холокосте, без которой не понять XX век.</span><span class="nl">Twee supermachten — de VS en de Sovjet-Unie — en de atoombom → de Koude Oorlog. Een verwoest Europa dat besluit nooit meer onderling oorlog te voeren → Europese eenwording. De VN en de Universele Verklaring van de Rechten van de Mens (1948). Koloniën die niet meer willen wachten → dekolonisatie. En de herinnering aan de Holocaust, zonder welke je de 20e eeuw niet begrijpt.</span></p>
+      <p class="muted"><a href="tijdvak-10-televisie-en-computer.html">Tijdvak 10 · Televisie en computer</a></p></div>
+  </div>
+
+  <h3><span class="ru">10 эпох — нажми, чтобы перейти</span><span class="nl">De 10 tijdvakken — klik om te wisselen</span></h3>
+  <div class="tijdvakken" id="tvGrid"></div>
+
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0"><span class="ru">Kenmerkende aspecten эпохи 9</span><span class="nl">Kenmerkende aspecten van tijdvak 9</span></h3>
+    <ol>
+      <li><span class="nlt">Het voeren van twee wereldoorlogen</span> <span class="ru">— ведение двух мировых войн</span></li>
+      <li><span class="nlt">De crisis van het wereldkapitalisme</span> <span class="ru">— кризис мирового капитализма</span></li>
+      <li><span class="nlt">Het in praktijk brengen van de totalitaire ideologieën communisme en fascisme/nationaal-socialisme</span> <span class="ru">— воплощение тоталитарных идеологий: коммунизма и фашизма/национал-социализма</span></li>
+      <li><span class="nlt">De rol van moderne propaganda- en communicatiemiddelen en vormen van massaorganisatie</span> <span class="ru">— роль современной пропаганды, средств связи и массовых организаций</span></li>
+      <li><span class="nlt">Vormen van verzet tegen het West-Europese imperialisme</span> <span class="ru">— формы сопротивления западноевропейскому империализму</span></li>
+      <li><span class="nlt">Verwoestingen op niet eerder vertoonde schaal in de beide wereldoorlogen, waaronder het inzetten van massavernietigingswapens en de betrokkenheid van de burgerbevolking</span> <span class="ru">— разрушения невиданного масштаба, оружие массового уничтожения, война против мирного населения</span></li>
+      <li><span class="nlt">Racisme en discriminatie die leidden tot genocide, in het bijzonder op de joden</span> <span class="ru">— расизм и дискриминация, приведшие к геноциду, прежде всего евреев</span></li>
+      <li><span class="nlt">De Duitse bezetting van Nederland</span> <span class="ru">— немецкая оккупация Нидерландов</span></li>
+    </ol>
+    <p class="muted"><span class="ru">Окна канона: <b>Первая мировая война</b> (NL нейтральны), <b>Кризисные годы</b> (1929–1940), <b>Вторая мировая война</b> (1940–1945), <b>Анна Франк</b> (1929–1945), <b>Индонезия</b> (1945–1949).</span><span class="nl">Canonvensters: <b>De Eerste Wereldoorlog</b> (NL neutraal), <b>De crisisjaren</b> (1929–1940), <b>De Tweede Wereldoorlog</b> (1940–1945), <b>Anne Frank</b> (1929–1945), <b>Indonesië</b> (1945–1949).</span></p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Вся эпоха в одной цепочке</span><span class="nl">Het hele tijdvak in één keten</span></h3>
+    <div class="cause">
+      <div class="step"><span class="ru">Национализм + союзы + гонка вооружений</span><span class="nl">Nationalisme + bondgenootschappen + wapenwedloop</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Первая мировая (1914–1918)</span><span class="nl">Eerste Wereldoorlog (1914–1918)</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Революция в России; унизительный мир для Германии</span><span class="nl">Revolutie in Rusland; vernederende vrede voor Duitsland</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Кризис 1929: безработица и страх</span><span class="nl">Crisis 1929: werkloosheid en angst</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Диктаторы + пропаганда</span><span class="nl">Dictators + propaganda</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Вторая мировая и Холокост (1939–1945)</span><span class="nl">Tweede Wereldoorlog en Holocaust (1939–1945)</span></div>
+    </div>
+    <div class="memo"><span class="ru">Вторая мировая выросла из нерешённых проблем Первой. Историки иногда называют 1914–1945 «новой Тридцатилетней войной».</span><span class="nl">De Tweede Wereldoorlog groeide uit de onopgeloste problemen van de Eerste. Historici noemen 1914–1945 soms "een nieuwe Dertigjarige Oorlog".</span></div>
+  </div>
+</section>
+
+<!-- ============ 1. EERSTE WERELDOORLOG ============ -->
+<section class="page" id="p-wo1" data-title-ru="Первая мировая" data-title-nl="Eerste Wereldoorlog" data-n="1">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Как убийство одного эрцгерцога в Сараеве превратилось в войну, в которой погибло около 17 миллионов человек?</span><span class="nl">Hoe werd de moord op één aartshertog in Sarajevo een oorlog waarin ongeveer 17 miljoen mensen stierven?</span></div></div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Причины и повод</span><span class="nl">Oorzaken en aanleiding</span></h3>
+    <div class="grid g2">
+      <div class="regio"><h4><span class="ru">Глубинные причины (M-A-I-N)</span><span class="nl">Diepere oorzaken (M-A-I-N)</span></h4>
+        <ul class="ru"><li><b>M</b>ilitarism — гонка вооружений (Англия и Германия строят линкоры), генштабы с готовыми планами.</li><li><b>A</b>lliances — <b>Антанта</b> (Франция, Россия, Британия) против <b>Центральных держав</b> (Германия, Австро-Венгрия): конфликт двух стран тянет за собой всех.</li><li><b>I</b>mperialism — соперничество за колонии и рынки.</li><li><b>N</b>ationalism — Франция хочет вернуть Эльзас-Лотарингию; славяне на Балканах хотят освободиться от Австрии.</li></ul>
+        <ul class="nl"><li><b>M</b>ilitarisme — wapenwedloop (Engeland en Duitsland bouwen slagschepen), generale staven met kant-en-klare plannen.</li><li><b>A</b>llianties — de <b>Entente</b> (Frankrijk, Rusland, Groot-Brittannië) tegen de <b>Centralen</b> (Duitsland, Oostenrijk-Hongarije): een conflict tussen twee landen sleept iedereen mee.</li><li><b>I</b>mperialisme — rivaliteit om koloniën en markten.</li><li><b>N</b>ationalisme — Frankrijk wil Elzas-Lotharingen terug; Slaven op de Balkan willen af van Oostenrijk.</li></ul></div>
+      <div class="regio"><h4><span class="ru">Повод</span><span class="nl">Aanleiding</span></h4><p class="ru"><b>28 июня 1914</b>: сербский националист Гаврило Принцип убивает наследника австрийского престола Франца Фердинанда в Сараеве. Австрия объявляет войну Сербии → Россия защищает Сербию → Германия объявляет войну России и Франции и по <b>плану Шлиффена</b> идёт через нейтральную Бельгию → Британия вступает за Бельгию. За неделю — мировая война.</p><p class="nl"><b>28 juni 1914</b>: de Servische nationalist Gavrilo Princip vermoordt de Oostenrijkse troonopvolger Frans Ferdinand in Sarajevo. Oostenrijk verklaart Servië de oorlog → Rusland beschermt Servië → Duitsland verklaart Rusland en Frankrijk de oorlog en trekt volgens het <b>Schlieffenplan</b> door het neutrale België → Groot-Brittannië komt op voor België. In één week een wereldoorlog.</p></div>
+    </div>
+    <div class="memo"><span class="ru">Повод — спичка, причины — порох. Без пороха спичка бы просто погасла: политические убийства случались и раньше.</span><span class="nl">De aanleiding is de lucifer, de oorzaken zijn het buskruit. Zonder buskruit was de lucifer gewoon uitgegaan: politieke moorden waren er wel vaker.</span></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Новая война: индустриальная и тотальная</span><span class="nl">Een nieuwe oorlog: industrieel en totaal</span></h3>
+    <div class="bi">
+      <p class="ru">Все ждали короткой войны «до Рождества». Но на Западном фронте армии зарылись в <span class="nlt">loopgraven</span> (окопы) от Северного моря до Швейцарии. Пулемёт и колючая проволока делали атаку почти самоубийством: в битве на Сомме (1916) британцы потеряли ~57 000 человек убитыми и ранеными <b>за первый день</b>. Новое оружие: <b>отравляющий газ</b> (Ипр, 1915), танки, самолёты, подводные лодки. Это <span class="nlt">totale oorlog</span>: вся экономика работает на войну, женщины заменяют мужчин на заводах, пропаганда мобилизует население, гражданские голодают из-за блокады. Итог: ~17 млн погибших. В 1917 г. в войну вступают <b>США</b> (из-за подводной войны Германии), а <b>Россия</b> выходит после <b>революции</b>. 11 ноября 1918 — перемирие.</p>
+      <p class="nl">Iedereen verwachtte een korte oorlog, "voor Kerstmis voorbij". Maar aan het westfront groeven legers zich in in <span class="nlt">loopgraven</span> van de Noordzee tot Zwitserland. Machinegeweer en prikkeldraad maakten een aanval bijna zelfmoord: bij de Somme (1916) verloren de Britten ca. 57.000 man aan doden en gewonden <b>op de eerste dag</b>. Nieuwe wapens: <b>gifgas</b> (Ieper, 1915), tanks, vliegtuigen, onderzeeboten. Een <span class="nlt">totale oorlog</span>: de hele economie werkt voor de oorlog, vrouwen vervangen mannen in fabrieken, propaganda mobiliseert de bevolking, burgers hongeren door blokkades. Resultaat: ca. 17 miljoen doden. In 1917 doen de <b>VS</b> mee (door de Duitse duikbotenoorlog), en <b>Rusland</b> stapt eruit na een <b>revolutie</b>. 11 november 1918: wapenstilstand.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Нидерланды: нейтралитет</span><span class="nl">Nederland: neutraal</span></h3>
+    <div class="bi">
+      <p class="ru">Нидерланды остались <span class="nlt">neutraal</span> (окно канона), но держали армию мобилизованной все четыре года. Приняли около <b>миллиона бельгийских беженцев</b> осенью 1914 г. Торговля с обеими сторонами — одни (<span class="nlt">oorlogswinstmakers</span>) разбогатели, но блокада вызвала нехватку продуктов, хлеб по карточкам. После войны в NL бежал немецкий кайзер Вильгельм II — и прожил в Дорне до 1941 г.</p>
+      <p class="nl">Nederland bleef <span class="nlt">neutraal</span> (canonvenster), maar hield het leger vier jaar gemobiliseerd. Het ving in het najaar van 1914 ongeveer <b>een miljoen Belgische vluchtelingen</b> op. Handel met beide kanten — sommigen (<span class="nlt">oorlogswinstmakers</span>) werden rijk, maar de blokkade gaf tekorten, brood op de bon. Na de oorlog vluchtte de Duitse keizer Wilhelm II naar Nederland — en woonde tot 1941 in Doorn.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Последствия: мир, который не принёс мира</span><span class="nl">Gevolgen: een vrede die geen vrede bracht</span></h3>
+    <div class="bi">
+      <p class="ru"><b>Версальский договор</b> (1919): Германия признана единственной виновницей войны (статья 231), теряет территории и колонии, армия ограничена до 100 000, огромные <b>репарации</b>. Немцы назвали это <i>Diktat</i> — продиктованным миром, и легенда об «ударе ножом в спину» (армию якобы предали дома) стала оружием националистов. Распались империи — Австро-Венгерская, Османская, Российская; появились новые государства (Польша, Чехословакия, Югославия). Создана <b>Лига Наций</b> — но без США. В России <b>большевики</b> Ленина (1917) создали первое коммунистическое государство — <b>СССР</b> (1922).</p>
+      <p class="nl">Het <b>Verdrag van Versailles</b> (1919): Duitsland krijgt alle schuld van de oorlog (artikel 231), verliest gebied en koloniën, het leger mag maximaal 100.000 man zijn, en er komen enorme <b>herstelbetalingen</b>. Duitsers noemden het een <i>Diktat</i>, een opgelegde vrede, en de dolkstootlegende (het leger zou thuis verraden zijn) werd een wapen van nationalisten. Rijken vielen uiteen — Oostenrijk-Hongarije, het Ottomaanse Rijk, het Russische Rijk; er kwamen nieuwe staten (Polen, Tsjecho-Slowakije, Joegoslavië). De <b>Volkenbond</b> werd opgericht — maar zonder de VS. In Rusland stichtten de <b>bolsjewieken</b> van Lenin (1917) de eerste communistische staat — de <b>Sovjet-Unie</b> (1922).</p>
+    </div>
+    <details class="alt"><summary><span class="ru">Другие варианты: можно ли было заключить мир, не готовящий новую войну? <span class="vwo">VWO+</span></span><span class="nl">Andere mogelijkheden: was een vrede mogelijk die geen nieuwe oorlog voorbereidde?</span></summary><div class="bi">
+      <p class="ru">Был мягкий план — «14 пунктов» президента США Вильсона: мир без наказаний, право народов на самоопределение. Франция, потерявшая 1,4 млн человек и разорённые северные районы, хотела гарантий и денег. Экономист <b>Кейнс</b> уже в 1919 г. предупредил, что жёсткий мир разорит Германию и приведёт к новой беде. Сравни с 1945: тогда победители выбрали <b>помощь</b> (план Маршалла) вместо наказания — и Западная Германия стала союзником. Урок: <b>условия мира определяют следующую войну</b>.</p>
+      <p class="nl">Er was een mild plan — de "14 punten" van de Amerikaanse president Wilson: vrede zonder straf, zelfbeschikkingsrecht van volken. Frankrijk, dat 1,4 miljoen mensen had verloren en een verwoest noorden had, wilde garanties en geld. De econoom <b>Keynes</b> waarschuwde al in 1919 dat een harde vrede Duitsland zou ruïneren en tot nieuwe ellende zou leiden. Vergelijk met 1945: toen kozen de winnaars voor <b>hulp</b> (Marshallplan) in plaats van straf — en West-Duitsland werd bondgenoot. Les: <b>de vredesvoorwaarden bepalen de volgende oorlog</b>.</p>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ 2. CRISIS EN TOTALITARISME ============ -->
+<section class="page" id="p-crisis" data-title-ru="Кризис и диктатуры" data-title-nl="Crisis en dictaturen" data-n="2">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Почему миллионы людей добровольно проголосовали за тех, кто обещал уничтожить демократию?</span><span class="nl">Waarom stemden miljoenen mensen vrijwillig op mensen die beloofden de democratie af te schaffen?</span></div></div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Кризис мирового капитализма</span><span class="nl">De crisis van het wereldkapitalisme</span></h3>
+    <div class="bi">
+      <p class="ru">В 1920-е — бум в США: акции растут, их покупают в долг. <b>Октябрь 1929</b>: обвал Нью-Йоркской биржи (<span class="nlt">beurskrach</span>, Уолл-стрит). Банки разоряются, требуют назад кредиты из Европы (особенно из Германии) → фабрики закрываются → безработица → люди меньше покупают → закрываются новые фабрики. Это <span class="nlt">economische crisis</span> — Великая депрессия: <b>порочный круг</b>. Страны вводят пошлины, защищая свои рынки, — мировая торговля падает на две трети. В Германии к 1932 г. — <b>6 млн безработных</b> (~30%). В Нидерландах (окно канона «Кризисные годы») — около <b>500 000</b> безработных в 1936 г.; премьер <b>Колейн</b> держится за золотой гульден и экономию, что продлило кризис; безработные получают маленькое пособие в обмен на <span class="nlt">werkverschaffing</span> (общественные работы). В США <b>Рузвельт</b> выбрал другой путь — <span class="nlt">New Deal</span>: государство само тратит деньги на стройки и работу (идея Кейнса).</p>
+      <p class="nl">In de jaren 1920 was er een hausse in de VS: aandelen stegen en werden op krediet gekocht. <b>Oktober 1929</b>: de <span class="nlt">beurskrach</span> van Wall Street. Banken gaan failliet en eisen leningen terug uit Europa (vooral uit Duitsland) → fabrieken sluiten → werkloosheid → mensen kopen minder → meer fabrieken sluiten. Dat is de <span class="nlt">economische crisis</span> van de jaren dertig: een <b>vicieuze cirkel</b>. Landen voeren invoerrechten in om hun markt te beschermen — de wereldhandel krimpt met twee derde. In Duitsland waren er in 1932 <b>6 miljoen werklozen</b> (ca. 30%). In Nederland (canonvenster De crisisjaren) ca. <b>500.000</b> in 1936; premier <b>Colijn</b> hield vast aan de gouden gulden en bezuinigingen, wat de crisis verlengde; werklozen kregen een kleine uitkering in ruil voor <span class="nlt">werkverschaffing</span>. In de VS koos <b>Roosevelt</b> een andere weg — de <span class="nlt">New Deal</span>: de staat gaf zelf geld uit aan bouwprojecten en werk (een idee van Keynes).</p>
+    </div>
+    <div class="memo"><span class="ru">Кризис 1929 г. — доказательство, что мировая экономика (эпоха 6!) стала единой: обвал в Нью-Йорке оставил без работы ткача в Твенте.</span><span class="nl">De crisis van 1929 bewees dat de wereldeconomie (tijdvak 6!) één geheel was geworden: een krach in New York maakte een wever in Twente werkloos.</span></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Тоталитарные идеологии</span><span class="nl">Totalitaire ideologieën</span></h3>
+    <div class="bi">
+      <p class="ru"><span class="nlt">totalitarisme</span> — государство контролирует <b>всё</b>: политику, экономику, прессу, школу, искусство, даже свободное время и мысли. Одна партия, один вождь, тайная полиция, лагеря для противников, массовые организации (молодёжь, женщины, рабочие) и <b>пропаганда</b> через новые средства — радио, кино, плакаты, массовые парады.</p>
+      <p class="nl">Het <span class="nlt">totalitarisme</span>: de staat beheerst <b>alles</b>: politiek, economie, pers, school, kunst, zelfs vrije tijd en gedachten. Eén partij, één leider, geheime politie, kampen voor tegenstanders, massaorganisaties (jeugd, vrouwen, arbeiders) en <b>propaganda</b> via nieuwe media — radio, film, affiches, massale optochten.</p>
+    </div>
+    <table class="cmp">
+      <tr><th></th><th><span class="ru">Коммунизм (СССР, Сталин)</span><span class="nl">Communisme (Sovjet-Unie, Stalin)</span></th><th><span class="ru">Фашизм (Италия, Муссолини) / национал-социализм (Германия, Гитлер)</span><span class="nl">Fascisme (Italië, Mussolini) / nationaalsocialisme (Duitsland, Hitler)</span></th></tr>
+      <tr><td><span class="ru">Цель</span><span class="nl">Doel</span></td><td><span class="ru">Бесклассовое общество, без частной собственности</span><span class="nl">Klasseloze samenleving, zonder privébezit</span></td><td><span class="ru">Сильная, «чистая» нация; у нацистов — расовая иерархия и «жизненное пространство» на востоке</span><span class="nl">Een sterke, "zuivere" natie; bij de nazi's een rassenhiërarchie en Lebensraum in het oosten</span></td></tr>
+      <tr><td><span class="ru">Враг</span><span class="nl">Vijand</span></td><td><span class="ru">«Классовые враги»: буржуазия, кулаки</span><span class="nl">"Klassenvijanden": burgerij, koelakken</span></td><td><span class="ru">Коммунисты, демократы; у нацистов прежде всего <b>евреи</b></span><span class="nl">Communisten, democraten; bij de nazi's vooral <b>joden</b></span></td></tr>
+      <tr><td><span class="ru">Экономика</span><span class="nl">Economie</span></td><td><span class="ru">Всё государственное, пятилетки, коллективизация (голод 1932–1933, миллионы погибших)</span><span class="nl">Alles van de staat, vijfjarenplannen, collectivisatie (hongersnood 1932–1933, miljoenen doden)</span></td><td><span class="ru">Частная собственность остаётся, но под контролем государства; вооружение</span><span class="nl">Privébezit blijft, maar onder staatscontrole; herbewapening</span></td></tr>
+      <tr><td><span class="ru">Террор</span><span class="nl">Terreur</span></td><td><span class="ru">Чистки, <b>ГУЛАГ</b></span><span class="nl">Zuiveringen, de <b>Goelag</b></span></td><td><span class="ru">Гестапо, концлагеря (Дахау 1933)</span><span class="nl">Gestapo, concentratiekampen (Dachau 1933)</span></td></tr>
+    </table>
+    <details class="why"><summary><span class="ru">Как Гитлер пришёл к власти законным путём? <span class="vwo">VWO+</span></span><span class="nl">Hoe kwam Hitler legaal aan de macht?</span></summary><div class="bi">
+      <p class="ru">Цепочка: унижение Версаля + «удар в спину» → гиперинфляция 1923 г. (деньги обесценились, сбережения среднего класса исчезли) → кризис 1929 г. и массовая безработица → страх перед коммунистами у среднего класса и богачей → обещания НСДАП: работа, порядок, величие, «виноваты евреи и Версаль» → <b>пропаганда</b> (Геббельс: радио, митинги, кино) → 37% на выборах в июле 1932 г. (самая большая партия, но не большинство) → консервативные политики думали, что «приручат» его, и в январе <b>1933</b> президент назначил Гитлера канцлером. Затем за полгода: поджог Рейхстага → чрезвычайные указы → закон о чрезвычайных полномочиях → запрет других партий. <b>Демократию отменили демократическими процедурами</b>, потому что слишком мало людей готовы были её защищать.</p>
+      <p class="nl">Een keten: vernedering van Versailles + dolkstootlegende → hyperinflatie van 1923 (geld waardeloos, spaargeld van de middenklasse weg) → crisis van 1929 en massale werkloosheid → angst voor communisten bij middenklasse en rijken → beloftes van de NSDAP: werk, orde, grootheid, "de joden en Versailles zijn de schuld" → <b>propaganda</b> (Goebbels: radio, bijeenkomsten, film) → 37% bij de verkiezingen van juli 1932 (grootste partij, maar geen meerderheid) → conservatieve politici dachten hem te kunnen "temmen", en in januari <b>1933</b> benoemde de president Hitler tot rijkskanselier. Daarna in een half jaar: Rijksdagbrand → noodverordeningen → machtigingswet → verbod op andere partijen. <b>De democratie werd met democratische middelen afgeschaft</b>, omdat te weinig mensen bereid waren haar te verdedigen.</p>
+    </div></details>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">А в Нидерландах?</span><span class="nl">En in Nederland?</span></h3>
+    <div class="bi">
+      <p class="ru">Тоже был фашистский соблазн: <span class="nlt">NSB</span> (Национал-социалистическое движение, Муссерт, 1931) получило <b>8%</b> на провинциальных выборах 1935 г. Но демократия устояла. Почему? <b>Столпы</b> (эпоха 8): католическая и протестантская церкви, социал-демократы запрещали своим членам вступать в NSB; люди были «заняты» в своих организациях; плюс в NL не было унижения проигранной войны и гиперинфляции. На следующих выборах (1937) NSB упало до 4%.</p>
+      <p class="nl">Ook hier was er een fascistische verleiding: de <span class="nlt">NSB</span> (Nationaal-Socialistische Beweging, Mussert, 1931) haalde <b>8%</b> bij de Provinciale Statenverkiezingen van 1935. Maar de democratie hield stand. Waarom? De <b>zuilen</b> (tijdvak 8): de katholieke en protestantse kerken en de sociaaldemocraten verboden hun leden lid te worden van de NSB; mensen waren "bezet" door hun eigen organisaties; bovendien was er in NL geen vernedering door een verloren oorlog en geen hyperinflatie. Bij de volgende verkiezingen (1937) zakte de NSB naar 4%.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. TWEEDE WERELDOORLOG ============ -->
+<section class="page" id="p-wo2" data-title-ru="Вторая мировая и Холокост" data-title-nl="WO II en Holocaust" data-n="3">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Как идеология расовой ненависти превратилась в индустриальное уничтожение миллионов людей — и почему так много людей в этом участвовали или молчали?</span><span class="nl">Hoe werd een ideologie van rassenhaat een industriële vernietiging van miljoenen mensen — en waarom deden zoveel mensen mee of zwegen ze?</span></div></div>
+
+  <div class="card">
+    <table class="tl">
+      <tr><td>1936–1938</td><td><span class="ru">Гитлер вооружается, вводит войска в Рейнскую область, присоединяет Австрию и Судеты. Британия и Франция уступают ради мира — <span class="nlt">appeasement</span> (Мюнхен, 1938).</span><span class="nl">Hitler bewapent zich, bezet het Rijnland, lijft Oostenrijk en het Sudetenland in. Groot-Brittannië en Frankrijk geven toe voor de vrede — <span class="nlt">appeasement</span> (München, 1938).</span></td></tr>
+      <tr><td>aug. 1939</td><td><span class="ru"><b>Пакт Молотова–Риббентропа</b>: Германия и СССР договариваются о ненападении и тайно делят Восточную Европу.</span><span class="nl">Het <b>Molotov-Ribbentroppact</b>: Duitsland en de Sovjet-Unie spreken af elkaar niet aan te vallen en verdelen in het geheim Oost-Europa.</span></td></tr>
+      <tr><td>1 sept. 1939</td><td><span class="ru">Германия нападает на <b>Польшу</b> → Британия и Франция объявляют войну.</span><span class="nl">Duitsland valt <b>Polen</b> binnen → Groot-Brittannië en Frankrijk verklaren de oorlog.</span></td></tr>
+      <tr><td>1940</td><td><span class="ru"><span class="nlt">Blitzkrieg</span> на Западе: Дания, Норвегия, Нидерланды, Бельгия, Франция. Британия под Черчиллем держится одна.</span><span class="nl"><span class="nlt">Blitzkrieg</span> in het westen: Denemarken, Noorwegen, Nederland, België, Frankrijk. Groot-Brittannië onder Churchill houdt alleen stand.</span></td></tr>
+      <tr><td>1941</td><td><span class="ru">Июнь: нападение на <b>СССР</b>. Декабрь: <b>Япония</b> атакует Пёрл-Харбор → США вступают в войну. Война стала по-настоящему мировой.</span><span class="nl">Juni: aanval op de <b>Sovjet-Unie</b>. December: <b>Japan</b> valt Pearl Harbor aan → de VS doen mee. De oorlog is echt wereldwijd.</span></td></tr>
+      <tr><td>1942–1943</td><td><span class="ru">Перелом: Сталинград (февраль 1943), Мидуэй, Северная Африка.</span><span class="nl">Keerpunt: Stalingrad (februari 1943), Midway, Noord-Afrika.</span></td></tr>
+      <tr><td>6 juni 1944</td><td><span class="ru"><b>D-Day</b>: высадка союзников в Нормандии.</span><span class="nl"><b>D-Day</b>: landing van de geallieerden in Normandië.</span></td></tr>
+      <tr><td>mei 1945</td><td><span class="ru">Капитуляция Германии (8 мая).</span><span class="nl">Capitulatie van Duitsland (8 mei).</span></td></tr>
+      <tr><td>aug. 1945</td><td><span class="ru"><b>Атомные бомбы</b> на Хиросиму и Нагасаки → капитуляция Японии. ~70–85 млн погибших за всю войну, больше половины — мирные жители.</span><span class="nl"><b>Atoombommen</b> op Hiroshima en Nagasaki → capitulatie van Japan. Ca. 70–85 miljoen doden in de hele oorlog, meer dan de helft burgers.</span></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Холокост</span><span class="nl">De Holocaust</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <p><span class="nlt">Holocaust</span> (иврит: <i>Шоа</i>) — уничтожение нацистами около <b>6 миллионов евреев</b> Европы. Также убиты сотни тысяч рома и синти, люди с инвалидностью, миллионы советских военнопленных и польских граждан. Это <span class="nlt">genocide</span> — уничтожение целого народа. Шаги: <b>исключение</b> (Нюрнбергские законы 1935: евреи лишены гражданства) → <b>насилие</b> (Хрустальная ночь, 1938) → <b>изоляция</b> (жёлтая звезда, гетто) → <b>массовые расстрелы</b> на востоке (Бабий Яр, 1941: ~33 000 человек за два дня) → <b>лагеря уничтожения</b> с газовыми камерами (Аушвиц-Биркенау, Собибор, Треблинка) после Ванзейской конференции (1942).</p>
+        <p>Как это стало возможно? Многолетний <span class="nlt">antisemitisme</span> + расовая «наука» XIX века + тоталитарное государство без свободной прессы и судов + пропаганда, изображающая евреев «паразитами» + <b>разделение труда</b>: чиновник составлял списки, машинист вёл поезд, каждый делал «только свою работу» + война, которая скрывала и «оправдывала» всё. Философ Ханна Арендт назвала это «банальностью зла».</p>
+      </div>
+      <div class="nl">
+        <p>De <span class="nlt">Holocaust</span> (Hebreeuws: <i>Shoah</i>) is de vernietiging door de nazi's van ongeveer <b>6 miljoen joden</b> in Europa. Ook werden honderdduizenden Roma en Sinti, mensen met een beperking, miljoenen Sovjet-krijgsgevangenen en Poolse burgers vermoord. Dit is <span class="nlt">genocide</span> — de vernietiging van een heel volk. Stappen: <b>uitsluiting</b> (Neurenberger wetten 1935: joden geen burgers meer) → <b>geweld</b> (Kristallnacht, 1938) → <b>isolatie</b> (gele ster, getto's) → <b>massa-executies</b> in het oosten (Babi Jar, 1941: ca. 33.000 mensen in twee dagen) → <b>vernietigingskampen</b> met gaskamers (Auschwitz-Birkenau, Sobibor, Treblinka) na de Wannseeconferentie (1942).</p>
+        <p>Hoe kon dit? Eeuwenoud <span class="nlt">antisemitisme</span> + 19e-eeuwse rassen"wetenschap" + een totalitaire staat zonder vrije pers en rechters + propaganda die joden als "parasieten" afschilderde + <b>arbeidsverdeling</b>: de ambtenaar maakte lijsten, de machinist reed de trein, iedereen deed "alleen zijn werk" + een oorlog die alles verborg en "rechtvaardigde". De filosofe Hannah Arendt noemde dit "de banaliteit van het kwaad".</p>
+      </div>
+    </div>
+    <div class="memo"><span class="ru">Холокост не начался с газовых камер. Он начался со слов, законов и молчания соседей.</span><span class="nl">De Holocaust begon niet met gaskamers. Hij begon met woorden, wetten en het zwijgen van buren.</span></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Нидерланды под оккупацией (1940–1945)</span><span class="nl">Nederland bezet (1940–1945)</span></h3>
+    <table class="tl">
+      <tr><td>10–15 mei 1940</td><td><span class="ru">Нападение Германии. <b>Бомбардировка Роттердама</b> 14 мая (~850 погибших, центр сожжён), угроза бомбить Утрехт → капитуляция. Королева <b>Вильгельмина</b> и правительство — в Лондоне (радио «Оранье»).</span><span class="nl">Duitse aanval. <b>Bombardement op Rotterdam</b> op 14 mei (ca. 850 doden, binnenstad verwoest), dreiging met Utrecht → capitulatie. Koningin <b>Wilhelmina</b> en de regering gaan naar Londen (Radio Oranje).</span></td></tr>
+      <tr><td>1940–1941</td><td><span class="ru">Шаг за шагом: евреев увольняют с государственной службы, регистрируют, запрещают ходить в парки, кино, школы. Многие чиновники подписали «арийскую декларацию».</span><span class="nl">Stap voor stap: joden worden ontslagen uit overheidsdienst, geregistreerd, mogen niet meer in parken, bioscopen, gewone scholen. Veel ambtenaren tekenden de "ariërverklaring".</span></td></tr>
+      <tr><td>25–26 febr. 1941</td><td><span class="ru"><b>Февральская забастовка</b> в Амстердаме — массовый протест против облав на евреев. Единственная такая забастовка в оккупированной Европе. Жёстко подавлена.</span><span class="nl">De <b>Februaristaking</b> in Amsterdam — massaal protest tegen razzia's op joden. Uniek in bezet Europa. Hard neergeslagen.</span></td></tr>
+      <tr><td>1942–1944</td><td><span class="ru">Депортации через лагеря <b>Вестерборк</b> и Вюгт в Аушвиц и Собибор. Из ~140 000 евреев Нидерландов убиты около <b>102 000 — примерно 75%</b>, самый высокий процент в Западной Европе. <b>Анна Франк</b> (окно канона) два года пряталась с семьёй в «заднем доме» на Принсенграхт, была выдана и погибла в Берген-Бельзене в 1945 г. Её дневник читают во всём мире.</span><span class="nl">Deportaties via kamp <b>Westerbork</b> en Vught naar Auschwitz en Sobibor. Van de ca. 140.000 joden in Nederland werden er ongeveer <b>102.000 vermoord — zo'n 75%</b>, het hoogste percentage van West-Europa. <b>Anne Frank</b> (canonvenster) zat twee jaar met haar familie ondergedoken in het Achterhuis aan de Prinsengracht, werd verraden en stierf in 1945 in Bergen-Belsen. Haar dagboek wordt over de hele wereld gelezen.</span></td></tr>
+      <tr><td>1943–1945</td><td><span class="ru"><span class="nlt">verzet</span>: подпольные газеты (Het Parool, Trouw), фальшивые документы, укрытие ~350 000 <span class="nlt">onderduikers</span> (евреев, молодых мужчин, уклонявшихся от трудовой повинности в Германии). Но и <span class="nlt">collaboratie</span>: члены NSB, полиция, помогавшая в облавах, «охотники за евреями» за вознаграждение. Большинство — где-то посередине: <span class="nlt">aanpassing</span> (приспособление).</span><span class="nl"><span class="nlt">verzet</span>: illegale kranten (Het Parool, Trouw), valse papieren, onderdak aan ca. 350.000 <span class="nlt">onderduikers</span> (joden, jonge mannen die de Arbeitseinsatz ontliepen). Maar ook <span class="nlt">collaboratie</span>: NSB'ers, politie die hielp bij razzia's, "jodenjagers" voor premiegeld. De meesten zaten ertussenin: <span class="nlt">aanpassing</span>.</span></td></tr>
+      <tr><td>1944–1945</td><td><span class="ru">Юг освобождён осенью 1944 г. (Арнем — неудача). <b>Голодная зима</b> (<span class="nlt">Hongerwinter</span>) на западе: ~20 000 умерших. <b>5 мая 1945</b> — освобождение.</span><span class="nl">Het zuiden wordt in het najaar van 1944 bevrijd (Arnhem mislukt). De <span class="nlt">Hongerwinter</span> in het westen: ca. 20.000 doden. <b>5 mei 1945</b>: bevrijding.</span></td></tr>
+    </table>
+    <details class="why"><summary><span class="ru">Почему в Нидерландах погибло так много евреев — больше, чем в Бельгии и Франции? <span class="vwo">VWO+</span></span><span class="nl">Waarom werden in Nederland zoveel joden vermoord — meer dan in België en Frankrijk?</span></summary><div class="bi">
+      <p class="ru">Историки называют сочетание условий: (1) <b>гражданское управление СС</b> (а не военное, как в Бельгии и Франции) — более идеологическое; (2) <b>отличная администрация</b>: точные регистры населения, послушные чиновники и полиция; (3) <b>география</b>: плоская густонаселённая страна, некуда бежать — нет гор и лесов, море и Германия вокруг; (4) большинство евреев жили в Амстердаме — легко найти; (5) Еврейский совет, надеясь спасти многих, выполнял приказы; (6) многие голландцы приспособились. Это пример того, как <b>«хорошие» качества</b> (порядок, послушание, точная бюрократия) в руках преступного режима становятся смертоносными.</p>
+      <p class="nl">Historici noemen een combinatie van omstandigheden: (1) een <b>burgerlijk bestuur onder de SS</b> (geen militair bestuur zoals in België en Frankrijk) — ideologischer; (2) een <b>uitstekende administratie</b>: nauwkeurige bevolkingsregisters, gehoorzame ambtenaren en politie; (3) <b>geografie</b>: een vlak, dichtbevolkt land zonder bergen of bossen om te vluchten, met zee en Duitsland eromheen; (4) de meeste joden woonden in Amsterdam — makkelijk te vinden; (5) de Joodse Raad voerde bevelen uit in de hoop velen te redden; (6) veel Nederlanders pasten zich aan. Een voorbeeld van hoe <b>"goede" eigenschappen</b> (orde, gehoorzaamheid, nauwkeurige bureaucratie) in handen van een misdadig regime dodelijk worden.</p>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ 4. INDONESIË ============ -->
+<section class="page" id="p-indonesie" data-title-ru="Индонезия: конец империи" data-title-nl="Indonesië: einde van een rijk" data-n="4">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Почему Нидерланды, только что освобождённые от оккупации, сами начали войну, чтобы удержать свою колонию?</span><span class="nl">Waarom begon Nederland, net zelf bevrijd van een bezetting, een oorlog om zijn kolonie te houden?</span></div></div>
+
+  <div class="card">
+    <div class="bi">
+      <div class="ru">
+        <p><b>Сопротивление империализму</b> росло уже с начала века. «Этическая политика» (эпоха 8) создала образованную элиту, которая читала о правах народов и национализме. <span class="nlt">Budi Utomo</span> (1908), исламский союз <span class="nlt">Sarekat Islam</span> (1912), <b>Национальная партия Индонезии</b> (1927, <b>Сукарно</b>). Голландцы отвечали арестами и ссылками (Сукарно сослан). В Индии похожее движение вёл <b>Ганди</b> — ненасильственное сопротивление, соляной поход 1930 г.</p>
+        <p><b>1942</b>: Япония за несколько недель захватывает Нидерландскую Индию. Голландцы (~100 000 человек) — в японских лагерях. Миф о непобедимости белых разрушен; японцы поддерживают индонезийских националистов, чтобы получить поддержку. <b>17 августа 1945</b>, через два дня после капитуляции Японии, Сукарно и Хатта провозглашают <span class="nlt">onafhankelijkheid</span> Республики Индонезия.</p>
+        <p>Нидерланды не признают: «Индия потеряна — несчастье родилось» (<i>Indië verloren, rampspoed geboren</i>) — без колонии боялись разорения. Начинается война — официально её называли <span class="nlt">politionele acties</span> («полицейские операции», 1947 и 1948), хотя это была настоящая колониальная война: около 200 000 голландских солдат, многие призывники. По исследованию 2022 г., голландская армия <b>систематически применяла крайнее насилие</b>: пытки, казни без суда, сожжение деревень. Погибли около 100 000 индонезийцев и ~5 000 голландских военных. Под давлением <b>США</b> (угроза лишить помощи по плану Маршалла) и ООН Нидерланды 27 декабря <b>1949</b> передали суверенитет. Окно канона «Индонезия».</p>
+      </div>
+      <div class="nl">
+        <p>Het <b>verzet tegen het imperialisme</b> groeide al sinds het begin van de eeuw. De ethische politiek (tijdvak 8) vormde een opgeleide elite die las over volkerenrecht en nationalisme. <span class="nlt">Budi Utomo</span> (1908), de islamitische <span class="nlt">Sarekat Islam</span> (1912), de <b>Indonesische Nationale Partij</b> (1927, <b>Soekarno</b>). Nederland reageerde met arrestaties en verbanning (Soekarno werd verbannen). In India leidde <b>Gandhi</b> een vergelijkbare beweging — geweldloos verzet, de zoutmars van 1930.</p>
+        <p><b>1942</b>: Japan verovert Nederlands-Indië in een paar weken. Nederlanders (ca. 100.000) belanden in Japanse kampen. De mythe van de onoverwinnelijke witte man is kapot; Japan steunt Indonesische nationalisten om steun te krijgen. Op <b>17 augustus 1945</b>, twee dagen na de Japanse capitulatie, roepen Soekarno en Hatta de <span class="nlt">onafhankelijkheid</span> van de Republiek Indonesië uit.</p>
+        <p>Nederland erkent dat niet: "Indië verloren, rampspoed geboren" — zonder kolonie vreesde men armoede. Er begint een oorlog, officieel <span class="nlt">politionele acties</span> genoemd (1947 en 1948), al was het een echte koloniale oorlog: ca. 200.000 Nederlandse militairen, veel dienstplichtigen. Volgens onderzoek uit 2022 gebruikte het Nederlandse leger <b>structureel extreem geweld</b>: martelingen, executies zonder proces, het platbranden van dorpen. Ongeveer 100.000 Indonesiërs en ca. 5.000 Nederlandse militairen kwamen om. Onder druk van de <b>VS</b> (dreiging de Marshallhulp te stoppen) en de VN droeg Nederland op 27 december <b>1949</b> de soevereiniteit over. Canonvenster Indonesië.</p>
+      </div>
+    </div>
+    <div class="memo"><span class="ru">Парадокс 1945–1949: народ, который праздновал своё освобождение 5 мая, через два года посылал солдат против чужой свободы.</span><span class="nl">De paradox van 1945–1949: een volk dat op 5 mei zijn bevrijding vierde, stuurde twee jaar later soldaten tegen de vrijheid van een ander.</span></div>
+  </div>
+
+  <div class="card">
+    <b><span class="ru">🌉 Мост в эпоху 10</span><span class="nl">🌉 Brug naar tijdvak 10</span></b>
+    <p><span class="ru">1945: Европа в руинах, сильны только США и СССР — у них разные системы и скоро будет у обоих атомная бомба → <b>холодная война</b>. Европейцы решают, что больше никогда не будут воевать друг с другом → объединение угля и стали (1951) → ЕС. Начинается восстановление (план Маршалла), а затем невиданный рост благосостояния. Империи рушатся: Индия (1947), Индонезия (1949), Африка (1960-е). → <a href="tijdvak-10-televisie-en-computer.html">Эпоха 10: телевидение и компьютер</a></span><span class="nl">1945: Europa ligt in puin, alleen de VS en de Sovjet-Unie zijn sterk — met verschillende systemen en straks allebei een atoombom → de <b>Koude Oorlog</b>. Europeanen besluiten nooit meer onderling oorlog te voeren → samenwerking in kolen en staal (1951) → de EU. Wederopbouw (Marshallplan), daarna een ongekende groei van welvaart. Rijken vallen: India (1947), Indonesië (1949), Afrika (jaren 1960). → <a href="tijdvak-10-televisie-en-computer.html">Tijdvak 10: televisie en computer</a></span></p>
+  </div>
+</section>
+
+<!-- ============ LAB ============ -->
+<section class="page" id="p-lab" data-title-ru="Лаборатория: как рушится демократия" data-title-nl="Lab: hoe een democratie valt" data-n="5">
+  <div class="kern"><div class="lbl">Lab</div><div class="q"><span class="ru">Германия 1928–1932. Подвигай безработицу, страх перед коммунизмом, силу пропаганды и доверие к демократии. Сколько голосов получит партия, обещающая «порядок»?</span><span class="nl">Duitsland 1928–1932. Schuif met werkloosheid, angst voor het communisme, kracht van de propaganda en vertrouwen in de democratie. Hoeveel stemmen krijgt een partij die "orde" belooft?</span></div></div>
+  <div class="card" id="lab"></div>
+  <div class="card">
+    <b><span class="ru">Эксперименты</span><span class="nl">Experimenten</span></b>
+    <ol class="ru"><li>Сравни «1928» и «июль 1932». Реальные результаты НСДАП: 2,6% и 37,3%. Какой ползунок изменился сильнее всего?</li><li>В «1932» подними доверие к демократии до 8. Почему, по-твоему, в Нидерландах NSB так и не стала большой (подсказка: столпы)?</li><li>Можно ли снизить голоса до 10%, не трогая безработицу? Что это говорит о роли пропаганды и гражданского общества?</li></ol>
+    <ol class="nl"><li>Vergelijk "1928" en "juli 1932". Echte uitslagen van de NSDAP: 2,6% en 37,3%. Welke schuif veranderde het meest?</li><li>Zet bij "1932" het vertrouwen in de democratie op 8. Waarom werd de NSB in Nederland nooit groot (tip: de zuilen)?</li><li>Kun je de stemmen onder 10% krijgen zonder de werkloosheid te veranderen? Wat zegt dat over de rol van propaganda en maatschappelijke organisaties?</li></ol>
+    <div class="memo"><span class="ru">Кризис — топливо, пропаганда — искра, а доверие к демократии и сильное гражданское общество — огнетушитель.</span><span class="nl">Crisis is de brandstof, propaganda de vonk, en vertrouwen in de democratie en een sterke samenleving de brandblusser.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span class="ru">Самоучитель по истории · эпоха 9 из 10 · даты приблизительные («ca.» = около).</span>
+  <span class="nl">Zelfstudie geschiedenis · tijdvak 9 van 10 · jaartallen zijn ongeveer ("ca." = circa).</span>
+</footer>
+</main>
+
+<script src="assets/tijdvak.js"></script>
+<script>
+const CHAIN = [
+  { ru: 'Национализм, союзы, гонка вооружений', nl: 'Nationalisme, allianties, wapenwedloop',
+    why: ['Индустриальные державы соперничают за колонии; два блока союзов; армии с готовыми планами.', 'Industriële grootmachten wedijveren om koloniën; twee blokken; legers met kant-en-klare plannen.'],
+    alt: ['Без жёстких союзов конфликт Австрии и Сербии мог остаться балканской войной.', 'Zonder vaste allianties was het conflict tussen Oostenrijk en Servië een Balkanoorlog gebleven.'] },
+  { ru: 'Первая мировая (1914–1918)', nl: 'Eerste Wereldoorlog (1914–1918)',
+    why: ['Сараево → цепочка объявлений войны → окопы, газ, тотальная война, ~17 млн погибших.', 'Sarajevo → keten van oorlogsverklaringen → loopgraven, gas, totale oorlog, ca. 17 miljoen doden.'],
+    law: ['Индустрия делает войну массовой: кто производит больше снарядов, тот и выигрывает.', 'Industrie maakt oorlog massaal: wie meer granaten maakt, wint.'],
+    alt: ['NL остались нейтральными — небольшое государство может избежать войны, если оно не на пути армий.', 'NL bleef neutraal — een kleine staat kan oorlog ontlopen als hij niet op de route van legers ligt.'] },
+  { ru: 'Русская революция (1917)', nl: 'Russische Revolutie (1917)',
+    why: ['Война, голод и поражения → царь свергнут → большевики Ленина у власти → СССР.', 'Oorlog, honger en nederlagen → de tsaar valt → de bolsjewieken van Lenin aan de macht → Sovjet-Unie.'],
+    alt: ['Без войны слабый царизм, возможно, реформировался бы постепенно.', 'Zonder oorlog was het zwakke tsarisme misschien geleidelijk hervormd.'] },
+  { ru: 'Версальский договор', nl: 'Verdrag van Versailles',
+    why: ['Германия — единственная виновница, репарации, потеря земель → унижение и жажда реванша.', 'Duitsland krijgt alle schuld, herstelbetalingen, gebiedsverlies → vernedering en wraakzucht.'],
+    alt: ['Мягкий мир по Вильсону мог бы лишить националистов главного аргумента.', 'Een milde vrede volgens Wilson had nationalisten hun belangrijkste argument afgenomen.'] },
+  { ru: 'Кризис 1929', nl: 'Crisis van 1929',
+    why: ['Обвал биржи → банки отзывают кредиты → закрытие фабрик → массовая безработица по всему миру.', 'Beurskrach → banken eisen leningen terug → fabrieken sluiten → massale werkloosheid wereldwijd.'],
+    law: ['В единой мировой экономике кризис в одной стране быстро становится общим.', 'In één wereldeconomie wordt een crisis in één land snel een crisis van iedereen.'],
+    alt: ['Политика Рузвельта (New Deal) показала другой путь, чем экономия Колейна.', 'Het beleid van Roosevelt (New Deal) liet een andere weg zien dan de bezuinigingen van Colijn.'] },
+  { ru: 'Тоталитарные режимы', nl: 'Totalitaire regimes',
+    why: ['Страх, бедность, унижение + пропаганда по радио → Сталин, Муссолини, Гитлер.', 'Angst, armoede, vernedering + radiopropaganda → Stalin, Mussolini, Hitler.'],
+    law: ['Демократия падает, когда слишком мало людей готовы её защищать.', 'Een democratie valt als te weinig mensen haar willen verdedigen.'],
+    alt: ['В NL и Британии, при похожем кризисе, демократия устояла — значит, кризис не приговор.', 'In NL en Groot-Brittannië bleef de democratie bij een vergelijkbare crisis overeind — een crisis is dus geen vonnis.'] },
+  { ru: 'Политика умиротворения', nl: 'Appeasement',
+    why: ['Британия и Франция боятся новой войны и уступают Гитлеру (Мюнхен 1938).', 'Groot-Brittannië en Frankrijk vrezen een nieuwe oorlog en geven Hitler toe (München 1938).'],
+    alt: ['Жёсткий ответ в 1936 (Рейнская область), когда вермахт был слаб, мог остановить Гитлера.', 'Een hard antwoord in 1936 (Rijnland), toen het Duitse leger nog zwak was, had Hitler kunnen stoppen.'] },
+  { ru: 'Вторая мировая (1939–1945)', nl: 'Tweede Wereldoorlog (1939–1945)',
+    why: ['Нападение на Польшу, блицкриг, СССР, Пёрл-Харбор → война на всех континентах.', 'Aanval op Polen, blitzkrieg, Sovjet-Unie, Pearl Harbor → oorlog op alle continenten.'],
+    alt: ['Если бы Германия не напала на СССР и Япония на США, исход мог быть иным.', 'Als Duitsland de Sovjet-Unie en Japan de VS niet had aangevallen, had de afloop anders kunnen zijn.'] },
+  { ru: 'Холокост', nl: 'Holocaust',
+    why: ['Антисемитизм + расовая идеология + тоталитарное государство + бюрократия + война → уничтожение ~6 млн евреев.', 'Antisemitisme + rassenideologie + totalitaire staat + bureaucratie + oorlog → vernietiging van ca. 6 miljoen joden.'],
+    law: ['Геноцид начинается с исключения из общества и молчания большинства.', 'Genocide begint met uitsluiting en het zwijgen van de meerderheid.'],
+    alt: ['Там, где население и власти сопротивлялись (Дания), большинство евреев спасли.', 'Waar bevolking en bestuur zich verzetten (Denemarken), werden de meeste joden gered.'] },
+  { ru: 'Оккупация Нидерландов', nl: 'Bezetting van Nederland',
+    why: ['Капитуляция после бомбардировки Роттердама; приспособление, коллаборация и сопротивление.', 'Capitulatie na het bombardement op Rotterdam; aanpassing, collaboratie en verzet.'],
+    alt: ['Февральская забастовка показала, что открытый протест возможен, — но он был жестоко подавлен.', 'De Februaristaking liet zien dat openlijk protest mogelijk was — maar werd hard neergeslagen.'] },
+  { ru: 'Индонезия: деколонизация', nl: 'Indonesië: dekolonisatie',
+    why: ['Национализм элиты + японская оккупация + 17.08.1945 → война 1945–1949 → независимость.', 'Nationalisme van de elite + Japanse bezetting + 17-08-1945 → oorlog 1945–1949 → onafhankelijkheid.'],
+    alt: ['Если бы NL сразу договорились, тысячи жизней можно было бы спасти.', 'Als NL meteen had onderhandeld, waren duizenden levens gespaard.'] },
+  { ru: 'Мост: две сверхдержавы', nl: 'Brug: twee supermachten',
+    why: ['Европа разрушена; США и СССР с атомным оружием → холодная война; ООН и права человека.', 'Europa verwoest; VS en Sovjet-Unie met atoomwapens → Koude Oorlog; VN en mensenrechten.'],
+    alt: ['Победители выбрали помощь, а не наказание (Маршалл) — урок Версаля усвоен.', 'De winnaars kozen voor hulp in plaats van straf (Marshall) — de les van Versailles was geleerd.'] }
+];
+
+const ORDER_SETS = [
+  [['Убийство в Сараеве (1914)', 'Moord in Sarajevo (1914)'], ['Окопная война', 'Loopgravenoorlog'], ['Русская революция (1917)', 'Russische Revolutie (1917)'], ['Перемирие (11.11.1918)', 'Wapenstilstand (11-11-1918)'], ['Версальский договор (1919)', 'Verdrag van Versailles (1919)']],
+  [['Обвал биржи (1929)', 'Beurskrach (1929)'], ['Банки отзывают кредиты', 'Banken eisen leningen terug'], ['Массовая безработица', 'Massale werkloosheid'], ['37% за НСДАП (1932)', '37% voor de NSDAP (1932)'], ['Гитлер — канцлер (1933)', 'Hitler rijkskanselier (1933)']],
+  [['Нюрнбергские законы (1935)', 'Neurenberger wetten (1935)'], ['Хрустальная ночь (1938)', 'Kristallnacht (1938)'], ['Нападение на Польшу (1939)', 'Aanval op Polen (1939)'], ['Ванзейская конференция (1942)', 'Wannseeconferentie (1942)'], ['Освобождение (1945)', 'Bevrijding (1945)']],
+  [['Бомбардировка Роттердама (14.05.1940)', 'Bombardement Rotterdam (14-05-1940)'], ['Февральская забастовка (1941)', 'Februaristaking (1941)'], ['Депортации через Вестерборк (1942–44)', 'Deportaties via Westerbork (1942–44)'], ['Голодная зима (1944–45)', 'Hongerwinter (1944–45)'], ['Освобождение (5.05.1945)', 'Bevrijding (5-5-1945)']],
+  [['Sarekat Islam (1912)', 'Sarekat Islam (1912)'], ['Япония захватывает Индию (1942)', 'Japan verovert Indië (1942)'], ['Провозглашение независимости (17.08.1945)', 'Proclamatie (17-08-1945)'], ['Полицейские операции (1947–48)', 'Politionele acties (1947–48)'], ['Передача суверенитета (1949)', 'Soevereiniteitsoverdracht (1949)']]
+];
+
+const PATHS = [
+  { t: ['Ты — британский премьер, 1938. Гитлер требует Судеты у Чехословакии.', 'Jij bent Brits premier, 1938. Hitler eist het Sudetenland van Tsjecho-Slowakije.'],
+    o: [ [['Уступить ради мира (appeasement)', 'Toegeven voor de vrede (appeasement)'], ['Выгода: война откладывается, Британия успевает вооружиться. Риск: Гитлер понимает, что ему уступают, и требует больше. <b>Так и вышло</b>: в марте 1939 он взял всю Чехию.', 'Voordeel: de oorlog wordt uitgesteld, Groot-Brittannië kan zich bewapenen. Risico: Hitler ziet dat men toegeeft en eist meer. <b>Zo ging het</b>: in maart 1939 nam hij heel Tsjechië.']],
+         [['Отказать и пригрозить войной', 'Weigeren en met oorlog dreigen'], ['Выгода: возможно, Гитлер отступил бы (его генералы боялись войны). Риск: если нет — война в 1938 г., к которой Британия, по мнению её военных, не была готова. Историки до сих пор спорят.', 'Voordeel: misschien was Hitler teruggekrabbeld (zijn generaals vreesden oorlog). Risico: zo niet — oorlog in 1938, waarvoor Groot-Brittannië volgens de eigen militairen niet klaar was. Historici discussiëren er nog steeds over.']] ] },
+  { t: ['Ты — голландский чиновник, 1940. Оккупанты требуют подписать «арийскую декларацию».', 'Jij bent een Nederlandse ambtenaar, 1940. De bezetter eist dat je de ariërverklaring tekent.'],
+    o: [ [['Подписать — «это просто бумага»', 'Tekenen — "het is maar een formulier"'], ['Выгода: сохраняешь работу и спокойствие. Цена: так шаг за шагом, через «маленькие» подписи, оккупант отделял евреев от общества. Почти все подписали.', 'Voordeel: je houdt je baan en rust. Prijs: zo scheidde de bezetter stap voor stap, via "kleine" handtekeningen, joden van de samenleving. Bijna iedereen tekende.']],
+         [['Отказаться', 'Weigeren'], ['Выгода: остаёшься верен своим принципам. Риск: увольнение, преследование. Профессор <b>Клеверинга</b> в Лейдене в 1940 г. выступил против увольнения коллеги-еврея; студенты забастовали, университет закрыли.', 'Voordeel: je blijft trouw aan je principes. Risico: ontslag, vervolging. Professor <b>Cleveringa</b> in Leiden protesteerde in 1940 tegen het ontslag van zijn joodse collega; studenten staakten, de universiteit werd gesloten.']] ] },
+  { t: ['Ты — министр Нидерландов, 1946. Индонезия объявила независимость.', 'Jij bent minister in Nederland, 1946. Indonesië heeft de onafhankelijkheid uitgeroepen.'],
+    o: [ [['Признать и договориться', 'Erkennen en onderhandelen'], ['Выгода: никакой войны, хорошие отношения, торговля. Риск: потеря дохода, гнев избирателей и голландцев в Индии. Этот путь в итоге всё равно пришлось принять — в 1949 г.', 'Voordeel: geen oorlog, goede betrekkingen, handel. Risico: inkomstenverlies, woede van kiezers en Nederlanders in Indië. Uiteindelijk moest deze weg toch worden gekozen — in 1949.']],
+         [['Послать армию', 'Het leger sturen'], ['Выгода (как казалось): удержать «самую ценную колонию». Цена: тысячи погибших, крайнее насилие, международное давление — и всё равно независимость. <b>Так и сделали</b>.', 'Voordeel (zo leek het): "de waardevolste kolonie" houden. Prijs: duizenden doden, extreem geweld, internationale druk — en toch onafhankelijkheid. <b>Zo ging het</b>.']] ] }
+];
+
+const WATALS = [
+  ['Что было бы, если бы в 1914 г. не было системы союзов?', 'Wat als er in 1914 geen systeem van bondgenootschappen was geweest?',
+   'Конфликт Австрии и Сербии мог остаться локальной балканской войной (такие уже были в 1912–1913). Но причины — милитаризм, национализм, соперничество — остались бы, и, возможно, война вспыхнула бы позже из-за другого повода. Хороший ответ различает <b>повод</b>, <b>механизм распространения</b> (союзы, планы мобилизации) и <b>глубинные причины</b>.',
+   'Het conflict tussen Oostenrijk en Servië was misschien een lokale Balkanoorlog gebleven (die waren er al in 1912–1913). Maar de oorzaken — militarisme, nationalisme, rivaliteit — waren gebleven, en misschien was de oorlog later door een andere aanleiding uitgebroken. Een goed antwoord onderscheidt <b>aanleiding</b>, <b>verspreidingsmechanisme</b> (allianties, mobilisatieplannen) en <b>diepere oorzaken</b>.'],
+  ['Почему Гитлер пришёл к власти в Германии, а NSB в Нидерландах осталась маленькой?', 'Waarom kwam Hitler in Duitsland aan de macht en bleef de NSB in Nederland klein?',
+   'Германия: унижение Версаля, гиперинфляция 1923, 30% безработицы, молодая демократия без традиции, страх перед сильными коммунистами, консерваторы, решившие «использовать» Гитлера. Нидерланды: не было проигранной войны, демократия с 1848 г., <b>столпы</b> держали людей в своих организациях и прямо запрещали NSB, кризис мягче. Вывод: <b>одинаковый кризис по-разному действует на разные общества</b>.',
+   'Duitsland: vernedering van Versailles, hyperinflatie 1923, 30% werkloosheid, een jonge democratie zonder traditie, angst voor sterke communisten, conservatieven die Hitler dachten te "gebruiken". Nederland: geen verloren oorlog, democratie sinds 1848, de <b>zuilen</b> hielden mensen in hun eigen organisaties en verboden het NSB-lidmaatschap, een mildere crisis. Conclusie: <b>dezelfde crisis werkt verschillend in verschillende samenlevingen</b>.'],
+  ['Почему в Нидерландах погибла такая большая доля евреев?', 'Waarom werd in Nederland zo\'n groot deel van de joden vermoord?',
+   'Сочетание: гражданская (СС) администрация, точные регистры и послушные чиновники/полиция, плоская густонаселённая страна без мест для бегства, концентрация евреев в Амстердаме, Еврейский совет, выполнявший приказы, приспособление большинства. Вопрос VWO+: какие из этих факторов зависели от <b>решений людей</b>, а какие нет?',
+   'Een combinatie: een burgerlijk (SS-)bestuur, nauwkeurige registers en gehoorzame ambtenaren/politie, een vlak dichtbevolkt land zonder vluchtplekken, concentratie van joden in Amsterdam, een Joodse Raad die bevelen uitvoerde, aanpassing van de meerderheid. Vwo+-vraag: welke factoren hingen af van <b>keuzes van mensen</b>, en welke niet?'],
+  ['Почему победители 1945 г. помогли Германии (план Маршалла), а в 1919 г. наказали?', 'Waarom hielpen de winnaars in 1945 Duitsland (Marshallplan), terwijl ze het in 1919 straften?',
+   'Две причины: (1) <b>урок истории</b>: наказание 1919 г. помогло Гитлеру; (2) <b>холодная война</b>: США нужна была сильная Западная Германия и Западная Европа против СССР, а бедность делала коммунистов популярнее. Снова закономерность: решение побеждает, когда <b>урок</b> совпадает с <b>интересом</b>.',
+   'Twee redenen: (1) een <b>les uit de geschiedenis</b>: de straf van 1919 had Hitler geholpen; (2) de <b>Koude Oorlog</b>: de VS hadden een sterk West-Duitsland en West-Europa nodig tegen de Sovjet-Unie, en armoede maakte communisten populairder. Weer het patroon: een besluit wint als een <b>les</b> samenvalt met een <b>belang</b>.'],
+  ['Почему Нидерланды называли войну в Индонезии «полицейскими операциями»?', 'Waarom noemde Nederland de oorlog in Indonesië "politionele acties"?',
+   'Слово «война» означало бы, что воюют два государства — то есть Нидерланды признали бы Индонезию государством. «Полицейская операция» — это «наведение порядка внутри своей страны». Это пример того, как <b>язык используется в политике</b>: выбор слова — уже позиция. Сегодня историки и правительство говорят о «войне за независимость» и «крайнем насилии».',
+   'Het woord "oorlog" zou betekenen dat twee staten vechten — dan had Nederland Indonesië als staat erkend. Een "politionele actie" is "orde herstellen in je eigen land". Een voorbeeld van <b>taal als politiek middel</b>: de woordkeuze is al een standpunt. Tegenwoordig spreken historici en de regering van een "onafhankelijkheidsoorlog" en "extreem geweld".']
+];
+
+const LAB = {
+  note: ['Учебная модель, грубо настроенная на выборы в Германии 1928–1932. Она не «предсказывает» историю — она показывает, какие факторы толкают людей к экстремистам.', 'Denkmodel, grof afgesteld op de Duitse verkiezingen 1928–1932. Het "voorspelt" de geschiedenis niet — het laat zien welke factoren mensen naar extremisten duwen.'],
+  sliders: [
+    { k: 'u', ru: '📉 Безработица', nl: '📉 Werkloosheid', min: 0, max: 35, v: 8, unit: '%' },
+    { k: 'f', ru: '😨 Страх перед коммунизмом и хаосом', nl: '😨 Angst voor communisme en chaos', min: 0, max: 10, v: 3 },
+    { k: 'p', ru: '📻 Сила пропаганды', nl: '📻 Kracht van de propaganda', min: 0, max: 10, v: 3 },
+    { k: 't', ru: '🏛 Доверие к демократии', nl: '🏛 Vertrouwen in de democratie', min: 0, max: 10, v: 6 }
+  ],
+  presets: [
+    { ru: '1928', nl: '1928', v: [8, 3, 3, 6] },
+    { ru: '1930', nl: '1930', v: [15, 6, 6, 4] },
+    { ru: 'Июль 1932', nl: 'Juli 1932', v: [30, 8, 9, 2] },
+    { ru: 'Нидерланды 1935', nl: 'Nederland 1935', v: [20, 5, 5, 8] }
+  ],
+  calc(v) {
+    const votes = Math.max(1, Math.min(55, Math.round(0.8 * v.u + 1.2 * v.f + 1.0 * v.p - 2.0 * v.t + 3)));
+    const segs = [[votes, '#7f1d1d', votes + '%'], [100 - votes, '#94a3b8', '']];
+    if (votes >= 30) return { segs, cls: 'bad', ru: `≈ ${votes}% за партию «порядка». Самая большая партия в парламенте. Если консервативная элита решит, что может её «использовать», — демократия в смертельной опасности (январь 1933).`, nl: `≈ ${votes}% voor de partij van "orde". De grootste partij in het parlement. Als de conservatieve elite denkt haar te kunnen "gebruiken", is de democratie in levensgevaar (januari 1933).` };
+    if (votes >= 12) return { segs, cls: '', ru: `≈ ${votes}%. Экстремисты — заметная сила, пугают и вербуют. Демократия ещё держится, если другие партии держатся вместе и не идут на союз с ними.`, nl: `≈ ${votes}%. Extremisten zijn een zichtbare macht, ze schrikken af en werven. De democratie houdt het nog als andere partijen samen blijven en niet met hen samenwerken.` };
+    return { segs, cls: 'ok', ru: `≈ ${votes}%. Маргинальная партия: шумная, но без реальной власти. Так было с НСДАП в 1928 г. и с NSB после 1937 г.`, nl: `≈ ${votes}%. Een randpartij: luidruchtig, maar zonder echte macht. Zo was het met de NSDAP in 1928 en met de NSB na 1937.` };
+  }
+};
+
+const TERMS = [
+  ['Eerste Wereldoorlog', 'Первая мировая война', 'Oorlog van 1914 tot 1918 tussen Entente en Centralen.'],
+  ['militarisme', 'милитаризм', 'Grote invloed van leger en bewapening op politiek en samenleving.'],
+  ['bondgenootschap / alliantie', 'союз', 'Afspraak tussen landen om elkaar te helpen bij oorlog.'],
+  ['aanleiding', 'повод', 'Directe gebeurtenis die iets in gang zet (Sarajevo).'],
+  ['loopgravenoorlog', 'окопная война', 'Oorlog waarbij legers zich ingraven en het front nauwelijks beweegt.'],
+  ['totale oorlog', 'тотальная война', 'Oorlog waarbij de hele samenleving en economie ingezet worden en burgers doelwit zijn.'],
+  ['neutraliteit', 'нейтралитет', 'Niet meedoen aan een oorlog (NL in 1914–1918).'],
+  ['Verdrag van Versailles', 'Версальский договор', 'Vredesverdrag van 1919 met strenge voorwaarden voor Duitsland.'],
+  ['herstelbetalingen', 'репарации', 'Betalingen als schadevergoeding na een oorlog.'],
+  ['Volkenbond', 'Лига Наций', 'Internationale organisatie voor vrede (1920), voorloper van de VN.'],
+  ['Russische Revolutie', 'Русская революция', 'Revolutie van 1917; de bolsjewieken onder Lenin grijpen de macht.'],
+  ['beurskrach', 'биржевой крах', 'Plotselinge ineenstorting van aandelenkoersen (Wall Street, 1929).'],
+  ['economische crisis', 'экономический кризис', 'Periode van dalende productie en grote werkloosheid (jaren 1930).'],
+  ['werkverschaffing', 'общественные работы', 'Werk door de overheid voor werklozen in ruil voor uitkering.'],
+  ['New Deal', 'Новый курс', 'Beleid van Roosevelt: de staat investeert om de crisis te bestrijden.'],
+  ['ideologie', 'идеология', 'Samenhangend geheel van ideeën over hoe de samenleving moet zijn.'],
+  ['totalitarisme', 'тоталитаризм', 'Staat die alle terreinen van het leven beheerst.'],
+  ['dictatuur', 'диктатура', 'Bestuur door één persoon of partij zonder vrije verkiezingen.'],
+  ['communisme', 'коммунизм', 'Ideologie van een klasseloze samenleving zonder privébezit (Sovjet-Unie).'],
+  ['fascisme', 'фашизм', 'Ideologie van een sterke natie en leider, tegen democratie en communisme (Mussolini).'],
+  ['nationaalsocialisme', 'национал-социализм', 'Duitse variant van fascisme met rassenleer en antisemitisme (Hitler).'],
+  ['propaganda', 'пропаганда', 'Eenzijdige informatie om mensen te beïnvloeden.'],
+  ['massaorganisatie', 'массовая организация', 'Organisatie die grote groepen mensen omvat, bijv. Hitlerjugend.'],
+  ['personencultus', 'культ личности', 'Verheerlijking van de leider.'],
+  ['NSB', 'NSB', 'Nationaal-Socialistische Beweging in Nederland (Mussert, 1931).'],
+  ['appeasement', 'политика умиротворения', 'Toegeven aan een agressor om oorlog te voorkomen (München 1938).'],
+  ['blitzkrieg', 'блицкриг', 'Snelle oorlog met tanks en vliegtuigen.'],
+  ['Tweede Wereldoorlog', 'Вторая мировая война', 'Oorlog van 1939 tot 1945. Canonvenster (NL 1940–1945).'],
+  ['bezetting', 'оккупация', 'Een land wordt bestuurd door de troepen van een ander land.'],
+  ['collaboratie', 'коллаборационизм', 'Samenwerking met de bezetter.'],
+  ['aanpassing', 'приспособление', 'Gewoon doorleven en doen wat de bezetter eist, zonder echt mee te werken of te verzetten.'],
+  ['verzet', 'сопротивление', 'Acties tegen de bezetter: illegale kranten, onderduikers helpen, sabotage.'],
+  ['onderduiker', 'скрывающийся', 'Iemand die zich verbergt voor de bezetter.'],
+  ['razzia', 'облава', 'Grootschalige jacht op mensen om ze op te pakken.'],
+  ['Februaristaking', 'Февральская забастовка', 'Staking in Amsterdam (25–26 februari 1941) tegen jodenvervolging.'],
+  ['Hongerwinter', 'Голодная зима', 'Winter 1944–1945 met hongersnood in West-Nederland.'],
+  ['antisemitisme', 'антисемитизм', 'Haat tegen en discriminatie van joden.'],
+  ['racisme', 'расизм', 'Idee dat mensen op basis van "ras" meer of minder waard zijn.'],
+  ['genocide', 'геноцид', 'Opzettelijke vernietiging van een volk of groep.'],
+  ['Holocaust / Shoah', 'Холокост / Шоа', 'Moord op ca. 6 miljoen joden door de nazi\'s.'],
+  ['concentratiekamp', 'концентрационный лагерь', 'Kamp waar gevangenen onder slechte omstandigheden werden vastgehouden.'],
+  ['vernietigingskamp', 'лагерь уничтожения', 'Kamp gebouwd om mensen te vermoorden (Auschwitz-Birkenau, Sobibor).'],
+  ['Westerbork', 'Вестерборк', 'Doorgangskamp in Drenthe vanwaar joden werden gedeporteerd.'],
+  ['Anne Frank', 'Анна Франк', 'Joods meisje (1929–1945), dagboek in het Achterhuis. Canonvenster.'],
+  ['massavernietigingswapens', 'оружие массового уничтожения', 'Wapens die enorm veel slachtoffers maken: gifgas, atoombom.'],
+  ['atoombom', 'атомная бомба', 'Kernwapen; Hiroshima en Nagasaki (augustus 1945).'],
+  ['nationalisme in de koloniën', 'национализм в колониях', 'Streven van gekoloniseerde volken naar een eigen staat.'],
+  ['Soekarno', 'Сукарно', 'Leider van de Indonesische onafhankelijkheidsbeweging, eerste president.'],
+  ['proclamatie', 'провозглашение', 'Uitroepen van de onafhankelijkheid van Indonesië (17 augustus 1945).'],
+  ['politionele acties', 'полицейские операции', 'Nederlandse benaming van de militaire acties in Indonesië (1947, 1948).'],
+  ['dekolonisatie', 'деколонизация', 'Het onafhankelijk worden van koloniën.'],
+  ['soevereiniteitsoverdracht', 'передача суверенитета', 'Nederland erkent Indonesië als onafhankelijke staat (27 december 1949).']
+];
+
+const Q = [
+  { t: 'wo1', q: ['Wat was de aanleiding van de Eerste Wereldoorlog?', 'Что было поводом Первой мировой войны?'], o: [['de moord op Frans Ferdinand in Sarajevo', 'убийство Франца Фердинанда в Сараеве'], ['de inval in Polen', 'нападение на Польшу'], ['de beurskrach', 'биржевой крах'], ['de Russische Revolutie', 'Русская революция']], a: 0, e: ['Aanleiding ≠ oorzaak: MAIN zijn de oorzaken.', 'Повод ≠ причина; причины — MAIN.'] },
+  { t: 'wo1', q: ['Waarom werd de Eerste Wereldoorlog een loopgravenoorlog?', 'Почему Первая мировая стала окопной?'], o: [['Machinegeweren en prikkeldraad maakten aanvallen bijna onmogelijk.', 'Пулемёты и колючая проволока делали атаки почти невозможными.'], ['De soldaten wilden niet vechten.', 'Солдаты не хотели воевать.'], ['Er waren geen wapens.', 'Не было оружия.'], ['Het was te koud.', 'Было слишком холодно.']], a: 0, e: ['Verdediging was sterker dan aanval.', 'Оборона была сильнее наступления.'] },
+  { t: 'wo1', q: ['Wat deed Nederland in de Eerste Wereldoorlog?', 'Что делали Нидерланды в Первую мировую?'], o: [['bleef neutraal en ving Belgische vluchtelingen op', 'остались нейтральными и приняли бельгийских беженцев'], ['vocht met Duitsland', 'воевали на стороне Германии'], ['vocht met Engeland', 'воевали на стороне Англии'], ['werd bezet', 'были оккупированы']], a: 0, e: ['Ca. een miljoen Belgen.', 'Около миллиона бельгийцев.'] },
+  { t: 'wo1', q: ['Waarom zagen veel Duitsers het Verdrag van Versailles als vernederend?', 'Почему многие немцы считали Версаль унизительным?'], o: [['Duitsland kreeg alle schuld, moest betalen en verloor gebied.', 'Германию признали виновной, обязали платить и отняли земли.'], ['Duitsland kreeg nieuwe koloniën.', 'Германия получила новые колонии.'], ['Duitsland mocht een groot leger houden.', 'Германии разрешили большую армию.'], ['Duitsland werd een monarchie.', 'Германия стала монархией.']], a: 0, e: ['Een Diktat.', 'Диктат.'] },
+  { t: 'wo1', type: 'open', q: ['Leg uit wat het verschil is tussen de aanleiding en de oorzaken van de Eerste Wereldoorlog. Geef van beide een voorbeeld.', 'Объясни разницу между поводом и причинами Первой мировой. Приведи пример каждого.'], model: ['De aanleiding is de directe gebeurtenis die de oorlog liet beginnen: de moord op Frans Ferdinand (1914). De oorzaken zijn diepere ontwikkelingen die oorlog waarschijnlijk maakten, zoals nationalisme, de wapenwedloop, de bondgenootschappen en imperialistische rivaliteit.', 'Повод — непосредственное событие: убийство Франца Фердинанда (1914). Причины — глубинные процессы: национализм, гонка вооружений, союзы, империалистическое соперничество.'], rubric: [['uitleg verschil', 'объяснение разницы'], ['voorbeeld aanleiding', 'пример повода'], ['voorbeeld oorzaak', 'пример причины']] },
+  { t: 'crisis', q: ['Waarmee begon de crisis van de jaren dertig?', 'С чего начался кризис 1930-х?'], o: [['de beurskrach van Wall Street in 1929', 'обвал Уолл-стрит в 1929'], ['het Verdrag van Versailles', 'Версальский договор'], ['de inval in Polen', 'нападение на Польшу'], ['de Russische Revolutie', 'Русская революция']], a: 0, e: ['Daarna een vicieuze cirkel.', 'Потом — порочный круг.'] },
+  { t: 'crisis', q: ['Wat is kenmerkend voor een totalitaire staat?', 'Что характерно для тоталитарного государства?'], o: [['De staat beheerst alle terreinen van het leven, met één partij en propaganda.', 'Государство контролирует всё; одна партия и пропаганда.'], ['Er zijn veel partijen en vrije kranten.', 'Много партий и свободная пресса.'], ['De koning heeft weinig macht.', 'У короля мало власти.'], ['De kerk bestuurt het land.', 'Страной управляет церковь.']], a: 0, e: ['Sovjet-Unie, nazi-Duitsland.', 'СССР, нацистская Германия.'] },
+  { t: 'crisis', q: ['Welk verschil is er tussen communisme en nationaalsocialisme?', 'Какое различие между коммунизмом и национал-социализмом?'], o: [['Communisme wil een klasseloze samenleving; nationaalsocialisme een rassenhiërarchie.', 'Коммунизм — бесклассовое общество; национал-социализм — расовая иерархия.'], ['Communisme is democratisch.', 'Коммунизм демократичен.'], ['Nationaalsocialisme wil privébezit afschaffen.', 'Национал-социализм хочет отменить собственность.'], ['Er is geen verschil.', 'Различий нет.']], a: 0, e: ['Overeenkomst: allebei totalitair.', 'Сходство: оба тоталитарны.'] },
+  { t: 'crisis', q: ['Hoe kwam Hitler in 1933 aan de macht?', 'Как Гитлер пришёл к власти в 1933?'], o: [['Hij werd legaal tot rijkskanselier benoemd na verkiezingswinst van de NSDAP.', 'Его законно назначили канцлером после успехов НСДАП на выборах.'], ['Door een staatsgreep met het leger.', 'Через военный переворот.'], ['Hij erfde de troon.', 'Унаследовал трон.'], ['Hij werd door de Volkenbond aangesteld.', 'Его назначила Лига Наций.']], a: 0, e: ['Daarna schafte hij de democratie af.', 'Потом отменил демократию.'] },
+  { t: 'crisis', q: ['Waarom bleef de NSB in Nederland relatief klein?', 'Почему NSB в Нидерландах осталась относительно маленькой?'], o: [['De zuilen hielden mensen bij hun eigen organisaties en waarschuwden tegen de NSB.', 'Столпы удерживали людей в своих организациях и предостерегали от NSB.'], ['De NSB was verboden vanaf 1931.', 'NSB запретили с 1931.'], ['Er was in NL geen crisis.', 'В NL не было кризиса.'], ['Nederlanders konden niet stemmen.', 'Голландцы не могли голосовать.']], a: 0, e: ['Plus: geen verloren oorlog, geen hyperinflatie.', 'Плюс: нет проигранной войны и гиперинфляции.'] },
+  { t: 'crisis', q: ['Welke rol speelde de radio in de jaren dertig?', 'Какую роль играло радио в 1930-е?'], o: [['Dictators bereikten er miljoenen mensen tegelijk mee met propaganda.', 'Диктаторы обращались через него с пропагандой к миллионам сразу.'], ['Het werd alleen voor muziek gebruikt.', 'Использовалось только для музыки.'], ['Het bestond nog niet.', 'Его ещё не было.'], ['Alleen democratieën gebruikten radio.', 'Радио использовали только демократии.']], a: 0, e: ['Goebbels: de Volksempfänger.', 'Геббельс: «народный радиоприёмник».'] },
+  { t: 'wo2', q: ['Wat gebeurde er op 14 mei 1940?', 'Что произошло 14 мая 1940?'], o: [['het bombardement op Rotterdam', 'бомбардировка Роттердама'], ['de bevrijding van Nederland', 'освобождение Нидерландов'], ['de Februaristaking', 'Февральская забастовка'], ['D-Day', 'День Д']], a: 0, e: ['Een dag later capituleerde Nederland.', 'На следующий день NL капитулировали.'] },
+  { t: 'wo2', q: ['Wat was de Februaristaking (1941)?', 'Что такое Февральская забастовка (1941)?'], o: [['een massaal protest in Amsterdam tegen de jodenvervolging', 'массовый протест в Амстердаме против преследования евреев'], ['een staking voor hogere lonen', 'забастовка за повышение зарплаты'], ['een Duitse aanval', 'немецкое наступление'], ['een staking van boeren', 'забастовка крестьян']], a: 0, e: ['Uniek in bezet Europa.', 'Уникальна для оккупированной Европы.'] },
+  { t: 'wo2', q: ['Hoeveel procent van de joden in Nederland werd ongeveer vermoord?', 'Какой процент евреев Нидерландов был убит?'], o: ['ca. 75%', 'ca. 25%', 'ca. 10%', 'ca. 50%'], a: 0, e: ['Ca. 102.000 van de 140.000.', 'Около 102 000 из 140 000.'] },
+  { t: 'wo2', q: ['Wat is het verschil tussen collaboratie en aanpassing?', 'Чем коллаборация отличается от приспособления?'], o: [['Collaboratie is actief samenwerken met de bezetter; aanpassing is gewoon doorleven zonder verzet.', 'Коллаборация — активное сотрудничество; приспособление — просто жить дальше без сопротивления.'], ['Er is geen verschil.', 'Разницы нет.'], ['Aanpassing is een vorm van verzet.', 'Приспособление — форма сопротивления.'], ['Collaboratie was verboden door de Duitsers.', 'Немцы запрещали коллаборацию.']], a: 0, e: ['De meeste Nederlanders pasten zich aan.', 'Большинство приспособилось.'] },
+  { t: 'wo2', type: 'order', q: ['Zet in de goede volgorde.', 'Расставь по порядку.'], items: [['Neurenberger wetten (1935)', 'Нюрнбергские законы'], ['inval in Polen (1939)', 'нападение на Польшу'], ['bombardement op Rotterdam (1940)', 'бомбардировка Роттердама'], ['Februaristaking (1941)', 'Февральская забастовка'], ['D-Day (1944)', 'День Д']] },
+  { t: 'wo2', type: 'open', q: ['Leg uit hoe de jodenvervolging in Nederland stap voor stap verliep. Noem drie stappen.', 'Объясни, как шаг за шагом шло преследование евреев в NL. Назови три шага.'], model: ['Eerst werden joden geregistreerd en ontslagen uit overheidsbanen (1940). Daarna werden ze uitgesloten: geen toegang tot parken, bioscopen, gewone scholen; de gele ster (1942). Vervolgens razzia\'s en deportatie via Westerbork naar vernietigingskampen als Auschwitz en Sobibor.', 'Сначала евреев регистрировали и увольняли с госслужбы (1940). Затем исключали из общества: запрет парков, кино, школ; жёлтая звезда (1942). Потом облавы и депортация через Вестерборк в лагеря уничтожения.'], rubric: [['registratie/ontslag', 'регистрация/увольнение'], ['uitsluiting/ster', 'исключение/звезда'], ['razzia\'s/deportatie/vernietiging', 'облавы/депортация/уничтожение']] },
+  { t: 'indonesie', q: ['Wat gebeurde er op 17 augustus 1945?', 'Что произошло 17 августа 1945?'], o: [['Soekarno riep de onafhankelijkheid van Indonesië uit.', 'Сукарно провозгласил независимость Индонезии.'], ['Japan capituleerde.', 'Япония капитулировала.'], ['Nederland erkende Indonesië.', 'NL признали Индонезию.'], ['De eerste politionele actie begon.', 'Началась первая полицейская операция.']], a: 0, e: ['Erkenning door NL: pas 27 december 1949.', 'Признание NL — только 27.12.1949.'] },
+  { t: 'indonesie', q: ['Welke rol speelde de Japanse bezetting voor het Indonesische nationalisme?', 'Какую роль сыграла японская оккупация для индонезийского национализма?'], o: [['De mythe van Nederlandse onoverwinnelijkheid verdween en Japan steunde nationalisten.', 'Миф о непобедимости голландцев исчез, Япония поддерживала националистов.'], ['Japan verbood alle nationalisten.', 'Япония запретила всех националистов.'], ['Geen enkele rol.', 'Никакой.'], ['Japan gaf Indonesië terug aan Nederland.', 'Япония вернула Индонезию Нидерландам.']], a: 0, e: ['Een versneller van de dekolonisatie.', 'Ускоритель деколонизации.'] },
+  { t: 'indonesie', q: ['Waarom gaf Nederland in 1949 toe?', 'Почему NL уступили в 1949?'], o: [['Druk van de VS (Marshallhulp) en de VN, en de oorlog was niet te winnen.', 'Давление США (план Маршалла) и ООН, и войну нельзя было выиграть.'], ['Indonesië betaalde Nederland.', 'Индонезия заплатила NL.'], ['Japan dwong het af.', 'Так потребовала Япония.'], ['Nederland wilde Indonesië nooit houden.', 'NL никогда не хотели удерживать Индонезию.']], a: 0, e: ['Internationale druk.', 'Международное давление.'] },
+  { t: 'redeneren', q: ['"Doordat er in Duitsland in 1932 6 miljoen werklozen waren, ..." Welke aanvulling klopt het best?', '«Поскольку в Германии в 1932 было 6 млн безработных…» Что верно?'], o: [['zochten veel kiezers hun heil bij extreme partijen zoals de NSDAP.', 'многие избиратели обратились к экстремистам вроде НСДАП.'], ['werd het Verdrag van Versailles getekend.', 'подписали Версальский договор.'], ['begon de Eerste Wereldoorlog.', 'началась Первая мировая.'], ['viel Japan Pearl Harbor aan.', 'Япония напала на Пёрл-Харбор.']], a: 0, e: ['Oorzaak vóór gevolg in de tijd.', 'Причина раньше следствия.'] },
+  { t: 'bronnen', q: ['Een nazi-affiche toont een sterke arbeider en de tekst "Werk en brood". Wat is het doel van deze bron?', 'Нацистский плакат: сильный рабочий и надпись «Работа и хлеб». Цель источника?'], o: [['Kiezers overtuigen dat de NSDAP de crisis oplost.', 'Убедить избирателей, что НСДАП решит кризис.'], ['Objectief informeren over werkloosheid.', 'Объективно информировать о безработице.'], ['Reclame voor een bakkerij.', 'Реклама пекарни.'], ['Arbeiders waarschuwen voor de nazi\'s.', 'Предупредить рабочих о нацистах.']], a: 0, e: ['Propaganda speelt in op angst en hoop.', 'Пропаганда играет на страхе и надежде.'] },
+  { t: 'bronnen', q: ['Waarom is het dagboek van Anne Frank een belangrijke bron?', 'Почему дневник Анны Франк — важный источник?'], o: [['Het is een persoonlijk ooggetuigenverslag van onderduik en angst, uit de tijd zelf.', 'Это личное свидетельство о жизни в укрытии и страхе, написанное в то время.'], ['Het beschrijft precies hoe de kampen werkten.', 'Точно описывает работу лагерей.'], ['Het is geschreven door een historicus.', 'Его написал историк.'], ['Het is neutraal en volledig.', 'Он нейтрален и полон.']], a: 0, e: ['Primaire bron; beperkt tot haar perspectief.', 'Первичный источник; ограничен её взглядом.'] }
+];
+
+initTijdvak({
+  id: 't9', n: 9, CHAIN, ORDER_SETS, PATHS, WATALS, TERMS, Q, LAB,
+  legUit: ['«Был кризис. Гитлер пришёл к власти.»', 'Doordat de crisis van 1929 in Duitsland tot zes miljoen werklozen leidde en veel Duitsers zich al vernederd voelden door het Verdrag van Versailles, verloren zij het vertrouwen in de democratie. De NSDAP beloofde met veel propaganda werk en orde. Daardoor werd zij de grootste partij en kon Hitler in 1933 rijkskanselier worden.', '"Er was een crisis. Hitler kwam aan de macht."'],
+  topics: [['wo1', 'Eerste Wereldoorlog'], ['crisis', 'Crisis en dictaturen'], ['wo2', 'WO II en Holocaust'], ['indonesie', 'Indonesië'], ['redeneren', 'Redeneren'], ['bronnen', 'Bronnen']]
+});
+</script>
+</body>
+</html>
