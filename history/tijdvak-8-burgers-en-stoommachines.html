@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tijdvak 8 · Burgers en stoommachines — самоучитель (RU/NL)</title>
+  <link rel="stylesheet" href="assets/tijdvak.css">
+</head>
+<body data-lang="both">
+<main class="container">
+  <div class="crumbs"><a href="../index.html">← Главная</a> · <a href="index.html">История / Geschiedenis</a></div>
+  <h1>Tijdvak 8 · Tijd van burgers en stoommachines</h1>
+  <p class="subtitle"><span class="ru">XIX век (1800 – 1900): паровая машина и фабрики меняют жизнь сильнее любой революции; рабочие, либералы, социалисты, верующие и женщины борются за права; Европа захватывает почти весь мир. Самоучитель для brugklas VWO+.</span><span class="nl">De 19e eeuw (1800 – 1900): stoommachine en fabriek veranderen het leven meer dan welke revolutie ook; arbeiders, liberalen, socialisten, gelovigen en vrouwen vechten voor rechten; Europa verovert bijna de hele wereld. Zelfstudie voor de brugklas vwo+.</span></p>
+
+  <div class="topbar">
+    <div class="langs">
+      <span class="muted">Язык / Taal:</span>
+      <button data-setlang="ru">RU</button>
+      <button data-setlang="both" class="active">RU + NL</button>
+      <button data-setlang="nl">NL</button>
+      <span class="muted" style="margin-left:6px">· <span class="nlt">термины</span> всегда по-голландски</span>
+    </div>
+    <nav class="tabs" id="tabs"></nav>
+  </div>
+
+<!-- ============ 0. OVERZICHT ============ -->
+<section class="page" id="p-kaart" data-title-ru="Обзор" data-title-nl="Overzicht" data-n="0">
+  <div class="kern"><div class="lbl">Kernvraag van het tijdvak</div><div class="q"><span class="ru">Как машина, которая кипятит воду, изменила, где люди живут, как работают, кто правит страной и кто владеет миром?</span><span class="nl">Hoe veranderde een machine die water kookt waar mensen wonen, hoe ze werken, wie het land bestuurt en wie de wereld bezit?</span></div></div>
+
+  <div class="bridge">
+    <div class="card"><b><span class="ru">⬅ Что досталось от эпохи 7</span><span class="nl">⬅ Wat tijdvak 7 meegaf</span></b>
+      <p><span class="ru">Идеи прав, конституции и гражданства (1776, 1789, 1798) — записаны, но не для всех. <b>Королевство Нидерландов</b> (1815) с королём Виллемом I. Паровая машина Уатта (1769) и первые фабрики в Англии. Колонии и плантации, рабство ещё не отменено. Наука и вера в прогресс.</span><span class="nl">Ideeën over rechten, grondwet en burgerschap (1776, 1789, 1798) — opgeschreven, maar niet voor iedereen. Het <b>Koninkrijk der Nederlanden</b> (1815) met koning Willem I. De stoommachine van Watt (1769) en de eerste fabrieken in Engeland. Koloniën en plantages, slavernij nog niet afgeschaft. Wetenschap en geloof in vooruitgang.</span></p>
+      <p class="muted"><a href="tijdvak-7-pruiken-en-revoluties.html">Tijdvak 7 · Pruiken en revoluties</a></p></div>
+    <div class="card"><b><span class="ru">➡ Что эта эпоха оставит следующей</span><span class="nl">➡ Wat dit tijdvak doorgeeft</span></b>
+      <p><span class="ru">Индустриальные державы с огромными армиями, железными дорогами и пулемётами — и соперничество за колонии. <b>Национализм</b>, ставший сильнее любой другой идеи. Массовые партии и профсоюзы, борющиеся за всеобщее избирательное право. Социализм, из которого вырастет коммунизм. Всё это в 1914 г. взорвётся мировой войной.</span><span class="nl">Industriële grootmachten met enorme legers, spoorwegen en machinegeweren — en rivaliteit om koloniën. <b>Nationalisme</b>, sterker dan elk ander idee. Massapartijen en vakbonden die strijden voor algemeen kiesrecht. Socialisme, waaruit het communisme groeit. In 1914 ontploft dat alles in een wereldoorlog.</span></p>
+      <p class="muted"><a href="tijdvak-9-wereldoorlogen.html">Tijdvak 9 · Wereldoorlogen</a></p></div>
+  </div>
+
+  <h3><span class="ru">10 эпох — нажми, чтобы перейти</span><span class="nl">De 10 tijdvakken — klik om te wisselen</span></h3>
+  <div class="tijdvakken" id="tvGrid"></div>
+
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0"><span class="ru">Kenmerkende aspecten эпохи 8</span><span class="nl">Kenmerkende aspecten van tijdvak 8</span></h3>
+    <ol>
+      <li><span class="nlt">De industriële revolutie die in de westerse wereld de basis legde voor een industriële samenleving</span> <span class="ru">— промышленная революция, заложившая основу индустриального общества на Западе</span></li>
+      <li><span class="nlt">Discussies over de 'sociale kwestie'</span> <span class="ru">— споры о «социальном вопросе» (бедность рабочих)</span></li>
+      <li><span class="nlt">De moderne vorm van imperialisme die verband hield met de industrialisatie</span> <span class="ru">— современный империализм, связанный с индустриализацией</span></li>
+      <li><span class="nlt">De opkomst van politiek-maatschappelijke stromingen: liberalisme, nationalisme, socialisme, confessionalisme en feminisme</span> <span class="ru">— появление политических течений: либерализм, национализм, социализм, конфессионализм, феминизм</span></li>
+      <li><span class="nlt">De opkomst van emancipatiebewegingen</span> <span class="ru">— появление движений за эмансипацию (равноправие групп)</span></li>
+      <li><span class="nlt">Voortschrijdende democratisering, met deelname van steeds meer mannen en vrouwen aan het politieke proces</span> <span class="ru">— продолжающаяся демократизация: всё больше мужчин и женщин участвуют в политике</span></li>
+    </ol>
+    <p class="muted"><span class="ru">Окна канона: <b>Виллем I</b> (1772–1843), <b>Первая железная дорога</b> (1839), <b>Конституция 1848</b> (Торбеке), <b>Макс Хавелар</b> (1860), <b>Отмена рабства</b> (1863), <b>Детский закон Ван Хаутена</b> (1874), <b>Винсент ван Гог</b>, <b>Алетта Якобс</b>.</span><span class="nl">Canonvensters: <b>Koning Willem I</b> (1772–1843), <b>De eerste spoorlijn</b> (1839), <b>De Grondwet van 1848</b> (Thorbecke), <b>Max Havelaar</b> (1860), <b>Afschaffing van de slavernij</b> (1863), <b>Het Kinderwetje van Van Houten</b> (1874), <b>Vincent van Gogh</b>, <b>Aletta Jacobs</b>.</span></p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Вся эпоха в одной цепочке</span><span class="nl">Het hele tijdvak in één keten</span></h3>
+    <div class="cause">
+      <div class="step"><span class="ru">Пар + уголь + железо</span><span class="nl">Stoom + steenkool + ijzer</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Фабрики и железные дороги</span><span class="nl">Fabrieken en spoorwegen</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Города, рабочие, нищета → социальный вопрос</span><span class="nl">Steden, arbeiders, armoede → sociale kwestie</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Течения и партии: кто как отвечает?</span><span class="nl">Stromingen en partijen: wie geeft welk antwoord?</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Массы требуют голоса → демократизация</span><span class="nl">De massa eist een stem → democratisering</span></div>
+    </div>
+    <div class="cause" style="margin-top:6px">
+      <div class="step"><span class="ru">Фабрикам нужно сырьё и рынки</span><span class="nl">Fabrieken willen grondstoffen en markten</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Пароходы, хинин, пулемёт</span><span class="nl">Stoomschepen, kinine, machinegeweer</span></div><div class="arr">→</div>
+      <div class="step"><span class="ru">Империализм: раздел Африки и Азии</span><span class="nl">Imperialisme: verdeling van Afrika en Azië</span></div>
+    </div>
+    <div class="memo"><span class="ru">XIX век — век «-измов». Каждый «-изм» — это ответ на вопрос: «Как жить в новом мире фабрик?»</span><span class="nl">De 19e eeuw is de eeuw van de "-ismen". Elk "-isme" is een antwoord op de vraag: "Hoe leef je in de nieuwe wereld van de fabriek?"</span></div>
+  </div>
+</section>
+
+<!-- ============ 1. INDUSTRIËLE REVOLUTIE ============ -->
+<section class="page" id="p-industrie" data-title-ru="Промышленная революция" data-title-nl="Industriële revolutie" data-n="1">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Почему промышленная революция началась в Англии, а Нидерланды — самая богатая страна XVII века — пришли к ней с опозданием почти на сто лет?</span><span class="nl">Waarom begon de industriële revolutie in Engeland, en kwam Nederland — het rijkste land van de 17e eeuw — er bijna honderd jaar later bij?</span></div></div>
+
+  <div class="card">
+    <div class="bi">
+      <div class="ru">
+        <p><span class="nlt">industriële revolutie</span>: переход от ручного труда (и силы людей, животных, ветра и воды) к <b>машинам</b> с паровыми двигателями на угле, от мастерской — к <span class="nlt">fabriek</span>. Первая отрасль — <b>текстиль</b> (хлопок): прядильные машины, затем паровой ткацкий станок. Производительность выросла в десятки раз: одна машина делала работу сотни прях. Затем — <b>железо и сталь</b>, <b>железные дороги</b> (1825, Англия) и <b>пароходы</b>. Транспорт стал быстрым и дешёвым, рынки — общенациональными.</p>
+        <p><b>Почему Англия?</b> Сложим условия: (1) <b>уголь и железная руда</b> рядом друг с другом; (2) <b>капитал</b> от торговли и колоний; (3) колонии дают хлопок и рынки сбыта; (4) <b>сельскохозяйственная революция</b> — меньше крестьян нужно на полях → люди идут в города; (5) <b>политическая стабильность</b> после 1688 г., защита собственности и патентов; (6) высокая зарплата и дешёвый уголь → выгодно заменить людей машинами.</p>
+      </div>
+      <div class="nl">
+        <p>De <span class="nlt">industriële revolutie</span>: de overgang van handwerk (en spierkracht van mensen en dieren, wind en water) naar <b>machines</b> met stoommachines op steenkool, van werkplaats naar <span class="nlt">fabriek</span>. De eerste sector: <b>textiel</b> (katoen): spinmachines, daarna het mechanische weefgetouw. De productiviteit steeg tientallen keren: één machine deed het werk van honderd spinsters. Daarna <b>ijzer en staal</b>, <b>spoorwegen</b> (1825, Engeland) en <b>stoomschepen</b>. Vervoer werd snel en goedkoop, markten werden nationaal.</p>
+        <p><b>Waarom Engeland?</b> Tel de voorwaarden op: (1) <b>steenkool en ijzererts</b> dicht bij elkaar; (2) <b>kapitaal</b> uit handel en koloniën; (3) koloniën leveren katoen en afzetmarkten; (4) een <b>landbouwrevolutie</b> — minder boeren nodig → mensen trekken naar de stad; (5) <b>politieke stabiliteit</b> na 1688, bescherming van eigendom en octrooien; (6) hoge lonen en goedkope kolen → het loont om mensen door machines te vervangen.</p>
+      </div>
+    </div>
+    <details class="why"><summary><span class="ru">А почему Нидерланды опоздали? <span class="vwo">VWO+</span></span><span class="nl">En waarom was Nederland laat?</span></summary><div class="bi">
+      <p class="ru">(1) <b>Нет угля</b> (кроме Лимбурга) — его надо было ввозить; ветер и торф дешевле, пока машины не стали очень эффективны. (2) Богатые голландцы привыкли вкладывать в <b>торговлю и займы</b> (жить на проценты), а не в рискованные фабрики. (3) Наполеоновская эпоха разорила торговлю. (4) Хорошие <b>водные пути</b> — каналы и баржи работали, так что железная дорога долго казалась не нужной. (5) В 1830 г. отделилась <b>Бельгия</b> — как раз промышленный юг с углём (Льеж, Шарлеруа)! Настоящая индустриализация пошла после ~1870: Твенте (текстиль), Филипс в Эйндховене (1891), Stork, шахты Лимбурга, порт Роттердама и Новый водный путь (1872). <b>Успех прошлого может мешать новому</b>: страна, которая разбогатела одним способом, не спешит менять его.</p>
+      <p class="nl">(1) <b>Geen steenkool</b> (behalve in Limburg) — die moest worden ingevoerd; wind en turf waren goedkoper, zolang machines niet heel efficiënt waren. (2) Rijke Nederlanders waren gewend te beleggen in <b>handel en leningen</b> (leven van de rente), niet in riskante fabrieken. (3) De Franse tijd had de handel geruïneerd. (4) Goede <b>waterwegen</b> — kanalen en trekschuiten werkten, dus een spoorweg leek lang niet nodig. (5) In 1830 scheidde <b>België</b> zich af — precies het industriële zuiden met steenkool (Luik, Charleroi)! Echte industrialisatie kwam na ca. 1870: Twente (textiel), Philips in Eindhoven (1891), Stork, de Limburgse mijnen, de Rotterdamse haven en de Nieuwe Waterweg (1872). <b>Succes uit het verleden kan het nieuwe afremmen</b>: een land dat op één manier rijk werd, verandert niet snel.</p>
+    </div></details>
+    <div class="memo"><span class="ru">Первая нидерландская железная дорога — Амстердам–Харлем, 1839 (окно канона). Поезд «De Arend» шёл 30 минут — пешком это было 4 часа, на барже 2,5.</span><span class="nl">De eerste Nederlandse spoorlijn: Amsterdam–Haarlem, 1839 (canonvenster). De trein "De Arend" deed er 30 minuten over — lopend was het 4 uur, met de trekschuit 2,5.</span></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Что изменилось в жизни</span><span class="nl">Wat er veranderde in het leven</span></h3>
+    <div class="grid g3">
+      <div class="regio"><h4>🏙 <span class="ru">Урбанизация</span><span class="nl">Urbanisatie</span></h4><p class="ru">Люди переезжают из деревни в города к фабрикам. Население Европы удвоилось за век. В Англии к 1850 больше половины людей живут в городах — впервые в истории.</p><p class="nl">Mensen trekken van het platteland naar de steden, naar de fabrieken. De bevolking van Europa verdubbelde in een eeuw. In Engeland woonde rond 1850 meer dan de helft in steden — voor het eerst in de geschiedenis.</p></div>
+      <div class="regio"><h4>⏰ <span class="ru">Время</span><span class="nl">Tijd</span></h4><p class="ru">Раньше работали по солнцу и сезону; теперь — по <b>фабричному гудку</b> и часам. Стандартное время ввели ради расписаний поездов.</p><p class="nl">Vroeger werkte men op de zon en de seizoenen; nu op de <b>fabrieksfluit</b> en de klok. Een standaardtijd kwam er vanwege de dienstregelingen van de trein.</p></div>
+      <div class="regio"><h4>👔 <span class="ru">Новые классы</span><span class="nl">Nieuwe klassen</span></h4><p class="ru">Вместо сословий по рождению — <b>классы по богатству</b>: <span class="nlt">burgerij</span> (фабриканты, банкиры, юристы) и <span class="nlt">arbeidersklasse</span> (рабочие, у которых есть только руки).</p><p class="nl">In plaats van standen door geboorte — <b>klassen door bezit</b>: de <span class="nlt">burgerij</span> (fabrikanten, bankiers, juristen) en de <span class="nlt">arbeidersklasse</span> (arbeiders die alleen hun handen hebben).</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. SOCIALE KWESTIE ============ -->
+<section class="page" id="p-sociaal" data-title-ru="Социальный вопрос" data-title-nl="Sociale kwestie" data-n="2">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Если фабрики производили больше, чем когда-либо, почему рабочие жили так бедно — и кто должен был это исправить: государство, церковь, сами рабочие или рынок?</span><span class="nl">Als fabrieken meer produceerden dan ooit, waarom leefden arbeiders dan zo arm — en wie moest dat oplossen: de staat, de kerk, de arbeiders zelf of de markt?</span></div></div>
+
+  <div class="card">
+    <div class="bi">
+      <div class="ru">
+        <p><span class="nlt">sociale kwestie</span> — так называли проблему нищеты рабочих. Рабочий день 12–14 часов, шесть дней в неделю; низкая зарплата; <span class="nlt">kinderarbeid</span> — дети с 6–8 лет на фабриках (маленькие руки удобны у машин, а платить можно меньше); никакой защиты при болезни, травме, старости или безработице. Жильё — тесные сырые трущобы (в Амстердаме — <span class="nlt">krotwoningen</span> и подвалы), холера и туберкулёз. Почему так? <b>Рабочих много, а фабрикантов мало</b>: если ты недоволен — за воротами десять желающих на твоё место. А либеральное государство считало, что не должно вмешиваться в договор между хозяином и работником.</p>
+        <p><b>Детский закон Ван Хаутена</b> (<span class="nlt">Kinderwetje</span>, 1874, окно канона): запрет фабричного труда детям <b>младше 12 лет</b>. Слабый — не касался сельского хозяйства и домашнего труда, контроля почти не было. Но это первый закон, в котором государство вмешалось в условия труда. Дальше: <b>закон о труде</b> (1889), <b>обязательное школьное обучение</b> (1901), закон о несчастных случаях (1901).</p>
+      </div>
+      <div class="nl">
+        <p>De <span class="nlt">sociale kwestie</span> was de naam voor de armoede van arbeiders. Werkdagen van 12–14 uur, zes dagen per week; lage lonen; <span class="nlt">kinderarbeid</span> — kinderen vanaf 6–8 jaar in fabrieken (kleine handjes zijn handig bij machines, en je betaalt ze minder); geen enkele bescherming bij ziekte, ongeluk, ouderdom of werkloosheid. Wonen in krappe vochtige <span class="nlt">krotwoningen</span> en kelders, cholera en tbc. Waarom? <b>Er zijn veel arbeiders en weinig fabrikanten</b>: ben je ontevreden, dan staan er tien anderen bij de poort voor jouw plek. En de liberale staat vond dat hij zich niet moest bemoeien met de afspraak tussen baas en werknemer.</p>
+        <p>Het <span class="nlt">Kinderwetje</span> van Van Houten (1874, canonvenster): verbod op fabrieksarbeid voor kinderen <b>onder de 12 jaar</b>. Zwak — gold niet voor landbouw en thuiswerk, controle was er nauwelijks. Maar het was de eerste wet waarmee de staat ingreep in arbeidsomstandigheden. Daarna: de <b>Arbeidswet</b> (1889), de <b>leerplicht</b> (1901), de Ongevallenwet (1901).</p>
+      </div>
+    </div>
+    <details class="why"><summary><span class="ru">Почему родители сами отправляли детей на фабрику?</span><span class="nl">Waarom stuurden ouders hun kinderen zelf naar de fabriek?</span></summary><div class="bi">
+      <p class="ru">Не из жестокости — из <b>арифметики</b>. Зарплаты отца не хватало на хлеб и квартиру для большой семьи; каждый заработанный ребёнком грош был нужен. Поэтому запрет детского труда <b>без</b> повышения зарплаты взрослых сначала делал семьи ещё беднее. Попробуй сам в Лаборатории. Вывод: социальные проблемы связаны цепочкой — чтобы решить одну (детский труд), надо решать и другую (низкие зарплаты).</p>
+      <p class="nl">Niet uit wreedheid — uit <b>rekensom</b>. Het loon van de vader was niet genoeg voor brood en huur van een groot gezin; elk dubbeltje dat een kind verdiende was nodig. Daarom maakte een verbod op kinderarbeid <b>zonder</b> hogere lonen voor volwassenen gezinnen eerst nog armer. Probeer het zelf in het Lab. Conclusie: sociale problemen hangen aan elkaar — om er één op te lossen (kinderarbeid), moet je ook een ander oplossen (lage lonen).</p>
+    </div></details>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Ответы на социальный вопрос</span><span class="nl">Antwoorden op de sociale kwestie</span></h3>
+    <table class="cmp">
+      <tr><th><span class="ru">Течение</span><span class="nl">Stroming</span></th><th><span class="ru">Ответ</span><span class="nl">Antwoord</span></th></tr>
+      <tr><td><span class="nlt">liberalisme</span></td><td><span class="ru">Свобода личности и рынка. Государство — «ночной сторож»: охраняет порядок и собственность, но не вмешивается в экономику. Бедность решится ростом экономики и образованием. Позднее «социальные либералы» (Ван Хаутен!) согласились на некоторые законы.</span><span class="nl">Vrijheid van individu en markt. De staat is een "nachtwakersstaat": bewaakt orde en bezit, maar bemoeit zich niet met de economie. Armoede verdwijnt door economische groei en onderwijs. Later aanvaardden "sociaal-liberalen" (Van Houten!) sommige wetten.</span></td></tr>
+      <tr><td><span class="nlt">socialisme</span></td><td><span class="ru"><b>Карл Маркс</b> («Манифест коммунистической партии», 1848): история — борьба классов; капиталисты эксплуатируют рабочих. Решение — средства производства (фабрики) должны принадлежать обществу. <b>Революционные</b> социалисты — через революцию; <b>социал-демократы</b> — через выборы и законы. В NL: Домела Ньивенхёйс (сначала парламентарий, потом анархист), <b>SDAP</b> (1894, Трулстра).</span><span class="nl"><b>Karl Marx</b> (Communistisch Manifest, 1848): geschiedenis is klassenstrijd; kapitalisten buiten arbeiders uit. Oplossing: de productiemiddelen (fabrieken) horen bij de gemeenschap. <b>Revolutionaire</b> socialisten — via revolutie; <b>sociaaldemocraten</b> — via verkiezingen en wetten. In NL: Domela Nieuwenhuis (eerst parlementariër, later anarchist), de <b>SDAP</b> (1894, Troelstra).</span></td></tr>
+      <tr><td><span class="nlt">confessionalisme</span></td><td><span class="ru">Политика на основе веры. Ни капиталисты, ни социалисты не правы: решение — <b>гармония</b> классов, милосердие, семья и собственная организация верующих. Католики (энциклика папы <i>Rerum Novarum</i>, 1891, Шапман) и протестанты (<b>Абрахам Кёйпер</b>, ARP 1879, «суверенитет в своём кругу»).</span><span class="nl">Politiek op basis van geloof. Kapitalisten noch socialisten hebben gelijk: de oplossing is <b>harmonie</b> tussen klassen, naastenliefde, het gezin en eigen organisaties van gelovigen. Katholieken (pauselijke encycliek <i>Rerum Novarum</i>, 1891, Schaepman) en protestanten (<b>Abraham Kuyper</b>, ARP 1879, "soevereiniteit in eigen kring").</span></td></tr>
+      <tr><td><span class="nlt">vakbonden</span></td><td><span class="ru">Сами рабочие объединяются в <b>профсоюзы</b> и бастуют: один рабочий слаб, тысяча — сила. Большая железнодорожная забастовка 1903 г. в NL.</span><span class="nl">Arbeiders verenigen zich zelf in <b>vakbonden</b> en staken: één arbeider is zwak, duizend zijn sterk. De grote spoorwegstaking van 1903 in NL.</span></td></tr>
+    </table>
+    <div class="memo"><span class="ru">Либерал: «Не мешайте рынку». Социалист: «Отдайте фабрики рабочим». Конфессионал: «Помиритесь ради Бога». Профсоюз: «Без нас машины не работают».</span><span class="nl">Liberaal: "Laat de markt met rust." Socialist: "Geef de fabrieken aan de arbeiders." Confessioneel: "Verzoen je, in Gods naam." Vakbond: "Zonder ons draaien de machines niet."</span></div>
+  </div>
+</section>
+
+<!-- ============ 3. POLITIEK ============ -->
+<section class="page" id="p-politiek" data-title-ru="Течения и демократизация" data-title-nl="Stromingen en democratisering" data-n="3">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Как Нидерланды прошли путь от короля, который правил сам, до парламентской демократии, — и почему каждый «-изм» тянул в свою сторону?</span><span class="nl">Hoe ging Nederland van een koning die zelf regeerde naar een parlementaire democratie — en waarom trok elk "-isme" een andere kant op?</span></div></div>
+
+  <div class="card">
+    <table class="tl">
+      <tr><td>1815</td><td><span class="ru">Венский конгресс: <b>Объединённое королевство Нидерландов</b> (вместе с Бельгией) — буфер против Франции. <b>Виллем I</b> (окно канона), «король-купец»: каналы, банки, дороги, но правит почти сам.</span><span class="nl">Congres van Wenen: het <b>Verenigd Koninkrijk der Nederlanden</b> (met België) — een buffer tegen Frankrijk. <b>Willem I</b> (canonvenster), de "koopmanskoning": kanalen, banken, wegen, maar hij regeert vrijwel zelf.</span></td></tr>
+      <tr><td>1830–1839</td><td><span class="ru"><b>Бельгийская революция</b>: католический, франкоязычный, промышленный юг отделяется. Виллем I признаёт это только в 1839. Вот <b>национализм</b> в действии: люди хотят своё государство по языку, вере, истории.</span><span class="nl">De <b>Belgische Opstand</b>: het katholieke, Franstalige, industriële zuiden scheidt zich af. Willem I erkent het pas in 1839. Dat is <b>nationalisme</b> in actie: mensen willen een eigen staat naar taal, geloof, geschiedenis.</span></td></tr>
+      <tr><td>1848</td><td><span class="ru">Революции по всей Европе. Виллем II испугался («за одну ночь из консерватора стал либералом») и поручил либералу <b>Торбеке</b> новую <b>конституцию</b> (окно канона): <b>министерская ответственность</b> (за решения отвечают министры перед парламентом, а не король), прямые выборы Второй палаты, свобода собраний, образования, религии. Но голосовать могут только богатые мужчины (<span class="nlt">censuskiesrecht</span>, ~11% мужчин).</span><span class="nl">Revoluties in heel Europa. Willem II schrok ("in één nacht van conservatief liberaal geworden") en liet de liberaal <b>Thorbecke</b> een nieuwe <b>grondwet</b> schrijven (canonvenster): <b>ministeriële verantwoordelijkheid</b> (ministers zijn verantwoordelijk tegenover het parlement, niet de koning), rechtstreekse verkiezing van de Tweede Kamer, vrijheid van vergadering, onderwijs, godsdienst. Maar alleen rijke mannen mogen stemmen (<span class="nlt">censuskiesrecht</span>, ca. 11% van de mannen).</span></td></tr>
+      <tr><td>1868</td><td><span class="ru">Кабинет и парламент спорят — побеждает парламент: <b>парламентская система</b> (правительство должно иметь доверие Второй палаты).</span><span class="nl">Kabinet en parlement botsen — het parlement wint: het <b>parlementaire stelsel</b> (een kabinet moet het vertrouwen van de Tweede Kamer hebben).</span></td></tr>
+      <tr><td>1878–1917</td><td><span class="ru"><span class="nlt">schoolstrijd</span> — «школьная борьба»: верующие требуют, чтобы государство финансировало их религиозные школы так же, как государственные. Католики и протестанты объединяются → первые массовые партии.</span><span class="nl">De <span class="nlt">schoolstrijd</span>: gelovigen eisen dat de staat hun bijzondere (religieuze) scholen net zo betaalt als openbare scholen. Katholieken en protestanten werken samen → de eerste massapartijen.</span></td></tr>
+      <tr><td>1887, 1896</td><td><span class="ru">Право голоса расширяется: к 1896 голосует ~49% мужчин.</span><span class="nl">Uitbreiding van het kiesrecht: in 1896 stemt ca. 49% van de mannen.</span></td></tr>
+      <tr><td>1917 / 1919</td><td><span class="ru"><span class="nlt">Pacificatie</span> (умиротворение): религиозные школы финансируются наравне + <b>всеобщее избирательное право для мужчин</b> (1917) и <b>для женщин</b> (1919). (Это уже эпоха 9, но это итог борьбы XIX века.)</span><span class="nl">De <span class="nlt">Pacificatie</span>: bijzondere scholen gelijk gefinancierd + <b>algemeen mannenkiesrecht</b> (1917) en <b>vrouwenkiesrecht</b> (1919). (Dat valt al in tijdvak 9, maar het is het resultaat van de 19e-eeuwse strijd.)</span></td></tr>
+    </table>
+    <div class="memo"><span class="ru">1848: король под конституцией. 1868: правительство под парламентом. 1917–1919: парламент под всеми избирателями. Три шага от власти одного к власти всех.</span><span class="nl">1848: de koning onder de grondwet. 1868: de regering onder het parlement. 1917–1919: het parlement onder alle kiezers. Drie stappen van de macht van één naar de macht van allen.</span></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Национализм, эмансипация и столпы</span><span class="nl">Nationalisme, emancipatie en zuilen</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <p><span class="nlt">nationalisme</span> — идея, что каждый <b>народ</b> (язык, культура, история) должен иметь своё государство и быть ему верен прежде всего. В XIX веке он объединил <b>Италию</b> (1861) и <b>Германию</b> (1871) — и разорвал многонациональные империи (Австро-Венгрию, Османскую). В NL — культ героев Золотого века, памятники Рембрандту и де Рёйтеру, национальный гимн.</p>
+        <p><span class="nlt">emancipatie</span> — борьба группы за равные права и положение: <b>рабочие</b>, <b>католики</b> (долго были гражданами «второго сорта» — с 1853 г. снова есть епископы), <b>ортодоксальные протестанты</b> («маленькие люди» Кёйпера), <b>женщины</b>. <span class="nlt">feminisme</span>: <b>Алетта Якобс</b> (окно канона) — первая женщина в NL, поступившая в университет (1871) и ставшая врачом; боролась за избирательное право женщин и контрацепцию.</p>
+        <p>Каждая группа строила свой мир: школы, газеты, партии, профсоюзы, клубы, позже радио — свои для католиков, протестантов, социалистов и (меньше) либералов. Это <span class="nlt">verzuiling</span> — «столпы» общества: живёшь от колыбели до могилы в своём столпе, а договариваются только лидеры наверху. Так Нидерланды избежали гражданской войны между группами.</p>
+      </div>
+      <div class="nl">
+        <p>Het <span class="nlt">nationalisme</span>: het idee dat elk <b>volk</b> (taal, cultuur, geschiedenis) een eigen staat moet hebben en daar in de eerste plaats trouw aan is. In de 19e eeuw verenigde het <b>Italië</b> (1861) en <b>Duitsland</b> (1871) — en scheurde het veelvolkerenrijken uiteen (Oostenrijk-Hongarije, het Ottomaanse Rijk). In NL — verering van helden uit de Gouden Eeuw, standbeelden voor Rembrandt en De Ruyter, een volkslied.</p>
+        <p><span class="nlt">emancipatie</span>: de strijd van een groep voor gelijke rechten en positie: <b>arbeiders</b>, <b>katholieken</b> (lang tweederangs burgers — vanaf 1853 weer bisschoppen), <b>orthodoxe protestanten</b> (Kuypers "kleine luyden"), <b>vrouwen</b>. Het <span class="nlt">feminisme</span>: <b>Aletta Jacobs</b> (canonvenster) — de eerste vrouw in NL die naar de universiteit ging (1871) en arts werd; ze streed voor vrouwenkiesrecht en anticonceptie.</p>
+        <p>Elke groep bouwde een eigen wereld: scholen, kranten, partijen, vakbonden, clubs, later omroepen — apart voor katholieken, protestanten, socialisten en (minder) liberalen. Dat is de <span class="nlt">verzuiling</span>: je leeft van wieg tot graf in je eigen zuil, en alleen de leiders aan de top maken afspraken. Zo vermeed Nederland een burgeroorlog tussen groepen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. IMPERIALISME ============ -->
+<section class="page" id="p-imperialisme" data-title-ru="Империализм" data-title-nl="Imperialisme" data-n="4">
+  <div class="kern"><div class="lbl">Kernvraag</div><div class="q"><span class="ru">Чем «новый» империализм XIX века отличался от колоний эпох 5–7 — и как он связан с фабриками?</span><span class="nl">Waarin verschilde het "moderne" imperialisme van de 19e eeuw van de koloniën uit tijdvak 5–7 — en wat had het met fabrieken te maken?</span></div></div>
+
+  <div class="card">
+    <div class="bi">
+      <div class="ru">
+        <p>Раньше европейцы держали в основном <b>берега</b>: форты, порты, плантации. С ~1870 они захватывают и управляют <b>целыми континентами</b> — это <span class="nlt">modern imperialisme</span>. К 1914 г. Европа контролировала около 85% суши земли. <b>Раздел Африки</b> (<span class="nlt">Scramble for Africa</span>): на <b>Берлинской конференции</b> (1884–1885) европейцы поделили Африку линейкой по карте — без единого африканца за столом.</p>
+        <p><b>Связь с индустриализацией</b> — три мотива и три средства:</p>
+        <ul>
+          <li><b>Мотивы</b>: (1) фабрикам нужно <b>сырьё</b> — каучук, хлопок, олово, нефть, медь; (2) нужны <b>рынки</b> для товаров и места для капитала; (3) <b>престиж</b> и национализм («место под солнцем»), плюс расизм и идея «цивилизаторской миссии» (<span class="nlt">beschavingsmissie</span>) — европейцы считали себя «выше» и обязанными «воспитать» других.</li>
+          <li><b>Средства</b> — тоже продукт фабрик: <b>пароходы</b> по рекам вглубь континентов; <b>хинин</b> против малярии; <b>пулемёт</b> (битва при Омдурмане 1898: ~11 000 погибших суданцев против ~50 британцев); телеграф для связи с метрополией.</li>
+        </ul>
+      </div>
+      <div class="nl">
+        <p>Vroeger hadden Europeanen vooral <b>kusten</b>: forten, havens, plantages. Vanaf ca. 1870 veroveren en besturen ze <b>hele continenten</b> — het <span class="nlt">modern imperialisme</span>. In 1914 beheerste Europa ongeveer 85% van het land op aarde. De <span class="nlt">Scramble for Africa</span>: op de <b>Conferentie van Berlijn</b> (1884–1885) verdeelden Europeanen Afrika met een liniaal op de kaart — zonder één Afrikaan aan tafel.</p>
+        <p><b>Het verband met de industrialisatie</b> — drie motieven en drie middelen:</p>
+        <ul>
+          <li><b>Motieven</b>: (1) fabrieken hebben <b>grondstoffen</b> nodig — rubber, katoen, tin, olie, koper; (2) <b>afzetmarkten</b> en plekken om kapitaal te beleggen; (3) <b>prestige</b> en nationalisme ("een plaats onder de zon"), plus racisme en het idee van een <span class="nlt">beschavingsmissie</span> — Europeanen vonden zichzelf "hoger" en verplicht anderen "op te voeden".</li>
+          <li><b>Middelen</b> — ook producten van de fabriek: <b>stoomschepen</b> die over rivieren diep het binnenland in voeren; <b>kinine</b> tegen malaria; het <b>machinegeweer</b> (slag bij Omdurman 1898: ca. 11.000 gedode Soedanezen tegen ca. 50 Britten); de telegraaf voor contact met het moederland.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="memo"><span class="ru">Колонии эпохи 6 — торговые точки на берегу. Империя эпохи 8 — сырьевой склад и рынок для фабрик, занятый вглубь.</span><span class="nl">Koloniën in tijdvak 6 waren handelsposten aan de kust. Het imperium van tijdvak 8 is een grondstoffenmagazijn en afzetmarkt voor fabrieken, tot diep in het land.</span></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="ru">Нидерландская Индия</span><span class="nl">Nederlands-Indië</span></h3>
+    <div class="bi">
+      <div class="ru">
+        <p>После банкротства VOC (1799) её владения перешли государству → <b>Нидерландская Индия</b> (нынешняя Индонезия). <span class="nlt">Cultuurstelsel</span> (система принудительных культур, 1830–1870, губернатор ван ден Бос): яванские крестьяне обязаны выращивать на ~1/5 своей земли кофе, сахар, индиго для государства по низким ценам. Доход — до трети бюджета Нидерландов: из него оплатили долги и <b>первые железные дороги</b>. А на Яве — голод (1840-е). <b>Мультатули</b> (Эдуард Доувес Деккер) написал роман <b>«Макс Хавелар»</b> (1860, окно канона), обличающий эксплуатацию яванцев. Конец культурной системы (1870) — вход частных фирм (плантации, нефть: Royal Dutch Shell).</p>
+        <p>Модерный империализм в NL: <b>Ачехская война</b> (Суматра, 1873–1904) — кровавое покорение, десятки тысяч погибших. С 1901 — <span class="nlt">ethische politiek</span>: «долг чести» перед Индией — школы, орошение, медицина. Но школы растили образованную элиту, которая в XX веке потребует <b>независимости</b> (эпоха 9). А в <b>Суринаме и на Антилах</b> рабство отменено в <b>1863</b> (окно канона) — с компенсацией владельцам и 10 годами принудительного «государственного надзора» для освобождённых.</p>
+      </div>
+      <div class="nl">
+        <p>Na het faillissement van de VOC (1799) gingen haar bezittingen naar de staat → <b>Nederlands-Indië</b> (nu Indonesië). Het <span class="nlt">cultuurstelsel</span> (1830–1870, gouverneur Van den Bosch): Javaanse boeren moesten op ca. 1/5 van hun grond koffie, suiker en indigo verbouwen voor de staat, tegen lage prijzen. De opbrengst: tot een derde van de Nederlandse begroting — daarmee werden schulden en de <b>eerste spoorwegen</b> betaald. Op Java was er hongersnood (jaren 1840). <b>Multatuli</b> (Eduard Douwes Dekker) schreef <b>Max Havelaar</b> (1860, canonvenster) tegen de uitbuiting van de Javanen. Na het einde van het cultuurstelsel (1870) kwamen particuliere bedrijven (plantages, olie: Royal Dutch Shell).</p>
+        <p>Modern imperialisme in NL: de <b>Atjehoorlog</b> (Sumatra, 1873–1904) — een bloedige onderwerping met tienduizenden doden. Vanaf 1901 de <span class="nlt">ethische politiek</span>: een "ereschuld" aan Indië — scholen, irrigatie, gezondheidszorg. Maar de scholen vormden een opgeleide elite die in de 20e eeuw <b>onafhankelijkheid</b> zou eisen (tijdvak 9). En in <b>Suriname en de Antillen</b> werd de slavernij afgeschaft in <b>1863</b> (canonvenster) — met schadevergoeding voor eigenaren en 10 jaar verplicht "staatstoezicht" voor de vrijgemaakten.</p>
+      </div>
+    </div>
+    <details class="alt"><summary><span class="ru">Другие варианты: «этическая политика» — помощь или новая форма господства? <span class="vwo">VWO+</span></span><span class="nl">Andere mogelijkheden: ethische politiek — hulp of een nieuwe vorm van overheersing?</span></summary><div class="bi">
+      <p class="ru">И то, и другое — и это хорошая тема для спора. <b>За «помощь»</b>: реально построены школы, больницы, каналы; часть голландцев искренне хотела загладить вину. <b>За «господство»</b>: решения принимали голландцы, а не индонезийцы; образование было в основном для немногих; одновременно продолжались военные походы; и сама идея, что голландцы должны «поднимать» индонезийцев, — тот же патернализм «цивилизаторской миссии». Подумай: <b>может ли помощь быть справедливой, если получатель не решает, какая помощь ему нужна?</b></p>
+      <p class="nl">Allebei — en dat is een goed discussieonderwerp. <b>Voor "hulp"</b>: er kwamen echt scholen, ziekenhuizen en irrigatiewerken; sommige Nederlanders wilden oprecht iets goedmaken. <b>Voor "overheersing"</b>: de beslissingen namen Nederlanders, niet Indonesiërs; onderwijs was vooral voor weinigen; tegelijk gingen militaire expedities door; en het idee dat Nederlanders Indonesiërs moesten "opheffen" is hetzelfde paternalisme als de beschavingsmissie. Denk na: <b>kan hulp eerlijk zijn als de ontvanger niet zelf bepaalt welke hulp hij nodig heeft?</b></p>
+    </div></details>
+  </div>
+
+  <div class="card">
+    <b><span class="ru">🌉 Мост в эпоху 9</span><span class="nl">🌉 Brug naar tijdvak 9</span></b>
+    <p><span class="ru">К 1900 г. великие державы — индустриальные гиганты с массовыми армиями (всеобщая воинская обязанность), железными дорогами для быстрой мобилизации, пулемётами и артиллерией. Они соперничают за колонии и рынки, национализм раскалён, союзы делят Европу на два лагеря. Не хватает одной искры — и в 1914 г. в Сараеве она вспыхнет. → <a href="tijdvak-9-wereldoorlogen.html">Эпоха 9: мировые войны</a></span><span class="nl">Rond 1900 zijn de grootmachten industriële reuzen met massalegers (dienstplicht), spoorwegen voor snelle mobilisatie, machinegeweren en artillerie. Ze wedijveren om koloniën en markten, het nationalisme is gloeiend heet, bondgenootschappen verdelen Europa in twee kampen. Er is één vonk nodig — en in 1914 springt die over in Sarajevo. → <a href="tijdvak-9-wereldoorlogen.html">Tijdvak 9: wereldoorlogen</a></span></p>
+  </div>
+</section>
+
+<!-- ============ LAB ============ -->
+<section class="page" id="p-lab" data-title-ru="Лаборатория: бюджет рабочей семьи" data-title-nl="Lab: budget van een arbeidersgezin" data-n="5">
+  <div class="kern"><div class="lbl">Lab</div><div class="q"><span class="ru">Семья ткача в Твенте, около 1870 г. Хватит ли денег на хлеб и жильё? Что будет, если запретить детский труд, но не поднять зарплату?</span><span class="nl">Een wevergezin in Twente, rond 1870. Is er genoeg geld voor brood en huur? Wat gebeurt er als je kinderarbeid verbiedt zonder het loon te verhogen?</span></div></div>
+  <div class="card" id="lab"></div>
+  <div class="card">
+    <b><span class="ru">Эксперименты</span><span class="nl">Experimenten</span></b>
+    <ol class="ru"><li>Сравни «Ткач, 1870» и «Kinderwetje без повышения зарплаты». Почему многие рабочие семьи сначала были против запрета детского труда?</li><li>Выбери «Дорогой хлеб». Что первым приходится урезать семье? Почему голод часто приводил к беспорядкам (вспомни 1566 и 1789)?</li><li>Выбери «Профсоюз и закон, ок. 1910». Какие два изменения вместе сделали жизнь без детского труда возможной?</li></ol>
+    <ol class="nl"><li>Vergelijk "Wever, 1870" en "Kinderwetje zonder loonsverhoging". Waarom waren veel arbeidersgezinnen eerst tegen het verbod op kinderarbeid?</li><li>Kies "Duur brood". Waar moet het gezin eerst op bezuinigen? Waarom leidde honger vaak tot onrust (denk aan 1566 en 1789)?</li><li>Kies "Vakbond en wet, ca. 1910". Welke twee veranderingen samen maakten een leven zonder kinderarbeid mogelijk?</li></ol>
+    <div class="memo"><span class="ru">Запрет без замены — это не решение, а перенос проблемы. Работающая социальная политика решает цепочку целиком.</span><span class="nl">Een verbod zonder alternatief is geen oplossing maar een verschuiving van het probleem. Goed sociaal beleid pakt de hele keten aan.</span></div>
+  </div>
+</section>
+
+<footer>
+  <span class="ru">Самоучитель по истории · эпоха 8 из 10 · даты приблизительные («ca.» = около).</span>
+  <span class="nl">Zelfstudie geschiedenis · tijdvak 8 van 10 · jaartallen zijn ongeveer ("ca." = circa).</span>
+</footer>
+</main>
+
+<script src="assets/tijdvak.js"></script>
+<script>
+const CHAIN = [
+  { ru: 'Пар, уголь, железо (Англия)', nl: 'Stoom, steenkool, ijzer (Engeland)',
+    why: ['Уголь и руда рядом, капитал от торговли, высокие зарплаты → выгодно ставить машины.', 'Kolen en erts dichtbij, kapitaal uit handel, hoge lonen → het loont machines te gebruiken.'],
+    law: ['Машины заменяют людей там, где люди дороги, а энергия дешёвая.', 'Machines vervangen mensen waar mensen duur zijn en energie goedkoop.'],
+    alt: ['В Нидерландах угля не было, а каналы работали — поэтому индустриализация пришла поздно.', 'In Nederland was geen steenkool en de vaarten werkten — daarom kwam de industrialisatie laat.'] },
+  { ru: 'Фабрики и железные дороги', nl: 'Fabrieken en spoorwegen',
+    why: ['Машины в одном здании; поезда и пароходы делают транспорт быстрым и дешёвым.', 'Machines in één gebouw; treinen en stoomschepen maken vervoer snel en goedkoop.'],
+    alt: ['Без железных дорог фабрики не могли бы получать уголь и продавать товары по всей стране.', 'Zonder spoorwegen konden fabrieken geen kolen krijgen en niet in het hele land verkopen.'] },
+  { ru: 'Урбанизация и новые классы', nl: 'Urbanisatie en nieuwe klassen',
+    why: ['Люди уходят из деревни к фабрикам; буржуазия и рабочий класс вместо сословий.', 'Mensen trekken van het platteland naar de fabriek; burgerij en arbeidersklasse in plaats van standen.'],
+    alt: ['Без сельскохозяйственной революции городам не хватило бы еды.', 'Zonder landbouwrevolutie was er niet genoeg voedsel voor de steden.'] },
+  { ru: 'Социальный вопрос', nl: 'De sociale kwestie',
+    why: ['Много рабочих, мало хозяев → низкие зарплаты, 14 часов, детский труд, трущобы.', 'Veel arbeiders, weinig bazen → lage lonen, 14 uur werken, kinderarbeid, krotten.'],
+    law: ['Кто легко заменим, у того мало силы на переговорах — пока не объединится с другими.', 'Wie makkelijk vervangbaar is, heeft weinig onderhandelingsmacht — tot hij zich met anderen verenigt.'],
+    alt: ['Государство могло вмешаться раньше, но либералы считали это вредным для свободы.', 'De staat had eerder kunnen ingrijpen, maar liberalen vonden dat slecht voor de vrijheid.'] },
+  { ru: 'Либерализм и конституция 1848', nl: 'Liberalisme en Grondwet 1848',
+    why: ['Революции 1848 г. пугают короля; Торбеке пишет конституцию с министерской ответственностью.', 'De revoluties van 1848 maken de koning bang; Thorbecke schrijft een grondwet met ministeriële verantwoordelijkheid.'],
+    alt: ['Без волны революций в Европе Виллем II, вероятно, не уступил бы так быстро.', 'Zonder de revolutiegolf in Europa had Willem II waarschijnlijk niet zo snel toegegeven.'] },
+  { ru: 'Социализм и профсоюзы', nl: 'Socialisme en vakbonden',
+    why: ['Маркс: классовая борьба; рабочие объединяются в профсоюзы и партии (SDAP 1894).', 'Marx: klassenstrijd; arbeiders verenigen zich in vakbonden en partijen (SDAP 1894).'],
+    alt: ['Революционный путь и путь через выборы — социалисты спорили, какой лучше.', 'De revolutionaire weg of de weg via verkiezingen — socialisten waren het daarover oneens.'] },
+  { ru: 'Конфессионализм и школьная борьба', nl: 'Confessionalisme en schoolstrijd',
+    why: ['Верующие требуют денег для своих школ и организуют первые массовые партии (ARP 1879).', 'Gelovigen eisen geld voor hun eigen scholen en richten de eerste massapartijen op (ARP 1879).'],
+    alt: ['Если бы государство сразу финансировало все школы, религиозные партии были бы слабее.', 'Als de staat meteen alle scholen had betaald, waren de religieuze partijen zwakker geweest.'] },
+  { ru: 'Эмансипация и столпы', nl: 'Emancipatie en verzuiling',
+    why: ['Каждая группа (католики, протестанты, рабочие, женщины) добивается равных прав и строит свой «столп».', 'Elke groep (katholieken, protestanten, arbeiders, vrouwen) strijdt voor gelijke rechten en bouwt een eigen zuil.'],
+    law: ['Организованное меньшинство сильнее неорганизованного большинства.', 'Een georganiseerde minderheid is sterker dan een ongeorganiseerde meerderheid.'],
+    alt: ['Без компромисса лидеров столпов группы могли бы столкнуться силой.', 'Zonder compromissen tussen de zuilleiders hadden de groepen met geweld kunnen botsen.'] },
+  { ru: 'Демократизация', nl: 'Democratisering',
+    why: ['Массовые партии и профсоюзы требуют голосов: 1887, 1896 → всеобщее право 1917/1919.', 'Massapartijen en vakbonden eisen stemrecht: 1887, 1896 → algemeen kiesrecht 1917/1919.'],
+    alt: ['Если бы богатые избиратели не уступили, рост социалистов мог пойти революционным путём.', 'Als rijke kiezers niet hadden toegegeven, had de groei van de socialisten revolutionair kunnen worden.'] },
+  { ru: 'Национализм', nl: 'Nationalisme',
+    why: ['Народ = язык + история → своё государство: Бельгия 1830, Италия 1861, Германия 1871.', 'Volk = taal + geschiedenis → eigen staat: België 1830, Italië 1861, Duitsland 1871.'],
+    alt: ['Многонациональные империи (Австро-Венгрия) пытались сдерживать национализм — и в итоге распались.', 'Veelvolkerenrijken (Oostenrijk-Hongarije) probeerden het nationalisme in te dammen — en vielen uiteen.'] },
+  { ru: 'Империализм', nl: 'Imperialisme',
+    why: ['Фабрикам нужны сырьё и рынки; пароходы, хинин и пулемёт дают средства; национализм и расизм — оправдание.', 'Fabrieken willen grondstoffen en markten; stoomschepen, kinine en machinegeweer geven de middelen; nationalisme en racisme de rechtvaardiging.'],
+    alt: ['Эфиопия разбила Италию при Адуа (1896) и сохранила независимость — сопротивление было возможно.', 'Ethiopië versloeg Italië bij Adwa (1896) en bleef onafhankelijk — verzet was mogelijk.'] },
+  { ru: 'Мост: соперничество держав', nl: 'Brug: rivaliteit van grootmachten',
+    why: ['Индустриальные армии + соперничество за колонии + национализм + союзы → пороховая бочка 1914.', 'Industriële legers + rivaliteit om koloniën + nationalisme + bondgenootschappen → kruitvat 1914.'],
+    alt: ['Многие верили, что торговля и взаимозависимость сделают большую войну невозможной — ошиблись.', 'Velen geloofden dat handel en onderlinge afhankelijkheid een grote oorlog onmogelijk maakten — ze vergisten zich.'] }
+];
+
+const ORDER_SETS = [
+  [['Паровая машина Уатта (1769)', 'Stoommachine van Watt (1769)'], ['Венский конгресс, Виллем I (1815)', 'Congres van Wenen, Willem I (1815)'], ['Бельгийская революция (1830)', 'Belgische Opstand (1830)'], ['Первая NL железная дорога (1839)', 'Eerste NL spoorlijn (1839)'], ['Конституция Торбеке (1848)', 'Grondwet van Thorbecke (1848)']],
+  [['Макс Хавелар (1860)', 'Max Havelaar (1860)'], ['Отмена рабства (1863)', 'Afschaffing slavernij (1863)'], ['Kinderwetje (1874)', 'Kinderwetje (1874)'], ['Берлинская конференция (1884)', 'Conferentie van Berlijn (1884)'], ['SDAP основана (1894)', 'Oprichting SDAP (1894)']],
+  [['Фабрики привлекают людей в города', 'Fabrieken trekken mensen naar de stad'], ['Много рабочих, низкие зарплаты', 'Veel arbeiders, lage lonen'], ['Трущобы, детский труд', 'Krotten, kinderarbeid'], ['Профсоюзы и социалисты', 'Vakbonden en socialisten'], ['Социальные законы', 'Sociale wetten']],
+  [['Фабрикам нужно сырьё', 'Fabrieken hebben grondstoffen nodig'], ['Пароходы и хинин', 'Stoomschepen en kinine'], ['Раздел Африки', 'Verdeling van Afrika'], ['Сопротивление и национализм колоний', 'Verzet en nationalisme in de koloniën']]
+];
+
+const PATHS = [
+  { t: ['Ты — король Виллем II, март 1848. В Париже, Берлине и Вене революции.', 'Jij bent koning Willem II, maart 1848. In Parijs, Berlijn en Wenen zijn revoluties.'],
+    o: [ [['Держаться: никаких уступок', 'Vasthouden: geen toegevingen'], ['Выгода: сохраняешь власть сегодня. Риск: в других странах короли, которые не уступили, теряли трон или подавляли восстания кровью.', 'Voordeel: je houdt vandaag je macht. Risico: in andere landen verloren koningen die niet toegaven hun troon of sloegen opstanden bloedig neer.']],
+         [['Поручить Торбеке новую конституцию', 'Thorbecke een nieuwe grondwet laten schrijven'], ['Выгода: монархия сохраняется, революции нет. Цена: власть переходит к министрам и парламенту. <b>Так и вышло</b> — и Оранские до сих пор на троне.', 'Voordeel: de monarchie blijft, er komt geen revolutie. Prijs: de macht gaat naar ministers en parlement. <b>Zo ging het</b> — en de Oranjes zitten nog steeds op de troon.']] ] },
+  { t: ['Ты — фабрикант в Тилбурге, 1880. Рабочие требуют 10-часового дня.', 'Jij bent fabrikant in Tilburg, 1880. Arbeiders eisen een werkdag van 10 uur.'],
+    o: [ [['Отказать и уволить зачинщиков', 'Weigeren en de leiders ontslaan'], ['Выгода: сегодня меньше расходов. Риск: забастовки, рост социалистов, плохая слава; закон всё равно придёт.', 'Voordeel: vandaag minder kosten. Risico: stakingen, groei van de socialisten, slechte naam; de wet komt er toch.']],
+         [['Согласиться и улучшить условия', 'Toegeven en de omstandigheden verbeteren'], ['Выгода: здоровые, менее уставшие рабочие работают лучше; меньше конфликтов. Риск: конкуренты без уступок дешевле — поэтому многие фабриканты сами просили <b>закон для всех</b>.', 'Voordeel: gezondere, minder vermoeide arbeiders werken beter; minder conflicten. Risico: concurrenten die niet toegeven zijn goedkoper — daarom vroegen sommige fabrikanten zelf om <b>een wet voor iedereen</b>.']] ] },
+  { t: ['Ты — министр колоний, 1830. Нидерланды в долгах после отделения Бельгии.', 'Jij bent minister van Koloniën, 1830. Nederland heeft schulden na de Belgische Opstand.'],
+    o: [ [['Ввести принудительные культуры на Яве', 'Het cultuurstelsel op Java invoeren'], ['Выгода: огромный доход, долги погашены, построены железные дороги. Цена: эксплуатация и голод на Яве; критика («Макс Хавелар»). <b>Так и сделали</b>.', 'Voordeel: enorme opbrengst, schulden afbetaald, spoorwegen gebouwd. Prijs: uitbuiting en honger op Java; kritiek (Max Havelaar). <b>Zo ging het</b>.']],
+         [['Повысить налоги в Нидерландах', 'Belastingen in Nederland verhogen'], ['Выгода: никакой эксплуатации. Риск: недовольство избирателей-налогоплательщиков, меньше денег на развитие. Почему этот вариант не выбрали? Подумай, у кого был голос в 1830 г.', 'Voordeel: geen uitbuiting. Risico: onvrede bij belastingbetalende kiezers, minder geld voor ontwikkeling. Waarom werd dit niet gekozen? Bedenk wie er in 1830 een stem had.']] ] }
+];
+
+const WATALS = [
+  ['Почему промышленная революция началась в Англии, а не в Нидерландах?', 'Waarom begon de industriële revolutie in Engeland en niet in Nederland?',
+   'В Англии: уголь и руда рядом, капитал, колонии, сельскохозяйственная революция, высокие зарплаты (выгодно заменять людей машинами), стабильность. В NL: нет угля, капитал вкладывали в торговлю и займы, каналы работали, наполеоновские войны разорили торговлю, в 1830 ушла промышленная Бельгия. Хороший ответ сравнивает <b>одни и те же условия</b> в обеих странах.',
+   'In Engeland: kolen en erts dichtbij, kapitaal, koloniën, een landbouwrevolutie, hoge lonen (het loonde mensen door machines te vervangen), stabiliteit. In NL: geen kolen, kapitaal ging naar handel en leningen, de vaarten werkten, de Franse tijd had de handel geruïneerd, in 1830 vertrok het industriële België. Een goed antwoord vergelijkt <b>dezelfde voorwaarden</b> in beide landen.'],
+  ['Что было бы, если бы государство вообще не вмешивалось в условия труда (как хотели первые либералы)?', 'Wat als de staat zich helemaal niet met arbeidsomstandigheden had bemoeid (zoals de eerste liberalen wilden)?',
+   'Возможно, условия улучшались бы медленно — за счёт роста экономики и профсоюзов. Но, скорее всего, нищета, болезни и детский труд держались бы дольше; гнев рабочих сделал бы социалистов-революционеров сильнее. Многие историки считают, что именно <b>социальные законы</b> помогли западным странам избежать революций вроде российской 1917 г. Это хороший пример: <b>реформа как профилактика революции</b>.',
+   'Misschien waren de omstandigheden langzaam verbeterd — door economische groei en vakbonden. Maar waarschijnlijk waren armoede, ziekte en kinderarbeid langer gebleven; de woede van arbeiders had revolutionaire socialisten sterker gemaakt. Veel historici denken dat juist <b>sociale wetten</b> westerse landen hielpen revoluties zoals de Russische van 1917 te voorkomen. Een goed voorbeeld: <b>hervorming als voorkoming van revolutie</b>.'],
+  ['Почему конфессиональные партии стали первыми массовыми партиями в Нидерландах?', 'Waarom werden confessionele partijen de eerste massapartijen in Nederland?',
+   'У верующих была <b>общая цель</b>, задевавшая каждую семью — школы для своих детей (школьная борьба); у них уже была <b>сеть</b> (церковные приходы, священники, пасторы), через которую легко собирать людей и подписи (петиция 1878 г. — 300 000 подписей протестантов). Либералы же были клубом богатых знатоков, им массовая организация не была нужна, пока голосовали только богатые.',
+   'Gelovigen hadden een <b>gemeenschappelijk doel</b> dat elk gezin raakte — scholen voor hun kinderen (de schoolstrijd); en ze hadden al een <b>netwerk</b> (parochies, priesters, dominees) om mensen en handtekeningen te verzamelen (petitie 1878: 300.000 protestantse handtekeningen). Liberalen waren een club van rijke notabelen en hadden geen massaorganisatie nodig, zolang alleen rijken stemden.'],
+  ['Что было бы, если бы европейцы не имели хинина и пароходов?', 'Wat als Europeanen geen kinine en stoomschepen hadden gehad?',
+   'Внутренние районы Африки оставались бы «могилой белого человека» (малярия убивала большинство европейцев) и труднодоступными. Европейцы, вероятно, остались бы на побережьях, как в XVIII в., торгуя через местных посредников. Раздел Африки мог бы не случиться или быть гораздо меньше. Видишь: <b>технология не только «помогает» — она меняет, что становится возможным</b>, а значит, и что люди решают делать.',
+   'Het binnenland van Afrika was "het graf van de witte man" gebleven (malaria doodde de meeste Europeanen) en moeilijk bereikbaar. Europeanen waren waarschijnlijk aan de kusten gebleven, zoals in de 18e eeuw, en hadden via lokale tussenpersonen gehandeld. De Scramble for Africa was misschien niet of veel kleiner gebeurd. Zie: <b>techniek "helpt" niet alleen — ze verandert wat mogelijk wordt</b>, en dus wat mensen besluiten te doen.'],
+  ['Как «Макс Хавелар» мог повлиять на политику, если голосовало всего ~11% мужчин?', 'Hoe kon Max Havelaar de politiek beïnvloeden als maar ca. 11% van de mannen stemde?',
+   'Книгу читали как раз <b>образованные и богатые</b> — то есть избиратели и депутаты. Она сделала эксплуатацию видимой и стыдной; либералы использовали её против культурной системы (к тому же они хотели свободного входа частных фирм — интерес!). Сочетание <b>морального аргумента</b> и <b>экономического интереса</b> привело к отмене системы в 1870. Это снова закономерность: идея побеждает, когда совпадает с чьим-то интересом.',
+   'Het boek werd juist gelezen door <b>ontwikkelde en rijke</b> mensen — dus kiezers en Kamerleden. Het maakte uitbuiting zichtbaar en beschamend; liberalen gebruikten het tegen het cultuurstelsel (en ze wilden ruimte voor particuliere bedrijven — belang!). De combinatie van een <b>moreel argument</b> en een <b>economisch belang</b> leidde tot de afschaffing in 1870. Weer het patroon: een idee wint als het samenvalt met iemands belang.']
+];
+
+const LAB = {
+  note: ['Учебная модель в гульденах в неделю (ок. 1870, Твенте). Расходы: еда (зависит от цены хлеба) + жильё 1,5 + топливо и одежда 1. Ребёнок зарабатывает ~1,5, мать ~2,5.', 'Denkmodel in guldens per week (ca. 1870, Twente). Uitgaven: eten (hangt af van de broodprijs) + huur 1,5 + brandstof en kleding 1. Een kind verdient ca. 1,5, de moeder ca. 2,5.'],
+  sliders: [
+    { k: 'f', ru: '👨 Зарплата отца', nl: '👨 Loon van de vader', min: 3, max: 14, v: 6, unit: ' ƒ' },
+    { k: 'k', ru: '🧒 Детей на фабрике', nl: '🧒 Kinderen in de fabriek', min: 0, max: 3, v: 2 },
+    { k: 'm', ru: '👩 Мать работает (0/1)', nl: '👩 Moeder werkt (0/1)', min: 0, max: 1, v: 1 },
+    { k: 'food', ru: '🍞 Расходы на еду (цена хлеба)', nl: '🍞 Kosten eten (broodprijs)', min: 4, max: 10, v: 6, unit: ' ƒ' }
+  ],
+  presets: [
+    { ru: 'Ткач, 1870', nl: 'Wever, 1870', v: [6, 2, 1, 6] },
+    { ru: 'Kinderwetje без повышения зарплаты', nl: 'Kinderwetje zonder loonsverhoging', v: [6, 0, 1, 6] },
+    { ru: 'Дорогой хлеб', nl: 'Duur brood', v: [6, 2, 1, 9] },
+    { ru: 'Профсоюз и закон, ок. 1910', nl: 'Vakbond en wet, ca. 1910', v: [11, 0, 0, 6] }
+  ],
+  calc(v) {
+    const kids = v.k * 1.5, mom = v.m * 2.5, inc = v.f + kids + mom, exp = v.food + 2.5;
+    const bal = Math.round((inc - exp) * 10) / 10;
+    const segs = [[v.f, '#0369a1', '👨 ' + v.f], [kids, '#b45309', '🧒 ' + kids], [mom, '#be185d', '👩 ' + mom]];
+    const head = `${inc.toFixed(1)} ƒ − ${exp.toFixed(1)} ƒ = ${bal > 0 ? '+' : ''}${bal} ƒ. `;
+    if (bal < 0) return { segs, cls: 'bad', ru: head + 'Не хватает! Семья голодает, берёт в долг у лавочника или отправляет на работу ещё одного ребёнка. Вот почему родители держались за детский труд.', nl: head + 'Te weinig! Het gezin heeft honger, leent bij de winkelier of stuurt nog een kind naar de fabriek. Daarom hielden ouders vast aan kinderarbeid.' };
+    if (bal < 1.5) return { segs, cls: '', ru: head + 'Еле сводят концы с концами. Болезнь или потеря работы — и катастрофа: страховок нет. Никаких сбережений, школы для детей — роскошь.', nl: head + 'Net rondkomen. Ziekte of ontslag — en het is een ramp: er zijn geen verzekeringen. Geen spaargeld, school voor de kinderen is luxe.' };
+    return { segs, cls: 'ok', ru: head + (v.k === 0 ? 'Хватает и без детского труда: дети ходят в школу. Это стало возможным, когда выросли зарплаты взрослых — благодаря профсоюзам, росту экономики и законам.' : 'Хватает — но ценой детского труда. Попробуй убрать детей с фабрики и подумать, что должно измениться взамен.'), nl: head + (v.k === 0 ? 'Genoeg, ook zonder kinderarbeid: de kinderen gaan naar school. Dat werd mogelijk toen de lonen van volwassenen stegen — door vakbonden, economische groei en wetten.' : 'Genoeg — maar ten koste van kinderarbeid. Probeer de kinderen uit de fabriek te halen en bedenk wat er dan moet veranderen.') };
+  }
+};
+
+const TERMS = [
+  ['industriële revolutie', 'промышленная революция', 'Overgang van handwerk naar machinale productie in fabrieken.'],
+  ['stoommachine', 'паровая машина', 'Machine die met stoom (van kolen) beweging maakt (Watt, 1769).'],
+  ['fabriek', 'фабрика', 'Gebouw waar met machines in grote hoeveelheden wordt geproduceerd.'],
+  ['mechanisatie', 'механизация', 'Werk door machines laten doen.'],
+  ['textielindustrie', 'текстильная промышленность', 'Productie van garen en stoffen; de eerste sector met fabrieken.'],
+  ['spoorweg', 'железная дорога', 'De eerste Nederlandse lijn: Amsterdam–Haarlem (1839). Canonvenster.'],
+  ['urbanisatie', 'урбанизация', 'Groei van steden doordat mensen van het platteland verhuizen.'],
+  ['industriële samenleving', 'индустриальное общество', 'Samenleving waarin de meeste mensen in industrie en diensten werken.'],
+  ['burgerij', 'буржуазия', 'Rijke groep van fabrikanten, kooplieden, bankiers en vrije beroepen.'],
+  ['arbeidersklasse', 'рабочий класс', 'Groep die leeft van loonarbeid in fabrieken.'],
+  ['kapitalisme', 'капитализм', 'Economisch systeem waarin privébezitters met kapitaal produceren voor winst.'],
+  ['sociale kwestie', 'социальный вопрос', 'Discussie over de armoede en slechte omstandigheden van arbeiders.'],
+  ['kinderarbeid', 'детский труд', 'Werk door kinderen in fabrieken, landbouw of thuis.'],
+  ['Kinderwetje van Van Houten', 'Детский закон Ван Хаутена', 'Wet (1874) die fabrieksarbeid voor kinderen onder 12 verbood. Canonvenster.'],
+  ['leerplicht', 'обязательное обучение', 'Wettelijke plicht voor kinderen om naar school te gaan (1901).'],
+  ['vakbond', 'профсоюз', 'Vereniging van arbeiders die opkomt voor betere lonen en omstandigheden.'],
+  ['staking', 'забастовка', 'Het werk neerleggen om eisen af te dwingen.'],
+  ['liberalisme', 'либерализм', 'Stroming voor vrijheid van individu en markt, met een kleine staat.'],
+  ['nachtwakersstaat', 'государство — ночной сторож', 'Staat die alleen orde en veiligheid bewaakt.'],
+  ['socialisme', 'социализм', 'Stroming die gelijkheid wil door gemeenschappelijk bezit van productiemiddelen.'],
+  ['Karl Marx', 'Карл Маркс', 'Duitse denker (1818–1883), Communistisch Manifest (1848): klassenstrijd.'],
+  ['klassenstrijd', 'классовая борьба', 'Strijd tussen bezitters en arbeiders (Marx).'],
+  ['sociaaldemocratie', 'социал-демократия', 'Socialisme via verkiezingen en wetten, niet via revolutie.'],
+  ['confessionalisme', 'конфессионализм', 'Politieke stroming gebaseerd op geloof (katholiek of protestants).'],
+  ['schoolstrijd', 'школьная борьба', 'Strijd om gelijke financiering van religieuze en openbare scholen (1848–1917).'],
+  ['Abraham Kuyper', 'Абрахам Кёйпер', 'Leider van de orthodoxe protestanten, oprichter van de ARP (1879).'],
+  ['massapartij', 'массовая партия', 'Partij met veel leden en een organisatie in het hele land.'],
+  ['nationalisme', 'национализм', 'Idee dat elk volk een eigen staat moet hebben en trouw aan de natie.'],
+  ['natiestaat', 'национальное государство', 'Staat waarvan de inwoners zich één volk voelen.'],
+  ['Belgische Opstand', 'Бельгийская революция', 'Afscheiding van België van Nederland (1830–1839).'],
+  ['Willem I', 'Виллем I', 'Eerste koning van het Koninkrijk der Nederlanden (1815–1840). Canonvenster.'],
+  ['Thorbecke', 'Торбеке', 'Liberale staatsman, schreef de Grondwet van 1848.'],
+  ['Grondwet van 1848', 'Конституция 1848 г.', 'Grondwet met ministeriële verantwoordelijkheid en rechtstreekse verkiezingen. Canonvenster.'],
+  ['ministeriële verantwoordelijkheid', 'министерская ответственность', 'Ministers, niet de koning, zijn verantwoordelijk tegenover het parlement.'],
+  ['parlementaire democratie', 'парламентская демократия', 'Bestuur waarin de regering het vertrouwen van een gekozen parlement nodig heeft.'],
+  ['censuskiesrecht', 'имущественный ценз', 'Kiesrecht alleen voor wie genoeg belasting betaalt.'],
+  ['algemeen kiesrecht', 'всеобщее избирательное право', 'Kiesrecht voor alle volwassenen (mannen 1917, vrouwen 1919).'],
+  ['democratisering', 'демократизация', 'Steeds meer mensen krijgen invloed op de politiek.'],
+  ['emancipatie', 'эмансипация', 'Strijd van een achtergestelde groep voor gelijke rechten.'],
+  ['feminisme', 'феминизм', 'Beweging voor gelijke rechten van vrouwen.'],
+  ['Aletta Jacobs', 'Алетта Якобс', 'Eerste vrouwelijke student en arts in NL, voorvechter van vrouwenkiesrecht. Canonvenster.'],
+  ['verzuiling', 'столпизация', 'Verdeling van de samenleving in zuilen met eigen organisaties.'],
+  ['zuil', 'столп', 'Groep met eigen scholen, kranten, partij, vakbond: katholiek, protestants, socialistisch, liberaal.'],
+  ['modern imperialisme', 'современный империализм', 'Verovering en bestuur van grote gebieden door industriële landen (ca. 1870–1914).'],
+  ['Conferentie van Berlijn', 'Берлинская конференция', 'Europese verdeling van Afrika (1884–1885).'],
+  ['grondstoffen', 'сырьё', 'Materialen voor de industrie: rubber, katoen, olie, tin.'],
+  ['afzetmarkt', 'рынок сбыта', 'Gebied waar je je producten kunt verkopen.'],
+  ['beschavingsmissie', 'цивилизаторская миссия', 'Idee dat Europeanen andere volken moesten "beschaven"; rechtvaardiging van imperialisme.'],
+  ['cultuurstelsel', 'система принудительных культур', 'Gedwongen teelt van exportgewassen op Java (1830–1870).'],
+  ['Max Havelaar', 'Макс Хавелар', 'Roman van Multatuli (1860) tegen de uitbuiting op Java. Canonvenster.'],
+  ['Atjehoorlog', 'Ачехская война', 'Nederlandse oorlog om Atjeh op Sumatra te onderwerpen (1873–1904).'],
+  ['ethische politiek', 'этическая политика', 'Koloniaal beleid vanaf 1901: onderwijs, irrigatie, zorg als "ereschuld".'],
+  ['afschaffing van de slavernij', 'отмена рабства', 'In Suriname en de Antillen in 1863 (met 10 jaar staatstoezicht). Canonvenster.']
+];
+
+const Q = [
+  { t: 'industrie', q: ['In welk land begon de industriële revolutie?', 'В какой стране началась промышленная революция?'], o: ['Engeland', 'Nederland', 'Frankrijk', 'Duitsland'], a: 0, e: ['Kolen, kapitaal, koloniën, stabiliteit.', 'Уголь, капитал, колонии, стабильность.'] },
+  { t: 'industrie', q: ['Waarom kwam de industrialisatie in Nederland laat op gang?', 'Почему индустриализация в Нидерландах началась поздно?'], o: [['Er was weinig steenkool en kapitaal ging naar handel; vaarten werkten goed.', 'Мало угля, капитал шёл в торговлю, каналы хорошо работали.'], ['Nederlanders wilden geen machines.', 'Голландцы не хотели машин.'], ['De koning verbood fabrieken.', 'Король запретил фабрики.'], ['Er waren geen arbeiders.', 'Не было рабочих.']], a: 0, e: ['Plus: in 1830 vertrok het industriële België.', 'Плюс: в 1830 ушла промышленная Бельгия.'] },
+  { t: 'industrie', q: ['Wat is urbanisatie?', 'Что такое урбанизация?'], o: [['groei van steden doordat mensen van het platteland trekken', 'рост городов из-за переезда людей из деревни'], ['bouw van kastelen', 'строительство замков'], ['vertrek naar de koloniën', 'переезд в колонии'], ['afbraak van fabrieken', 'снос фабрик']], a: 0, e: ['Gevolg van de industrialisatie.', 'Следствие индустриализации.'] },
+  { t: 'industrie', type: 'open', q: ['Noem drie voorwaarden waardoor de industriële revolutie in Engeland kon beginnen.', 'Назови три условия, благодаря которым промышленная революция началась в Англии.'], model: ['Bijvoorbeeld: veel steenkool en ijzererts dicht bij elkaar; kapitaal uit handel en koloniën; een landbouwrevolutie waardoor arbeiders vrijkwamen; politieke stabiliteit en bescherming van eigendom; hoge lonen waardoor machines loonden.', 'Например: уголь и руда рядом; капитал от торговли и колоний; сельскохозяйственная революция освободила работников; стабильность и защита собственности; высокие зарплаты делали машины выгодными.'], rubric: [['eerste voorwaarde', 'первое условие'], ['tweede voorwaarde', 'второе условие'], ['derde voorwaarde', 'третье условие']] },
+  { t: 'sociaal', q: ['Wat bedoelde men met de "sociale kwestie"?', 'Что называли «социальным вопросом»?'], o: [['de slechte leef- en werkomstandigheden van arbeiders', 'плохие условия жизни и труда рабочих'], ['de vraag wie koning moest worden', 'вопрос, кто будет королём'], ['de verdeling van Afrika', 'раздел Африки'], ['de strijd om scholen', 'борьба за школы']], a: 0, e: ['Lage lonen, lange dagen, kinderarbeid, krotten.', 'Низкие зарплаты, долгий день, детский труд, трущобы.'] },
+  { t: 'sociaal', q: ['Wat regelde het Kinderwetje van Van Houten (1874)?', 'Что установил закон Ван Хаутена (1874)?'], o: [['verbod op fabrieksarbeid voor kinderen onder 12', 'запрет фабричного труда детям до 12 лет'], ['leerplicht voor alle kinderen', 'обязательная школа для всех детей'], ['kinderbijslag', 'детские пособия'], ['verbod op alle kinderarbeid', 'запрет любого детского труда']], a: 0, e: ['Leerplicht kwam pas in 1901.', 'Обязательная школа — только в 1901.'] },
+  { t: 'sociaal', q: ['Welke stroming wilde dat fabrieken van de gemeenschap werden?', 'Какое течение хотело, чтобы фабрики принадлежали обществу?'], o: ['socialisme', 'liberalisme', 'confessionalisme', 'nationalisme'], a: 0, e: ['Karl Marx.', 'Карл Маркс.'] },
+  { t: 'sociaal', q: ['Wat vonden liberalen aanvankelijk van ingrijpen door de staat in de economie?', 'Что сначала думали либералы о вмешательстве государства в экономику?'], o: [['De staat moest zich er zo weinig mogelijk mee bemoeien.', 'Государство должно вмешиваться как можно меньше.'], ['De staat moest alle fabrieken bezitten.', 'Государство должно владеть всеми фабриками.'], ['De kerk moest het regelen.', 'Это должна решать церковь.'], ['De koning moest de lonen bepalen.', 'Король должен устанавливать зарплаты.']], a: 0, e: ['Nachtwakersstaat.', 'Государство — ночной сторож.'] },
+  { t: 'sociaal', type: 'open', q: ['Leg uit waarom veel arbeidersgezinnen eerst niet blij waren met een verbod op kinderarbeid.', 'Объясни, почему многие рабочие семьи сначала не радовались запрету детского труда.'], model: ['Het loon van de vader was te laag om het gezin te onderhouden. Het geld dat kinderen verdienden was nodig voor eten en huur. Zonder dat loon (en zonder hogere lonen voor volwassenen) werd het gezin nog armer.', 'Зарплаты отца не хватало на семью. Детский заработок был нужен для еды и жилья. Без него (и без повышения зарплаты взрослым) семья становилась ещё беднее.'], rubric: [['loon vader te laag', 'зарплата отца мала'], ['kinderloon nodig voor gezin', 'детский заработок нужен'], ['verbod maakt armer', 'запрет делает беднее']] },
+  { t: 'politiek', q: ['Wat was het belangrijkste gevolg van de Grondwet van 1848?', 'Главное следствие конституции 1848?'], o: [['ministeriële verantwoordelijkheid: de macht verschoof van koning naar parlement', 'министерская ответственность: власть перешла от короля к парламенту'], ['algemeen kiesrecht', 'всеобщее избирательное право'], ['afschaffing van de monarchie', 'отмена монархии'], ['afschaffing van de slavernij', 'отмена рабства']], a: 0, e: ['Algemeen kiesrecht: pas 1917/1919.', 'Всеобщее право — только 1917/1919.'] },
+  { t: 'politiek', q: ['Wat was de schoolstrijd?', 'Что такое школьная борьба?'], o: [['strijd om gelijke financiering van religieuze scholen', 'борьба за равное финансирование религиозных школ'], ['ruzie tussen leraren en leerlingen', 'ссора учителей и учеников'], ['strijd om leerplicht', 'борьба за обязательное обучение'], ['oorlog tussen twee steden om een universiteit', 'война двух городов за университет']], a: 0, e: ['Opgelost met de Pacificatie van 1917.', 'Решена Pacificatie 1917.'] },
+  { t: 'politiek', q: ['Wat is verzuiling?', 'Что такое столпизация?'], o: [['verdeling van de samenleving in groepen met eigen organisaties', 'деление общества на группы со своими организациями'], ['bouw van zuilen bij kerken', 'строительство колонн у церквей'], ['een Romeinse bouwstijl', 'римский стиль архитектуры'], ['afschaffing van de standen', 'отмена сословий']], a: 0, e: ['Katholiek, protestants, socialistisch, liberaal.', 'Католики, протестанты, социалисты, либералы.'] },
+  { t: 'politiek', q: ['Wie was Aletta Jacobs?', 'Кто такая Алетта Якобс?'], o: [['eerste vrouwelijke student en arts in NL, feministe', 'первая студентка и женщина-врач в NL, феминистка'], ['koningin van Nederland', 'королева Нидерландов'], ['schrijfster van Max Havelaar', 'автор «Макса Хавелара»'], ['leider van de SDAP', 'лидер SDAP']], a: 0, e: ['Canonvenster.', 'Окно канона.'] },
+  { t: 'politiek', type: 'order', q: ['Zet in de goede volgorde.', 'Расставь по порядку.'], items: [['Willem I koning (1815)', 'Виллем I — король'], ['Belgische Opstand (1830)', 'Бельгийская революция'], ['Grondwet van Thorbecke (1848)', 'конституция Торбеке'], ['Kinderwetje (1874)', 'детский закон'], ['algemeen mannenkiesrecht (1917)', 'всеобщее право для мужчин']] },
+  { t: 'politiek', q: ['Welke stroming wilde dat elk volk een eigen staat kreeg?', 'Какое течение хотело своё государство для каждого народа?'], o: ['nationalisme', 'liberalisme', 'socialisme', 'feminisme'], a: 0, e: ['Italië 1861, Duitsland 1871.', 'Италия 1861, Германия 1871.'] },
+  { t: 'imperialisme', q: ['Wat is het verband tussen industrialisatie en modern imperialisme?', 'Связь индустриализации и современного империализма?'], o: [['Fabrieken hadden grondstoffen en afzetmarkten nodig.', 'Фабрикам нужны были сырьё и рынки сбыта.'], ['Fabrieken werden naar Afrika verplaatst.', 'Фабрики перенесли в Африку.'], ['Er was geen verband.', 'Связи не было.'], ['Kolonies leverden machines.', 'Колонии поставляли машины.']], a: 0, e: ['Plus middelen: stoomschip, kinine, machinegeweer.', 'Плюс средства: пароход, хинин, пулемёт.'] },
+  { t: 'imperialisme', q: ['Wat was het cultuurstelsel?', 'Что такое культурная система?'], o: [['Javaanse boeren moesten exportgewassen voor de staat verbouwen.', 'Яванские крестьяне обязаны были выращивать экспортные культуры для государства.'], ['een stelsel van kunstmusea', 'система художественных музеев'], ['een schoolsysteem op Java', 'школьная система на Яве'], ['vrije handel met Indië', 'свободная торговля с Индией']], a: 0, e: ['1830–1870; Max Havelaar.', '1830–1870; «Макс Хавелар».'] },
+  { t: 'imperialisme', q: ['Wat werd op de Conferentie van Berlijn (1884–1885) besloten?', 'Что решили на Берлинской конференции?'], o: [['regels voor de verdeling van Afrika tussen Europese staten', 'правила раздела Африки между европейскими державами'], ['de afschaffing van de slavernij', 'отмена рабства'], ['de oprichting van Duitsland', 'создание Германии'], ['vrede na een wereldoorlog', 'мир после мировой войны']], a: 0, e: ['Zonder Afrikanen aan tafel.', 'Без африканцев за столом.'] },
+  { t: 'imperialisme', type: 'open', q: ['Geef een argument voor en een argument tegen de stelling: "De ethische politiek was echte hulp aan Indië."', 'Дай аргумент за и против: «Этическая политика была настоящей помощью Индии».'], model: ['Voor: er werden scholen, irrigatie en gezondheidszorg aangelegd. Tegen: Nederlanders bleven alles beslissen, het onderwijs bereikte weinigen, militaire onderwerping ging door; het was ook paternalisme.', 'За: построены школы, ирригация, медицина. Против: всё решали голландцы, образование для немногих, военное покорение продолжалось; это патернализм.'], rubric: [['argument voor', 'аргумент за'], ['argument tegen', 'аргумент против']] },
+  { t: 'redeneren', q: ['"Doordat het loon van een arbeider laag was, ..." Welke aanvulling klopt?', '«Поскольку зарплата рабочего была низкой…» Что верно?'], o: [['moesten ook vrouwen en kinderen werken.', 'работать приходилось и женщинам, и детям.'], ['kwam er een grondwet in 1848.', 'появилась конституция 1848.'], ['begon de Atjehoorlog.', 'началась Ачехская война.'], ['werd de stoommachine uitgevonden.', 'изобрели паровую машину.']], a: 0, e: ['Oorzaak → gevolg binnen hetzelfde onderwerp.', 'Причина → следствие в рамках одной темы.'] },
+  { t: 'bronnen', q: ['Een fabrikant schrijft in 1870 dat "kinderen in de fabriek beschermd zijn tegen de straat". Hoe beoordeel je deze bron?', 'Фабрикант в 1870 пишет, что «на фабрике дети защищены от улицы». Как оценить источник?'], o: [['Partijdig: de fabrikant heeft belang bij goedkope kinderarbeid.', 'Пристрастен: фабриканту выгоден дешёвый детский труд.'], ['Betrouwbaar: hij kende de fabriek het best.', 'Надёжен: он лучше всех знал фабрику.'], ['Onbruikbaar.', 'Бесполезен.'], ['Neutraal.', 'Нейтрален.']], a: 0, e: ['Bruikbaar om te laten zien hoe fabrikanten kinderarbeid verdedigden.', 'Полезен, чтобы показать, как фабриканты защищали детский труд.'] },
+  { t: 'bronnen', q: ['Max Havelaar is een roman. Kun je hem als historische bron gebruiken?', '«Макс Хавелар» — роман. Можно ли использовать его как исторический источник?'], o: [['Ja, als bron voor de kritiek op het cultuurstelsel in die tijd, maar niet als exacte beschrijving van feiten.', 'Да, как источник о критике системы в то время, но не как точное описание фактов.'], ['Nee, romans zijn nooit bronnen.', 'Нет, романы никогда не источники.'], ['Ja, alles erin is precies waar gebeurd.', 'Да, всё описанное — точная правда.'], ['Alleen als hij in een museum ligt.', 'Только если он лежит в музее.']], a: 0, e: ['Bruikbaarheid hangt af van je vraag.', 'Полезность зависит от вопроса.'] }
+];
+
+initTijdvak({
+  id: 't8', n: 8, CHAIN, ORDER_SETS, PATHS, WATALS, TERMS, Q, LAB,
+  legUit: ['«Появились фабрики. Появился социальный вопрос.»', 'Doordat fabrieken veel arbeiders nodig hadden en er meer arbeiders dan banen waren, bleven de lonen laag en waren de werkdagen lang. Daardoor moesten ook kinderen werken en woonden arbeiders in krotten. Dit werd de sociale kwestie genoemd.', '"Er kwamen fabrieken. Er kwam een sociale kwestie."'],
+  topics: [['industrie', 'Industriële revolutie'], ['sociaal', 'Sociale kwestie'], ['politiek', 'Stromingen en democratisering'], ['imperialisme', 'Imperialisme'], ['redeneren', 'Redeneren'], ['bronnen', 'Bronnen']]
+});
+</script>
+</body>
+</html>
