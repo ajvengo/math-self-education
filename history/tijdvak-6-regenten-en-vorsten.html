@@ -380,7 +380,7 @@ const LAB = {
     const back = Math.round(v.n * (1 - v.loss / 100) * 10) / 10;
     const cost = v.n * 100, income = Math.round(back * 30 * mEff);
     const profit = income - cost, roi = Math.round(profit / cost * 100);
-    const segs = [[cost, '#64748b', (T('расходы ', 'kosten ')) + cost], [Math.max(profit, 0), '#15803d', (T('прибыль ', 'winst ')) + Math.max(profit, 0)]];
+    const segs = [[cost, '#64748b', '🚢 −' + cost], [Math.max(profit, 0), '#15803d', '💰 +' + Math.max(profit, 0)]];
     const bru = `Вернулось кораблей: ${back} / ${v.n}. Реальная наценка ≈ ${mEff.toFixed(1)}×. `, bnl = `Teruggekeerd: ${back} / ${v.n}. Echte opslag ≈ ${mEff.toFixed(1)}×. `;
     if (roi >= 100) return { segs, cls: 'ok', ru: bru + `Доход ${income}, прибыль ${roi}%. Акционеры в восторге: VOC в лучшие годы платила дивиденды 20–40% в год. Монополия делает каждый вернувшийся корабль золотым.`, nl: bnl + `Opbrengst ${income}, winst ${roi}%. Aandeelhouders zijn blij: de VOC keerde in goede jaren 20–40% dividend per jaar uit. Het monopolie maakt elk teruggekeerd schip goud waard.` };
     if (roi >= 0) return { segs, cls: '', ru: bru + `Доход ${income}, прибыль ${roi}%. Окупается, но риск велик: один шторм — и рейс в минусе. Хорошо, что риск делят тысячи акционеров.`, nl: bnl + `Opbrengst ${income}, winst ${roi}%. Het loont, maar het risico is groot: één storm en de reis is verlies. Gelukkig delen duizenden aandeelhouders het risico.` };

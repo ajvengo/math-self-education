@@ -348,7 +348,7 @@ const LAB = {
     const cost = v.old * v.pens / 100 + jobless * 0.7, income = workers * v.tax / 100;
     const bal = Math.round((income - cost) * 10) / 10;
     const ratio = (workers / v.old).toFixed(1);
-    const segs = [[v.old * v.pens / 100, '#7c3aed', T('пенсии', 'AOW')], [jobless * 0.7, '#b45309', T('пособия', 'uitkeringen')], [Math.max(bal, 0), '#15803d', T('запас', 'over')]];
+    const segs = [[v.old * v.pens / 100, '#7c3aed', '👵'], [jobless * 0.7, '#b45309', '📉'], [Math.max(bal, 0), '#15803d', '+']];
     const ru0 = `На одного пенсионера ${ratio} работающих. Доход ${income.toFixed(1)}, расходы ${cost.toFixed(1)} (в средних зарплатах на 100 жителей). `;
     const nl0 = `Per oudere ${ratio} werkenden. Inkomsten ${income.toFixed(1)}, uitgaven ${cost.toFixed(1)} (in gemiddelde lonen per 100 inwoners). `;
     if (bal < -0.5) return { segs, cls: 'bad', ru: ru0 + 'Дефицит! Придётся выбирать: поднять взносы (работающие недовольны), снизить пенсии (пенсионеры недовольны), брать в долг (платят внуки) или позже уходить на пенсию. Именно этот спор идёт в NL сегодня (AOW-возраст растёт с 2013).', nl: nl0 + 'Tekort! Kiezen dus: hogere premie (werkenden boos), lagere AOW (ouderen boos), lenen (de kleinkinderen betalen) of later met pensioen. Precies deze discussie speelt nu in NL (de AOW-leeftijd stijgt sinds 2013).' };
