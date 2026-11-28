@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Три этажа: сложение, умножение, степень — наглядно</title>
+<style>
+  :root {
+    --bg: #f7f7f8; --card: #ffffff; --text: #1f2328; --muted: #667085; --border: #d0d5dd;
+    --accent: #2563eb; --accent-soft: #eff6ff;
+    --ok: #067647; --ok-bg: #ecfdf3; --bad: #b42318; --bad-bg: #fef3f2;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
+  .container { width: min(1000px, calc(100% - 32px)); margin: 0 auto; padding: 24px 0 48px; }
+  h1 { margin: 0 0 8px; font-size: clamp(26px, 4vw, 38px); }
+  h2 { margin: 0 0 12px; font-size: 24px; }
+  h3 { margin: 0 0 8px; font-size: 18px; }
+  p, li { line-height: 1.6; }
+  .subtitle { color: var(--muted); margin: 0 0 16px; }
+  .muted { color: var(--muted); }
+  .section { margin-top: 34px; scroll-margin-top: 64px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px 20px; box-shadow: 0 1px 2px rgba(16,24,40,.04); }
+  .card + .card { margin-top: 14px; }
+  .grid { display: grid; gap: 14px; }
+  .g2 { grid-template-columns: 1fr 1fr; }
+  nav.pills { position: sticky; top: 0; z-index: 50; background: rgba(247,247,248,.95); backdrop-filter: blur(4px);
+    display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  nav.pills a { text-decoration: none; color: var(--text); border: 1px solid var(--border); background: #fff; border-radius: 999px; padding: 5px 12px; font-size: 14px; }
+  nav.pills a:hover { border-color: var(--accent); background: var(--accent-soft); }
+  a { color: #2b5fab; }
+
+  .math { font-family: "Cambria Math", "Times New Roman", "PT Serif", Georgia, serif; font-size: 1.15em; }
+  var { font-style: italic; font-family: "Cambria Math", "Times New Roman", "PT Serif", Georgia, serif; padding-right: .03em; }
+  sup { font-size: .7em; }
+  .chip { display: inline-block; padding: 1px 6px; border-radius: 7px; margin: 2px 0; }
+  .c1 { background: #dbeafe; } .c2 { background: #ffedd5; } .c3 { background: #dcfce7; } .c4 { background: #f3e8ff; } .c5 { background: #fee2e2; }
+  .rule { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 14px; padding: 14px 18px; }
+  .rule b { color: #92400e; }
+
+  label { display: block; font-size: 14px; }
+  input[type=range] { width: 100%; margin-top: 6px; }
+  .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px 18px; align-items: end; }
+  .controls b.val { font-size: 17px; }
+  button.action { border: 1px solid var(--border); border-radius: 12px; padding: 9px 14px; background: #fff; cursor: pointer; font: inherit; font-weight: 600; }
+  button.action:hover { border-color: var(--accent); }
+  button.primary { color: #fff; background: var(--accent); border-color: var(--accent); }
+  button.action:disabled { opacity: .4; cursor: default; }
+  .button-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+  .seg { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 6px; }
+  .seg button { border: 0; background: #fff; padding: 9px 14px; font: inherit; cursor: pointer; border-right: 1px solid var(--border); }
+  .seg button:last-child { border-right: 0; }
+  @media (max-width: 760px) { .seg { display: flex; flex-direction: column; } .seg button { border-right: 0; border-bottom: 1px solid var(--border); text-align: left; } .seg button:last-child { border-bottom: 0; } }
+  .seg button.on { background: var(--accent); color: #fff; }
+
+  /* сцена с предметами */
+  .stage { position: relative; background: #fbfcfe; border: 1px dashed var(--border); border-radius: 12px; margin-top: 14px; overflow: hidden; transition: height .45s; }
+  .it { position: absolute; transition: left .6s ease, top .6s ease, width .45s, height .45s, opacity .45s, background-color .45s; }
+  .ball { border-radius: 50%; background: radial-gradient(circle at 34% 30%, rgba(255,255,255,.9) 0, rgba(255,255,255,0) 38%), var(--c, #3b82f6);
+    box-shadow: inset -2px -3px 5px rgba(0,0,0,.22); z-index: 2; }
+  .tray { border-radius: 10px; border: 2px solid var(--c, #94a3b8); background: rgba(255,255,255,.6); z-index: 1; }
+  .tray.soft { border-style: dashed; opacity: .7; }
+  .txt { display: flex; align-items: center; justify-content: center; font-weight: 700; z-index: 3; color: var(--c, #1f2328); white-space: nowrap; }
+  .txt.small { font-weight: 600; color: var(--muted); }
+  .box { border-radius: 9px; border: 2px solid var(--c, #b45309); background: #fff7e6; z-index: 2; display: flex; align-items: center; justify-content: center;
+    font-family: "Cambria Math", "Times New Roman", serif; font-style: italic; font-weight: 700; color: var(--c, #b45309); overflow: hidden; }
+  .box .dots { display: flex; flex-wrap: wrap; justify-content: center; align-content: center; gap: 6%; width: 86%; height: 86%; }
+  .box .dots i { width: 26%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 34% 30%, rgba(255,255,255,.9) 0, rgba(255,255,255,0) 40%), var(--c); }
+
+  .formula { margin-top: 14px; padding: 12px 16px; background: #fafbfc; border: 1px dashed var(--border); border-radius: 12px; line-height: 2; }
+  .formula .big { font-size: 1.3em; }
+  .eq { font-family: "Cambria Math", "Times New Roman", "PT Serif", Georgia, serif; font-size: 1.25em; }
+  .t0 { color: #1d4ed8; } .t1 { color: #c2410c; } .t2 { color: #15803d; } .t3 { color: #7e22ce; } .t4 { color: #b91c1c; } .t5 { color: #a16207; }
+  .hl { background: #fef08a; border-radius: 5px; padding: 0 4px; }
+  .note { color: var(--muted); font-size: 15px; }
+  .ok { color: var(--ok); } .bad { color: var(--bad); }
+
+  /* лестница вверху */
+  .floors { display: grid; gap: 10px; }
+  .floor { display: grid; grid-template-columns: 130px 1fr; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 14px; border: 1px solid var(--border); background: #fff; }
+  .floor .name { font-weight: 700; }
+  .floor .name small { display: block; font-weight: 400; color: var(--muted); }
+  .dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; vertical-align: middle; margin: 0 1px;
+    background: radial-gradient(circle at 34% 30%, rgba(255,255,255,.9) 0, rgba(255,255,255,0) 40%), var(--c, #3b82f6); }
+  .grp { display: inline-block; border: 1.5px solid #94a3b8; border-radius: 8px; padding: 1px 3px; margin: 0 2px; }
+
+  /* площадь */
+  svg text { font-family: system-ui, sans-serif; }
+  /* рост */
+  .bars { display: grid; grid-template-columns: 34px 1fr; gap: 4px 10px; align-items: center; font-size: 14px; margin-top: 10px; }
+  .barpair div { height: 12px; border-radius: 4px; margin: 2px 0; min-width: 2px; transition: width .4s; position: relative; }
+  .barpair span { font-size: 12px; margin-left: 6px; color: var(--muted); }
+  .barrow { display: flex; align-items: center; }
+
+  /* разворачивание */
+  .ex-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .ex-list button { border: 1px solid var(--border); background: #fff; border-radius: 10px; padding: 6px 12px; cursor: pointer; font-family: "Cambria Math", "Times New Roman", serif; font-size: 18px; }
+  .ex-list button.on { border-color: var(--accent); background: var(--accent-soft); }
+  .unf-step { font-size: 21px; line-height: 2; padding: 2px 0; opacity: 0; transform: translateY(6px); transition: opacity .35s, transform .35s; }
+  .unf-step.show { opacity: 1; transform: none; }
+  .unf-step .why { font-family: system-ui, sans-serif; font-size: 14px; color: var(--muted); margin-left: 10px; }
+
+  /* тест */
+  .opt { display: block; width: 100%; text-align: left; margin-top: 8px; padding: 11px 14px; border: 1px solid var(--border); border-radius: 12px; background: #fff; font-size: 20px; cursor: pointer; font-family: "Cambria Math", "Times New Roman", serif; }
+  .opt:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+  .opt:disabled { cursor: default; color: var(--text); }
+  .opt.right { border-color: #75c69b; background: var(--ok-bg); }
+  .opt.wrongpick { border-color: #fda29b; background: var(--bad-bg); }
+  .message { margin-top: 12px; border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; line-height: 1.7; background: #fff; }
+  .message.ok { border-color: #75c69b; background: var(--ok-bg); }
+  .message.bad { border-color: #fda29b; background: var(--bad-bg); }
+  .qtask { font-size: 22px; font-family: "Cambria Math", "Times New Roman", serif; margin: 6px 0 4px; }
+  .progress { height: 6px; background: #e5e7eb; border-radius: 3px; overflow: hidden; margin-top: 8px; }
+  .progress i { display: block; height: 100%; background: var(--accent); transition: width .3s; }
+
+  @media (max-width: 760px) {
+    nav.pills { position: static; }
+    .card { padding: 14px; }
+    .g2 { grid-template-columns: 1fr; }
+    .floor { grid-template-columns: 1fr; gap: 4px; }
+    .unf-step { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<main class="container">
+  <h1>Три этажа: сложение, умножение, степень</h1>
+  <p class="subtitle">Умножение — это короткая запись сложения, а степень — короткая запись умножения. Смотрим на шарах, потом на буквах, потом на выражениях. Все картинки можно двигать ползунками.</p>
+  <nav class="pills">
+    <a href="#floors">0. Три этажа</a>
+    <a href="#balls">1. Шары</a>
+    <a href="#letters">2. Буквы</a>
+    <a href="#expr">3. Выражения</a>
+    <a href="#quiz">4. Проверь себя</a>
+  </nav>
+
+  <!-- ===================== 0 ===================== -->
+  <section id="floors" class="section">
+    <h2>0. Три этажа одной идеи</h2>
+    <div class="floors">
+      <div class="floor">
+        <div class="name">Счёт<small>по одному</small></div>
+        <div class="math"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          &nbsp; 1 + 1 + 1 + 1 = <b>4</b></div>
+      </div>
+      <div class="floor">
+        <div class="name">Сложение → умножение<small>одинаковые слагаемые</small></div>
+        <div class="math">
+          <span class="grp"><span class="dot" style="--c:#3b82f6"></span><span class="dot" style="--c:#3b82f6"></span><span class="dot" style="--c:#3b82f6"></span></span>
+          <span class="grp"><span class="dot" style="--c:#f97316"></span><span class="dot" style="--c:#f97316"></span><span class="dot" style="--c:#f97316"></span></span>
+          <span class="grp"><span class="dot" style="--c:#22c55e"></span><span class="dot" style="--c:#22c55e"></span><span class="dot" style="--c:#22c55e"></span></span>
+          <span class="grp"><span class="dot" style="--c:#a855f7"></span><span class="dot" style="--c:#a855f7"></span><span class="dot" style="--c:#a855f7"></span></span>
+          &nbsp; 3 + 3 + 3 + 3 = <b><span class="hl">4</span> · 3</b> = 12</div>
+      </div>
+      <div class="floor">
+        <div class="name">Умножение → степень<small>одинаковые множители</small></div>
+        <div class="math">3 · 3 · 3 · 3 = <b>3<sup class="hl">4</sup></b> = 81</div>
+      </div>
+    </div>
+    <div class="rule" style="margin-top:14px">
+      <b>Главное.</b> На каждом этаже повторяется одно и то же действие, и маленькое число говорит, <b>сколько раз</b>.
+      В <span class="math">4 · 3</span> четвёрка считает <b>слагаемые</b> (взяли 3 четыре раза). В <span class="math">3<sup>4</sup></span> четвёрка считает <b>множители</b> (умножили на 3 четыре раза). Одна и та же «4», но этажи разные, и результаты тоже: 12 и 81.
+    </div>
+  </section>
+
+  <!-- ===================== 1 ===================== -->
+  <section id="balls" class="section">
+    <h2>1. На шарах</h2>
+
+    <div class="card">
+      <h3>1.1. Сложение — это продолжение счёта</h3>
+      <div class="controls">
+        <label>Синих шаров: <b class="val" id="addAv"></b><input type="range" id="addA" min="0" max="9" value="3"></label>
+        <label>Оранжевых шаров: <b class="val" id="addBv"></b><input type="range" id="addB" min="0" max="9" value="2"></label>
+        <div><button class="action primary" id="addGo">Сложить</button></div>
+      </div>
+      <div class="stage" id="stAdd"></div>
+      <div class="formula" id="fAdd"></div>
+    </div>
+
+    <div class="card">
+      <h3>1.2. Умножение — это сложение одинаковых групп</h3>
+      <p class="muted" style="margin:0">Возьмём несколько одинаковых коробочек с шарами. Сложить их можно долго, а можно коротко — умножением.</p>
+      <div class="controls" style="margin-top:10px">
+        <label>Шаров в группе: <b class="val" id="mNv"></b><input type="range" id="mN" min="1" max="8" value="3"></label>
+        <label>Сколько групп: <b class="val" id="mKv"></b><input type="range" id="mK" min="1" max="6" value="4"></label>
+      </div>
+      <div class="seg" id="mMode">
+        <button data-m="groups" class="on">Группы по отдельности</button>
+        <button data-m="rect">Сдвинуть в прямоугольник</button>
+        <button data-m="rot">Повернуть прямоугольник</button>
+      </div>
+      <div class="stage" id="stMul"></div>
+      <div class="formula" id="fMul"></div>
+    </div>
+
+    <div class="card">
+      <h3>1.3. Степень — это умножение одинаковых чисел</h3>
+      <p class="muted" style="margin:0">Начинаем с одного шара. Умножить на 3 значит <b>скопировать всю картинку 3 раза</b>. Повторяем — получаем степень.</p>
+      <div class="controls" style="margin-top:10px">
+        <label>На что умножаем (основание): <b class="val" id="pBv"></b><input type="range" id="pB" min="2" max="5" value="3"></label>
+        <div class="button-row" style="margin:0">
+          <button class="action" id="pBack">← Назад</button>
+          <button class="action primary" id="pNext">Умножить ещё раз</button>
+        </div>
+      </div>
+      <div class="stage" id="stPow"></div>
+      <div class="formula" id="fPow"></div>
+    </div>
+  </section>
+
+  <!-- ===================== 2 ===================== -->
+  <section id="letters" class="section">
+    <h2>2. На буквах</h2>
+    <p>Буква — это <b>коробка, в которой лежит какое-то число шаров</b>. Мы не знаем сколько, но во всех коробках с одной и той же буквой шаров поровну. Поэтому всё, что мы делали с шарами, работает и с буквами.</p>
+
+    <div class="card">
+      <h3>2.1. <span class="math"><var>a</var> + <var>a</var> + <var>a</var> = 3<var>a</var></span></h3>
+      <div class="controls">
+        <label>Коробок <var>a</var>: <b class="val" id="bKv"></b><input type="range" id="bK" min="1" max="6" value="3"></label>
+        <label>Коробок <var>b</var>: <b class="val" id="bMv"></b><input type="range" id="bM" min="0" max="4" value="0"></label>
+        <label>В коробке <var>a</var> шаров: <b class="val" id="bAv"></b><input type="range" id="bA" min="1" max="6" value="4"></label>
+        <label>В коробке <var>b</var> шаров: <b class="val" id="bBv"></b><input type="range" id="bB" min="1" max="6" value="2"></label>
+      </div>
+      <div class="button-row"><button class="action" id="bOpen">Открыть коробки</button></div>
+      <div class="stage" id="stBox"></div>
+      <div class="formula" id="fBox"></div>
+    </div>
+
+    <div class="card">
+      <h3>2.2. <span class="math"><var>k</var> · <var>a</var></span> и <span class="math"><var>a</var><sup><var>k</var></sup></span>: те же два числа, разные этажи</h3>
+      <div class="controls">
+        <label><var>a</var> (что повторяем): <b class="val" id="kAv"></b><input type="range" id="kA" min="1" max="5" value="3"></label>
+        <label><var>k</var> (сколько раз): <b class="val" id="kKv"></b><input type="range" id="kK" min="1" max="4" value="3"></label>
+      </div>
+      <div class="grid g2">
+        <div><div class="stage" id="stKa"></div><div class="formula" id="fKa"></div></div>
+        <div><div class="stage" id="stAk"></div><div class="formula" id="fAk"></div></div>
+      </div>
+      <div class="formula" id="fKcmp"></div>
+      <h3 style="margin-top:16px">Кто растёт быстрее?</h3>
+      <p class="note" style="margin:0">Тот же <var>k</var>, а <var>a</var> пробегает значения от 1 до 8. <span class="t0">Синяя</span> полоска — <span class="math"><var>k</var>·<var>a</var></span>, <span class="t1">оранжевая</span> — <span class="math"><var>a</var><sup><var>k</var></sup></span>.</p>
+      <div class="bars" id="bars"></div>
+    </div>
+  </section>
+
+  <!-- ===================== 3 ===================== -->
+  <section id="expr" class="section">
+    <h2>3. На простых выражениях</h2>
+    <p>Повторять можно не только число или букву, но и целое выражение — например, коробку <var>x</var> вместе с парой шаров. Правила те же: одинаковые слагаемые → умножение, одинаковые множители → степень.</p>
+
+    <div class="card">
+      <h3>3.1. Повторяем сумму: <span class="math">(<var>x</var> + 2) + (<var>x</var> + 2) + (<var>x</var> + 2)</span></h3>
+      <div class="controls">
+        <label>Сколько копий: <b class="val" id="rKv"></b><input type="range" id="rK" min="1" max="5" value="3"></label>
+        <label>Шаров рядом с <var>x</var>: <b class="val" id="rCv"></b><input type="range" id="rC" min="1" max="4" value="2"></label>
+        <label>Проверка числом, <var>x</var> = <b class="val" id="rXv"></b><input type="range" id="rX" min="1" max="9" value="4"></label>
+      </div>
+      <div class="seg" id="rMode">
+        <button data-m="copies" class="on">Копии по отдельности</button>
+        <button data-m="sort">Разложить: коробки к коробкам, шары к шарам</button>
+      </div>
+      <div class="stage" id="stRep"></div>
+      <div class="formula" id="fRep"></div>
+    </div>
+
+    <div class="card">
+      <h3>3.2. Повторяем множитель: <span class="math">(<var>x</var> + <var>c</var>)<sup>2</sup> = (<var>x</var> + <var>c</var>) · (<var>x</var> + <var>c</var>)</span></h3>
+      <p class="muted" style="margin:0">Произведение двух чисел — это площадь прямоугольника (как прямоугольник из шаров в 1.2). Квадрат суммы — это квадрат со стороной <var>x</var> + <var>c</var>.</p>
+      <div class="controls" style="margin-top:10px">
+        <label><var>x</var> = <b class="val" id="aXv"></b><input type="range" id="aX" min="1" max="9" value="5"></label>
+        <label><var>c</var> = <b class="val" id="aCv"></b><input type="range" id="aC" min="1" max="4" value="2"></label>
+        <div><button class="action" id="aMist">Показать частую ошибку</button></div>
+      </div>
+      <div id="svgArea" style="margin-top:12px; overflow-x:auto"></div>
+      <div class="formula" id="fArea"></div>
+    </div>
+
+    <div class="card">
+      <h3>3.3. Разверни → перегруппируй → сверни</h3>
+      <p class="muted" style="margin:0">Если сомневаешься, запиши выражение длинно: все слагаемые или все множители. Потом посчитай одинаковые и сверни обратно. Выбери пример и нажимай «Следующий шаг».</p>
+      <div class="ex-list" id="exList" style="margin-top:12px"></div>
+      <div id="unf" style="margin-top:12px; min-height: 160px"></div>
+      <div class="button-row"><button class="action primary" id="unfNext">Следующий шаг</button><button class="action" id="unfAll">Показать всё</button></div>
+    </div>
+  </section>
+
+  <!-- ===================== 4 ===================== -->
+  <section id="quiz" class="section">
+    <h2>4. Проверь себя</h2>
+    <div class="card">
+      <div class="muted" id="qHead"></div>
+      <div class="progress"><i id="qBar" style="width:0"></i></div>
+      <div id="qBody"></div>
+    </div>
+    <p class="note" style="margin-top:18px">Свойства степеней (<span class="math"><var>a</var><sup>m</sup>·<var>a</var><sup>n</sup></span>, <span class="math">(<var>a</var><sup>m</sup>)<sup>n</sup></span> и другие) и большой тренажёр — на странице <a href="powers-and-division.html">«Сложение → умножение → степень. Деление на дробь»</a>. <a href="index.html">Все страницы</a>.</p>
+  </section>
+</main>
+
+<script>
+const PAL = ['#3b82f6','#f97316','#22c55e','#a855f7','#ef4444','#eab308'];
+const $ = id => document.getElementById(id);
+const V = s => `<var>${s}</var>`;
+const SUP = (b, e) => `${b}<sup>${e}</sup>`;
+const tc = (i, s) => `<span class="t${i % 6}">${s}</span>`;
+const word = (n, one, few, many) => {
+  const m10 = n % 10, m100 = n % 100;
+  if (m10 === 1 && m100 !== 11) return one;
+  if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return few;
+  return many;
+};
+const balls = n => `${n} ${word(n, 'шар', 'шара', 'шаров')}`;
+const raz = n => `${n} ${word(n, 'раз', 'раза', 'раз')}`;
+
+/* ---------- сцена: рисует предметы и плавно двигает их ---------- */
+function draw(stage, items, unitMax = 28) {
+  const pad = 10;
+  let mx = 0, my = 0;
+  for (const it of items) { mx = Math.max(mx, it.x + (it.w || 1)); my = Math.max(my, it.y + (it.h || 1)); }
+  const avail = Math.max(120, stage.clientWidth - 2 * pad);
+  const u = Math.min(unitMax, mx > 0 ? avail / mx : unitMax);
+  stage.style.height = Math.max(46, my * u + 2 * pad) + 'px';
+  const old = new Map();
+  for (const el of stage.children) if (!el.dataset.dying) old.set(el.dataset.k, el);
+  const seen = new Set();
+  for (const it of items) {
+    let el = old.get(it.k);
+    const fresh = !el;
+    if (fresh) { el = document.createElement('div'); el.dataset.k = it.k; el.style.opacity = 0; stage.appendChild(el); }
+    seen.add(it.k);
+    el.className = 'it ' + it.t + (it.cls ? ' ' + it.cls : '');
+    const w = it.w || 1, h = it.h || 1, ins = it.t === 'ball' ? 0.08 : 0;
+    const place = (x, y) => { el.style.left = (pad + (x + ins) * u) + 'px'; el.style.top = (pad + (y + ins) * u) + 'px'; };
+    if (fresh) { el.style.transition = 'none'; place(it.from ? it.from.x : it.x, it.from ? it.from.y : it.y); }
+    el.style.width = ((w - 2 * ins) * u) + 'px';
+    el.style.height = ((h - 2 * ins) * u) + 'px';
+    if (it.c) el.style.setProperty('--c', it.c); else el.style.removeProperty('--c');
+    if (it.t === 'txt' || it.t === 'box') el.style.fontSize = (u * (it.fs || 0.8)) + 'px';
+    const html = it.html === undefined ? '' : it.html;
+    if (el._html !== html) { el.innerHTML = html; el._html = html; }
+    if (fresh) { el.getBoundingClientRect(); el.style.transition = ''; }
+    place(it.x, it.y);
+    el.style.opacity = it.op != null ? it.op : 1;
+  }
+  for (const [k, el] of old) if (!seen.has(k)) { el.dataset.dying = 1; el.style.opacity = 0; setTimeout(() => el.remove(), 480); }
+}
+const renderers = [];
+let rsT; window.addEventListener('resize', () => { clearTimeout(rsT); rsT = setTimeout(() => renderers.forEach(f => f()), 120); });
+function slider(id, f) { const el = $(id), out = $(id + 'v'); const upd = () => { if (out) out.textContent = el.value; f(); }; el.addEventListener('input', upd); if (out) out.textContent = el.value; }
+function seg(id, f) { $(id).addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; [...$(id).children].forEach(x => x.classList.toggle('on', x === b)); f(b.dataset.m); }); }
+
+/* сколько групп шириной gw (в единицах) влезет в строку */
+function perLine(stage, gw, unit = 24) { const avail = Math.max(120, stage.clientWidth - 20) / unit; return Math.max(1, Math.floor(avail / gw)); }
+
+/* ---------- 1.1 сложение ---------- */
+let addMerged = false;
+function rAdd() {
+  const a = +$('addA').value, b = +$('addB').value, st = $('stAdd'), it = [];
+  if (!addMerged) {
+    for (let i = 0; i < a; i++) it.push({ k: 'A' + i, t: 'ball', x: i, y: 0.2, c: PAL[0] });
+    it.push({ k: 'plus', t: 'txt', x: a + 0.1, y: 0.2, w: 1.2, html: '+' });
+    for (let j = 0; j < b; j++) it.push({ k: 'B' + j, t: 'ball', x: a + 1.4 + j, y: 0.2, c: PAL[1] });
+  } else {
+    for (let i = 0; i < a; i++) it.push({ k: 'A' + i, t: 'ball', x: i, y: 0.2, c: PAL[0] });
+    for (let j = 0; j < b; j++) it.push({ k: 'B' + j, t: 'ball', x: a + j, y: 0.2, c: PAL[1] });
+    for (let i = 0; i < a + b; i++) it.push({ k: 'n' + i, t: 'txt', cls: 'small', x: i, y: 1.25, h: 0.8, fs: 0.55, html: i + 1 });
+  }
+  if (!a && !b) it.push({ k: 'empty', t: 'txt', cls: 'small', x: 0, y: 0.2, w: 6, fs: 0.5, html: 'пусто: 0 + 0 = 0' });
+  draw(st, it, 34);
+  $('addGo').textContent = addMerged ? 'Разделить обратно' : 'Сложить';
+  const ones = n => n ? Array(n).fill('1').join(' + ') : '0';
+  let f = `<span class="eq">${tc(0, a)} + ${tc(1, b)} = ${addMerged ? '<b>' + (a + b) + '</b>' : '?'}</span>`;
+  if (addMerged) {
+    f += `<div class="note">Оранжевые шары просто продолжили счёт синих: ${a}${b ? ', ' + Array.from({ length: b }, (_, j) => a + j + 1).join(', ') : ''}. Сложение — это короткий счёт: вместо «${ones(a)}, и ещё ${ones(b)}» пишем ${a} + ${b}.</div>`;
+  } else f += `<div class="note">Нажми «Сложить» и посмотри, как две кучки становятся одним рядом.</div>`;
+  $('fAdd').innerHTML = f;
+}
+$('addGo').onclick = () => { addMerged = !addMerged; rAdd(); };
+slider('addA', rAdd); slider('addB', rAdd); renderers.push(rAdd);
+
+/* ---------- 1.2 умножение ---------- */
+let mMode = 'groups';
+function mulItems(st, n, k, mode, pref = '') {
+  const it = [];
+  if (mode === 'groups') {
+    const gw = n + 0.6 + 1.3, m = perLine(st, gw, 22);
+    for (let g = 0; g < k; g++) {
+      const r = Math.floor(g / m), col = g % m, x = 1.3 + col * gw, y = r * 2.9;
+      it.push({ k: pref + 'T' + g, t: 'tray', x, y, w: n + 0.6, h: 1.6, c: PAL[g % 6] });
+      for (let i = 0; i < n; i++) it.push({ k: pref + 'g' + g + '_' + i, t: 'ball', x: x + 0.3 + i, y: y + 0.3, c: PAL[g % 6] });
+      if (g > 0) it.push({ k: pref + 'p' + g, t: 'txt', x: x - 1.3, y: y + 0.3, w: 1.3, html: '+' });
+      it.push({ k: pref + 's' + g, t: 'txt', cls: 'small', x, y: y + 1.7, w: n + 0.6, h: 0.9, fs: 0.55, html: g ? '= ' + (g + 1) * n : n });
+    }
+  } else if (mode === 'rect') {
+    for (let g = 0; g < k; g++) {
+      it.push({ k: pref + 'T' + g, t: 'tray', x: 1.15, y: g * 1.15 + 0.05, w: n + 0.3, h: 1.1, c: PAL[g % 6] });
+      for (let i = 0; i < n; i++) it.push({ k: pref + 'g' + g + '_' + i, t: 'ball', x: 1.3 + i, y: g * 1.15 + 0.1, c: PAL[g % 6] });
+      it.push({ k: pref + 's' + g, t: 'txt', cls: 'small', x: 1.5 + n, y: g * 1.15 + 0.1, w: 2.2, fs: 0.55, html: g ? '= ' + (g + 1) * n : n });
+    }
+  } else { // rot: столбики стали строками
+    for (let g = 0; g < k; g++) {
+      it.push({ k: pref + 'T' + g, t: 'tray', cls: 'soft', x: 1.15 + g * 1.15, y: 0.05, w: 1.1, h: n * 1.15 - 0.05, c: PAL[g % 6] });
+      for (let i = 0; i < n; i++) it.push({ k: pref + 'g' + g + '_' + i, t: 'ball', x: 1.2 + g * 1.15, y: i * 1.15 + 0.1, c: PAL[g % 6] });
+    }
+    for (let i = 0; i < n; i++) it.push({ k: pref + 'r' + i, t: 'txt', cls: 'small', x: 1.5 + k * 1.15, y: i * 1.15 + 0.1, w: 2.2, fs: 0.55, html: i ? '= ' + (i + 1) * k : k });
+  }
+  return it;
+}
+function rMul() {
+  const n = +$('mN').value, k = +$('mK').value, st = $('stMul');
+  draw(st, mulItems(st, n, k, mMode), 30);
+  const terms = Array.from({ length: k }, (_, g) => tc(g, n)).join(' + ');
+  let f;
+  if (mMode !== 'rot') {
+    f = `<span class="eq">${terms} = <span class="hl">${k}</span> · ${n} = <b>${k * n}</b></span>
+      <div class="note">${k === 1 ? 'Одна группа — складывать нечего, но запись «1 · ' + n + '» тоже верна.' : 'Слагаемых ' + k + ', все одинаковые (по ' + n + '). Вместо длинной суммы пишем коротко: ' + k + ' · ' + n + ' — «' + raz(k) + ' по ' + n + '». Серые числа — это счёт группами: ' + Array.from({ length: k }, (_, g) => (g + 1) * n).join(', ') + '.'}</div>`;
+    if (mMode === 'rect') f += `<div class="note">Группы, сдвинутые вплотную, — это прямоугольник ${k} × ${n}. Теперь нажми «Повернуть».</div>`;
+  } else {
+    const rows = Array.from({ length: n }, () => k).join(' + ');
+    f = `<span class="eq">${rows} = <span class="hl">${n}</span> · ${k} = <b>${n * k}</b></span>
+      <div class="note">Те же ${balls(n * k)}, но теперь считаем по строкам: ${n} ${word(n, 'строка', 'строки', 'строк')} по ${k}. Поэтому ${k} · ${n} = ${n} · ${k}: от перестановки множителей произведение не меняется — прямоугольник просто повернули.</div>`;
+  }
+  $('fMul').innerHTML = f;
+}
+seg('mMode', m => { mMode = m; rMul(); });
+slider('mN', rMul); slider('mK', rMul); renderers.push(rMul);
+
+/* ---------- 1.3 степень ---------- */
+const GAPS = [0, 0, 0.35, 1.0, 1.0, 1.8];
+function powItems(b, n, pref = '') {
+  let pts = [{ x: 0, y: 0, path: [] }], w = 1, h = 1, pw = 1, ph = 1;
+  for (let L = 1; L <= n; L++) {
+    const hor = L % 2 === 1, g = GAPS[L], np = [];
+    pw = w; ph = h;
+    for (let c = 0; c < b; c++) for (const p of pts) np.push({ x: p.x + (hor ? c * (w + g) : 0), y: p.y + (hor ? 0 : c * (h + g)), path: [...p.path, c], src: p });
+    if (hor) w = b * w + (b - 1) * g; else h = b * h + (b - 1) * g;
+    pts = np;
+  }
+  const it = pts.map(p => {
+    const path = p.path.slice(); while (path.length && path[path.length - 1] === 0) path.pop();
+    const top = p.path.length ? p.path[p.path.length - 1] : 0;
+    return { k: pref + 'b' + path.join('.'), t: 'ball', x: p.x + 0.2, y: p.y + 0.2, c: n ? PAL[top % 6] : '#64748b', from: p.src ? { x: p.src.x + 0.2, y: p.src.y + 0.2 } : null };
+  });
+  if (n >= 2) {
+    const hor = n % 2 === 1, g = GAPS[n];
+    for (let c = 0; c < b; c++) it.push({ k: pref + 'T' + n + '_' + c, t: 'tray', cls: 'soft', x: (hor ? c * (pw + g) : 0) + 0.05, y: (hor ? 0 : c * (ph + g)) + 0.05, w: pw + 0.3, h: ph + 0.3, c: PAL[c % 6] });
+  }
+  return { it, w: w + 0.4, h: h + 0.4 };
+}
+let pN = 0;
+function rPow() {
+  const b = +$('pB').value, maxN = b <= 3 ? 5 : 4;
+  if (pN > maxN) pN = maxN;
+  $('pNext').disabled = pN >= maxN; $('pBack').disabled = pN <= 0;
+  $('pNext').textContent = 'Умножить на ' + b + ' ещё раз';
+  const st = $('stPow');
+  draw(st, powItems(b, pN).it, 32);
+  const val = b ** pN;
+  let chain = '1';
+  for (let i = 1; i <= pN; i++) chain += ` <span class="muted">—·${b}→</span> ${i === pN ? '<b class="hl">' + b ** i + '</b>' : b ** i}`;
+  let f = `<span class="eq">${SUP(b, `<span class="hl">${pN}</span>`)} = ${pN ? Array(pN).fill(b).join(' · ') : '1'} = <b>${val}</b></span>
+    <div class="note">Шаги: ${chain}</div>`;
+  if (pN === 0) f += `<div class="note">Мы ещё ни разу не умножали: есть только исходный шар. Поэтому ${SUP(b, 0)} = 1 (и вообще любое ненулевое число в нулевой степени равно 1).</div>`;
+  else if (pN === 1) f += `<div class="note">Один шар скопировали ${raz(b)}: ${Array(b).fill(1).join(' + ')} = ${b}. Это ${SUP(b, 1)} = ${b}: один множитель.</div>`;
+  else {
+    const prev = b ** (pN - 1);
+    f += `<div class="note">Последний шаг: картинку из ${balls(prev)} скопировали ${raz(b)} (каждая копия своего цвета):
+      <span class="eq">${Array.from({ length: b }, (_, c) => tc(c, prev)).join(' + ')} = ${b} · ${prev} = ${val}</span>.
+      Степень складывается из умножений, а умножение — из сложений. Множителей «${b}» ${pN}, поэтому показатель ${pN}.</div>`;
+  }
+  $('fPow').innerHTML = f;
+}
+$('pNext').onclick = () => { pN++; rPow(); };
+$('pBack').onclick = () => { pN--; rPow(); };
+slider('pB', rPow); renderers.push(rPow);
+
+/* ---------- 2.1 коробки ---------- */
+let bOpen = false;
+const BOXA = '#b45309', BOXB = '#0f766e';
+function boxHtml(letter, v, color) {
+  if (!bOpen) return letter;
+  return '<div class="dots">' + Array(v).fill(`<i style="--c:${color === BOXA ? '#f59e0b' : '#14b8a6'}"></i>`).join('') + '</div>';
+}
+function rBox() {
+  const k = +$('bK').value, m = +$('bM').value, av = +$('bA').value, bv = +$('bB').value, st = $('stBox');
+  const list = [...Array(k).fill('a'), ...Array(m).fill('b')], it = [];
+  const gw = 2 + 1.1, per = perLine(st, gw, 26);
+  list.forEach((L, i) => {
+    const r = Math.floor(i / per), col = i % per, x = 1.1 + col * gw, y = r * 3.1;
+    const c = L === 'a' ? BOXA : BOXB, cnt = L === 'a' ? av : bv;
+    it.push({ k: L + i, t: 'box', x, y, w: 2, h: 2, c, fs: 1.15, html: boxHtml(L, cnt, c) });
+    if (i > 0) it.push({ k: 'p' + i, t: 'txt', x: x - 1.1, y: y + 0.5, w: 1.1, html: '+' });
+    if (bOpen) it.push({ k: 'v' + i, t: 'txt', cls: 'small', x, y: y + 2.1, w: 2, h: 0.8, fs: 0.55, html: L + ' = ' + cnt });
+  });
+  draw(st, it, 26);
+  $('bOpen').textContent = bOpen ? 'Закрыть коробки' : 'Открыть коробки (подставить числа)';
+  const sumA = Array(k).fill(tc(5, V('a'))).join(' + '), sumB = Array(m).fill(tc(2, V('b'))).join(' + ');
+  const shortA = (k === 1 ? '' : k) + V('a'), shortB = m ? (m === 1 ? '' : m) + V('b') : '';
+  let f = `<span class="eq">${sumA}${m ? ' + ' + sumB : ''} = <b>${tc(5, shortA)}${m ? ' + ' + tc(2, shortB) : ''}</b></span>`;
+  f += `<div class="note">${k} ${word(k, 'одинаковая коробка', 'одинаковые коробки', 'одинаковых коробок')} ${V('a')} → ${shortA}${k === 1 ? ' (единицу перед буквой не пишут)' : ''}. ${m ? 'Коробки ' + V('b') + ' другие: шаров в них может быть сколько угодно, поэтому ' + shortA + ' + ' + shortB + ' короче не записать (как нельзя сложить яблоки с грушами в «яблогруши»).' : 'Добавь коробки ' + V('b') + ' и посмотри, что получится.'}</div>`;
+  if (bOpen) {
+    const total = k * av + m * bv;
+    f += `<div class="note">Подставим: ${V('a')} = ${av}${m ? ', ' + V('b') + ' = ' + bv : ''}. Тогда ${Array(k).fill(av).join(' + ')}${m ? ' + ' + Array(m).fill(bv).join(' + ') : ''} = ${k} · ${av}${m ? ' + ' + m + ' · ' + bv : ''} = <b>${total}</b>. Формула ${shortA}${m ? ' + ' + shortB : ''} верна при любых числах в коробках — двигай ползунки.</div>`;
+  }
+  $('fBox').innerHTML = f;
+}
+$('bOpen').onclick = () => { bOpen = !bOpen; rBox(); };
+['bK', 'bM', 'bA', 'bB'].forEach(id => slider(id, rBox)); renderers.push(rBox);
+
+/* ---------- 2.2 k·a и a^k ---------- */
+function rKa() {
+  const a = +$('kA').value, k = +$('kK').value;
+  draw($('stKa'), mulItems($('stKa'), a, k, 'rect', 'm'), 26);
+  draw($('stAk'), powItems(a, k, 'q').it, 26);
+  const ka = k * a, ak = a ** k;
+  $('fKa').innerHTML = `<b>Умножение</b><br><span class="eq">${k} · ${a} = ${Array(k).fill(a).join(' + ')} = <b>${ka}</b></span><div class="note">${k} ${word(k, 'слагаемое', 'слагаемых', 'слагаемых')} по ${a}</div>`;
+  $('fAk').innerHTML = `<b>Степень</b><br><span class="eq">${SUP(a, k)} = ${Array(k).fill(a).join(' · ')} = <b>${ak}</b></span><div class="note">${k} ${word(k, 'множитель', 'множителя', 'множителей')} по ${a}</div>`;
+  let c;
+  if (k === 1) c = `<span class="ok">Равны: ${ka} = ${ak}.</span> При <var>k</var> = 1 ничего не повторяли — и там, и там просто <var>a</var>. Увеличь <var>k</var>.`;
+  else if (ka === ak) c = `<span class="ok">Совпадение: 2 + 2 = 2 · 2 = 4.</span> Это единственный такой случай (кроме <var>k</var> = 1). Не дай ему себя обмануть: при <var>a</var> = 3 уже 2 · 3 = 6, а 3<sup>2</sup> = 9.`;
+  else if (a === 1) c = `При <var>a</var> = 1: ${k} · 1 = ${k}, а 1<sup>${k}</sup> = 1 — сколько ни умножай на 1, ничего не меняется.`;
+  else c = `<span class="bad">${ka} ≠ ${ak}.</span> Те же числа ${a} и ${k}, но <span class="math">${k}${V('a')}</span> и <span class="math">${SUP(V('a'), k)}</span> — разные вещи. Слева шары выстроились в ${k} ${word(k, 'ряд', 'ряда', 'рядов')}, справа каждый шаг копировал всю картинку.`;
+  $('fKcmp').innerHTML = c;
+  const rows = [];
+  let mx = 1; for (let x = 1; x <= 8; x++) mx = Math.max(mx, x ** k, k * x);
+  for (let x = 1; x <= 8; x++) {
+    const p = k * x, q = x ** k;
+    rows.push(`<div class="math"><var>a</var>=${x}</div><div class="barpair">
+      <div class="barrow"><div style="width:${p / mx * 85}%; background:${PAL[0]}"></div><span>${k}·${x} = ${p}</span></div>
+      <div class="barrow"><div style="width:${q / mx * 85}%; background:${PAL[1]}"></div><span>${x}<sup>${k}</sup> = ${q}</span></div></div>`);
+  }
+  $('bars').innerHTML = rows.join('');
+}
+slider('kA', rKa); slider('kK', rKa); renderers.push(rKa);
+
+/* ---------- 3.1 повтор суммы ---------- */
+let rMode = 'copies';
+function rRep() {
+  const k = +$('rK').value, c = +$('rC').value, xv = +$('rX').value, st = $('stRep'), it = [];
+  const BX = 1.6;
+  if (rMode === 'copies') {
+    const tw = 0.3 + BX + 0.25 + c + 0.3, gw = tw + 1.3, per = perLine(st, gw, 22);
+    for (let g = 0; g < k; g++) {
+      const r = Math.floor(g / per), col = g % per, x = 1.3 + col * gw, y = r * 2.9;
+      it.push({ k: 'T' + g, t: 'tray', x, y, w: tw, h: 2.2, c: '#94a3b8' });
+      it.push({ k: 'x' + g, t: 'box', x: x + 0.3, y: y + 0.3, w: BX, h: BX, c: BOXA, fs: 0.95, html: 'x' });
+      for (let j = 0; j < c; j++) it.push({ k: 'c' + g + '_' + j, t: 'ball', x: x + 0.3 + BX + 0.25 + j, y: y + 0.6, c: PAL[g % 6] });
+      if (g > 0) it.push({ k: 'p' + g, t: 'txt', x: x - 1.3, y: y + 0.6, w: 1.3, html: '+' });
+    }
+  } else {
+    const wx = k * (BX + 0.2) + 0.4, wc = k * c + (k - 1) * 0.3 + 0.6;
+    const stacked = (wx + 1.4 + wc) * 18 > st.clientWidth - 20;
+    const cx = stacked ? 0 : wx + 1.4, cy = stacked ? 3.2 : 0;
+    it.push({ k: 'TX', t: 'tray', x: 0, y: 0, w: wx, h: 2.2, c: BOXA });
+    for (let g = 0; g < k; g++) it.push({ k: 'x' + g, t: 'box', x: 0.3 + g * (BX + 0.2), y: 0.3, w: BX, h: BX, c: BOXA, fs: 0.95, html: 'x' });
+    if (!stacked) it.push({ k: 'pp', t: 'txt', x: wx + 0.05, y: 0.6, w: 1.3, html: '+' });
+    it.push({ k: 'TC', t: 'tray', x: cx, y: cy, w: wc, h: 2.2, c: '#64748b' });
+    for (let g = 0; g < k; g++) for (let j = 0; j < c; j++) it.push({ k: 'c' + g + '_' + j, t: 'ball', x: cx + 0.3 + g * (c + 0.3) + j, y: cy + 0.6, c: PAL[g % 6] });
+    it.push({ k: 'lx', t: 'txt', cls: 'small', x: 0, y: 2.3, w: wx, h: 0.8, fs: 0.6, html: (k === 1 ? '' : k) + 'x' });
+    it.push({ k: 'lc', t: 'txt', cls: 'small', x: cx, y: cy + 2.3, w: wc, h: 0.8, fs: 0.6, html: k + ' · ' + c + ' = ' + k * c });
+  }
+  draw(st, it, 28);
+  const one = `(${V('x')} + ${c})`;
+  const long = Array.from({ length: k }, (_, g) => tc(g, one)).join(' + ');
+  const res = `${k === 1 ? '' : k}${V('x')} + ${k * c}`;
+  let f = `<span class="eq">${long} = <span class="hl">${k}</span> · ${one} = <b>${res}</b></span>`;
+  f += rMode === 'copies'
+    ? `<div class="note">${k} ${word(k, 'одинаковое слагаемое', 'одинаковых слагаемых', 'одинаковых слагаемых')} ${one} — значит, это ${k} · ${one}. Нажми «Разложить», чтобы увидеть, сколько получилось коробок и сколько шаров.</div>`
+    : `<div class="note">Коробок ${V('x')} стало ${k}, шаров ${k} · ${c} = ${k * c}. Множитель ${k} достался <b>каждому</b> слагаемому в скобках: ${k} · (${V('x')} + ${c}) = ${k}·${V('x')} + ${k}·${c}. Это и есть раскрытие скобок (распределительный закон).</div>`;
+  f += `<div class="note">Проверка при ${V('x')} = ${xv}: ${Array(k).fill('(' + xv + ' + ' + c + ')').join(' + ')} = ${k} · ${xv + c} = ${k * (xv + c)}, и ${k === 1 ? '' : k + ' · '}${xv} + ${k * c} = ${k * xv + k * c} <span class="ok">✓</span></div>`;
+  $('fRep').innerHTML = f;
+}
+seg('rMode', m => { rMode = m; rRep(); });
+['rK', 'rC', 'rX'].forEach(id => slider(id, rRep)); renderers.push(rRep);
+
+/* ---------- 3.2 площадь ---------- */
+let aMist = false;
+function rArea() {
+  const x = +$('aX').value, c = +$('aC').value, S = x + c;
+  const host = $('svgArea'), avail = Math.max(220, host.clientWidth - 60);
+  const u = Math.min(34, avail / S), L = 34, T = 26, W = S * u;
+  const col = { xx: '#bfdbfe', xc: '#fed7aa', cc: '#bbf7d0' }, edge = { xx: '#1d4ed8', xc: '#c2410c', cc: '#15803d' };
+  let s = `<svg width="${L + W + 10}" height="${T + W + 10}" viewBox="0 0 ${L + W + 10} ${T + W + 10}">`;
+  const rect = (rx, ry, rw, rh, key, label, sub) => {
+    const miss = aMist && key === 'xc';
+    s += `<rect x="${L + rx * u}" y="${T + ry * u}" width="${rw * u}" height="${rh * u}" fill="${miss ? '#fff' : col[key]}" stroke="${edge[key]}" stroke-width="2" ${miss ? 'stroke-dasharray="6 4"' : ''}/>`;
+    if (!miss) for (let i = 1; i < rw; i++) s += `<line x1="${L + (rx + i) * u}" y1="${T + ry * u}" x2="${L + (rx + i) * u}" y2="${T + (ry + rh) * u}" stroke="#fff" stroke-width="1.2"/>`;
+    if (!miss) for (let j = 1; j < rh; j++) s += `<line x1="${L + rx * u}" y1="${T + (ry + j) * u}" x2="${L + (rx + rw) * u}" y2="${T + (ry + j) * u}" stroke="#fff" stroke-width="1.2"/>`;
+    const fs = Math.max(11, Math.min(20, Math.min(rw, rh) * u * 0.42));
+    if ((miss ? rw * u >= 64 && rh * u >= 22 : Math.min(rw, rh) * u >= 22)) s += `<text x="${L + (rx + rw / 2) * u}" y="${T + (ry + rh / 2) * u}" text-anchor="middle" dominant-baseline="middle" font-size="${fs}" font-weight="700" fill="${miss ? '#b42318' : edge[key]}">${miss ? 'забыли' : label}</text>`;
+    if (!miss && sub && Math.min(rw, rh) * u >= 40) s += `<text x="${L + (rx + rw / 2) * u}" y="${T + (ry + rh / 2) * u + fs}" text-anchor="middle" dominant-baseline="middle" font-size="${fs * 0.7}" fill="${edge[key]}">${sub}</text>`;
+  };
+  rect(0, 0, x, x, 'xx', 'x²', `${x}·${x} = ${x * x}`);
+  rect(x, 0, c, x, 'xc', 'cx', `${c}·${x} = ${c * x}`);
+  rect(0, x, x, c, 'xc', 'cx', `${x}·${c} = ${c * x}`);
+  rect(x, x, c, c, 'cc', 'c²', `${c * c}`);
+  // подписи сторон
+  const lab = (x1, x2, y, t, vert) => {
+    if (!vert) s += `<line x1="${L + x1 * u + 2}" y1="${y}" x2="${L + x2 * u - 2}" y2="${y}" stroke="#667085"/><text x="${L + (x1 + x2) / 2 * u}" y="${y - 5}" text-anchor="middle" font-size="14" fill="#344054">${t}</text>`;
+    else s += `<line x1="${y}" y1="${T + x1 * u + 2}" x2="${y}" y2="${T + x2 * u - 2}" stroke="#667085"/><text x="${y - 5}" y="${T + (x1 + x2) / 2 * u}" text-anchor="end" dominant-baseline="middle" font-size="14" fill="#344054">${t}</text>`;
+  };
+  lab(0, x, 14, 'x = ' + x); lab(x, S, 14, c); lab(0, x, 28, 'x', true); lab(x, S, 28, c, true);
+  s += '</svg>';
+  host.innerHTML = s;
+  const tot = S * S;
+  let f = `<span class="eq">(${V('x')} + ${V('c')})<sup>2</sup> = (${V('x')} + ${V('c')})·(${V('x')} + ${V('c')}) = ${tc(0, SUP(V('x'), 2))} + ${tc(1, V('c') + V('x'))} + ${tc(1, V('c') + V('x'))} + ${tc(2, SUP(V('c'), 2))} = <b>${SUP(V('x'), 2)} + 2${V('c')}${V('x')} + ${SUP(V('c'), 2)}</b></span>
+    <div class="note">С числами: (${x} + ${c})<sup>2</sup> = ${S}<sup>2</sup> = ${tot}, и ${x * x} + ${c * x} + ${c * x} + ${c * c} = ${tot} <span class="ok">✓</span>. Каждая клеточка — это одно произведение «кусок первой скобки × кусок второй».</div>`;
+  if (aMist) f += `<div class="note"><span class="bad">Ошибка: (${V('x')} + ${V('c')})<sup>2</sup> = ${SUP(V('x'), 2)} + ${SUP(V('c'), 2)}.</span> Тогда получилось бы ${x * x} + ${c * c} = ${x * x + c * c}, а клеток ${tot}. Потерялись две оранжевые полоски по ${c * x}: 2 · ${c * x} = ${2 * c * x}. Степень «2» значит «умножить скобку на себя», а не «возвести в квадрат каждый кусок».</div>`;
+  $('fArea').innerHTML = f;
+  $('aMist').textContent = aMist ? 'Вернуть полоски' : 'Показать частую ошибку';
+}
+$('aMist').onclick = () => { aMist = !aMist; rArea(); };
+slider('aX', rArea); slider('aC', rArea); renderers.push(rArea);
+
+/* ---------- 3.3 разверни-сверни ---------- */
+const A = (cls, s = 'a') => `<span class="chip ${cls}">${V(s)}</span>`;
+const N = (cls, s) => `<span class="chip ${cls}">${s}</span>`;
+const EXS = [
+  { t: `3${V('a')} + 2${V('a')}`, steps: [
+    [`3${V('a')} + 2${V('a')}`, ''],
+    [`(${A('c1')} + ${A('c1')} + ${A('c1')}) + (${A('c2')} + ${A('c2')})`, 'разворачиваем: 3a — это три слагаемых a, 2a — два'],
+    [`${A('c1')} + ${A('c1')} + ${A('c1')} + ${A('c2')} + ${A('c2')}`, 'скобки не нужны: всё складывается'],
+    [`<b>5${V('a')}</b>`, 'пять одинаковых слагаемых — сворачиваем в умножение'],
+  ] },
+  { t: `3${V('a')} · 2${V('a')}`, steps: [
+    [`3${V('a')} · 2${V('a')}`, ''],
+    [`${N('c1', 3)} · ${A('c1')} · ${N('c2', 2)} · ${A('c2')}`, '3a — это 3 · a; между всеми кусками стоит умножение'],
+    [`(${N('c1', 3)} · ${N('c2', 2)}) · (${A('c1')} · ${A('c2')})`, 'множители можно переставлять: числа к числам, буквы к буквам'],
+    [`<b>6${SUP(V('a'), 2)}</b>`, '3 · 2 = 6, а два одинаковых множителя a — это a²'],
+  ] },
+  { t: `${SUP(V('a'), 2)} + ${SUP(V('a'), 2)}`, steps: [
+    [`${SUP(V('a'), 2)} + ${SUP(V('a'), 2)}`, ''],
+    [`<span class="chip c1">${V('a')} · ${V('a')}</span> + <span class="chip c1">${V('a')} · ${V('a')}</span>`, 'разворачиваем каждое слагаемое'],
+    [`<b>2${SUP(V('a'), 2)}</b>`, 'два одинаковых СЛАГАЕМЫХ a² — это умножение на 2, а не новая степень'],
+    [`<span class="bad">не</span> ${SUP(V('a'), 4)}`, 'a⁴ = a·a·a·a: там четыре множителя, а у нас между квадратами стоит «+»'],
+  ] },
+  { t: `${SUP(V('a'), 2)} · ${SUP(V('a'), 3)}`, steps: [
+    [`${SUP(V('a'), 2)} · ${SUP(V('a'), 3)}`, ''],
+    [`(${A('c1')} · ${A('c1')}) · (${A('c2')} · ${A('c2')} · ${A('c2')})`, 'разворачиваем: 2 множителя и ещё 3 множителя'],
+    [`${A('c1')} · ${A('c1')} · ${A('c2')} · ${A('c2')} · ${A('c2')}`, 'всего множителей 2 + 3 = 5'],
+    [`<b>${SUP(V('a'), 5)}</b>`, 'показатели складываются, потому что мы считаем множители'],
+  ] },
+  { t: `${SUP(V('a'), 2)} + ${SUP(V('a'), 3)}`, steps: [
+    [`${SUP(V('a'), 2)} + ${SUP(V('a'), 3)}`, ''],
+    [`<span class="chip c1">${V('a')} · ${V('a')}</span> + <span class="chip c2">${V('a')} · ${V('a')} · ${V('a')}</span>`, 'разворачиваем'],
+    [`слагаемые разные — <b>короче не записать</b>`, 'как 3a + 2b: разные «коробки» не складываются'],
+    [`проверка при ${V('a')} = 2: 4 + 8 = 12, а 2<sup>5</sup> = 32`, 'значит, a² + a³ ≠ a⁵'],
+  ] },
+  { t: `2${SUP(V('a'), 3)}`, steps: [
+    [`2${SUP(V('a'), 3)}`, ''],
+    [`${N('c3', 2)} · ${A('c1')} · ${A('c1')} · ${A('c1')}`, 'степень относится только к тому, что стоит прямо под ней, — к букве a'],
+    [`<b>2${SUP(V('a'), 3)}</b> — уже короче некуда`, 'двойка стоит один раз'],
+    [`при ${V('a')} = 3: 2 · 27 = 54`, 'сравни со следующим примером'],
+  ] },
+  { t: `(2${V('a')})<sup>3</sup>`, steps: [
+    [`(2${V('a')})<sup>3</sup>`, ''],
+    [`<span class="chip c1">2${V('a')}</span> · <span class="chip c2">2${V('a')}</span> · <span class="chip c3">2${V('a')}</span>`, 'скобка — это один множитель, его взяли 3 раза'],
+    [`(${N('c1', 2)} · ${N('c2', 2)} · ${N('c3', 2)}) · (${A('c1')} · ${A('c2')} · ${A('c3')})`, 'переставляем: двойки к двойкам, буквы к буквам'],
+    [`<b>8${SUP(V('a'), 3)}</b>`, '2 · 2 · 2 = 8; при a = 3 это 8 · 27 = 216, а не 54'],
+  ] },
+  { t: `(${SUP(V('a'), 2)})<sup>3</sup>`, steps: [
+    [`(${SUP(V('a'), 2)})<sup>3</sup>`, ''],
+    [`<span class="chip c1">${SUP(V('a'), 2)}</span> · <span class="chip c2">${SUP(V('a'), 2)}</span> · <span class="chip c3">${SUP(V('a'), 2)}</span>`, 'три одинаковых множителя a²'],
+    [`(${A('c1')}·${A('c1')}) · (${A('c2')}·${A('c2')}) · (${A('c3')}·${A('c3')})`, 'в каждом по 2 множителя a'],
+    [`<b>${SUP(V('a'), 6)}</b>`, '3 раза по 2 множителя = 3 · 2 = 6 множителей'],
+  ] },
+];
+let exI = 0, exShown = 1;
+function rUnf() {
+  $('exList').innerHTML = EXS.map((e, i) => `<button data-i="${i}" class="${i === exI ? 'on' : ''}">${e.t}</button>`).join('');
+  const e = EXS[exI];
+  $('unf').innerHTML = e.steps.map((s, i) => `<div class="unf-step math" data-i="${i}">${i ? '= ' : ''}${s[0]}${s[1] ? `<span class="why">${s[1]}</span>` : ''}</div>`).join('');
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    [...$('unf').children].forEach((d, i) => d.classList.toggle('show', i < exShown));
+  }));
+  $('unfNext').disabled = exShown >= e.steps.length;
+}
+$('exList').addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return; exI = +b.dataset.i; exShown = 1; rUnf(); });
+$('unfNext').onclick = () => { exShown++; [...$('unf').children].forEach((d, i) => d.classList.toggle('show', i < exShown)); $('unfNext').disabled = exShown >= EXS[exI].steps.length; };
+$('unfAll').onclick = () => { exShown = EXS[exI].steps.length; [...$('unf').children].forEach(d => d.classList.add('show')); $('unfNext').disabled = true; };
+rUnf();
+
+/* ---------- 4. тест ---------- */
+const rnd = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+const LET = ['a', 'b', 'x', 'y', 'm'];
+const coef = (k, s) => (k === 1 ? '' : k) + s;
+const GENS = [
+  () => { const v = V(pick(LET)), n = rnd(3, 5); return { q: `Запиши короче: ${Array(n).fill(v).join(' + ')}`, ok: n + v, bad: [SUP(v, n), v + ' + ' + n], ex: `${n} одинаковых <b>слагаемых</b> → умножение: ${n}${v}. Степень была бы, если бы между буквами стояло «·».` }; },
+  () => { const v = V(pick(LET)), n = rnd(3, 5); return { q: `Запиши короче: ${Array(n).fill(v).join(' · ')}`, ok: SUP(v, n), bad: [n + v, v + ' + ' + n], ex: `${n} одинаковых <b>множителей</b> → степень: ${SUP(v, n)}. Запись ${n}${v} означает сумму ${Array(n).fill(v).join(' + ')}.` }; },
+  () => { const m = rnd(2, 5), n = rnd(3, 4); return { q: `Чему равно ${Array(n).fill(m).join(' + ')} ?`, ok: `${n} · ${m} = ${n * m}`, bad: [`${SUP(m, n)} = ${m ** n}`, `${m} + ${n} = ${m + n}`], ex: `Складываем ${m} ${raz(n)}: это ${n} · ${m} = ${n * m}. А ${SUP(m, n)} = ${Array(n).fill(m).join(' · ')} = ${m ** n} — это уже умножение.` }; },
+  () => { const m = rnd(2, 4), n = rnd(3, 4); return { q: `Чему равно ${SUP(m, n)} ?`, ok: `${Array(n).fill(m).join(' · ')} = ${m ** n}`, bad: [`${m} · ${n} = ${m * n}`, `${Array(n).fill(m).join(' + ')} = ${m * n}`], ex: `Показатель ${n} — число <b>множителей</b>: ${Array(n).fill(m).join(' · ')} = ${m ** n}. Ответ ${m * n} получился бы, если перепутать этажи.` }; },
+  () => { const v = V(pick(LET)), n = rnd(2, 4); return { q: `Как развернуть ${SUP(v, n)} ?`, ok: Array(n).fill(v).join(' · '), bad: [Array(n).fill(v).join(' + '), n + ' · ' + v], ex: `${SUP(v, n)} — это ${n} ${word(n, 'множитель', 'множителя', 'множителей')} ${v}.` }; },
+  () => { const v = V(pick(LET)), n = rnd(2, 4); return { q: `Как развернуть ${n}${v} ?`, ok: Array(n).fill(v).join(' + '), bad: [Array(n).fill(v).join(' · '), n + ' + ' + v], ex: `${n}${v} = ${n} · ${v} — это ${n} ${word(n, 'слагаемое', 'слагаемых', 'слагаемых')} ${v}.` }; },
+  () => { const v = V(pick(LET)); let p = rnd(2, 5), q = rnd(2, 5); if (p === 2 && q === 2) q = 3; return { q: `${p}${v} + ${q}${v} = ?`, ok: (p + q) + v, bad: [(p + q) + SUP(v, 2), (p * q) + v], ex: `${p} штук ${v} и ещё ${q} штук ${v} — всего ${p + q} штук: ${p + q}${v}. Буква при сложении не меняется.` }; },
+  () => { const v = V(pick(LET)); let p = rnd(2, 5), q = rnd(2, 5); if (p === 2 && q === 2) q = 3; return { q: `${p}${v} · ${q}${v} = ?`, ok: (p * q) + SUP(v, 2), bad: [(p + q) + SUP(v, 2), (p * q) + v], ex: `${p} · ${v} · ${q} · ${v} = (${p} · ${q}) · (${v} · ${v}) = ${p * q}${SUP(v, 2)}. Здесь всё перемножается.` }; },
+  () => { const v = V(pick(LET)); let m = rnd(2, 4), n = rnd(2, 4); if (m === 2 && n === 2) n = 3; return { q: `${SUP(v, m)} · ${SUP(v, n)} = ?`, ok: SUP(v, m + n), bad: [SUP(v, m * n), '2' + SUP(v, m + n)], ex: `Разворачиваем: ${m} множителей ${v} и ещё ${n}, всего ${m + n}. Показатели складываются.` }; },
+  () => { const v = V(pick(LET)), n = rnd(2, 4); return { q: `${SUP(v, n)} + ${SUP(v, n)} = ?`, ok: '2' + SUP(v, n), bad: [SUP(v, 2 * n), SUP(v, n + 1)], ex: `Два одинаковых <b>слагаемых</b> ${SUP(v, n)} → 2 · ${SUP(v, n)}. Степень не меняется: мы складывали, а не умножали.` }; },
+  () => { const v = V(pick(LET)), k = rnd(2, 4); return { q: `(${k}${v})<sup>2</sup> = ?`, ok: (k * k) + SUP(v, 2), bad: [k + SUP(v, 2), (2 * k) + v], ex: `(${k}${v})<sup>2</sup> = ${k}${v} · ${k}${v} = ${k * k}${SUP(v, 2)}. В квадрат возводится всё, что в скобке, — и число тоже.` }; },
+  () => { const k = rnd(2, 4), c = rnd(1, 3); const o = `(${V('x')} + ${c})`; return { q: `${Array(k).fill(o).join(' + ')} = ?`, ok: `${k}${V('x')} + ${k * c}`, bad: [`${k}${V('x')} + ${c}`, `${SUP(V('x'), k)} + ${c ** k}`], ex: `Это ${k} · ${o}: коробок ${V('x')} стало ${k}, а шаров ${k} · ${c} = ${k * c}. Множитель достаётся каждому слагаемому.` }; },
+  () => { const c = rnd(1, 3); return { q: `(${V('x')} + ${c})<sup>2</sup> = ?`, ok: `${SUP(V('x'), 2)} + ${2 * c}${V('x')} + ${c * c}`, bad: [`${SUP(V('x'), 2)} + ${c * c}`, `${SUP(V('x'), 2)} + ${coef(c, V('x'))} + ${c * c}`], ex: `Квадрат со стороной ${V('x')} + ${c}: ${SUP(V('x'), 2)}, две полоски по ${coef(c, V('x'))} и ${c * c}. Проверка при ${V('x')} = 1: (1 + ${c})<sup>2</sup> = ${(1 + c) ** 2} = 1 + ${2 * c} + ${c * c}.` }; },
+];
+const QN = 10;
+let quiz = [], qi = 0, qScore = 0, qAnswered = false;
+function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function newQuiz() {
+  const order = shuffle(GENS.map((_, i) => i)).slice(0, QN);
+  quiz = order.map(i => { const g = GENS[i](); g.opts = shuffle([g.ok, ...g.bad]); return g; });
+  qi = 0; qScore = 0; rQuiz();
+}
+function rQuiz() {
+  $('qBar').style.width = (qi / QN * 100) + '%';
+  if (qi >= QN) {
+    $('qHead').textContent = 'Готово';
+    const msg = qScore === QN ? 'Все этажи на месте!' : qScore >= 7 ? 'Хорошо. Ошибки разбери ещё раз — обычно это путаница «слагаемые или множители».' : 'Стоит ещё раз пройти разделы 1–3: в каждом сомнительном месте разворачивай выражение.';
+    $('qBody').innerHTML = `<p class="qtask">${qScore} из ${QN}</p><p>${msg}</p><button class="action primary" id="qAgain">Новые вопросы</button>`;
+    $('qAgain').onclick = newQuiz; return;
+  }
+  const q = quiz[qi]; qAnswered = false;
+  $('qHead').textContent = `Вопрос ${qi + 1} из ${QN} · верно: ${qScore}`;
+  $('qBody').innerHTML = `<div class="qtask">${q.q}</div>` + q.opts.map((o, i) => `<button class="opt" data-i="${i}">${o}</button>`).join('') + '<div id="qMsg"></div>';
+  $('qBody').querySelectorAll('.opt').forEach(b => b.onclick = () => {
+    if (qAnswered) return; qAnswered = true;
+    const chosen = q.opts[+b.dataset.i], right = chosen === q.ok;
+    if (right) qScore++;
+    $('qBody').querySelectorAll('.opt').forEach(x => { x.disabled = true; if (q.opts[+x.dataset.i] === q.ok) x.classList.add('right'); });
+    if (!right) b.classList.add('wrongpick');
+    $('qMsg').innerHTML = `<div class="message ${right ? 'ok' : 'bad'}"><b>${right ? 'Верно.' : 'Не так.'}</b> ${q.ex}</div><div class="button-row"><button class="action primary" id="qNext">${qi + 1 < QN ? 'Дальше' : 'Итог'}</button></div>`;
+    $('qNext').onclick = () => { qi++; rQuiz(); };
+  });
+}
+newQuiz();
+
+renderers.forEach(f => f());
+</script>
+</body>
+</html>
